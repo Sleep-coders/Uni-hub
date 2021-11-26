@@ -22,5 +22,7 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
+
+
 // Amplify Plugins apply
 apply plugin: 'com.amplifyframework.amplifytools'

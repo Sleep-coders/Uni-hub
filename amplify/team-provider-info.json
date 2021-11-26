@@ -10,6 +10,11 @@
       "StackName": "amplify-uni-hub-final-134811",
       "StackId": "arn:aws:cloudformation:eu-central-1:284716416572:stack/amplify-uni-hub-final-134811/c610f980-4eae-11ec-8f59-067b5742d51a",
       "AmplifyAppId": "d38w84xupujwee"
+    },
+    "categories": {
+      "auth": {
+        "unihuba68ec8b8": {}
+      }
     }
   }
 }
