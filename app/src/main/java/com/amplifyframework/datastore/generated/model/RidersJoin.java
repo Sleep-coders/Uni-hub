@@ -1,5 +1,6 @@
 package com.amplifyframework.datastore.generated.model;
 
+import com.amplifyframework.core.model.annotations.BelongsTo;
 import com.amplifyframework.core.model.temporal.Temporal;
 
 import java.util.List;
@@ -16,22 +17,28 @@ import com.amplifyframework.core.model.query.predicate.QueryField;
 
 import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 
-/** This is an auto generated class representing the Note type in your schema. */
+/** This is an auto generated class representing the RidersJoin type in your schema. */
 @SuppressWarnings("all")
-@ModelConfig(pluralName = "Notes")
-public final class Note implements Model {
-  public static final QueryField ID = field("Note", "id");
-  public static final QueryField CONTENT = field("Note", "content");
+@ModelConfig(pluralName = "RidersJoins")
+public final class RidersJoin implements Model {
+  public static final QueryField ID = field("RidersJoin", "id");
+  public static final QueryField USER = field("RidersJoin", "ridersJoinUserId");
+  public static final QueryField RIDE = field("RidersJoin", "ridersJoinRideId");
   private final @ModelField(targetType="ID", isRequired = true) String id;
-  private final @ModelField(targetType="String", isRequired = true) String content;
+  private final @ModelField(targetType="User", isRequired = true) @BelongsTo(targetName = "ridersJoinUserId", type = User.class) User user;
+  private final @ModelField(targetType="Ride", isRequired = true) @BelongsTo(targetName = "ridersJoinRideId", type = Ride.class) Ride ride;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String getId() {
       return id;
   }
   
-  public String getContent() {
-      return content;
+  public User getUser() {
+      return user;
+  }
+  
+  public Ride getRide() {
+      return ride;
   }
   
   public Temporal.DateTime getCreatedAt() {
@@ -42,9 +49,10 @@ public final class Note implements Model {
       return updatedAt;
   }
   
-  private Note(String id, String content) {
+  private RidersJoin(String id, User user, Ride ride) {
     this.id = id;
-    this.content = content;
+    this.user = user;
+    this.ride = ride;
   }
   
   @Override
@@ -54,11 +62,12 @@ public final class Note implements Model {
       } else if(obj == null || getClass() != obj.getClass()) {
         return false;
       } else {
-      Note note = (Note) obj;
-      return ObjectsCompat.equals(getId(), note.getId()) &&
-              ObjectsCompat.equals(getContent(), note.getContent()) &&
-              ObjectsCompat.equals(getCreatedAt(), note.getCreatedAt()) &&
-              ObjectsCompat.equals(getUpdatedAt(), note.getUpdatedAt());
+      RidersJoin ridersJoin = (RidersJoin) obj;
+      return ObjectsCompat.equals(getId(), ridersJoin.getId()) &&
+              ObjectsCompat.equals(getUser(), ridersJoin.getUser()) &&
+              ObjectsCompat.equals(getRide(), ridersJoin.getRide()) &&
+              ObjectsCompat.equals(getCreatedAt(), ridersJoin.getCreatedAt()) &&
+              ObjectsCompat.equals(getUpdatedAt(), ridersJoin.getUpdatedAt());
       }
   }
   
@@ -66,7 +75,8 @@ public final class Note implements Model {
    public int hashCode() {
     return new StringBuilder()
       .append(getId())
-      .append(getContent())
+      .append(getUser())
+      .append(getRide())
       .append(getCreatedAt())
       .append(getUpdatedAt())
       .toString()
@@ -76,16 +86,17 @@ public final class Note implements Model {
   @Override
    public String toString() {
     return new StringBuilder()
-      .append("Note {")
+      .append("RidersJoin {")
       .append("id=" + String.valueOf(getId()) + ", ")
-      .append("content=" + String.valueOf(getContent()) + ", ")
+      .append("user=" + String.valueOf(getUser()) + ", ")
+      .append("ride=" + String.valueOf(getRide()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
       .append("}")
       .toString();
   }
   
-  public static ContentStep builder() {
+  public static UserStep builder() {
       return new Builder();
   }
   
@@ -97,44 +108,60 @@ public final class Note implements Model {
    * @param id the id of the existing item this instance will represent
    * @return an instance of this model with only ID populated
    */
-  public static Note justId(String id) {
-    return new Note(
+  public static RidersJoin justId(String id) {
+    return new RidersJoin(
       id,
+      null,
       null
     );
   }
   
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
-      content);
+      user,
+      ride);
   }
-  public interface ContentStep {
-    BuildStep content(String content);
+  public interface UserStep {
+    RideStep user(User user);
+  }
+  
+
+  public interface RideStep {
+    BuildStep ride(Ride ride);
   }
   
 
   public interface BuildStep {
-    Note build();
+    RidersJoin build();
     BuildStep id(String id);
   }
   
 
-  public static class Builder implements ContentStep, BuildStep {
+  public static class Builder implements UserStep, RideStep, BuildStep {
     private String id;
-    private String content;
+    private User user;
+    private Ride ride;
     @Override
-     public Note build() {
+     public RidersJoin build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
         
-        return new Note(
+        return new RidersJoin(
           id,
-          content);
+          user,
+          ride);
     }
     
     @Override
-     public BuildStep content(String content) {
-        Objects.requireNonNull(content);
-        this.content = content;
+     public RideStep user(User user) {
+        Objects.requireNonNull(user);
+        this.user = user;
+        return this;
+    }
+    
+    @Override
+     public BuildStep ride(Ride ride) {
+        Objects.requireNonNull(ride);
+        this.ride = ride;
         return this;
     }
     
@@ -150,14 +177,20 @@ public final class Note implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String content) {
+    private CopyOfBuilder(String id, User user, Ride ride) {
       super.id(id);
-      super.content(content);
+      super.user(user)
+        .ride(ride);
     }
     
     @Override
-     public CopyOfBuilder content(String content) {
-      return (CopyOfBuilder) super.content(content);
+     public CopyOfBuilder user(User user) {
+      return (CopyOfBuilder) super.user(user);
+    }
+    
+    @Override
+     public CopyOfBuilder ride(Ride ride) {
+      return (CopyOfBuilder) super.ride(ride);
     }
   }
   
