@@ -1,10 +1,32 @@
-type Task @model {
-  id: ID!
-  title: String!
-  description: String
-  status: String
+type User @model {
+    id: ID!
+    car_id : ID
+    user_real_name: String!
+    user_nickname: String!
+    user_phone_number: String!
+    user_email: String!
+    user_location: String
+    user_university: String
+    user_img: String
+    rides: [rider] @connection(keyName:"byUser",fields:["id"])
 }
-type Note @model {
-  id: ID!
-  content: String!
+
+type rider
+@model(queries: null)
+@key(name:"byUser",fields:["userID"])
+@key(name:"byRide",fields:["rideID"]) {
+    id: ID!
+    userID: ID!
+    rideID: ID!
+    user: User! @connection(fields: ["userID"])
+    ride: Ride! @connection(fields: ["rideID"])
+}
+
+type Ride @model @key(name:"byUser" , fields: ["owner"]) {
+    id: ID!
+    owner_id: ID!
+    ride_departure_time : String!
+    available_seats : Int!
+    ride_route : [String]
+    riders : [rider] @connection(keyName:"byRide",fields:["id"])
 }
