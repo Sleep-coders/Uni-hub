@@ -1,10 +1,17 @@
 package com.example.uni_hub;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 
+import com.example.uni_hub.ui.carpool.Carpool_Home;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -12,9 +19,11 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.uni_hub.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
+    private static final String TAG = MainActivity.class.getName();
+    public ActivityMainBinding binding;
 
-    private ActivityMainBinding binding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        getSupportActionBar().hide();
 
         getSupportActionBar().hide();
 
@@ -35,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Log.i(TAG, "onBackPressed: ===> Pressed Back");
 
     }
 
