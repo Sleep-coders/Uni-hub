@@ -58,17 +58,17 @@
         app:layout_constraintVertical_bias="0.87" />
 
     <Button
-        android:id="@+id/signin_btn"
+        android:id="@+id/signuppage_signup_btn"
         android:layout_width="339dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/yellow_main_color"
-        android:text="@string/sign_in"
+        android:text="@string/sign_up"
         android:textColor="@color/black_main_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.749" />
+        app:layout_constraintVertical_bias="0.783" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/signup_name_container"
@@ -138,6 +138,7 @@
         app:startIconTint="@color/purple_main_color">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signup_email_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress" />
@@ -161,6 +162,7 @@
         app:startIconTint="@color/purple_main_color" >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signup_password_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword" />
@@ -184,8 +186,22 @@
         app:startIconTint="@color/purple_main_color">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signup_phonenumber_text"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="phone" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/signup_errormsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#F40707"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.705" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,9 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.amplifyframework.auth.AuthUserAttributeKey;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
-import com.amplifyframework.auth.options.AuthSignUpOptions;
 import com.amplifyframework.core.Amplify;
 import com.example.uni_hub.MainActivity;
 import com.example.uni_hub.R;
@@ -30,7 +28,7 @@ public class Login extends AppCompatActivity {
         TextInputEditText passText = findViewById(R.id.signin_password_text);
         TextView failText = findViewById(R.id.signin_fail_text);
 
-        findViewById(R.id.signin_btn).setOnClickListener(
+        findViewById(R.id.signpage_signin_btn).setOnClickListener(
                 v -> signin(emailText.getText().toString(),
                         passText.getText().toString(),
                         failText));
@@ -40,12 +38,11 @@ public class Login extends AppCompatActivity {
     }
 
     private void signin(String email, String pass, TextView fail) {
-        AuthSignUpOptions options = AuthSignUpOptions.builder()
-                .userAttribute(AuthUserAttributeKey.email(), email)
-                .build();
-        Amplify.Auth.signUp(email, pass, options,
-                result -> startActivity(new Intent(getApplicationContext(),
-                        MainActivity.class)),
+        Amplify.Auth.signIn(
+                email,
+                pass,
+                result -> {Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete");
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));},
                 error -> fail.setText(FAIL_MSG)
         );
     }

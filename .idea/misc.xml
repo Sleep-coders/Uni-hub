@@ -10,6 +10,8 @@
         <entry key="..\:/Users/OSAID920/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/activity_main.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/OSAID920/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/fragment_home.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/OSAID920/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/fragment_notifications.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/STUDENT/codefellows/androidProject/Uni-hub/app/src/main/res/layout/activity_login.xml" value="0.17481884057971014" />
+        <entry key="..\:/Users/STUDENT/codefellows/androidProject/Uni-hub/app/src/main/res/layout/activity_signup.xml" value="0.22" />
         <entry key="..\:/Users/STUDENT/java-401/Uni-hub/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/STUDENT/java-401/Uni-hub/app/src/main/res/layout/activity_signin.xml" value="0.1" />
         <entry key="..\:/Users/STUDENT/java-401/Uni-hub/app/src/main/res/layout/activity_signup.xml" value="0.25" />
@@ -21,5 +23,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.22" />
+      </ProjectState>
+    </option>
   </component>
 </project>
