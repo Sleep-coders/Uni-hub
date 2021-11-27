@@ -48,4 +48,10 @@ dependencies {
     // Amplify Dependencies
     implementation 'com.amplifyframework:aws-api:1.30.0'
     implementation 'com.amplifyframework:aws-datastore:1.30.0'
+
+    // Lottie smth
+    implementation "com.airbnb.android:lottie:3.4.0"
+
+    // Material Design
+    implementation 'com.google.android.material:material:1.0.0'
 }

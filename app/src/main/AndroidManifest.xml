@@ -10,6 +10,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Unihub">
         <activity
+            android:name=".ui.carpool.driver.Driver_Create_Ride"
+            android:exported="false" />
+        <activity
+            android:name=".ui.carpool.driver.Driver_home"
+            android:exported="false"
+            android:label="@string/title_activity_driver_home"
+            android:theme="@style/Theme.Unihub.NoActionBar" />
+        <activity
+            android:name=".ui.carpool.rider.Rider_home"
+            android:exported="false" />
+        <activity
+            android:name=".ui.carpool.Carpool_Home"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name">
