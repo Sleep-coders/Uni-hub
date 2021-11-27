@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Unihub">
         <activity
+            android:name=".ui.carpool.driver.Available_Rides"
+            android:exported="false" />
+        <activity
             android:name=".ui.carpool.driver.Driver_Create_Ride"
             android:exported="false" />
         <activity

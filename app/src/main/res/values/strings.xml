@@ -1,15 +1,37 @@
 <resources>
     <string name="app_name">Uni-hub</string>
-    <string name="title_profile">Profile</string>
-    <string name="title_dashboard">Home</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="title_activity_driver_home">Driver_home</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="title_Profile">Profile</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_setting">Setting</string>
+    <string name="title_activity_profile">ProfileActivity</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="signup">Signup</string>
+    <string name="don_t_have_an_account_yet">Don\'t have an account yet?</string>
+    <string name="sign_in">Sign in</string>
+    <string name="forget_your_password">Forget your password?</string>
+    <string name="log_in">Log in</string>
+    <string name="todo">TODO</string>
+    <string name="already_have_an_account">Already have an account</string>
+    <string name="name">Name</string>
+    <string name="username">username</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="sign_up">Sign Up</string>
+    <!--    <string name="todo">TODO</string>-->
 </resources>

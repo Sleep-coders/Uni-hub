@@ -6,22 +6,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 import com.example.uni_hub.MainActivity;
 import com.example.uni_hub.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Driver_Create_Ride extends AppCompatActivity {
+public class Available_Rides extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Button submit_ride;
         BottomNavigationView bottomNavigationView;
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_driver_create_ride);
+        setContentView(R.layout.activity_available_rides);
 
         // Navbar Bottom
         bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -39,18 +36,5 @@ public class Driver_Create_Ride extends AppCompatActivity {
                 return false;
             }
         });
-
-        submit_ride = findViewById(R.id.submit_ride);
-        submit_ride.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getSumbitRide();
-            }
-        });
-    }
-
-    public void getSumbitRide(){
-        Intent intent_sumbit_ride = new Intent(this, Available_Rides.class);
-        startActivity(intent_sumbit_ride);
     }
 }
