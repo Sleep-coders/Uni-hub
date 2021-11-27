@@ -11,18 +11,20 @@
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/drawable-anydpi/ic_edit.xml" value="0.2203125" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/drawable-anydpi/ic_image.xml" value="0.2203125" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/drawable-anydpi/ic_save.xml" value="0.2203125" />
+        <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1" />
+        <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/drawable/ic_baseline_settings_black_24.xml" value="0.1" />
+        <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/fragment_dashboard.xml" value="0.1625" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/fragment_notifications.xml" value="0.18" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/fragment_profile.xml" value="0.18" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/settings_activity.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/menu/bottom_nav_menu.xml" value="0.22" />
+        <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/menu/bottom_nav_menu_main.xml" value="0.1" />
+        <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/menu/menu_navigation.xml" value="0.1" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/xml/root_preferences.xml" value="0.33" />
-        <entry key="..\:/Users/STUDENT/codefellows/androidProject/Uni-hub/app/src/main/res/layout/activity_login.xml" value="0.17481884057971014" />
-        <entry key="..\:/Users/STUDENT/codefellows/androidProject/Uni-hub/app/src/main/res/layout/activity_signup.xml" value="0.22" />
-        <entry key="..\:/Users/STUDENT/java-401/Uni-hub/app/src/main/res/layout/activity_login.xml" value="0.25" />
-        <entry key="..\:/Users/STUDENT/java-401/Uni-hub/app/src/main/res/layout/activity_signin.xml" value="0.1" />
-        <entry key="..\:/Users/STUDENT/java-401/Uni-hub/app/src/main/res/layout/activity_signup.xml" value="0.25" />
       </map>
     </option>
   </component>
@@ -31,12 +33,5 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
-  </component>
-  <component name="VisualizationToolProject">
-    <option name="state">
-      <ProjectState>
-        <option name="scale" value="0.22" />
-      </ProjectState>
-    </option>
   </component>
 </project>

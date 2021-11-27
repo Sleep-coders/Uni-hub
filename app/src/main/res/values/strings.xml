@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Uni-hub</string>
-    <string name="title_Profile">Profile</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_home">Home</string>
     <string name="title_setting">Setting</string>
     <string name="title_activity_profile">ProfileActivity</string>
 
@@ -33,5 +33,6 @@
     <string name="username">username</string>
     <string name="phone_number">Phone Number</string>
     <string name="sign_up">Sign Up</string>
-<!--    <string name="todo">TODO</string>-->
+    <string name="title_activity_driver_home">Driver</string>
+    <!--    <string name="todo">TODO</string>-->
 </resources>
