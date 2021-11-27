@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -45,8 +46,19 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
 
-
     // Amplify Dependencies
     implementation 'com.amplifyframework:aws-api:1.30.0'
     implementation 'com.amplifyframework:aws-datastore:1.30.0'
+    implementation 'com.amplifyframework:aws-auth-cognito:1.30.0'
+//    implementation 'com.amplifyframework:aws-auth-cognito:1.29.1'
+    implementation 'com.amplifyframework:aws-storage-s3:1.30.0'
+
+
+    // Firebase Dependencies
+    //// Import the Firebase BoM
+    implementation platform('com.google.firebase:firebase-bom:29.0.0')
+    //// Add the dependency for the Firebase SDK for Google Analytics
+    implementation 'com.google.firebase:firebase-analytics'
+
+
 }

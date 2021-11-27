@@ -19,4 +19,19 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="signup">Signup</string>
+    <string name="don_t_have_an_account_yet">Don\'t have an account yet?</string>
+    <string name="sign_in">Sign in</string>
+    <string name="forget_your_password">Forget your password?</string>
+    <string name="log_in">Log in</string>
+    <string name="todo">TODO</string>
+    <string name="already_have_an_account">Already have an account</string>
+    <string name="name">Name</string>
+    <string name="username">username</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="sign_up">Sign Up</string>
+<!--    <string name="todo">TODO</string>-->
 </resources>
