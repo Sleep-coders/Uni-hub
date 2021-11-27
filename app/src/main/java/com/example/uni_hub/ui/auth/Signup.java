@@ -193,7 +193,7 @@ public class Signup extends AppCompatActivity {
     }
 
     ///////////////// == save User In DynamoDB == ////////////////////////////////
-    
+
     private void saveUserInDynamoDB(String email, String name , String userName , String phoneNumber) {
         User user = User.builder()
                 .userRealName(name)
