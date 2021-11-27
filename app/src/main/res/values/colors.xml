@@ -7,4 +7,5 @@
     <color name="black_main_color">#242424</color>
     <color name="white_pure">#FFFFFF</color>
     <color name="sonic_silver">#757575</color>
+<!--    <color name="mtrl_textinput_default_box_stroke_color">#757575</color>-->
 </resources>
