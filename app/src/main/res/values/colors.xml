@@ -6,5 +6,6 @@
     <color name="yellow_main_color_variant">#e9a439</color>
     <color name="white_main_color">#EBF0F2</color>
     <color name="black_main_color">#242424</color>
+    <color name="white_pure">#FFFFFF</color>
     <color name="sonic_silver">#757575</color>
 </resources>
