@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TimePicker;
 
@@ -19,6 +20,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Available_Rides extends AppCompatActivity {
     RecyclerView recycler_view_driver_post;
+
+    private Button create_ride;
 
     String s1[],s2[];
     int images[] ={R.drawable.car,R.drawable.car,R.drawable.car,R.drawable.car};
@@ -54,5 +57,18 @@ public class Available_Rides extends AppCompatActivity {
                 return false;
             }
         });
+
+        // Create a Ride Button
+        create_ride = findViewById(R.id.create_ride);
+        create_ride.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view2) {
+                getCreateRide();
+            }
+        });
+    }
+    public void getCreateRide(){
+        Intent driver_create_ride = new Intent(this,Driver_Create_Ride.class);
+        startActivity(driver_create_ride);
     }
 }

@@ -28,55 +28,44 @@
         android:layout_marginStart="31dp"
         android:layout_marginEnd="31dp"
         android:hint="Car Information"
+        app:layout_constraintBaseline_toBaselineOf="@+id/up_f"
         app:layout_constraintEnd_toEndOf="@+id/submit_ride"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/up_f" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <Button
         android:id="@+id/up_f"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginBottom="10dp"
         android:text="car Image"
         android:textSize="12dp"
-        app:layout_constraintEnd_toEndOf="@+id/departure_time_driver"
-        app:layout_constraintStart_toEndOf="@+id/car_info"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/choose_your_path"
-        android:layout_width="351dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:hint="Choose your path"
-        app:layout_constraintEnd_toStartOf="@+id/cost_per_passenger_updating"
-        app:layout_constraintStart_toStartOf="@+id/cost_per_passenger_updating"
-        app:layout_constraintTop_toBottomOf="@+id/departure_time_driver" />
+        app:layout_constraintBottom_toTopOf="@+id/add_date_time"
+        app:layout_constraintStart_toEndOf="@+id/car_info" />
 
     <EditText
         android:id="@+id/departure_time_driver"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="13dp"
         android:layout_marginEnd="30dp"
+        android:layout_marginBottom="11dp"
         android:ems="10"
         android:hint="Departure Time"
+        app:layout_constraintBottom_toTopOf="@+id/choose_your_path"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/up_f" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
-        android:text="Cost Per Passenger"
-        android:textSize="18dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/cost_per_passenger_updating"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/choose_your_path"
+        android:layout_width="351dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="243dp"
+        android:hint="Choose your path"
+        app:layout_constraintEnd_toStartOf="@+id/cost_per_passenger_updating"
+        app:layout_constraintStart_toStartOf="@+id/cost_per_passenger_updating"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <SeekBar
         android:id="@+id/cost_per_passenger"
@@ -93,22 +82,13 @@
         android:id="@+id/ride_expires_at"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="38dp"
-        android:layout_marginEnd="28dp"
+        android:layout_marginEnd="30dp"
         android:hint="Ride Expires at"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cost_per_passenger" />
-
-    <ProgressBar
-        android:id="@+id/progress_bar_for_cost"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="@+id/cost_per_passenger"
-        app:layout_constraintTop_toBottomOf="@+id/choose_your_path" />
 
     <TextView
         android:id="@+id/cost_per_passenger_updating"
@@ -121,15 +101,46 @@
         app:layout_constraintBottom_toTopOf="@+id/cost_per_passenger"
         app:layout_constraintStart_toEndOf="@+id/textView12" />
 
+    <ProgressBar
+        android:id="@+id/progress_bar_for_cost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/cost_per_passenger"
+        app:layout_constraintTop_toBottomOf="@+id/choose_your_path" />
+
+    <EditText
+        android:id="@+id/add_date_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="14dp"
+        android:hint="Select a Date"
+        app:layout_constraintBottom_toTopOf="@+id/departure_time_driver"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:text="Cost Per Passenger"
+        android:textSize="18dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/cost_per_passenger_updating"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/submit_ride"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="134dp"
+        android:layout_marginBottom="65dp"
         android:text="Submit your Ride"
         android:textAlignment="center"
-        android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -138,11 +149,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_marginTop="213dp"
         app:itemBackground="@color/purple_main_color_variant"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ride_expires_at"
         app:menu="@menu/menu_navigation" />
 </androidx.constraintlayout.widget.ConstraintLayout>

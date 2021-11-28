@@ -1,14 +1,21 @@
 package com.example.uni_hub.ui.carpool.driver;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
@@ -26,17 +33,14 @@ import java.util.Calendar;
 public class Driver_Create_Ride extends AppCompatActivity {
     EditText chooseDepartureTime;
     EditText riderExpiresAt;
+    EditText chooseDate;
+    DatePickerDialog.OnDateSetListener datePickerDialog;
     TimePickerDialog timePickerDialog1;
     TimePickerDialog timePickerDialog2;
-    Calendar calender1;
-    int currentHour1;
-    int currentMinute1;
-    String amPm1;
-
-    Calendar calender2;
-    int currentHour2;
-    int currentMinute2;
-    String amPm2;
+    Calendar calender;
+    int currentHour;
+    int currentMinute;
+    String amPm;
 
     TextView cost_per_passenger_updating;
     ProgressBar progressBar_cost;
@@ -49,48 +53,71 @@ public class Driver_Create_Ride extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_driver_create_ride);
 
+        // Select Date
+        chooseDate = (EditText) findViewById(R.id.add_date_time);
+        chooseDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar calendarDate = Calendar.getInstance();
+                int year = calendarDate.get(Calendar.YEAR);
+                int month = calendarDate.get(Calendar.MONTH);
+                int day = calendarDate.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog = new DatePickerDialog(Driver_Create_Ride.this,android.R.style.Theme_Holo_Light_Dialog_MinWidth,datePickerDialog,year,month,day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
+
+        // Date
+        datePickerDialog = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                month = month +1;
+                Log.d(TAG,"onDateSet: date:"+ day + "/"+ month + "/" + year );
+                String date = day + "/"+ month + "/" + year;
+                chooseDate.setText(date);
+            }
+        };
+
         // Departure Time
         chooseDepartureTime = findViewById(R.id.departure_time_driver);
         chooseDepartureTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view1) {
-                calender1 = Calendar.getInstance();
-                currentHour1 = calender1.get(Calendar.HOUR_OF_DAY);
-                currentMinute1 = calender1.get(Calendar.MINUTE);
+                calender = Calendar.getInstance();
+                currentHour = calender.get(Calendar.HOUR_OF_DAY);
+                currentMinute = calender.get(Calendar.MINUTE);
                 timePickerDialog1 = new TimePickerDialog(Driver_Create_Ride.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
                         if(hourOfDay>= 12){
-                            amPm1 = "PM";}else{
-                            amPm1 = "AM";
+                            amPm = "PM";}else{
+                            amPm = "AM";
                         }
-                        chooseDepartureTime.setText(hourOfDay+ ":" + minutes +" "+ amPm1);
+                        chooseDepartureTime.setText(hourOfDay+ ":" + minutes +" "+ amPm);
 
                     }
-                }, currentHour1, currentMinute1, false);
+                }, currentHour, currentMinute, false);
                 timePickerDialog1.show();
             }
         });
 
-        // Arrival Time
+        // Ride Expires Time
         riderExpiresAt = findViewById(R.id.ride_expires_at);
         riderExpiresAt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view2) {
-                calender2 = Calendar.getInstance();
-                currentHour2 = calender2.get(Calendar.HOUR_OF_DAY);
-                currentMinute2 = calender2.get(Calendar.MINUTE);
+                calender = Calendar.getInstance();
+                currentHour = calender.get(Calendar.HOUR_OF_DAY);
+                currentMinute = calender.get(Calendar.MINUTE);
                 timePickerDialog2 = new TimePickerDialog(Driver_Create_Ride.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
-                        if(hourOfDay>= 12){
-                            amPm2 = "PM";}else{
-                            amPm2 = "AM";
-                        }
-                        riderExpiresAt.setText(hourOfDay+ ":" + minutes +" "+ amPm2);
+                        riderExpiresAt.setText(hourOfDay+ ":" + minutes +" "+ amPm);
 
                     }
-                }, currentHour2, currentMinute2, false);
+                }, currentHour, currentMinute, false);
                 timePickerDialog2.show();
             }
         });
