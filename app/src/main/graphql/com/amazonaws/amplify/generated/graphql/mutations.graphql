@@ -5,7 +5,6 @@ mutation CreateUser(
 ) {
   createUser(input: $input, condition: $condition) {
     id
-    car_id
     user_real_name
     user_nickname
     user_phone_number
@@ -26,15 +25,20 @@ mutation CreateUser(
       startedAt
     }
     car {
-      id
-      car_model
-      car_img
-      car_seats_num
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
+      items {
+        id
+        ownerID
+        car_model
+        car_img
+        car_seats_num
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
     }
     owner_ride {
       items {
@@ -65,7 +69,6 @@ mutation UpdateUser(
 ) {
   updateUser(input: $input, condition: $condition) {
     id
-    car_id
     user_real_name
     user_nickname
     user_phone_number
@@ -86,15 +89,20 @@ mutation UpdateUser(
       startedAt
     }
     car {
-      id
-      car_model
-      car_img
-      car_seats_num
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
+      items {
+        id
+        ownerID
+        car_model
+        car_img
+        car_seats_num
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
     }
     owner_ride {
       items {
@@ -125,7 +133,6 @@ mutation DeleteUser(
 ) {
   deleteUser(input: $input, condition: $condition) {
     id
-    car_id
     user_real_name
     user_nickname
     user_phone_number
@@ -146,15 +153,20 @@ mutation DeleteUser(
       startedAt
     }
     car {
-      id
-      car_model
-      car_img
-      car_seats_num
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
+      items {
+        id
+        ownerID
+        car_model
+        car_img
+        car_seats_num
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
     }
     owner_ride {
       items {
@@ -172,6 +184,57 @@ mutation DeleteUser(
       nextToken
       startedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+mutation CreateCar(
+  $input: CreateCarInput!
+  $condition: ModelCarConditionInput
+) {
+  createCar(input: $input, condition: $condition) {
+    id
+    ownerID
+    car_model
+    car_img
+    car_seats_num
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateCar(
+  $input: UpdateCarInput!
+  $condition: ModelCarConditionInput
+) {
+  updateCar(input: $input, condition: $condition) {
+    id
+    ownerID
+    car_model
+    car_img
+    car_seats_num
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteCar(
+  $input: DeleteCarInput!
+  $condition: ModelCarConditionInput
+) {
+  deleteCar(input: $input, condition: $condition) {
+    id
+    ownerID
+    car_model
+    car_img
+    car_seats_num
     _version
     _deleted
     _lastChangedAt
@@ -274,7 +337,6 @@ mutation CreateRidersJoin(
     id
     user {
       id
-      car_id
       user_real_name
       user_nickname
       user_phone_number
@@ -287,15 +349,8 @@ mutation CreateRidersJoin(
         startedAt
       }
       car {
-        id
-        car_model
-        car_img
-        car_seats_num
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
+        nextToken
+        startedAt
       }
       owner_ride {
         nextToken
@@ -338,7 +393,6 @@ mutation UpdateRidersJoin(
     id
     user {
       id
-      car_id
       user_real_name
       user_nickname
       user_phone_number
@@ -351,15 +405,8 @@ mutation UpdateRidersJoin(
         startedAt
       }
       car {
-        id
-        car_model
-        car_img
-        car_seats_num
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
+        nextToken
+        startedAt
       }
       owner_ride {
         nextToken
@@ -402,7 +449,6 @@ mutation DeleteRidersJoin(
     id
     user {
       id
-      car_id
       user_real_name
       user_nickname
       user_phone_number
@@ -415,15 +461,8 @@ mutation DeleteRidersJoin(
         startedAt
       }
       car {
-        id
-        car_model
-        car_img
-        car_seats_num
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
+        nextToken
+        startedAt
       }
       owner_ride {
         nextToken
@@ -451,54 +490,6 @@ mutation DeleteRidersJoin(
       createdAt
       updatedAt
     }
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-mutation CreateCar(
-  $input: CreateCarInput!
-  $condition: ModelCarConditionInput
-) {
-  createCar(input: $input, condition: $condition) {
-    id
-    car_model
-    car_img
-    car_seats_num
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-mutation UpdateCar(
-  $input: UpdateCarInput!
-  $condition: ModelCarConditionInput
-) {
-  updateCar(input: $input, condition: $condition) {
-    id
-    car_model
-    car_img
-    car_seats_num
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-mutation DeleteCar(
-  $input: DeleteCarInput!
-  $condition: ModelCarConditionInput
-) {
-  deleteCar(input: $input, condition: $condition) {
-    id
-    car_model
-    car_img
-    car_seats_num
     _version
     _deleted
     _lastChangedAt

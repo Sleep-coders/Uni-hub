@@ -1,9 +1,11 @@
 package com.example.uni_hub.ui.auth;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -24,6 +26,7 @@ import com.example.uni_hub.R;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class Signup extends AppCompatActivity {
+    private static final String TAG = "Sinup";
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
 
@@ -35,10 +38,12 @@ public class Signup extends AppCompatActivity {
     String reSendMsg = "Code was sent again , check your email";
     String reSendErrMsg = "Failed to resend code.";
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+        getSupportActionBar().hide();
 
         TextInputEditText nameText = findViewById(R.id.signup_name_text);
         TextInputEditText userNameText = findViewById(R.id.signup_username_text);
@@ -57,24 +62,32 @@ public class Signup extends AppCompatActivity {
         Button signInBtn = findViewById(R.id.signup_signin_btn);
 
 
-
-        apiHandler = new Handler(Looper.getMainLooper(),message -> {
+        apiHandler = new Handler(Looper.getMainLooper(), message -> {
             String email = message.getData().getString("email");
             String name = message.getData().getString("name");
             String userName = message.getData().getString("userName");
             String phoneNumber = message.getData().getString("phoneNumber");
-            saveUserInDynamoDB(email,name,userName,phoneNumber);
+
+            User user = User.builder()
+                    .userRealName(name)
+                    .userNickname(userName)
+                    .userPhoneNumber(phoneNumber)
+                    .userEmail(email).build();
+
+            saveUserInDynamoDB(user);
             return false;
         });
 
 
         dialogHandler = new Handler(Looper.getMainLooper(), message -> {
+
             String email = message.getData().getString("email");
             String password = message.getData().getString("password");
             String name = message.getData().getString("name");
             String userName = message.getData().getString("userName");
             String phoneNumber = message.getData().getString("phoneNumber");
-            confirmUserDialog(email, password,name,userName,phoneNumber);
+            confirmUserDialog(email, password, name, userName, phoneNumber);
+
             return false;
         });
 
@@ -99,13 +112,13 @@ public class Signup extends AppCompatActivity {
     ///////////////////// == signUp == ////////////////////////////////
 
     public void signUp(String name, String userName, String email, String password, String phoneNumber, TextView errMsg) {
-        Log.i("InSignUp", "InSignUp===================================>>>>>======");
-        Log.i("InSignUp", name + " " + userName + " " + email + " " + password + " " + phoneNumber);
+
         AuthSignUpOptions options = AuthSignUpOptions.builder()
                 .userAttribute(AuthUserAttributeKey.name(), name)
                 .userAttribute(AuthUserAttributeKey.nickname(), userName)
                 .userAttribute(AuthUserAttributeKey.phoneNumber(), phoneNumber)
                 .build();
+
         Amplify.Auth.signUp(email, password, options,
                 result -> {
                     Log.i("AuthQuickStart", "Result: " + result.toString());
@@ -129,23 +142,20 @@ public class Signup extends AppCompatActivity {
 
     ///////////////// == confirm User Dialog == ////////////////////////////////
 
-    public void confirmUserDialog(String email, String password , String name , String userName , String phoneNumber) {
+    public void confirmUserDialog(String email, String password, String name, String userName, String phoneNumber) {
 
         dialogBuilder = new AlertDialog.Builder(this);
         View confirmUser = getLayoutInflater().inflate(R.layout.confirm_pop_up, null);
 
-        TextInputEditText confirmCodeText = (TextInputEditText) confirmUser.findViewById(R.id.confirm_input);
-        Button confirmBtn = (Button) confirmUser.findViewById(R.id.confirm_btn);
+        TextInputEditText confirmCodeText = (TextInputEditText) confirmUser.findViewById(R.id.edit_text);
+        Button confirmBtn = (Button) confirmUser.findViewById(R.id.edit_btn);
 //        Button resendBtn = (Button) confirmUser.findViewById(R.id.re_send_btn);
-        Button cancelBtn = (Button) confirmUser.findViewById(R.id.cancel_btn);
+        Button cancelBtn = (Button) confirmUser.findViewById(R.id.edit_cancel_btn);
         TextView confirmError = (TextView) confirmUser.findViewById(R.id.cofirm_error);
 
         dialogBuilder.setView(confirmUser);
         dialog = dialogBuilder.create();
         dialog.show();
-//        saveUserInDynamoDB(email,name,userName,phoneNumber);
-//        silentSignIn(email, password);
-//        runOnUiThread(() -> confirmError.setText(confirmErrorMsg));
 
         confirmBtn.setOnClickListener(view -> {
             String confirmCode = confirmCodeText.getText().toString();
@@ -194,17 +204,13 @@ public class Signup extends AppCompatActivity {
 
     ///////////////// == save User In DynamoDB == ////////////////////////////////
 
-    private void saveUserInDynamoDB(String email, String name , String userName , String phoneNumber) {
-        User user = User.builder()
-                .userRealName(name)
-                .userNickname(userName)
-                .userPhoneNumber(phoneNumber)
-                .userEmail(email).build();
-//        Log.i("saveUserInDynamoDB","==========>>>>>>>>>>"+ user);
-
-        Amplify.API.mutate(
-                ModelMutation.create(user),
-                response -> Log.i("MyAmplifyApp", "Added user with id: " + response.getData().getId()),
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private void saveUserInDynamoDB(User user) {
+        Log.i(TAG, "saveUserInDynamoDB: ===> " + user.getCreatedAt());
+        Amplify.API.mutate(ModelMutation.create(user),
+                response -> {
+                    Log.i("MyAmplifyApp", "User with id: " + response.getData().toString());
+                },
                 error -> Log.e("MyAmplifyApp", "Create failed", error)
         );
     }

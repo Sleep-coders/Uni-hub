@@ -1,6 +1,6 @@
-type User @model {
+type User @model
+@key(fields: ["user_email","id","user_phone_number"]){
   id: ID!
-  car_id : ID
   user_real_name: String!
   user_nickname: String!
   user_phone_number: String!
@@ -9,8 +9,18 @@ type User @model {
   user_university: String
   user_img: String
   rides: [RidersJoin] @connection(name: "UserRideJoin")
-  car : Car @connection
+  car : [Car] @connection(keyName: "byOwner", fields: ["id"])
   owner_ride : [Ride] @connection(keyName:"byOwner",fields:["id"])
+}
+
+type Car @model
+@key(name: "byOwner", fields: ["ownerID"])
+{
+  id: ID!
+  ownerID: ID!
+  car_model: String!
+  car_img : String!
+  car_seats_num : Int!
 }
 
 type Ride @model @key(name:"byOwner",fields:["owner_id"]) {
@@ -26,12 +36,4 @@ type RidersJoin @model(queries : null) {
   id: ID!
   user : User! @connection(name: "UserRideJoin")
   ride : Ride! @connection(name: "RideUserJoin")
-}
-
-
-type Car @model {
-  id: ID!
-  car_model: String!
-  car_img : String!
-  car_seats_num : Int!
 }

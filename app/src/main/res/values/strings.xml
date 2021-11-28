@@ -4,6 +4,7 @@
     <string name="title_home">Home</string>
     <string name="title_setting">Setting</string>
     <string name="title_activity_profile">ProfileActivity</string>
+    <string name="title_activity_driver_home">DriverActivity</string>
 
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
@@ -39,6 +40,8 @@
     <string name="within_30_sec_you_will_receive_an_email_contaning_confirmation_code_please_fill_it_in">Within 30 sec ,You will receive an email contaning confirmation code , please fill it in.</string>
     <string name="insert_code_here">Insert Code Here</string>
     <string name="confirm">Confirm</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="save">save</string>
     <string-array name="Available_Rides">
         <item>ride1</item>
         <item>ride2</item>

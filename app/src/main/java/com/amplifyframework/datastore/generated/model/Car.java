@@ -19,12 +19,15 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 /** This is an auto generated class representing the Car type in your schema. */
 @SuppressWarnings("all")
 @ModelConfig(pluralName = "Cars")
+@Index(name = "byOwner", fields = {"ownerID"})
 public final class Car implements Model {
   public static final QueryField ID = field("Car", "id");
+  public static final QueryField OWNER_ID = field("Car", "ownerID");
   public static final QueryField CAR_MODEL = field("Car", "car_model");
   public static final QueryField CAR_IMG = field("Car", "car_img");
   public static final QueryField CAR_SEATS_NUM = field("Car", "car_seats_num");
   private final @ModelField(targetType="ID", isRequired = true) String id;
+  private final @ModelField(targetType="ID", isRequired = true) String ownerID;
   private final @ModelField(targetType="String", isRequired = true) String car_model;
   private final @ModelField(targetType="String", isRequired = true) String car_img;
   private final @ModelField(targetType="Int", isRequired = true) Integer car_seats_num;
@@ -32,6 +35,10 @@ public final class Car implements Model {
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String getId() {
       return id;
+  }
+  
+  public String getOwnerId() {
+      return ownerID;
   }
   
   public String getCarModel() {
@@ -54,8 +61,9 @@ public final class Car implements Model {
       return updatedAt;
   }
   
-  private Car(String id, String car_model, String car_img, Integer car_seats_num) {
+  private Car(String id, String ownerID, String car_model, String car_img, Integer car_seats_num) {
     this.id = id;
+    this.ownerID = ownerID;
     this.car_model = car_model;
     this.car_img = car_img;
     this.car_seats_num = car_seats_num;
@@ -70,6 +78,7 @@ public final class Car implements Model {
       } else {
       Car car = (Car) obj;
       return ObjectsCompat.equals(getId(), car.getId()) &&
+              ObjectsCompat.equals(getOwnerId(), car.getOwnerId()) &&
               ObjectsCompat.equals(getCarModel(), car.getCarModel()) &&
               ObjectsCompat.equals(getCarImg(), car.getCarImg()) &&
               ObjectsCompat.equals(getCarSeatsNum(), car.getCarSeatsNum()) &&
@@ -82,6 +91,7 @@ public final class Car implements Model {
    public int hashCode() {
     return new StringBuilder()
       .append(getId())
+      .append(getOwnerId())
       .append(getCarModel())
       .append(getCarImg())
       .append(getCarSeatsNum())
@@ -96,6 +106,7 @@ public final class Car implements Model {
     return new StringBuilder()
       .append("Car {")
       .append("id=" + String.valueOf(getId()) + ", ")
+      .append("ownerID=" + String.valueOf(getOwnerId()) + ", ")
       .append("car_model=" + String.valueOf(getCarModel()) + ", ")
       .append("car_img=" + String.valueOf(getCarImg()) + ", ")
       .append("car_seats_num=" + String.valueOf(getCarSeatsNum()) + ", ")
@@ -105,7 +116,7 @@ public final class Car implements Model {
       .toString();
   }
   
-  public static CarModelStep builder() {
+  public static OwnerIdStep builder() {
       return new Builder();
   }
   
@@ -122,16 +133,23 @@ public final class Car implements Model {
       id,
       null,
       null,
+      null,
       null
     );
   }
   
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
+      ownerID,
       car_model,
       car_img,
       car_seats_num);
   }
+  public interface OwnerIdStep {
+    CarModelStep ownerId(String ownerId);
+  }
+  
+
   public interface CarModelStep {
     CarImgStep carModel(String carModel);
   }
@@ -153,8 +171,9 @@ public final class Car implements Model {
   }
   
 
-  public static class Builder implements CarModelStep, CarImgStep, CarSeatsNumStep, BuildStep {
+  public static class Builder implements OwnerIdStep, CarModelStep, CarImgStep, CarSeatsNumStep, BuildStep {
     private String id;
+    private String ownerID;
     private String car_model;
     private String car_img;
     private Integer car_seats_num;
@@ -164,9 +183,17 @@ public final class Car implements Model {
         
         return new Car(
           id,
+          ownerID,
           car_model,
           car_img,
           car_seats_num);
+    }
+    
+    @Override
+     public CarModelStep ownerId(String ownerId) {
+        Objects.requireNonNull(ownerId);
+        this.ownerID = ownerId;
+        return this;
     }
     
     @Override
@@ -202,11 +229,17 @@ public final class Car implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String carModel, String carImg, Integer carSeatsNum) {
+    private CopyOfBuilder(String id, String ownerId, String carModel, String carImg, Integer carSeatsNum) {
       super.id(id);
-      super.carModel(carModel)
+      super.ownerId(ownerId)
+        .carModel(carModel)
         .carImg(carImg)
         .carSeatsNum(carSeatsNum);
+    }
+    
+    @Override
+     public CopyOfBuilder ownerId(String ownerId) {
+      return (CopyOfBuilder) super.ownerId(ownerId);
     }
     
     @Override
