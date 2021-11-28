@@ -3,6 +3,7 @@ import com.example.uni_hub.MainActivity;
 import com.example.uni_hub.databinding.ActivityMainBinding;
 import com.example.uni_hub.ui.carpool.driver.Available_Rides;
 import com.example.uni_hub.ui.carpool.driver.Driver_home;
+import com.example.uni_hub.ui.carpool.rider.Rider_home;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
@@ -19,6 +20,7 @@ import com.example.uni_hub.R;
 public class Carpool_Home extends AppCompatActivity {
     private ActivityMainBinding binding;
     private Button driver_button;
+    private Button rider_button;
 
     BottomNavigationView bottomNavigationView;
 
@@ -44,6 +46,11 @@ public class Carpool_Home extends AppCompatActivity {
                 }
                 return false;
             }
+        });
+        // Rider Role
+        rider_button = findViewById(R.id.rider_button);
+        rider_button.setOnClickListener(view -> {
+            startActivity(new Intent(getApplicationContext(), Rider_home.class));
         });
 
         // Driver Role
