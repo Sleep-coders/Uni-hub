@@ -27,6 +27,6 @@ public class Rider_home extends AppCompatActivity {
         Rider_home_adapter rider_home_adapter = new Rider_home_adapter(this,availableRides,ridesDescription,ridesDescription2,images);
 
         recyclerView.setAdapter(rider_home_adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
     }
 }
