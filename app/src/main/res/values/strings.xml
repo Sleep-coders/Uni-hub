@@ -4,6 +4,7 @@
     <string name="title_home">Home</string>
     <string name="title_setting">Setting</string>
     <string name="title_activity_profile">ProfileActivity</string>
+    <string name="title_activity_driver_home">DriverActivity</string>
 
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
@@ -33,11 +34,43 @@
     <string name="username">username</string>
     <string name="phone_number">Phone Number</string>
     <string name="sign_up">Sign Up</string>
-    <string name="title_activity_driver_home">Driver</string>
     <string name="cancel">Cancel</string>
     <string name="resend">ReSend</string>
     <string name="within_30_sec_you_will_receive_an_email_contaning_confirmation_code_please_fill_it_in">Within 30 sec ,You will receive an email contaning confirmation code , please fill it in.</string>
     <string name="insert_code_here">Insert Code Here</string>
     <string name="confirm">Confirm</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="save">save</string>
+    <string-array name="Available_Rides">
+        <item>ride1</item>
+        <item>ride2</item>
+        <item>ride3</item>
+        <item>ride4</item>
+    </string-array>
+    <string-array name="rides_description">
+        <item>description1</item>
+        <item>description1</item>
+        <item>description1</item>
+        <item>description1</item>
+    </string-array>
+    <string-array name="rides_description2">
+        <item>description2</item>
+        <item>description2</item>
+        <item>description2</item>
+        <item>description2</item>
+    </string-array>
     <!--    <string name="todo">TODO</string>-->
+    <string-array name="driver_name_cards">
+        <item>Rahaf</item>
+        <item>Mohammad</item>
+        <item>Doaa</item>
+        <item>Tariq</item>
+    </string-array>
+    <string-array name="rout_path">
+        <item>Salt to Amman</item>
+        <item>Irbid to Amman</item>
+        <item>Sweleh to Amman</item>
+        <item>Jarash to Amman</item>
+
+    </string-array>
 </resources>

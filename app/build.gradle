@@ -49,15 +49,14 @@ dependencies {
     // Amplify Dependencies
     implementation 'com.amplifyframework:aws-api:1.30.0'
     implementation 'com.amplifyframework:aws-datastore:1.30.0'
+    implementation 'com.amplifyframework:aws-auth-cognito:1.30.0'
+    implementation 'com.amplifyframework:aws-storage-s3:1.30.0'
 
     // Lottie smth
     implementation "com.airbnb.android:lottie:3.4.0"
 
     // Material Design
     implementation 'com.google.android.material:material:1.0.0'
-    implementation 'com.amplifyframework:aws-auth-cognito:1.30.0'
-//    implementation 'com.amplifyframework:aws-auth-cognito:1.29.1'
-    implementation 'com.amplifyframework:aws-storage-s3:1.30.0'
 
 
     // Firebase Dependencies
@@ -65,5 +64,9 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:29.0.0')
     //// Add the dependency for the Firebase SDK for Google Analytics
     implementation 'com.google.firebase:firebase-analytics'
+
+    // Range Seeking
+    implementation 'org.florescu.android.rangeseekbar:rangeseekbar-library:0.3.0'
+
 
 }

@@ -1,20 +1,56 @@
 {
   "api": {
-    "amplifyDatasource": {
+    "unihubgraphapi": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
       "output": {
         "authConfig": {
-          "additionalAuthenticationProviders": [],
           "defaultAuthentication": {
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
-              "description": "",
-              "apiKeyExpirationDays": 7
+              "apiKeyExpirationDays": 50,
+              "apiKeyExpirationDate": "2022-01-17T13:45:03.218Z",
+              "description": "unihubKeyApi"
             }
-          }
+          },
+          "additionalAuthenticationProviders": []
         }
       }
+    }
+  },
+  "auth": {
+    "unihuba68ec8b8": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      }
+    }
+  },
+  "storage": {
+    "unihubstorage": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": []
     }
   }
 }

@@ -101,7 +101,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="109dp"
                     android:layout_marginEnd="30dp"
-                    android:text="Find a Roomate"
+                    android:text="Find a Roommate"
                     android:textColor="@color/purple_main_color"
                     android:textSize="18dp" />
             </RelativeLayout>

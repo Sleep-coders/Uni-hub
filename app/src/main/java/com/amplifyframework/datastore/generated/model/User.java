@@ -1,7 +1,6 @@
 package com.amplifyframework.datastore.generated.model;
 
 import com.amplifyframework.core.model.annotations.HasMany;
-import com.amplifyframework.core.model.annotations.BelongsTo;
 import com.amplifyframework.core.model.temporal.Temporal;
 
 import java.util.List;
@@ -21,9 +20,9 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 /** This is an auto generated class representing the User type in your schema. */
 @SuppressWarnings("all")
 @ModelConfig(pluralName = "Users")
+@Index(name = "undefined", fields = {"user_email","id","user_phone_number"})
 public final class User implements Model {
   public static final QueryField ID = field("User", "id");
-  public static final QueryField CAR_ID = field("User", "car_id");
   public static final QueryField USER_REAL_NAME = field("User", "user_real_name");
   public static final QueryField USER_NICKNAME = field("User", "user_nickname");
   public static final QueryField USER_PHONE_NUMBER = field("User", "user_phone_number");
@@ -31,9 +30,7 @@ public final class User implements Model {
   public static final QueryField USER_LOCATION = field("User", "user_location");
   public static final QueryField USER_UNIVERSITY = field("User", "user_university");
   public static final QueryField USER_IMG = field("User", "user_img");
-  public static final QueryField CAR = field("User", "userCarId");
   private final @ModelField(targetType="ID", isRequired = true) String id;
-  private final @ModelField(targetType="ID") String car_id;
   private final @ModelField(targetType="String", isRequired = true) String user_real_name;
   private final @ModelField(targetType="String", isRequired = true) String user_nickname;
   private final @ModelField(targetType="String", isRequired = true) String user_phone_number;
@@ -42,16 +39,12 @@ public final class User implements Model {
   private final @ModelField(targetType="String") String user_university;
   private final @ModelField(targetType="String") String user_img;
   private final @ModelField(targetType="RidersJoin") @HasMany(associatedWith = "user", type = RidersJoin.class) List<RidersJoin> rides = null;
-  private final @ModelField(targetType="Car") @BelongsTo(targetName = "userCarId", type = Car.class) Car car;
+  private final @ModelField(targetType="Car") @HasMany(associatedWith = "ownerID", type = Car.class) List<Car> car = null;
   private final @ModelField(targetType="Ride") @HasMany(associatedWith = "owner_id", type = Ride.class) List<Ride> owner_ride = null;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String getId() {
       return id;
-  }
-  
-  public String getCarId() {
-      return car_id;
   }
   
   public String getUserRealName() {
@@ -86,7 +79,7 @@ public final class User implements Model {
       return rides;
   }
   
-  public Car getCar() {
+  public List<Car> getCar() {
       return car;
   }
   
@@ -102,9 +95,8 @@ public final class User implements Model {
       return updatedAt;
   }
   
-  private User(String id, String car_id, String user_real_name, String user_nickname, String user_phone_number, String user_email, String user_location, String user_university, String user_img, Car car) {
+  private User(String id, String user_real_name, String user_nickname, String user_phone_number, String user_email, String user_location, String user_university, String user_img) {
     this.id = id;
-    this.car_id = car_id;
     this.user_real_name = user_real_name;
     this.user_nickname = user_nickname;
     this.user_phone_number = user_phone_number;
@@ -112,7 +104,6 @@ public final class User implements Model {
     this.user_location = user_location;
     this.user_university = user_university;
     this.user_img = user_img;
-    this.car = car;
   }
   
   @Override
@@ -124,7 +115,6 @@ public final class User implements Model {
       } else {
       User user = (User) obj;
       return ObjectsCompat.equals(getId(), user.getId()) &&
-              ObjectsCompat.equals(getCarId(), user.getCarId()) &&
               ObjectsCompat.equals(getUserRealName(), user.getUserRealName()) &&
               ObjectsCompat.equals(getUserNickname(), user.getUserNickname()) &&
               ObjectsCompat.equals(getUserPhoneNumber(), user.getUserPhoneNumber()) &&
@@ -132,7 +122,6 @@ public final class User implements Model {
               ObjectsCompat.equals(getUserLocation(), user.getUserLocation()) &&
               ObjectsCompat.equals(getUserUniversity(), user.getUserUniversity()) &&
               ObjectsCompat.equals(getUserImg(), user.getUserImg()) &&
-              ObjectsCompat.equals(getCar(), user.getCar()) &&
               ObjectsCompat.equals(getCreatedAt(), user.getCreatedAt()) &&
               ObjectsCompat.equals(getUpdatedAt(), user.getUpdatedAt());
       }
@@ -142,7 +131,6 @@ public final class User implements Model {
    public int hashCode() {
     return new StringBuilder()
       .append(getId())
-      .append(getCarId())
       .append(getUserRealName())
       .append(getUserNickname())
       .append(getUserPhoneNumber())
@@ -150,7 +138,6 @@ public final class User implements Model {
       .append(getUserLocation())
       .append(getUserUniversity())
       .append(getUserImg())
-      .append(getCar())
       .append(getCreatedAt())
       .append(getUpdatedAt())
       .toString()
@@ -162,7 +149,6 @@ public final class User implements Model {
     return new StringBuilder()
       .append("User {")
       .append("id=" + String.valueOf(getId()) + ", ")
-      .append("car_id=" + String.valueOf(getCarId()) + ", ")
       .append("user_real_name=" + String.valueOf(getUserRealName()) + ", ")
       .append("user_nickname=" + String.valueOf(getUserNickname()) + ", ")
       .append("user_phone_number=" + String.valueOf(getUserPhoneNumber()) + ", ")
@@ -170,7 +156,6 @@ public final class User implements Model {
       .append("user_location=" + String.valueOf(getUserLocation()) + ", ")
       .append("user_university=" + String.valueOf(getUserUniversity()) + ", ")
       .append("user_img=" + String.valueOf(getUserImg()) + ", ")
-      .append("car=" + String.valueOf(getCar()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
       .append("}")
@@ -198,23 +183,19 @@ public final class User implements Model {
       null,
       null,
       null,
-      null,
-      null,
       null
     );
   }
   
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
-      car_id,
       user_real_name,
       user_nickname,
       user_phone_number,
       user_email,
       user_location,
       user_university,
-      user_img,
-      car);
+      user_img);
   }
   public interface UserRealNameStep {
     UserNicknameStep userRealName(String userRealName);
@@ -239,11 +220,9 @@ public final class User implements Model {
   public interface BuildStep {
     User build();
     BuildStep id(String id);
-    BuildStep carId(String carId);
     BuildStep userLocation(String userLocation);
     BuildStep userUniversity(String userUniversity);
     BuildStep userImg(String userImg);
-    BuildStep car(Car car);
   }
   
 
@@ -253,26 +232,22 @@ public final class User implements Model {
     private String user_nickname;
     private String user_phone_number;
     private String user_email;
-    private String car_id;
     private String user_location;
     private String user_university;
     private String user_img;
-    private Car car;
     @Override
      public User build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
         
         return new User(
           id,
-          car_id,
           user_real_name,
           user_nickname,
           user_phone_number,
           user_email,
           user_location,
           user_university,
-          user_img,
-          car);
+          user_img);
     }
     
     @Override
@@ -304,12 +279,6 @@ public final class User implements Model {
     }
     
     @Override
-     public BuildStep carId(String carId) {
-        this.car_id = carId;
-        return this;
-    }
-    
-    @Override
      public BuildStep userLocation(String userLocation) {
         this.user_location = userLocation;
         return this;
@@ -327,12 +296,6 @@ public final class User implements Model {
         return this;
     }
     
-    @Override
-     public BuildStep car(Car car) {
-        this.car = car;
-        return this;
-    }
-    
     /** 
      * @param id id
      * @return Current Builder instance, for fluent method chaining
@@ -345,17 +308,15 @@ public final class User implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String carId, String userRealName, String userNickname, String userPhoneNumber, String userEmail, String userLocation, String userUniversity, String userImg, Car car) {
+    private CopyOfBuilder(String id, String userRealName, String userNickname, String userPhoneNumber, String userEmail, String userLocation, String userUniversity, String userImg) {
       super.id(id);
       super.userRealName(userRealName)
         .userNickname(userNickname)
         .userPhoneNumber(userPhoneNumber)
         .userEmail(userEmail)
-        .carId(carId)
         .userLocation(userLocation)
         .userUniversity(userUniversity)
-        .userImg(userImg)
-        .car(car);
+        .userImg(userImg);
     }
     
     @Override
@@ -379,11 +340,6 @@ public final class User implements Model {
     }
     
     @Override
-     public CopyOfBuilder carId(String carId) {
-      return (CopyOfBuilder) super.carId(carId);
-    }
-    
-    @Override
      public CopyOfBuilder userLocation(String userLocation) {
       return (CopyOfBuilder) super.userLocation(userLocation);
     }
@@ -396,11 +352,6 @@ public final class User implements Model {
     @Override
      public CopyOfBuilder userImg(String userImg) {
       return (CopyOfBuilder) super.userImg(userImg);
-    }
-    
-    @Override
-     public CopyOfBuilder car(Car car) {
-      return (CopyOfBuilder) super.car(car);
     }
   }
   

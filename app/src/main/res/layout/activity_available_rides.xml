@@ -8,7 +8,7 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:itemBackground="@color/purple_main_color_variant"
@@ -17,6 +17,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create_ride"
         app:menu="@menu/menu_navigation" />
 
     <TextView
@@ -24,57 +25,132 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:layout_marginBottom="66dp"
         android:text="Available Rides"
         android:textAlignment="center"
         android:textColor="@color/purple_main_color"
         android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:layout_width="380dp"
-        android:layout_height="180dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="136dp">
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="37dp"
+        app:cardBackgroundColor="@color/white_main_color"
+        app:layout_constraintBottom_toTopOf="@+id/recycler_view_driver_post"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
 
-        <TextView
-            android:id="@+id/driver_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Driver Name" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/departure_time_post"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Departure time" />
+            <Button
+                android:id="@+id/delete_post_driver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="96dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/yellow_main_color"
+                android:text="Delete"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+            <ImageView
+                android:id="@+id/car_image"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textView7"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@drawable/car" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:srcCompat="@tools:sample/avatars" />
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="121dp"
+                android:layout_marginBottom="10dp"
+                android:text="Driver Name"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/departure_time_post"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/car_image"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/update_post_driver"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Update" />
+            <TextView
+                android:id="@+id/departure_time_post"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="110dp"
+                android:layout_marginBottom="12dp"
+                android:text="Departure time"
+                app:layout_constraintBottom_toTopOf="@+id/cost_details"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/car_image"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
-        <Button
-            android:id="@+id/delete_post_driver"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Delete" />
+            <TextView
+                android:id="@+id/cost_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="80dp"
+                android:layout_marginBottom="59dp"
+                android:text="Cost"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/delete_post_driver"
+                app:layout_constraintStart_toEndOf="@+id/car_image"
+                app:layout_constraintTop_toBottomOf="@+id/departure_time_post" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_driver_post"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="46dp"
+        app:layout_constraintBottom_toTopOf="@+id/create_ride"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <Button
+        android:id="@+id/create_ride"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="39dp"
+        android:text="Create a Ride"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_view_driver_post" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

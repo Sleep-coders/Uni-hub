@@ -2,6 +2,6 @@
 <resources>
     <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
         <item name="boxStrokeColor">#757575</item>
-        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidth">3dp</item>
     </style>
 </resources>

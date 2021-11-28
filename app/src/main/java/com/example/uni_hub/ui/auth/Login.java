@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.amplifyframework.api.aws.AWSApiPlugin;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.AWSDataStorePlugin;
 import com.amplifyframework.storage.s3.AWSS3StoragePlugin;
 import com.example.uni_hub.MainActivity;
 import com.example.uni_hub.R;
@@ -24,6 +25,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        getSupportActionBar().hide();
         initPlugins();
 
         TextInputEditText emailText = findViewById(R.id.signin_email_text);
@@ -52,6 +54,7 @@ public class Login extends AppCompatActivity {
     private void initPlugins() {
         try {
             Amplify.addPlugin(new AWSApiPlugin());
+            Amplify.addPlugin(new AWSDataStorePlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
             Amplify.addPlugin(new AWSS3StoragePlugin());
             Amplify.configure(getApplicationContext());

@@ -14,7 +14,7 @@
     android:textAlignment="center">
 
     <Button
-        android:id="@+id/cancel_btn"
+        android:id="@+id/edit_cancel_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="135dp"
@@ -26,7 +26,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.801"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirm_code_container"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_container"
         app:layout_constraintVertical_bias="0.067" />
 
     <!--    <Button-->
@@ -61,7 +61,7 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/confirm_code_container"
+        android:id="@+id/edit_text_container"
         android:layout_width="300dp"
         android:layout_height="55dp"
         android:layout_marginTop="64dp"
@@ -79,14 +79,14 @@
         app:startIconTint="@color/purple_main_color">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/confirm_input"
+            android:id="@+id/edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/confirm_btn"
+        android:id="@+id/edit_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -98,7 +98,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.152"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirm_code_container"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_container"
         app:layout_constraintVertical_bias="0.07" />
 
     <TextView
@@ -106,7 +106,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#FF2626"
-        app:layout_constraintBottom_toTopOf="@+id/confirm_code_container"
+        app:layout_constraintBottom_toTopOf="@+id/edit_text_container"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/confirm_text_lable"
