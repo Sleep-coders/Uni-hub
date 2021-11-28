@@ -91,11 +91,7 @@ public class Driver_Create_Ride extends AppCompatActivity {
                 timePickerDialog1 = new TimePickerDialog(Driver_Create_Ride.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
-                        if(hourOfDay>= 12){
-                            amPm = "PM";}else{
-                            amPm = "AM";
-                        }
-                        chooseDepartureTime.setText(hourOfDay+ ":" + minutes +" "+ amPm);
+                        chooseDepartureTime.setText(hourOfDay+ ":" + minutes);
 
                     }
                 }, currentHour, currentMinute, false);
