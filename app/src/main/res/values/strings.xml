@@ -39,6 +39,24 @@
     <string name="within_30_sec_you_will_receive_an_email_contaning_confirmation_code_please_fill_it_in">Within 30 sec ,You will receive an email contaning confirmation code , please fill it in.</string>
     <string name="insert_code_here">Insert Code Here</string>
     <string name="confirm">Confirm</string>
+    <string-array name="Available_Rides">
+        <item>ride1</item>
+        <item>ride2</item>
+        <item>ride3</item>
+        <item>ride4</item>
+    </string-array>
+    <string-array name="rides_description">
+        <item>description1</item>
+        <item>description1</item>
+        <item>description1</item>
+        <item>description1</item>
+    </string-array>
+    <string-array name="rides_description2">
+        <item>description2</item>
+        <item>description2</item>
+        <item>description2</item>
+        <item>description2</item>
+    </string-array>
     <!--    <string name="todo">TODO</string>-->
     <string-array name="driver_name_cards">
         <item>Rahaf</item>
