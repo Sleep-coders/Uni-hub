@@ -42,7 +42,7 @@ public class ProfileFragment extends Fragment {
         root.findViewById(R.id.profile_location_edit_btn)
                 .setOnClickListener(v -> textHandler("Location", "text"));
 
-        
+
         return root;
     }
 
@@ -53,12 +53,6 @@ public class ProfileFragment extends Fragment {
     }
 
     public void textHandler(String hint, String fieldType){
-
-    }
-
-    public void editInfo(String type){
-        // Make them globally
-
 
         dialogBuilder = new AlertDialog.Builder(requireContext());
         View editUserInfo = getLayoutInflater().inflate(R.layout.profile_edit_dialog, null);
@@ -83,6 +77,6 @@ public class ProfileFragment extends Fragment {
         cancelBtn.setOnClickListener(view -> {
             dialog.dismiss();
         });
-
     }
+
 }
