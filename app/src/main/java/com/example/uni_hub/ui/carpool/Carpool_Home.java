@@ -1,6 +1,7 @@
 package com.example.uni_hub.ui.carpool;
 import com.example.uni_hub.MainActivity;
 import com.example.uni_hub.databinding.ActivityMainBinding;
+import com.example.uni_hub.ui.carpool.driver.Available_Rides;
 import com.example.uni_hub.ui.carpool.driver.Driver_home;
 import com.example.uni_hub.ui.carpool.rider.Rider_home;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -63,7 +64,7 @@ public class Carpool_Home extends AppCompatActivity {
     }
     // Driver Role
     public void getDriverActivity(){
-        Intent driver_home = new Intent(this, Driver_home.class);
+        Intent driver_home = new Intent(this, Available_Rides.class);
         startActivity(driver_home);
     }
 
