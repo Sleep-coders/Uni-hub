@@ -14,7 +14,6 @@ import com.amplifyframework.datastore.AWSDataStorePlugin;
 import com.amplifyframework.storage.s3.AWSS3StoragePlugin;
 import com.example.uni_hub.MainActivity;
 import com.example.uni_hub.R;
-import com.example.uni_hub.ui.dashboard.DashboardFragment;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class Login extends AppCompatActivity {

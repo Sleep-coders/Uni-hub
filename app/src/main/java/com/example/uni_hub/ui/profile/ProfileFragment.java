@@ -68,10 +68,10 @@ public class ProfileFragment extends Fragment {
         dialog = dialogBuilder.create();
         dialog.show();
 
-        saveBtn.setOnClickListener(view -> {
-            String editedInfo = editInfoText.getText().toString();
-            Amplify.API.
-        });
+//        saveBtn.setOnClickListener(view -> {
+//            String editedInfo = editInfoText.getText().toString();
+//            Amplify.API.
+//        });
 
 
         cancelBtn.setOnClickListener(view -> {
