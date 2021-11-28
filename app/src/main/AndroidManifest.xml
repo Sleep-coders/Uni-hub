@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-     xmlns:tools="http://schemas.android.com/tools"
-     package="com.example.uni_hub">
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!-- Include only if your app benefits from precise location access. -->
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.uni_hub">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- Include only if your app benefits from precise location access. -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -24,6 +24,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Unihub">
         <activity
+            android:name=".ui.carpool.driver.Notification_to_Driver"
+            android:exported="false" />
+        <activity
             android:name=".ui.carpool.driver.Available_Rides"
             android:exported="false" />
         <activity
@@ -37,23 +40,21 @@
         <activity
             android:name=".ui.carpool.rider.Rider_home"
             android:exported="false" />
-       <activity
+        <activity
             android:name=".ui.auth.Signup"
             android:exported="false" />
         <activity
             android:name=".ui.carpool.Carpool_Home"
-            android:exported="false" />
-            android:name=".ui.auth.Signup"
-            android:exported="false" />
-        <activity
-            android:name=".ui.auth.Login"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" /> <!-- android:name=".ui.auth.Signup" -->
+        <!-- android:exported="false" /> -->
+        <!-- <activity -->
+        <!-- android:name=".ui.auth.Login" -->
+        <!-- android:exported="true"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
+        <!-- </activity> -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -65,4 +66,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>
