@@ -2,7 +2,6 @@
 subscription OnCreateUser {
   onCreateUser {
     id
-    car_id
     user_real_name
     user_nickname
     user_phone_number
@@ -23,15 +22,20 @@ subscription OnCreateUser {
       startedAt
     }
     car {
-      id
-      car_model
-      car_img
-      car_seats_num
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
+      items {
+        id
+        ownerID
+        car_model
+        car_img
+        car_seats_num
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
     }
     owner_ride {
       items {
@@ -59,7 +63,6 @@ subscription OnCreateUser {
 subscription OnUpdateUser {
   onUpdateUser {
     id
-    car_id
     user_real_name
     user_nickname
     user_phone_number
@@ -80,15 +83,20 @@ subscription OnUpdateUser {
       startedAt
     }
     car {
-      id
-      car_model
-      car_img
-      car_seats_num
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
+      items {
+        id
+        ownerID
+        car_model
+        car_img
+        car_seats_num
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
     }
     owner_ride {
       items {
@@ -116,7 +124,6 @@ subscription OnUpdateUser {
 subscription OnDeleteUser {
   onDeleteUser {
     id
-    car_id
     user_real_name
     user_nickname
     user_phone_number
@@ -137,15 +144,20 @@ subscription OnDeleteUser {
       startedAt
     }
     car {
-      id
-      car_model
-      car_img
-      car_seats_num
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
+      items {
+        id
+        ownerID
+        car_model
+        car_img
+        car_seats_num
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
     }
     owner_ride {
       items {
@@ -163,6 +175,48 @@ subscription OnDeleteUser {
       nextToken
       startedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateCar {
+  onCreateCar {
+    id
+    ownerID
+    car_model
+    car_img
+    car_seats_num
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateCar {
+  onUpdateCar {
+    id
+    ownerID
+    car_model
+    car_img
+    car_seats_num
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteCar {
+  onDeleteCar {
+    id
+    ownerID
+    car_model
+    car_img
+    car_seats_num
     _version
     _deleted
     _lastChangedAt
@@ -253,7 +307,6 @@ subscription OnCreateRidersJoin {
     id
     user {
       id
-      car_id
       user_real_name
       user_nickname
       user_phone_number
@@ -266,15 +319,8 @@ subscription OnCreateRidersJoin {
         startedAt
       }
       car {
-        id
-        car_model
-        car_img
-        car_seats_num
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
+        nextToken
+        startedAt
       }
       owner_ride {
         nextToken
@@ -314,7 +360,6 @@ subscription OnUpdateRidersJoin {
     id
     user {
       id
-      car_id
       user_real_name
       user_nickname
       user_phone_number
@@ -327,15 +372,8 @@ subscription OnUpdateRidersJoin {
         startedAt
       }
       car {
-        id
-        car_model
-        car_img
-        car_seats_num
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
+        nextToken
+        startedAt
       }
       owner_ride {
         nextToken
@@ -375,7 +413,6 @@ subscription OnDeleteRidersJoin {
     id
     user {
       id
-      car_id
       user_real_name
       user_nickname
       user_phone_number
@@ -388,15 +425,8 @@ subscription OnDeleteRidersJoin {
         startedAt
       }
       car {
-        id
-        car_model
-        car_img
-        car_seats_num
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
+        nextToken
+        startedAt
       }
       owner_ride {
         nextToken
@@ -424,45 +454,6 @@ subscription OnDeleteRidersJoin {
       createdAt
       updatedAt
     }
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-subscription OnCreateCar {
-  onCreateCar {
-    id
-    car_model
-    car_img
-    car_seats_num
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-subscription OnUpdateCar {
-  onUpdateCar {
-    id
-    car_model
-    car_img
-    car_seats_num
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-subscription OnDeleteCar {
-  onDeleteCar {
-    id
-    car_model
-    car_img
-    car_seats_num
     _version
     _deleted
     _lastChangedAt

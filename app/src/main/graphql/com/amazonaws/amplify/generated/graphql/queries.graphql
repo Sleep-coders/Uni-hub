@@ -13,7 +13,6 @@ query SyncUsers(
   ) {
     items {
       id
-      car_id
       user_real_name
       user_nickname
       user_phone_number
@@ -26,15 +25,8 @@ query SyncUsers(
         startedAt
       }
       car {
-        id
-        car_model
-        car_img
-        car_seats_num
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
+        nextToken
+        startedAt
       }
       owner_ride {
         nextToken
@@ -50,10 +42,13 @@ query SyncUsers(
     startedAt
   }
 }
-query GetUser($id: ID!) {
-  getUser(id: $id) {
+query GetUser($user_email: String!, $id: ID!, $user_phone_number: String!) {
+  getUser(
+    user_email: $user_email
+    id: $id
+    user_phone_number: $user_phone_number
+  ) {
     id
-    car_id
     user_real_name
     user_nickname
     user_phone_number
@@ -74,15 +69,20 @@ query GetUser($id: ID!) {
       startedAt
     }
     car {
-      id
-      car_model
-      car_img
-      car_seats_num
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
+      items {
+        id
+        ownerID
+        car_model
+        car_img
+        car_seats_num
+        _version
+        _deleted
+        _lastChangedAt
+        createdAt
+        updatedAt
+      }
+      nextToken
+      startedAt
     }
     owner_ride {
       items {
@@ -108,14 +108,23 @@ query GetUser($id: ID!) {
   }
 }
 query ListUsers(
+  $user_email: String
+  $idUser_phone_number: ModelUserPrimaryCompositeKeyConditionInput
   $filter: ModelUserFilterInput
   $limit: Int
   $nextToken: String
+  $sortDirection: ModelSortDirection
 ) {
-  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listUsers(
+    user_email: $user_email
+    idUser_phone_number: $idUser_phone_number
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    sortDirection: $sortDirection
+  ) {
     items {
       id
-      car_id
       user_real_name
       user_nickname
       user_phone_number
@@ -128,20 +137,73 @@ query ListUsers(
         startedAt
       }
       car {
-        id
-        car_model
-        car_img
-        car_seats_num
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
+        nextToken
+        startedAt
       }
       owner_ride {
         nextToken
         startedAt
       }
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+    nextToken
+    startedAt
+  }
+}
+query SyncCars(
+  $filter: ModelCarFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncCars(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      ownerID
+      car_model
+      car_img
+      car_seats_num
+      _version
+      _deleted
+      _lastChangedAt
+      createdAt
+      updatedAt
+    }
+    nextToken
+    startedAt
+  }
+}
+query GetCar($id: ID!) {
+  getCar(id: $id) {
+    id
+    ownerID
+    car_model
+    car_img
+    car_seats_num
+    _version
+    _deleted
+    _lastChangedAt
+    createdAt
+    updatedAt
+  }
+}
+query ListCars($filter: ModelCarFilterInput, $limit: Int, $nextToken: String) {
+  listCars(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      ownerID
+      car_model
+      car_img
+      car_seats_num
       _version
       _deleted
       _lastChangedAt
@@ -252,7 +314,6 @@ query SyncRidersJoins(
       id
       user {
         id
-        car_id
         user_real_name
         user_nickname
         user_phone_number
@@ -278,63 +339,6 @@ query SyncRidersJoins(
         createdAt
         updatedAt
       }
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-    }
-    nextToken
-    startedAt
-  }
-}
-query SyncCars(
-  $filter: ModelCarFilterInput
-  $limit: Int
-  $nextToken: String
-  $lastSync: AWSTimestamp
-) {
-  syncCars(
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-    lastSync: $lastSync
-  ) {
-    items {
-      id
-      car_model
-      car_img
-      car_seats_num
-      _version
-      _deleted
-      _lastChangedAt
-      createdAt
-      updatedAt
-    }
-    nextToken
-    startedAt
-  }
-}
-query GetCar($id: ID!) {
-  getCar(id: $id) {
-    id
-    car_model
-    car_img
-    car_seats_num
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-query ListCars($filter: ModelCarFilterInput, $limit: Int, $nextToken: String) {
-  listCars(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      car_model
-      car_img
-      car_seats_num
       _version
       _deleted
       _lastChangedAt

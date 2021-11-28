@@ -20,7 +20,7 @@
         app:menu="@menu/menu_navigation" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/profile_user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -57,7 +57,7 @@
             android:text="TextView" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/profile_user_img_upload_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:srcCompat="@tools:sample/avatars" />

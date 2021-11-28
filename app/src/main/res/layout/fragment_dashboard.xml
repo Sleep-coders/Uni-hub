@@ -186,7 +186,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/profile_info_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
@@ -199,7 +199,7 @@
                     android:textSize="18dp" />
 
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/profile_user_img"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_alignParentStart="true"
@@ -224,7 +224,7 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/profile_username_edit_btn"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_alignParentTop="true"

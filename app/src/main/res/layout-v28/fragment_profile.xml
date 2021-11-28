@@ -77,7 +77,7 @@
                     android:layout_height="50dp"
                     android:layout_marginTop="80dp"
                     android:fontFamily="sans-serif-light"
-                    android:hint="@string/personal_information"
+                    android:hint="Personal Information"
                     android:textAlignment="center"
                     android:textColor="#fec367"
                     android:textFontWeight="400"
@@ -104,12 +104,11 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:background="#FAFAFA"
-                    android:src="@drawable/ic_person"
-                    android:contentDescription="@string/todo" />
+                    android:src="@drawable/ic_person" />
 
                 <TextView
                     android:id="@+id/profile_usename_veiw"
-                    android:layout_width="0dp"
+                    android:layout_width="250dp"
                     android:layout_height="55dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
@@ -121,8 +120,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:background="#FAFAFA"
-                    android:src="@drawable/ic_edit"
-                    android:contentDescription="@string/todo" />
+                    android:src="@drawable/ic_edit" />
 
             </LinearLayout>
 
@@ -146,12 +144,11 @@
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress"
                     app:layout_constraintTop_toTopOf="@+id/editTextTextEmailAddress"
-                    app:layout_constraintVertical_bias="0.0"
-                    android:contentDescription="@string/todo" />
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
                     android:id="@+id/profile_email_veiw"
-                    android:layout_width="0dp"
+                    android:layout_width="250dp"
                     android:layout_height="55dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
@@ -174,13 +171,12 @@
                     android:layout_height="55dp"
                     android:layout_gravity="center"
                     android:background="#FAFAFA"
-                    android:src="@drawable/ic_password"
-                    android:contentDescription="@string/todo" />
+                    android:src="@drawable/ic_password" />
 
 
                 <TextView
                     android:id="@+id/profile_password_veiw"
-                    android:layout_width="0dp"
+                    android:layout_width="250dp"
                     android:layout_height="55dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
@@ -192,8 +188,7 @@
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:background="#FAFAFA"
-                    android:src="@drawable/ic_edit"
-                    android:contentDescription="@string/todo" />
+                    android:src="@drawable/ic_edit" />
 
             </LinearLayout>
 
@@ -211,13 +206,12 @@
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:background="#FAFAFA"
-                    android:src="@drawable/ic_university"
-                    android:contentDescription="@string/todo" />
+                    android:src="@drawable/ic_university" />
 
 
                 <TextView
                     android:id="@+id/profile_usename_veiw7"
-                    android:layout_width="0dp"
+                    android:layout_width="250dp"
                     android:layout_height="45dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
@@ -229,8 +223,7 @@
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:background="#FAFAFA"
-                    android:src="@drawable/ic_edit"
-                    android:contentDescription="@string/todo" />
+                    android:src="@drawable/ic_edit" />
 
             </LinearLayout>
 
@@ -248,13 +241,12 @@
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:background="#FAFAFA"
-                    android:src="@drawable/ic_phone"
-                    android:contentDescription="@string/todo" />
+                    android:src="@drawable/ic_phone" />
 
 
                 <TextView
                     android:id="@+id/profile_usename_veiw8"
-                    android:layout_width="0dp"
+                    android:layout_width="250dp"
                     android:layout_height="45dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
@@ -266,8 +258,7 @@
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:background="#FAFAFA"
-                    android:src="@drawable/ic_edit"
-                    android:contentDescription="@string/todo" />
+                    android:src="@drawable/ic_edit" />
 
             </LinearLayout>
 
@@ -286,13 +277,12 @@
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:background="#FAFAFA"
-                    android:src="@drawable/ic_location"
-                    android:contentDescription="@string/todo" />
+                    android:src="@drawable/ic_location" />
 
 
                 <TextView
                     android:id="@+id/profile_usename_veiw9"
-                    android:layout_width="0dp"
+                    android:layout_width="250dp"
                     android:layout_height="45dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
@@ -304,9 +294,7 @@
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:background="#FAFAFA"
-                    android:src="@drawable/ic_edit"
-                    android:contentDescription="@string/todo"
-                    tools:ignore="ContentDescription" />
+                    android:src="@drawable/ic_edit" />
 
             </LinearLayout>
 
