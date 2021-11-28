@@ -58,4 +58,17 @@
         <item>description2</item>
     </string-array>
     <!--    <string name="todo">TODO</string>-->
+    <string-array name="driver_name_cards">
+        <item>Rahaf</item>
+        <item>Mohammad</item>
+        <item>Doaa</item>
+        <item>Tariq</item>
+    </string-array>
+    <string-array name="rout_path">
+        <item>Salt to Amman</item>
+        <item>Irbid to Amman</item>
+        <item>Sweleh to Amman</item>
+        <item>Jarash to Amman</item>
+
+    </string-array>
 </resources>

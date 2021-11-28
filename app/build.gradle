@@ -66,4 +66,8 @@ dependencies {
     //// Add the dependency for the Firebase SDK for Google Analytics
     implementation 'com.google.firebase:firebase-analytics'
 
+    // Range Seeking
+    implementation 'org.florescu.android.rangeseekbar:rangeseekbar-library:0.3.0'
+
+
 }
