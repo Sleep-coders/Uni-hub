@@ -26,6 +26,7 @@ type Ride @model
 {
     id: ID!
     owner_id: ID!
+    owner_name : String!
     ride_departure_time : String!
     available_seats : Int!
     cost : Float!
