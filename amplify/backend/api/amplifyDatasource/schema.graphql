@@ -1,0 +1,44 @@
+type User @model
+{
+  id: ID!
+  user_real_name: String!
+  user_nickname: String!
+  user_phone_number: String!
+  user_email: String! @index(name: "byEmail", sortKeyFields: ["id"])
+  user_location: String
+  user_university: String
+  user_img: String
+  rides: [Ride] @manyToMany(relationName: "userRiderRelation")
+  car : [Car] @hasMany
+  owner_ride : [Ride] @hasMany
+}
+
+type Car @model
+{
+  id: ID!
+  ownerID: ID!
+  car_model: String!
+  car_img : String!
+  car_seats_num : Int!
+}
+
+type Ride @model
+{
+  id: ID!
+  owner_id: ID!
+  ride_departure_time : String!
+  available_seats : Int!
+  cost : Float!
+  car_image : String!
+  car_Info : String!
+  ride_expires_at : String!
+  ride_date : String!
+  ride_route : [String]
+  riders : [User] @manyToMany(relationName: "userRiderRelation")
+}
+
+#type RidersJoin @model(queries : null) {
+#    id: ID!
+#    user : User! @connection(name: "UserRideJoin")
+#    ride : Ride! @connection(name: "RideUserJoin")
+#}
