@@ -26,7 +26,7 @@ import com.example.uni_hub.R;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class Signup extends AppCompatActivity {
-    private static final String TAG = "Sinup";
+    private static final String TAG = "Signup";
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
 
@@ -85,7 +85,8 @@ public class Signup extends AppCompatActivity {
             String password = message.getData().getString("password");
             String name = message.getData().getString("name");
             String userName = message.getData().getString("userName");
-            String phoneNumber = message.getData().getString("phoneNumber");
+            String phoneNumberString = message.getData().getString("phoneNumber");
+            String phoneNumber = "+962"+phoneNumberString;
             confirmUserDialog(email, password, name, userName, phoneNumber);
 
             return false;
@@ -97,7 +98,7 @@ public class Signup extends AppCompatActivity {
             String userName = userNameText.getText().toString();
             String email = emailText.getText().toString();
             String password = passwordText.getText().toString();
-            String phoneNumber = phoneText.getText().toString();
+            String phoneNumber = "+962"+phoneText.getText().toString();
             Log.i("InOnCreate", name + " " + userName + " " + email + " " + password + " " + phoneNumber);
             signUp(name, userName, email, password, phoneNumber, errorMsg);
         });
@@ -112,7 +113,7 @@ public class Signup extends AppCompatActivity {
     ///////////////////// == signUp == ////////////////////////////////
 
     public void signUp(String name, String userName, String email, String password, String phoneNumber, TextView errMsg) {
-
+        Log.i("CheckPhone","PHONENUMBER ===============>>" + phoneNumber);
         AuthSignUpOptions options = AuthSignUpOptions.builder()
                 .userAttribute(AuthUserAttributeKey.name(), name)
                 .userAttribute(AuthUserAttributeKey.nickname(), userName)

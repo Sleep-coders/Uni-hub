@@ -68,5 +68,11 @@ dependencies {
     // Range Seeking
     implementation 'org.florescu.android.rangeseekbar:rangeseekbar-library:0.3.0'
 
+    //Upload File
+    implementation 'com.github.onimur:handle-path-oz:1.0.7'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    implementation 'commons-io:commons-io:2.6'
+
 
 }
