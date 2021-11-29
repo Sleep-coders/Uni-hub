@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.amplifyframework.core.Amplify;
 import com.example.uni_hub.ui.carpool.Carpool_Home;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -32,7 +33,6 @@ public class MainActivity extends AppCompatActivity{
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().hide();
-
         getSupportActionBar().hide();
 
         BottomNavigationView navView = findViewById(R.id.nav_view);

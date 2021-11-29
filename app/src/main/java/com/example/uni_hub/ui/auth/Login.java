@@ -28,6 +28,7 @@ public class Login extends AppCompatActivity {
         getSupportActionBar().hide();
         initPlugins();
 
+
         TextInputEditText emailText = findViewById(R.id.signin_email_text);
         TextInputEditText passText = findViewById(R.id.signin_password_text);
         TextView failText = findViewById(R.id.signin_fail_text);

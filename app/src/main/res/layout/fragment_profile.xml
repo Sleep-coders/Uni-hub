@@ -216,7 +216,7 @@
 
 
                 <TextView
-                    android:id="@+id/profile_usename_veiw7"
+                    android:id="@+id/profile_school_view"
                     android:layout_width="0dp"
                     android:layout_height="45dp"
                     android:layout_marginLeft="15dp"
@@ -253,7 +253,7 @@
 
 
                 <TextView
-                    android:id="@+id/profile_usename_veiw8"
+                    android:id="@+id/profile_phone_veiw"
                     android:layout_width="0dp"
                     android:layout_height="45dp"
                     android:layout_marginLeft="15dp"
@@ -291,7 +291,7 @@
 
 
                 <TextView
-                    android:id="@+id/profile_usename_veiw9"
+                    android:id="@+id/profile_location_veiw"
                     android:layout_width="0dp"
                     android:layout_height="45dp"
                     android:layout_marginLeft="15dp"
@@ -308,6 +308,21 @@
                     android:contentDescription="@string/todo"
                     tools:ignore="ContentDescription" />
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/profile_save_btn"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:background="@color/purple_main_color"
+                    android:text="@string/save" />
             </LinearLayout>
 
         </LinearLayout>
