@@ -32,7 +32,6 @@ public class Driver_home extends AppCompatActivity {
         binding = ActivityDriverHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-//        getSupportActionBar().hide();
 
         // Navbar Bottom
         bottomNavigationView = findViewById(R.id.bottom_navigation);
