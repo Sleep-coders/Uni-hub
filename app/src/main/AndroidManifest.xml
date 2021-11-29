@@ -24,6 +24,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Unihub">
         <activity
+            android:name=".ui.carpool.rider.RiderNotification"
+            android:exported="false" />
+        <activity
+            android:name=".ui.carpool.rider.RideDetails"
+            android:exported="false" />
+        <activity
             android:name=".ui.carpool.driver.Notification_to_Driver"
             android:exported="false" />
         <activity
@@ -45,17 +51,16 @@
             android:exported="false" />
         <activity
             android:name=".ui.carpool.Carpool_Home"
-            android:exported="false" />
-<!--        <activity android:name=".MainActivity"-->
-<!--            android:exported="false"/>-->
-<!--         <activity-->
-<!--         android:name=".ui.auth.Login"-->
-<!--         android:exported="true">-->
-<!--         <intent-filter>-->
-<!--         <action android:name="android.intent.action.MAIN" />-->
-<!--         <category android:name="android.intent.category.LAUNCHER" />-->
-<!--         </intent-filter>-->
-<!--         </activity>-->
+            android:exported="false" /> <!-- <activity android:name=".MainActivity" -->
+        <!-- android:exported="false"/> -->
+        <!-- <activity -->
+        <!-- android:name=".ui.auth.Login" -->
+        <!-- android:exported="true"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
+        <!-- </activity> -->
         <activity
             android:name=".MainActivity"
             android:exported="true"

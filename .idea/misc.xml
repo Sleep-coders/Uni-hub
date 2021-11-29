@@ -41,6 +41,17 @@
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/menu/bottom_nav_menu_main.xml" value="0.1" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/menu/menu_navigation.xml" value="0.1" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/xml/root_preferences.xml" value="0.33" />
+        <entry key="..\:/Users/STUDENT/codefellows/androidProject/Uni-hub/app/src/main/res/layout/activity_available_rides.xml" value="0.12771739130434784" />
+        <entry key="..\:/Users/STUDENT/codefellows/androidProject/Uni-hub/app/src/main/res/layout/activity_carpool_home.xml" value="0.15" />
+        <entry key="..\:/Users/STUDENT/codefellows/androidProject/Uni-hub/app/src/main/res/layout/activity_driver_create_ride.xml" value="0.12771739130434784" />
+        <entry key="..\:/Users/STUDENT/codefellows/androidProject/Uni-hub/app/src/main/res/layout/activity_driver_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/STUDENT/codefellows/androidProject/Uni-hub/app/src/main/res/layout/activity_login.xml" value="0.12771739130434784" />
+        <entry key="..\:/Users/STUDENT/codefellows/androidProject/Uni-hub/app/src/main/res/layout/activity_notification_to_driver.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/STUDENT/codefellows/androidProject/Uni-hub/app/src/main/res/layout/activity_ride_details.xml" value="0.25" />
+        <entry key="..\:/Users/STUDENT/codefellows/androidProject/Uni-hub/app/src/main/res/layout/activity_rider_home.xml" value="0.1" />
+        <entry key="..\:/Users/STUDENT/codefellows/androidProject/Uni-hub/app/src/main/res/layout/activity_rider_notification.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/STUDENT/codefellows/androidProject/Uni-hub/app/src/main/res/layout/activity_signup.xml" value="0.12771739130434784" />
+        <entry key="..\:/Users/STUDENT/codefellows/androidProject/Uni-hub/app/src/main/res/layout/rider_home_row.xml" value="0.12771739130434784" />
       </map>
     </option>
   </component>

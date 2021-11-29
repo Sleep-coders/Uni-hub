@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.carpool.rider.RiderNotification">
+
+    <TextView
+        android:id="@+id/your_rides_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white_main_color"
+        android:backgroundTint="@color/white_main_color"
+        android:text="Your Rides"
+        android:textColor="@color/purple_main_color"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.041" />
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="375dp"
+        android:layout_height="615dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/your_rides_textview"
+        app:layout_constraintVertical_bias="0.333">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/ride_card"
+                android:layout_width="383dp"
+                android:layout_height="453dp"
+                android:backgroundTint="@color/white_main_color">
+
+                <ImageView
+                    android:id="@+id/notification_ride_image"
+                    android:layout_width="197dp"
+                    android:layout_height="164dp"
+                    android:layout_marginLeft="90dp"
+                    android:layout_marginTop="10dp"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <TextView
+                    android:id="@+id/notification_driver_name_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="190dp"
+                    android:text="Driver Name"
+                    android:textAlignment="center"
+                    android:textColor="@color/black_main_color"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/notification_departuretime_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="250dp"
+                    android:text="Departure Time"
+                    android:textAlignment="center"
+                    android:textColor="@color/black_main_color"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/notification_locationinfo_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="310dp"
+                    android:text="Location (from / to)"
+                    android:textAlignment="center"
+                    android:textColor="@color/black_main_color"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/notification_contact_driver_btn"
+                    android:layout_width="238dp"
+                    android:layout_height="63dp"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="360dp"
+                    android:backgroundTint="@color/yellow_main_color"
+                    android:text="Contact the Driver"
+                    android:textColor="@color/black_main_color" />
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="42dp"
+        android:layout_height="46dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.951"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.03"
+        app:srcCompat="@drawable/ic_notification" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
