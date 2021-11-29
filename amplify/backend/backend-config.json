@@ -1,23 +1,5 @@
 {
-  "api": {
-    "unihubgraphapi": {
-      "service": "AppSync",
-      "providerPlugin": "awscloudformation",
-      "output": {
-        "authConfig": {
-          "defaultAuthentication": {
-            "authenticationType": "API_KEY",
-            "apiKeyConfig": {
-              "apiKeyExpirationDays": 50,
-              "apiKeyExpirationDate": "2022-01-17T13:45:03.218Z",
-              "description": "unihubKeyApi"
-            }
-          },
-          "additionalAuthenticationProviders": []
-        }
-      }
-    }
-  },
+  "api": {},
   "auth": {
     "unihuba68ec8b8": {
       "service": "Cognito",

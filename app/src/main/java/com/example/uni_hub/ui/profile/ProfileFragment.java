@@ -142,16 +142,17 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
                 success -> {
                     User user = success.getData();
 
-                    usernameTextView.setText(user.getUserNickname());
-                    emailTextView.setText(user.getUserEmail());
-//                    passwordTextView.setText(Amplify.Auth.getCurrentUser()); // set the internet
-                    schoolTextView.setText(user.getUserUniversity());
-                    phoneTextView.setText(user.getUserPhoneNumber());
-                    locationTextView.setText(user.getUserLocation());
+                    String userName = !user.getUserNickname().equals("") ? user.getUserNickname() : "N/A";
+//                    String userEmail = !user.getUserEmail().equals("") ? user.getUserEmail() : "N/A";
+
+//                    usernameTextView.setText(user.getUserNickname());
+//                    emailTextView.setText(user.getUserEmail());
+////                    passwordTextView.setText(Amplify.Auth.getCurrentUser()); // set the internet
+//                    schoolTextView.setText(user.getUserUniversity());
+//                    phoneTextView.setText(user.getUserPhoneNumber());
+//                    locationTextView.setText(user.getUserLocation());
                 },
-                error -> {
-                    Log.e(TAG, "User not found!");
-                });
+                error -> Log.e(TAG, "User not found!"));
     }
 
     @Override
@@ -217,22 +218,27 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
 
         saveBtn.setOnClickListener(view -> {
             String changedValue = editInfoText.toString();
-            if (hint.equals("Username"))
-                usernameTextView.setText(changedValue);
-            else if (hint.equals("Password"))
-                passwordTextView.setText(changedValue);
-            else if (hint.equals("School"))
-                schoolTextView.setText(changedValue);
-            else if (hint.equals("Phone Number"))
-                phoneTextView.setText(changedValue);
-            else
-                locationTextView.setText(changedValue);
+            switch (hint) {
+                case "Username":
+                    usernameTextView.setText(changedValue);
+                    break;
+                case "Password":
+                    passwordTextView.setText(changedValue);
+                    break;
+                case "School":
+                    schoolTextView.setText(changedValue);
+                    break;
+                case "Phone Number":
+                    phoneTextView.setText(changedValue);
+                    break;
+                default:
+                    locationTextView.setText(changedValue);
+                    break;
+            }
         });
 
 
-        cancelBtn.setOnClickListener(view -> {
-            dialog.dismiss();
-        });
+        cancelBtn.setOnClickListener(view -> dialog.dismiss());
     }
 
     public void saveChangeToApi(String userEmail) {
@@ -282,19 +288,17 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
         Amplify.Storage.uploadFile(
                 filePath,
                 file,
-                result -> {
-                    Amplify.Storage.getUrl(
-                            result.getKey(),
-                            resultUrl -> {
-                                Bundle bundle = new Bundle();
-                                bundle.putString("userImgUrl", resultUrl.getUrl().toString());
-                                Message message = new Message();
-                                message.setData(bundle);
-                                userImageHandle.sendMessage(message);
-                            },
-                            error -> Log.e("MyAmplifyApp", "URL generation failure", error)
-                    );
-                },
+                result -> Amplify.Storage.getUrl(
+                        result.getKey(),
+                        resultUrl -> {
+                            Bundle bundle = new Bundle();
+                            bundle.putString("userImgUrl", resultUrl.getUrl().toString());
+                            Message message = new Message();
+                            message.setData(bundle);
+                            userImageHandle.sendMessage(message);
+                        },
+                        error -> Log.e("MyAmplifyApp", "URL generation failure", error)
+                ),
                 storageFailure -> Log.e("MyAmplifyApp", "Upload failed", storageFailure)
         );
     }

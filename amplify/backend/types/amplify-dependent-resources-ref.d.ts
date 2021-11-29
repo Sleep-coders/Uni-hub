@@ -1,10 +1,4 @@
 export type AmplifyDependentResourcesAttributes = {
-    "api": {
-        "unihubgraphapi": {
-            "GraphQLAPIIdOutput": "string",
-            "GraphQLAPIEndpointOutput": "string"
-        }
-    },
     "auth": {
         "unihuba68ec8b8": {
             "IdentityPoolId": "string",
