@@ -20,7 +20,7 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 /** This is an auto generated class representing the User type in your schema. */
 @SuppressWarnings("all")
 @ModelConfig(pluralName = "Users")
-@Index(name = "undefined", fields = {"user_email","id","user_phone_number"})
+@Index(name = "byEmail", fields = {"user_email","id"})
 public final class User implements Model {
   public static final QueryField ID = field("User", "id");
   public static final QueryField USER_REAL_NAME = field("User", "user_real_name");
@@ -38,9 +38,9 @@ public final class User implements Model {
   private final @ModelField(targetType="String") String user_location;
   private final @ModelField(targetType="String") String user_university;
   private final @ModelField(targetType="String") String user_img;
-  private final @ModelField(targetType="RidersJoin") @HasMany(associatedWith = "user", type = RidersJoin.class) List<RidersJoin> rides = null;
-  private final @ModelField(targetType="Car") @HasMany(associatedWith = "ownerID", type = Car.class) List<Car> car = null;
-  private final @ModelField(targetType="Ride") @HasMany(associatedWith = "owner_id", type = Ride.class) List<Ride> owner_ride = null;
+  private final @ModelField(targetType="UserRiderRelation") @HasMany(associatedWith = "user", type = UserRiderRelation.class) List<UserRiderRelation> rides = null;
+  private final @ModelField(targetType="Car") @HasMany(associatedWith = "userCarId", type = Car.class) List<Car> car = null;
+  private final @ModelField(targetType="Ride") @HasMany(associatedWith = "userOwnerRideId", type = Ride.class) List<Ride> owner_ride = null;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String getId() {
@@ -75,7 +75,7 @@ public final class User implements Model {
       return user_img;
   }
   
-  public List<RidersJoin> getRides() {
+  public List<UserRiderRelation> getRides() {
       return rides;
   }
   

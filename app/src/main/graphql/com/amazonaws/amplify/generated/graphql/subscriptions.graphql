@@ -12,11 +12,13 @@ subscription OnCreateUser {
     rides {
       items {
         id
+        userID
+        rideID
+        createdAt
+        updatedAt
         _version
         _deleted
         _lastChangedAt
-        createdAt
-        updatedAt
       }
       nextToken
       startedAt
@@ -28,11 +30,12 @@ subscription OnCreateUser {
         car_model
         car_img
         car_seats_num
+        createdAt
+        updatedAt
         _version
         _deleted
         _lastChangedAt
-        createdAt
-        updatedAt
+        userCarId
       }
       nextToken
       startedAt
@@ -43,21 +46,27 @@ subscription OnCreateUser {
         owner_id
         ride_departure_time
         available_seats
+        cost
+        car_image
+        car_Info
+        ride_expires_at
+        ride_date
         ride_route
+        createdAt
+        updatedAt
         _version
         _deleted
         _lastChangedAt
-        createdAt
-        updatedAt
+        userOwner_rideId
       }
       nextToken
       startedAt
     }
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
   }
 }
 subscription OnUpdateUser {
@@ -73,11 +82,13 @@ subscription OnUpdateUser {
     rides {
       items {
         id
+        userID
+        rideID
+        createdAt
+        updatedAt
         _version
         _deleted
         _lastChangedAt
-        createdAt
-        updatedAt
       }
       nextToken
       startedAt
@@ -89,11 +100,12 @@ subscription OnUpdateUser {
         car_model
         car_img
         car_seats_num
+        createdAt
+        updatedAt
         _version
         _deleted
         _lastChangedAt
-        createdAt
-        updatedAt
+        userCarId
       }
       nextToken
       startedAt
@@ -104,21 +116,27 @@ subscription OnUpdateUser {
         owner_id
         ride_departure_time
         available_seats
+        cost
+        car_image
+        car_Info
+        ride_expires_at
+        ride_date
         ride_route
+        createdAt
+        updatedAt
         _version
         _deleted
         _lastChangedAt
-        createdAt
-        updatedAt
+        userOwner_rideId
       }
       nextToken
       startedAt
     }
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
   }
 }
 subscription OnDeleteUser {
@@ -134,11 +152,13 @@ subscription OnDeleteUser {
     rides {
       items {
         id
+        userID
+        rideID
+        createdAt
+        updatedAt
         _version
         _deleted
         _lastChangedAt
-        createdAt
-        updatedAt
       }
       nextToken
       startedAt
@@ -150,11 +170,12 @@ subscription OnDeleteUser {
         car_model
         car_img
         car_seats_num
+        createdAt
+        updatedAt
         _version
         _deleted
         _lastChangedAt
-        createdAt
-        updatedAt
+        userCarId
       }
       nextToken
       startedAt
@@ -165,21 +186,27 @@ subscription OnDeleteUser {
         owner_id
         ride_departure_time
         available_seats
+        cost
+        car_image
+        car_Info
+        ride_expires_at
+        ride_date
         ride_route
+        createdAt
+        updatedAt
         _version
         _deleted
         _lastChangedAt
-        createdAt
-        updatedAt
+        userOwner_rideId
       }
       nextToken
       startedAt
     }
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
   }
 }
 subscription OnCreateCar {
@@ -189,11 +216,12 @@ subscription OnCreateCar {
     car_model
     car_img
     car_seats_num
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
+    userCarId
   }
 }
 subscription OnUpdateCar {
@@ -203,11 +231,12 @@ subscription OnUpdateCar {
     car_model
     car_img
     car_seats_num
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
+    userCarId
   }
 }
 subscription OnDeleteCar {
@@ -217,11 +246,12 @@ subscription OnDeleteCar {
     car_model
     car_img
     car_seats_num
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
+    userCarId
   }
 }
 subscription OnCreateRide {
@@ -230,24 +260,32 @@ subscription OnCreateRide {
     owner_id
     ride_departure_time
     available_seats
+    cost
+    car_image
+    car_Info
+    ride_expires_at
+    ride_date
     ride_route
     riders {
       items {
         id
+        userID
+        rideID
+        createdAt
+        updatedAt
         _version
         _deleted
         _lastChangedAt
-        createdAt
-        updatedAt
       }
       nextToken
       startedAt
     }
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
+    userOwner_rideId
   }
 }
 subscription OnUpdateRide {
@@ -256,24 +294,32 @@ subscription OnUpdateRide {
     owner_id
     ride_departure_time
     available_seats
+    cost
+    car_image
+    car_Info
+    ride_expires_at
+    ride_date
     ride_route
     riders {
       items {
         id
+        userID
+        rideID
+        createdAt
+        updatedAt
         _version
         _deleted
         _lastChangedAt
-        createdAt
-        updatedAt
       }
       nextToken
       startedAt
     }
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
+    userOwner_rideId
   }
 }
 subscription OnDeleteRide {
@@ -282,29 +328,39 @@ subscription OnDeleteRide {
     owner_id
     ride_departure_time
     available_seats
+    cost
+    car_image
+    car_Info
+    ride_expires_at
+    ride_date
     ride_route
     riders {
       items {
         id
+        userID
+        rideID
+        createdAt
+        updatedAt
         _version
         _deleted
         _lastChangedAt
-        createdAt
-        updatedAt
       }
       nextToken
       startedAt
     }
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
+    userOwner_rideId
   }
 }
-subscription OnCreateRidersJoin {
-  onCreateRidersJoin {
+subscription OnCreateUserRiderRelation {
+  onCreateUserRiderRelation {
     id
+    userID
+    rideID
     user {
       id
       user_real_name
@@ -326,38 +382,46 @@ subscription OnCreateRidersJoin {
         nextToken
         startedAt
       }
+      createdAt
+      updatedAt
       _version
       _deleted
       _lastChangedAt
-      createdAt
-      updatedAt
     }
     ride {
       id
       owner_id
       ride_departure_time
       available_seats
+      cost
+      car_image
+      car_Info
+      ride_expires_at
+      ride_date
       ride_route
       riders {
         nextToken
         startedAt
       }
+      createdAt
+      updatedAt
       _version
       _deleted
       _lastChangedAt
-      createdAt
-      updatedAt
+      userOwner_rideId
     }
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
   }
 }
-subscription OnUpdateRidersJoin {
-  onUpdateRidersJoin {
+subscription OnUpdateUserRiderRelation {
+  onUpdateUserRiderRelation {
     id
+    userID
+    rideID
     user {
       id
       user_real_name
@@ -379,38 +443,46 @@ subscription OnUpdateRidersJoin {
         nextToken
         startedAt
       }
+      createdAt
+      updatedAt
       _version
       _deleted
       _lastChangedAt
-      createdAt
-      updatedAt
     }
     ride {
       id
       owner_id
       ride_departure_time
       available_seats
+      cost
+      car_image
+      car_Info
+      ride_expires_at
+      ride_date
       ride_route
       riders {
         nextToken
         startedAt
       }
+      createdAt
+      updatedAt
       _version
       _deleted
       _lastChangedAt
-      createdAt
-      updatedAt
+      userOwner_rideId
     }
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
   }
 }
-subscription OnDeleteRidersJoin {
-  onDeleteRidersJoin {
+subscription OnDeleteUserRiderRelation {
+  onDeleteUserRiderRelation {
     id
+    userID
+    rideID
     user {
       id
       user_real_name
@@ -432,32 +504,38 @@ subscription OnDeleteRidersJoin {
         nextToken
         startedAt
       }
+      createdAt
+      updatedAt
       _version
       _deleted
       _lastChangedAt
-      createdAt
-      updatedAt
     }
     ride {
       id
       owner_id
       ride_departure_time
       available_seats
+      cost
+      car_image
+      car_Info
+      ride_expires_at
+      ride_date
       ride_route
       riders {
         nextToken
         startedAt
       }
+      createdAt
+      updatedAt
       _version
       _deleted
       _lastChangedAt
-      createdAt
-      updatedAt
+      userOwner_rideId
     }
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
   }
 }

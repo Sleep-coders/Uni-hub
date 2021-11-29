@@ -20,7 +20,6 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 /** This is an auto generated class representing the Ride type in your schema. */
 @SuppressWarnings("all")
 @ModelConfig(pluralName = "Rides")
-@Index(name = "byOwner", fields = {"owner_id"})
 public final class Ride implements Model {
   public static final QueryField ID = field("Ride", "id");
   public static final QueryField OWNER_ID = field("Ride", "owner_id");
@@ -32,6 +31,7 @@ public final class Ride implements Model {
   public static final QueryField RIDE_EXPIRES_AT = field("Ride", "ride_expires_at");
   public static final QueryField RIDE_DATE = field("Ride", "ride_date");
   public static final QueryField RIDE_ROUTE = field("Ride", "ride_route");
+  public static final QueryField USER_OWNER_RIDE_ID = field("Ride", "userOwnerRideId");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="ID", isRequired = true) String owner_id;
   private final @ModelField(targetType="String", isRequired = true) String ride_departure_time;
@@ -42,9 +42,10 @@ public final class Ride implements Model {
   private final @ModelField(targetType="String", isRequired = true) String ride_expires_at;
   private final @ModelField(targetType="String", isRequired = true) String ride_date;
   private final @ModelField(targetType="String") List<String> ride_route;
-  private final @ModelField(targetType="RidersJoin") @HasMany(associatedWith = "ride", type = RidersJoin.class) List<RidersJoin> riders = null;
+  private final @ModelField(targetType="UserRiderRelation") @HasMany(associatedWith = "ride", type = UserRiderRelation.class) List<UserRiderRelation> riders = null;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
+  private final @ModelField(targetType="ID") String userOwnerRideId;
   public String getId() {
       return id;
   }
@@ -85,7 +86,7 @@ public final class Ride implements Model {
       return ride_route;
   }
   
-  public List<RidersJoin> getRiders() {
+  public List<UserRiderRelation> getRiders() {
       return riders;
   }
   
@@ -97,7 +98,11 @@ public final class Ride implements Model {
       return updatedAt;
   }
   
-  private Ride(String id, String owner_id, String ride_departure_time, Integer available_seats, Double cost, String car_image, String car_Info, String ride_expires_at, String ride_date, List<String> ride_route) {
+  public String getUserOwnerRideId() {
+      return userOwnerRideId;
+  }
+  
+  private Ride(String id, String owner_id, String ride_departure_time, Integer available_seats, Double cost, String car_image, String car_Info, String ride_expires_at, String ride_date, List<String> ride_route, String userOwnerRideId) {
     this.id = id;
     this.owner_id = owner_id;
     this.ride_departure_time = ride_departure_time;
@@ -108,6 +113,7 @@ public final class Ride implements Model {
     this.ride_expires_at = ride_expires_at;
     this.ride_date = ride_date;
     this.ride_route = ride_route;
+    this.userOwnerRideId = userOwnerRideId;
   }
   
   @Override
@@ -129,7 +135,8 @@ public final class Ride implements Model {
               ObjectsCompat.equals(getRideDate(), ride.getRideDate()) &&
               ObjectsCompat.equals(getRideRoute(), ride.getRideRoute()) &&
               ObjectsCompat.equals(getCreatedAt(), ride.getCreatedAt()) &&
-              ObjectsCompat.equals(getUpdatedAt(), ride.getUpdatedAt());
+              ObjectsCompat.equals(getUpdatedAt(), ride.getUpdatedAt()) &&
+              ObjectsCompat.equals(getUserOwnerRideId(), ride.getUserOwnerRideId());
       }
   }
   
@@ -148,6 +155,7 @@ public final class Ride implements Model {
       .append(getRideRoute())
       .append(getCreatedAt())
       .append(getUpdatedAt())
+      .append(getUserOwnerRideId())
       .toString()
       .hashCode();
   }
@@ -167,7 +175,8 @@ public final class Ride implements Model {
       .append("ride_date=" + String.valueOf(getRideDate()) + ", ")
       .append("ride_route=" + String.valueOf(getRideRoute()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
-      .append("updatedAt=" + String.valueOf(getUpdatedAt()))
+      .append("updatedAt=" + String.valueOf(getUpdatedAt()) + ", ")
+      .append("userOwnerRideId=" + String.valueOf(getUserOwnerRideId()))
       .append("}")
       .toString();
   }
@@ -195,6 +204,7 @@ public final class Ride implements Model {
       null,
       null,
       null,
+      null,
       null
     );
   }
@@ -209,7 +219,8 @@ public final class Ride implements Model {
       car_Info,
       ride_expires_at,
       ride_date,
-      ride_route);
+      ride_route,
+      userOwnerRideId);
   }
   public interface OwnerIdStep {
     RideDepartureTimeStep ownerId(String ownerId);
@@ -255,6 +266,7 @@ public final class Ride implements Model {
     Ride build();
     BuildStep id(String id);
     BuildStep rideRoute(List<String> rideRoute);
+    BuildStep userOwnerRideId(String userOwnerRideId);
   }
   
 
@@ -269,6 +281,7 @@ public final class Ride implements Model {
     private String ride_expires_at;
     private String ride_date;
     private List<String> ride_route;
+    private String userOwnerRideId;
     @Override
      public Ride build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
@@ -283,7 +296,8 @@ public final class Ride implements Model {
           car_Info,
           ride_expires_at,
           ride_date,
-          ride_route);
+          ride_route,
+          userOwnerRideId);
     }
     
     @Override
@@ -348,6 +362,12 @@ public final class Ride implements Model {
         return this;
     }
     
+    @Override
+     public BuildStep userOwnerRideId(String userOwnerRideId) {
+        this.userOwnerRideId = userOwnerRideId;
+        return this;
+    }
+    
     /** 
      * @param id id
      * @return Current Builder instance, for fluent method chaining
@@ -360,7 +380,7 @@ public final class Ride implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String ownerId, String rideDepartureTime, Integer availableSeats, Double cost, String carImage, String carInfo, String rideExpiresAt, String rideDate, List<String> rideRoute) {
+    private CopyOfBuilder(String id, String ownerId, String rideDepartureTime, Integer availableSeats, Double cost, String carImage, String carInfo, String rideExpiresAt, String rideDate, List<String> rideRoute, String userOwnerRideId) {
       super.id(id);
       super.ownerId(ownerId)
         .rideDepartureTime(rideDepartureTime)
@@ -370,7 +390,8 @@ public final class Ride implements Model {
         .carInfo(carInfo)
         .rideExpiresAt(rideExpiresAt)
         .rideDate(rideDate)
-        .rideRoute(rideRoute);
+        .rideRoute(rideRoute)
+        .userOwnerRideId(userOwnerRideId);
     }
     
     @Override
@@ -416,6 +437,11 @@ public final class Ride implements Model {
     @Override
      public CopyOfBuilder rideRoute(List<String> rideRoute) {
       return (CopyOfBuilder) super.rideRoute(rideRoute);
+    }
+    
+    @Override
+     public CopyOfBuilder userOwnerRideId(String userOwnerRideId) {
+      return (CopyOfBuilder) super.userOwnerRideId(userOwnerRideId);
     }
   }
   

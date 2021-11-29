@@ -15,11 +15,13 @@ mutation CreateUser(
     rides {
       items {
         id
+        userID
+        rideID
+        createdAt
+        updatedAt
         _version
         _deleted
         _lastChangedAt
-        createdAt
-        updatedAt
       }
       nextToken
       startedAt
@@ -31,11 +33,12 @@ mutation CreateUser(
         car_model
         car_img
         car_seats_num
+        createdAt
+        updatedAt
         _version
         _deleted
         _lastChangedAt
-        createdAt
-        updatedAt
+        userCarId
       }
       nextToken
       startedAt
@@ -46,21 +49,27 @@ mutation CreateUser(
         owner_id
         ride_departure_time
         available_seats
+        cost
+        car_image
+        car_Info
+        ride_expires_at
+        ride_date
         ride_route
+        createdAt
+        updatedAt
         _version
         _deleted
         _lastChangedAt
-        createdAt
-        updatedAt
+        userOwner_rideId
       }
       nextToken
       startedAt
     }
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
   }
 }
 mutation UpdateUser(
@@ -79,11 +88,13 @@ mutation UpdateUser(
     rides {
       items {
         id
+        userID
+        rideID
+        createdAt
+        updatedAt
         _version
         _deleted
         _lastChangedAt
-        createdAt
-        updatedAt
       }
       nextToken
       startedAt
@@ -95,11 +106,12 @@ mutation UpdateUser(
         car_model
         car_img
         car_seats_num
+        createdAt
+        updatedAt
         _version
         _deleted
         _lastChangedAt
-        createdAt
-        updatedAt
+        userCarId
       }
       nextToken
       startedAt
@@ -110,21 +122,27 @@ mutation UpdateUser(
         owner_id
         ride_departure_time
         available_seats
+        cost
+        car_image
+        car_Info
+        ride_expires_at
+        ride_date
         ride_route
+        createdAt
+        updatedAt
         _version
         _deleted
         _lastChangedAt
-        createdAt
-        updatedAt
+        userOwner_rideId
       }
       nextToken
       startedAt
     }
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
   }
 }
 mutation DeleteUser(
@@ -143,11 +161,13 @@ mutation DeleteUser(
     rides {
       items {
         id
+        userID
+        rideID
+        createdAt
+        updatedAt
         _version
         _deleted
         _lastChangedAt
-        createdAt
-        updatedAt
       }
       nextToken
       startedAt
@@ -159,11 +179,12 @@ mutation DeleteUser(
         car_model
         car_img
         car_seats_num
+        createdAt
+        updatedAt
         _version
         _deleted
         _lastChangedAt
-        createdAt
-        updatedAt
+        userCarId
       }
       nextToken
       startedAt
@@ -174,21 +195,27 @@ mutation DeleteUser(
         owner_id
         ride_departure_time
         available_seats
+        cost
+        car_image
+        car_Info
+        ride_expires_at
+        ride_date
         ride_route
+        createdAt
+        updatedAt
         _version
         _deleted
         _lastChangedAt
-        createdAt
-        updatedAt
+        userOwner_rideId
       }
       nextToken
       startedAt
     }
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
   }
 }
 mutation CreateCar(
@@ -201,11 +228,12 @@ mutation CreateCar(
     car_model
     car_img
     car_seats_num
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
+    userCarId
   }
 }
 mutation UpdateCar(
@@ -218,11 +246,12 @@ mutation UpdateCar(
     car_model
     car_img
     car_seats_num
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
+    userCarId
   }
 }
 mutation DeleteCar(
@@ -235,11 +264,12 @@ mutation DeleteCar(
     car_model
     car_img
     car_seats_num
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
+    userCarId
   }
 }
 mutation CreateRide(
@@ -251,24 +281,32 @@ mutation CreateRide(
     owner_id
     ride_departure_time
     available_seats
+    cost
+    car_image
+    car_Info
+    ride_expires_at
+    ride_date
     ride_route
     riders {
       items {
         id
+        userID
+        rideID
+        createdAt
+        updatedAt
         _version
         _deleted
         _lastChangedAt
-        createdAt
-        updatedAt
       }
       nextToken
       startedAt
     }
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
+    userOwner_rideId
   }
 }
 mutation UpdateRide(
@@ -280,24 +318,32 @@ mutation UpdateRide(
     owner_id
     ride_departure_time
     available_seats
+    cost
+    car_image
+    car_Info
+    ride_expires_at
+    ride_date
     ride_route
     riders {
       items {
         id
+        userID
+        rideID
+        createdAt
+        updatedAt
         _version
         _deleted
         _lastChangedAt
-        createdAt
-        updatedAt
       }
       nextToken
       startedAt
     }
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
+    userOwner_rideId
   }
 }
 mutation DeleteRide(
@@ -309,32 +355,42 @@ mutation DeleteRide(
     owner_id
     ride_departure_time
     available_seats
+    cost
+    car_image
+    car_Info
+    ride_expires_at
+    ride_date
     ride_route
     riders {
       items {
         id
+        userID
+        rideID
+        createdAt
+        updatedAt
         _version
         _deleted
         _lastChangedAt
-        createdAt
-        updatedAt
       }
       nextToken
       startedAt
     }
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
+    userOwner_rideId
   }
 }
-mutation CreateRidersJoin(
-  $input: CreateRidersJoinInput!
-  $condition: ModelRidersJoinConditionInput
+mutation CreateUserRiderRelation(
+  $input: CreateUserRiderRelationInput!
+  $condition: ModelUserRiderRelationConditionInput
 ) {
-  createRidersJoin(input: $input, condition: $condition) {
+  createUserRiderRelation(input: $input, condition: $condition) {
     id
+    userID
+    rideID
     user {
       id
       user_real_name
@@ -356,41 +412,49 @@ mutation CreateRidersJoin(
         nextToken
         startedAt
       }
+      createdAt
+      updatedAt
       _version
       _deleted
       _lastChangedAt
-      createdAt
-      updatedAt
     }
     ride {
       id
       owner_id
       ride_departure_time
       available_seats
+      cost
+      car_image
+      car_Info
+      ride_expires_at
+      ride_date
       ride_route
       riders {
         nextToken
         startedAt
       }
+      createdAt
+      updatedAt
       _version
       _deleted
       _lastChangedAt
-      createdAt
-      updatedAt
+      userOwner_rideId
     }
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
   }
 }
-mutation UpdateRidersJoin(
-  $input: UpdateRidersJoinInput!
-  $condition: ModelRidersJoinConditionInput
+mutation UpdateUserRiderRelation(
+  $input: UpdateUserRiderRelationInput!
+  $condition: ModelUserRiderRelationConditionInput
 ) {
-  updateRidersJoin(input: $input, condition: $condition) {
+  updateUserRiderRelation(input: $input, condition: $condition) {
     id
+    userID
+    rideID
     user {
       id
       user_real_name
@@ -412,41 +476,49 @@ mutation UpdateRidersJoin(
         nextToken
         startedAt
       }
+      createdAt
+      updatedAt
       _version
       _deleted
       _lastChangedAt
-      createdAt
-      updatedAt
     }
     ride {
       id
       owner_id
       ride_departure_time
       available_seats
+      cost
+      car_image
+      car_Info
+      ride_expires_at
+      ride_date
       ride_route
       riders {
         nextToken
         startedAt
       }
+      createdAt
+      updatedAt
       _version
       _deleted
       _lastChangedAt
-      createdAt
-      updatedAt
+      userOwner_rideId
     }
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
   }
 }
-mutation DeleteRidersJoin(
-  $input: DeleteRidersJoinInput!
-  $condition: ModelRidersJoinConditionInput
+mutation DeleteUserRiderRelation(
+  $input: DeleteUserRiderRelationInput!
+  $condition: ModelUserRiderRelationConditionInput
 ) {
-  deleteRidersJoin(input: $input, condition: $condition) {
+  deleteUserRiderRelation(input: $input, condition: $condition) {
     id
+    userID
+    rideID
     user {
       id
       user_real_name
@@ -468,32 +540,38 @@ mutation DeleteRidersJoin(
         nextToken
         startedAt
       }
+      createdAt
+      updatedAt
       _version
       _deleted
       _lastChangedAt
-      createdAt
-      updatedAt
     }
     ride {
       id
       owner_id
       ride_departure_time
       available_seats
+      cost
+      car_image
+      car_Info
+      ride_expires_at
+      ride_date
       ride_route
       riders {
         nextToken
         startedAt
       }
+      createdAt
+      updatedAt
       _version
       _deleted
       _lastChangedAt
-      createdAt
-      updatedAt
+      userOwner_rideId
     }
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
   }
 }

@@ -1,4 +1,111 @@
 # this is an auto generated file. This will be overwritten
+query GetUser($id: ID!) {
+  getUser(id: $id) {
+    id
+    user_real_name
+    user_nickname
+    user_phone_number
+    user_email
+    user_location
+    user_university
+    user_img
+    rides {
+      items {
+        id
+        userID
+        rideID
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+    car {
+      items {
+        id
+        ownerID
+        car_model
+        car_img
+        car_seats_num
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        userCarId
+      }
+      nextToken
+      startedAt
+    }
+    owner_ride {
+      items {
+        id
+        owner_id
+        ride_departure_time
+        available_seats
+        cost
+        car_image
+        car_Info
+        ride_expires_at
+        ride_date
+        ride_route
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        userOwner_rideId
+      }
+      nextToken
+      startedAt
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+query ListUsers(
+  $filter: ModelUserFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      user_real_name
+      user_nickname
+      user_phone_number
+      user_email
+      user_location
+      user_university
+      user_img
+      rides {
+        nextToken
+        startedAt
+      }
+      car {
+        nextToken
+        startedAt
+      }
+      owner_ride {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    nextToken
+    startedAt
+  }
+}
 query SyncUsers(
   $filter: ModelUserFilterInput
   $limit: Int
@@ -32,123 +139,45 @@ query SyncUsers(
         nextToken
         startedAt
       }
+      createdAt
+      updatedAt
       _version
       _deleted
       _lastChangedAt
-      createdAt
-      updatedAt
     }
     nextToken
     startedAt
   }
 }
-query GetUser($user_email: String!, $id: ID!, $user_phone_number: String!) {
-  getUser(
-    user_email: $user_email
-    id: $id
-    user_phone_number: $user_phone_number
-  ) {
+query GetCar($id: ID!) {
+  getCar(id: $id) {
     id
-    user_real_name
-    user_nickname
-    user_phone_number
-    user_email
-    user_location
-    user_university
-    user_img
-    rides {
-      items {
-        id
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
-    }
-    car {
-      items {
-        id
-        ownerID
-        car_model
-        car_img
-        car_seats_num
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
-    }
-    owner_ride {
-      items {
-        id
-        owner_id
-        ride_departure_time
-        available_seats
-        ride_route
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
-      }
-      nextToken
-      startedAt
-    }
+    ownerID
+    car_model
+    car_img
+    car_seats_num
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
+    userCarId
   }
 }
-query ListUsers(
-  $user_email: String
-  $idUser_phone_number: ModelUserPrimaryCompositeKeyConditionInput
-  $filter: ModelUserFilterInput
-  $limit: Int
-  $nextToken: String
-  $sortDirection: ModelSortDirection
-) {
-  listUsers(
-    user_email: $user_email
-    idUser_phone_number: $idUser_phone_number
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-    sortDirection: $sortDirection
-  ) {
+query ListCars($filter: ModelCarFilterInput, $limit: Int, $nextToken: String) {
+  listCars(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      user_real_name
-      user_nickname
-      user_phone_number
-      user_email
-      user_location
-      user_university
-      user_img
-      rides {
-        nextToken
-        startedAt
-      }
-      car {
-        nextToken
-        startedAt
-      }
-      owner_ride {
-        nextToken
-        startedAt
-      }
+      ownerID
+      car_model
+      car_img
+      car_seats_num
+      createdAt
+      updatedAt
       _version
       _deleted
       _lastChangedAt
-      createdAt
-      updatedAt
+      userCarId
     }
     nextToken
     startedAt
@@ -172,43 +201,78 @@ query SyncCars(
       car_model
       car_img
       car_seats_num
+      createdAt
+      updatedAt
       _version
       _deleted
       _lastChangedAt
-      createdAt
-      updatedAt
+      userCarId
     }
     nextToken
     startedAt
   }
 }
-query GetCar($id: ID!) {
-  getCar(id: $id) {
+query GetRide($id: ID!) {
+  getRide(id: $id) {
     id
-    ownerID
-    car_model
-    car_img
-    car_seats_num
+    owner_id
+    ride_departure_time
+    available_seats
+    cost
+    car_image
+    car_Info
+    ride_expires_at
+    ride_date
+    ride_route
+    riders {
+      items {
+        id
+        userID
+        rideID
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
+    userOwner_rideId
   }
 }
-query ListCars($filter: ModelCarFilterInput, $limit: Int, $nextToken: String) {
-  listCars(filter: $filter, limit: $limit, nextToken: $nextToken) {
+query ListRides(
+  $filter: ModelRideFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listRides(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      ownerID
-      car_model
-      car_img
-      car_seats_num
+      owner_id
+      ride_departure_time
+      available_seats
+      cost
+      car_image
+      car_Info
+      ride_expires_at
+      ride_date
+      ride_route
+      riders {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
       _version
       _deleted
       _lastChangedAt
-      createdAt
-      updatedAt
+      userOwner_rideId
     }
     nextToken
     startedAt
@@ -231,87 +295,102 @@ query SyncRides(
       owner_id
       ride_departure_time
       available_seats
+      cost
+      car_image
+      car_Info
+      ride_expires_at
+      ride_date
       ride_route
       riders {
         nextToken
         startedAt
       }
+      createdAt
+      updatedAt
       _version
       _deleted
       _lastChangedAt
-      createdAt
-      updatedAt
+      userOwner_rideId
     }
     nextToken
     startedAt
   }
 }
-query GetRide($id: ID!) {
-  getRide(id: $id) {
+query GetUserRiderRelation($id: ID!) {
+  getUserRiderRelation(id: $id) {
     id
-    owner_id
-    ride_departure_time
-    available_seats
-    ride_route
-    riders {
-      items {
-        id
-        _version
-        _deleted
-        _lastChangedAt
-        createdAt
-        updatedAt
+    userID
+    rideID
+    user {
+      id
+      user_real_name
+      user_nickname
+      user_phone_number
+      user_email
+      user_location
+      user_university
+      user_img
+      rides {
+        nextToken
+        startedAt
       }
-      nextToken
-      startedAt
+      car {
+        nextToken
+        startedAt
+      }
+      owner_ride {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
-    _version
-    _deleted
-    _lastChangedAt
-    createdAt
-    updatedAt
-  }
-}
-query ListRides(
-  $filter: ModelRideFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listRides(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
+    ride {
       id
       owner_id
       ride_departure_time
       available_seats
+      cost
+      car_image
+      car_Info
+      ride_expires_at
+      ride_date
       ride_route
       riders {
         nextToken
         startedAt
       }
+      createdAt
+      updatedAt
       _version
       _deleted
       _lastChangedAt
-      createdAt
-      updatedAt
+      userOwner_rideId
     }
-    nextToken
-    startedAt
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
-query SyncRidersJoins(
-  $filter: ModelRidersJoinFilterInput
+query ListUserRiderRelations(
+  $filter: ModelUserRiderRelationFilterInput
   $limit: Int
   $nextToken: String
-  $lastSync: AWSTimestamp
 ) {
-  syncRidersJoins(
+  listUserRiderRelations(
     filter: $filter
     limit: $limit
     nextToken: $nextToken
-    lastSync: $lastSync
   ) {
     items {
       id
+      userID
+      rideID
       user {
         id
         user_real_name
@@ -321,29 +400,94 @@ query SyncRidersJoins(
         user_location
         user_university
         user_img
+        createdAt
+        updatedAt
         _version
         _deleted
         _lastChangedAt
-        createdAt
-        updatedAt
       }
       ride {
         id
         owner_id
         ride_departure_time
         available_seats
+        cost
+        car_image
+        car_Info
+        ride_expires_at
+        ride_date
         ride_route
+        createdAt
+        updatedAt
         _version
         _deleted
         _lastChangedAt
-        createdAt
-        updatedAt
+        userOwner_rideId
       }
+      createdAt
+      updatedAt
       _version
       _deleted
       _lastChangedAt
+    }
+    nextToken
+    startedAt
+  }
+}
+query SyncUserRiderRelations(
+  $filter: ModelUserRiderRelationFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncUserRiderRelations(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      userID
+      rideID
+      user {
+        id
+        user_real_name
+        user_nickname
+        user_phone_number
+        user_email
+        user_location
+        user_university
+        user_img
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      ride {
+        id
+        owner_id
+        ride_departure_time
+        available_seats
+        cost
+        car_image
+        car_Info
+        ride_expires_at
+        ride_date
+        ride_route
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        userOwner_rideId
+      }
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
     nextToken
     startedAt
