@@ -44,6 +44,7 @@ subscription OnCreateUser {
       items {
         id
         owner_id
+        owner_name
         ride_departure_time
         available_seats
         cost
@@ -51,6 +52,7 @@ subscription OnCreateUser {
         car_Info
         ride_expires_at
         ride_date
+        ride_description
         ride_route
         createdAt
         updatedAt
@@ -114,6 +116,7 @@ subscription OnUpdateUser {
       items {
         id
         owner_id
+        owner_name
         ride_departure_time
         available_seats
         cost
@@ -121,6 +124,7 @@ subscription OnUpdateUser {
         car_Info
         ride_expires_at
         ride_date
+        ride_description
         ride_route
         createdAt
         updatedAt
@@ -184,6 +188,7 @@ subscription OnDeleteUser {
       items {
         id
         owner_id
+        owner_name
         ride_departure_time
         available_seats
         cost
@@ -191,6 +196,7 @@ subscription OnDeleteUser {
         car_Info
         ride_expires_at
         ride_date
+        ride_description
         ride_route
         createdAt
         updatedAt
@@ -258,6 +264,7 @@ subscription OnCreateRide {
   onCreateRide {
     id
     owner_id
+    owner_name
     ride_departure_time
     available_seats
     cost
@@ -265,6 +272,7 @@ subscription OnCreateRide {
     car_Info
     ride_expires_at
     ride_date
+    ride_description
     ride_route
     riders {
       items {
@@ -292,6 +300,7 @@ subscription OnUpdateRide {
   onUpdateRide {
     id
     owner_id
+    owner_name
     ride_departure_time
     available_seats
     cost
@@ -299,6 +308,7 @@ subscription OnUpdateRide {
     car_Info
     ride_expires_at
     ride_date
+    ride_description
     ride_route
     riders {
       items {
@@ -326,6 +336,7 @@ subscription OnDeleteRide {
   onDeleteRide {
     id
     owner_id
+    owner_name
     ride_departure_time
     available_seats
     cost
@@ -333,6 +344,7 @@ subscription OnDeleteRide {
     car_Info
     ride_expires_at
     ride_date
+    ride_description
     ride_route
     riders {
       items {
@@ -391,6 +403,7 @@ subscription OnCreateUserRiderRelation {
     ride {
       id
       owner_id
+      owner_name
       ride_departure_time
       available_seats
       cost
@@ -398,6 +411,7 @@ subscription OnCreateUserRiderRelation {
       car_Info
       ride_expires_at
       ride_date
+      ride_description
       ride_route
       riders {
         nextToken
@@ -452,6 +466,7 @@ subscription OnUpdateUserRiderRelation {
     ride {
       id
       owner_id
+      owner_name
       ride_departure_time
       available_seats
       cost
@@ -459,6 +474,7 @@ subscription OnUpdateUserRiderRelation {
       car_Info
       ride_expires_at
       ride_date
+      ride_description
       ride_route
       riders {
         nextToken
@@ -513,6 +529,7 @@ subscription OnDeleteUserRiderRelation {
     ride {
       id
       owner_id
+      owner_name
       ride_departure_time
       available_seats
       cost
@@ -520,6 +537,7 @@ subscription OnDeleteUserRiderRelation {
       car_Info
       ride_expires_at
       ride_date
+      ride_description
       ride_route
       riders {
         nextToken

@@ -1582,6 +1582,22 @@
                         "deprecationReason": null
                     },
                     {
+                        "name": "owner_name",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
                         "name": "ride_departure_time",
                         "description": null,
                         "args": [],
@@ -1679,6 +1695,22 @@
                     },
                     {
                         "name": "ride_date",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "ride_description",
                         "description": null,
                         "args": [],
                         "type": {
@@ -2510,6 +2542,16 @@
                         "defaultValue": null
                     },
                     {
+                        "name": "owner_name",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
                         "name": "ride_departure_time",
                         "description": null,
                         "type": {
@@ -2571,6 +2613,16 @@
                     },
                     {
                         "name": "ride_date",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "ride_description",
                         "description": null,
                         "type": {
                             "kind": "INPUT_OBJECT",
@@ -4172,6 +4224,20 @@
                         "defaultValue": null
                     },
                     {
+                        "name": "owner_name",
+                        "description": null,
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
+                        },
+                        "defaultValue": null
+                    },
+                    {
                         "name": "ride_departure_time",
                         "description": null,
                         "type": {
@@ -4270,6 +4336,20 @@
                         "defaultValue": null
                     },
                     {
+                        "name": "ride_description",
+                        "description": null,
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
+                        },
+                        "defaultValue": null
+                    },
+                    {
                         "name": "ride_route",
                         "description": null,
                         "type": {
@@ -4320,6 +4400,16 @@
                         "type": {
                             "kind": "INPUT_OBJECT",
                             "name": "ModelIDInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "owner_name",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
                             "ofType": null
                         },
                         "defaultValue": null
@@ -4386,6 +4476,16 @@
                     },
                     {
                         "name": "ride_date",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "ride_description",
                         "description": null,
                         "type": {
                             "kind": "INPUT_OBJECT",
@@ -4488,6 +4588,16 @@
                         "defaultValue": null
                     },
                     {
+                        "name": "owner_name",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
                         "name": "ride_departure_time",
                         "description": null,
                         "type": {
@@ -4549,6 +4659,16 @@
                     },
                     {
                         "name": "ride_date",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "ride_description",
                         "description": null,
                         "type": {
                             "kind": "SCALAR",

@@ -5,26 +5,36 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
+import com.amplifyframework.api.graphql.model.ModelQuery;
+import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.Ride;
+import com.amplifyframework.datastore.generated.model.User;
 import com.example.uni_hub.MainActivity;
 import com.example.uni_hub.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Available_Rides extends AppCompatActivity {
     RecyclerView recycler_view_driver_post;
 
     private Button create_ride;
 
-    String s1[],s2[];
-    int images[] ={R.drawable.car,R.drawable.car,R.drawable.car,R.drawable.car};
+    List<Ride> allRides;
+    String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +43,13 @@ public class Available_Rides extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_available_rides);
 
-        recycler_view_driver_post = findViewById(R.id.recycler_view_driver_post);
-        s1 = getResources().getStringArray(R.array.driver_name_cards);
-        s2 = getResources().getStringArray(R.array.rout_path);
+        getUserID();
+        getAllRides();
 
-        DriverAdapter driverAdapter = new DriverAdapter(this, s1,s2,images);
+        recycler_view_driver_post = findViewById(R.id.recycler_view_driver_post);
+
+
+        DriverAdapter driverAdapter = new DriverAdapter(allRides , userId);
         recycler_view_driver_post.setAdapter(driverAdapter);
         recycler_view_driver_post.setLayoutManager(new LinearLayoutManager(this));
 
@@ -48,10 +60,10 @@ public class Available_Rides extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.home:
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         return true;
                 }
                 return false;
@@ -64,8 +76,36 @@ public class Available_Rides extends AppCompatActivity {
             getCreateRide();
         });
     }
-    public void getCreateRide(){
-        Intent driver_create_ride = new Intent(this,Driver_Create_Ride.class);
+
+    public void getCreateRide() {
+        Intent driver_create_ride = new Intent(this, Driver_Create_Ride.class);
         startActivity(driver_create_ride);
+    }
+
+    public void getAllRides(){
+        allRides = new ArrayList<>();
+        Amplify.API.query(ModelQuery.list(Ride.class),
+                success->{
+            for (Ride ride : success.getData()){
+                allRides.add(ride);
+            }
+                },
+                error->{runOnUiThread(()->{
+                    @SuppressLint("ShowToast") Toast toast = Toast.makeText(this, "No available rides for now, Try again later", Toast.LENGTH_LONG);
+                    toast.show();
+                });
+                    Log.i("getAllRides", "======> Error in getting all rides"+ error.getMessage());
+        });
+    }
+
+    public void getUserID() {
+        String email = Amplify.Auth.getCurrentUser().getUsername();
+        Amplify.API.query(ModelQuery.get(User.class, email),
+                success -> {
+                    userId = success.getData().getId();
+                },
+                error -> {
+                    Log.i("getUserID", "Error in getting user id");
+                });
     }
 }

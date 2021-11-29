@@ -34,6 +34,7 @@ type Ride @model
     car_Info : String!
     ride_expires_at : String!
     ride_date : String!
+    ride_description : String!
     ride_route : [String]
     riders : [User] @manyToMany(relationName: "userRiderRelation")
 }

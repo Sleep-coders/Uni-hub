@@ -47,6 +47,7 @@ mutation CreateUser(
       items {
         id
         owner_id
+        owner_name
         ride_departure_time
         available_seats
         cost
@@ -54,6 +55,7 @@ mutation CreateUser(
         car_Info
         ride_expires_at
         ride_date
+        ride_description
         ride_route
         createdAt
         updatedAt
@@ -120,6 +122,7 @@ mutation UpdateUser(
       items {
         id
         owner_id
+        owner_name
         ride_departure_time
         available_seats
         cost
@@ -127,6 +130,7 @@ mutation UpdateUser(
         car_Info
         ride_expires_at
         ride_date
+        ride_description
         ride_route
         createdAt
         updatedAt
@@ -193,6 +197,7 @@ mutation DeleteUser(
       items {
         id
         owner_id
+        owner_name
         ride_departure_time
         available_seats
         cost
@@ -200,6 +205,7 @@ mutation DeleteUser(
         car_Info
         ride_expires_at
         ride_date
+        ride_description
         ride_route
         createdAt
         updatedAt
@@ -279,6 +285,7 @@ mutation CreateRide(
   createRide(input: $input, condition: $condition) {
     id
     owner_id
+    owner_name
     ride_departure_time
     available_seats
     cost
@@ -286,6 +293,7 @@ mutation CreateRide(
     car_Info
     ride_expires_at
     ride_date
+    ride_description
     ride_route
     riders {
       items {
@@ -316,6 +324,7 @@ mutation UpdateRide(
   updateRide(input: $input, condition: $condition) {
     id
     owner_id
+    owner_name
     ride_departure_time
     available_seats
     cost
@@ -323,6 +332,7 @@ mutation UpdateRide(
     car_Info
     ride_expires_at
     ride_date
+    ride_description
     ride_route
     riders {
       items {
@@ -353,6 +363,7 @@ mutation DeleteRide(
   deleteRide(input: $input, condition: $condition) {
     id
     owner_id
+    owner_name
     ride_departure_time
     available_seats
     cost
@@ -360,6 +371,7 @@ mutation DeleteRide(
     car_Info
     ride_expires_at
     ride_date
+    ride_description
     ride_route
     riders {
       items {
@@ -421,6 +433,7 @@ mutation CreateUserRiderRelation(
     ride {
       id
       owner_id
+      owner_name
       ride_departure_time
       available_seats
       cost
@@ -428,6 +441,7 @@ mutation CreateUserRiderRelation(
       car_Info
       ride_expires_at
       ride_date
+      ride_description
       ride_route
       riders {
         nextToken
@@ -485,6 +499,7 @@ mutation UpdateUserRiderRelation(
     ride {
       id
       owner_id
+      owner_name
       ride_departure_time
       available_seats
       cost
@@ -492,6 +507,7 @@ mutation UpdateUserRiderRelation(
       car_Info
       ride_expires_at
       ride_date
+      ride_description
       ride_route
       riders {
         nextToken
@@ -549,6 +565,7 @@ mutation DeleteUserRiderRelation(
     ride {
       id
       owner_id
+      owner_name
       ride_departure_time
       available_seats
       cost
@@ -556,6 +573,7 @@ mutation DeleteUserRiderRelation(
       car_Info
       ride_expires_at
       ride_date
+      ride_description
       ride_route
       riders {
         nextToken
