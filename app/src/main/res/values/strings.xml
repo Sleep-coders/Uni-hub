@@ -54,18 +54,11 @@
     <string name="select_a_date">Select a Date</string>
     <!--    <string name="cost_per_passenger">Cost Per Passenger</string>-->
     <string name="submit_your_ride">Submit your Ride</string>
-    <string name="add_your_location">Add Your Location</string>
-    <string name="departure_soon">Departure Soon</string>
-    <string name="availabe_passengers">Availabe Passengers</string>
-    <string name="rout_in_details">Rout In Details</string>
-    <string name="trip_info">Trip Info:</string>
-    <string name="time_and_date">Time And Date</string>
+    <string name="add_car">ADD CAR</string>
     <string name="car_model">Car Model</string>
-    <string name="driver_details">Driver Details</string>
-    <string name="driver_name">Driver Name</string>
-    <string name="carpool_name">Carpool Name</string>
-    <string name="contact_info">Contact Info</string>
-    <string name="request_a_ride">Request a Ride</string>
+    <string name="seats_number">Seats Number</string>
+    <string name="add_image">ADD IMAGE</string>
+    <string name="add">ADD</string>
     <string-array name="Available_Rides">
         <item>ride1</item>
         <item>ride2</item>
