@@ -41,6 +41,19 @@
     <string name="confirm">Confirm</string>
     <string name="personal_information">Personal Information</string>
     <string name="save">save</string>
+    <string name="seats_availability">Seats Availability</string>
+    <string name="add_your_ride_here">Add your Ride here</string>
+    <string name="car_information">Car Information</string>
+    <string name="car_image">car Image</string>
+    <string name="departure_time">Departure Time</string>
+    <string name="choose_your_path">Choose your path</string>
+    <string name="cost_per_passenger">Cost Per Passenger</string>
+    <string name="ride_expires_at">Ride Expires at</string>
+    <string name="_0_jd">0 JD</string>
+    <string name="_0_seat">0 Seat</string>
+    <string name="select_a_date">Select a Date</string>
+<!--    <string name="cost_per_passenger">Cost Per Passenger</string>-->
+    <string name="submit_your_ride">Submit your Ride</string>
     <string-array name="Available_Rides">
         <item>ride1</item>
         <item>ride2</item>

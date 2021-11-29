@@ -60,11 +60,8 @@ public class Available_Rides extends AppCompatActivity {
 
         // Create a Ride Button
         create_ride = findViewById(R.id.create_ride);
-        create_ride.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view2) {
-                getCreateRide();
-            }
+        create_ride.setOnClickListener(view -> {
+            getCreateRide();
         });
     }
     public void getCreateRide(){

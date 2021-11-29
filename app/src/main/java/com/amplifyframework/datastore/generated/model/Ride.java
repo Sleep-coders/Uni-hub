@@ -26,11 +26,21 @@ public final class Ride implements Model {
   public static final QueryField OWNER_ID = field("Ride", "owner_id");
   public static final QueryField RIDE_DEPARTURE_TIME = field("Ride", "ride_departure_time");
   public static final QueryField AVAILABLE_SEATS = field("Ride", "available_seats");
+  public static final QueryField COST = field("Ride", "cost");
+  public static final QueryField CAR_IMAGE = field("Ride", "car_image");
+  public static final QueryField CAR_INFO = field("Ride", "car_Info");
+  public static final QueryField RIDE_EXPIRES_AT = field("Ride", "ride_expires_at");
+  public static final QueryField RIDE_DATE = field("Ride", "ride_date");
   public static final QueryField RIDE_ROUTE = field("Ride", "ride_route");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="ID", isRequired = true) String owner_id;
   private final @ModelField(targetType="String", isRequired = true) String ride_departure_time;
   private final @ModelField(targetType="Int", isRequired = true) Integer available_seats;
+  private final @ModelField(targetType="Float", isRequired = true) Double cost;
+  private final @ModelField(targetType="String", isRequired = true) String car_image;
+  private final @ModelField(targetType="String", isRequired = true) String car_Info;
+  private final @ModelField(targetType="String", isRequired = true) String ride_expires_at;
+  private final @ModelField(targetType="String", isRequired = true) String ride_date;
   private final @ModelField(targetType="String") List<String> ride_route;
   private final @ModelField(targetType="RidersJoin") @HasMany(associatedWith = "ride", type = RidersJoin.class) List<RidersJoin> riders = null;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
@@ -51,6 +61,26 @@ public final class Ride implements Model {
       return available_seats;
   }
   
+  public Double getCost() {
+      return cost;
+  }
+  
+  public String getCarImage() {
+      return car_image;
+  }
+  
+  public String getCarInfo() {
+      return car_Info;
+  }
+  
+  public String getRideExpiresAt() {
+      return ride_expires_at;
+  }
+  
+  public String getRideDate() {
+      return ride_date;
+  }
+  
   public List<String> getRideRoute() {
       return ride_route;
   }
@@ -67,11 +97,16 @@ public final class Ride implements Model {
       return updatedAt;
   }
   
-  private Ride(String id, String owner_id, String ride_departure_time, Integer available_seats, List<String> ride_route) {
+  private Ride(String id, String owner_id, String ride_departure_time, Integer available_seats, Double cost, String car_image, String car_Info, String ride_expires_at, String ride_date, List<String> ride_route) {
     this.id = id;
     this.owner_id = owner_id;
     this.ride_departure_time = ride_departure_time;
     this.available_seats = available_seats;
+    this.cost = cost;
+    this.car_image = car_image;
+    this.car_Info = car_Info;
+    this.ride_expires_at = ride_expires_at;
+    this.ride_date = ride_date;
     this.ride_route = ride_route;
   }
   
@@ -87,6 +122,11 @@ public final class Ride implements Model {
               ObjectsCompat.equals(getOwnerId(), ride.getOwnerId()) &&
               ObjectsCompat.equals(getRideDepartureTime(), ride.getRideDepartureTime()) &&
               ObjectsCompat.equals(getAvailableSeats(), ride.getAvailableSeats()) &&
+              ObjectsCompat.equals(getCost(), ride.getCost()) &&
+              ObjectsCompat.equals(getCarImage(), ride.getCarImage()) &&
+              ObjectsCompat.equals(getCarInfo(), ride.getCarInfo()) &&
+              ObjectsCompat.equals(getRideExpiresAt(), ride.getRideExpiresAt()) &&
+              ObjectsCompat.equals(getRideDate(), ride.getRideDate()) &&
               ObjectsCompat.equals(getRideRoute(), ride.getRideRoute()) &&
               ObjectsCompat.equals(getCreatedAt(), ride.getCreatedAt()) &&
               ObjectsCompat.equals(getUpdatedAt(), ride.getUpdatedAt());
@@ -100,6 +140,11 @@ public final class Ride implements Model {
       .append(getOwnerId())
       .append(getRideDepartureTime())
       .append(getAvailableSeats())
+      .append(getCost())
+      .append(getCarImage())
+      .append(getCarInfo())
+      .append(getRideExpiresAt())
+      .append(getRideDate())
       .append(getRideRoute())
       .append(getCreatedAt())
       .append(getUpdatedAt())
@@ -115,6 +160,11 @@ public final class Ride implements Model {
       .append("owner_id=" + String.valueOf(getOwnerId()) + ", ")
       .append("ride_departure_time=" + String.valueOf(getRideDepartureTime()) + ", ")
       .append("available_seats=" + String.valueOf(getAvailableSeats()) + ", ")
+      .append("cost=" + String.valueOf(getCost()) + ", ")
+      .append("car_image=" + String.valueOf(getCarImage()) + ", ")
+      .append("car_Info=" + String.valueOf(getCarInfo()) + ", ")
+      .append("ride_expires_at=" + String.valueOf(getRideExpiresAt()) + ", ")
+      .append("ride_date=" + String.valueOf(getRideDate()) + ", ")
       .append("ride_route=" + String.valueOf(getRideRoute()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
@@ -140,6 +190,11 @@ public final class Ride implements Model {
       null,
       null,
       null,
+      null,
+      null,
+      null,
+      null,
+      null,
       null
     );
   }
@@ -149,6 +204,11 @@ public final class Ride implements Model {
       owner_id,
       ride_departure_time,
       available_seats,
+      cost,
+      car_image,
+      car_Info,
+      ride_expires_at,
+      ride_date,
       ride_route);
   }
   public interface OwnerIdStep {
@@ -162,7 +222,32 @@ public final class Ride implements Model {
   
 
   public interface AvailableSeatsStep {
-    BuildStep availableSeats(Integer availableSeats);
+    CostStep availableSeats(Integer availableSeats);
+  }
+  
+
+  public interface CostStep {
+    CarImageStep cost(Double cost);
+  }
+  
+
+  public interface CarImageStep {
+    CarInfoStep carImage(String carImage);
+  }
+  
+
+  public interface CarInfoStep {
+    RideExpiresAtStep carInfo(String carInfo);
+  }
+  
+
+  public interface RideExpiresAtStep {
+    RideDateStep rideExpiresAt(String rideExpiresAt);
+  }
+  
+
+  public interface RideDateStep {
+    BuildStep rideDate(String rideDate);
   }
   
 
@@ -173,11 +258,16 @@ public final class Ride implements Model {
   }
   
 
-  public static class Builder implements OwnerIdStep, RideDepartureTimeStep, AvailableSeatsStep, BuildStep {
+  public static class Builder implements OwnerIdStep, RideDepartureTimeStep, AvailableSeatsStep, CostStep, CarImageStep, CarInfoStep, RideExpiresAtStep, RideDateStep, BuildStep {
     private String id;
     private String owner_id;
     private String ride_departure_time;
     private Integer available_seats;
+    private Double cost;
+    private String car_image;
+    private String car_Info;
+    private String ride_expires_at;
+    private String ride_date;
     private List<String> ride_route;
     @Override
      public Ride build() {
@@ -188,6 +278,11 @@ public final class Ride implements Model {
           owner_id,
           ride_departure_time,
           available_seats,
+          cost,
+          car_image,
+          car_Info,
+          ride_expires_at,
+          ride_date,
           ride_route);
     }
     
@@ -206,9 +301,44 @@ public final class Ride implements Model {
     }
     
     @Override
-     public BuildStep availableSeats(Integer availableSeats) {
+     public CostStep availableSeats(Integer availableSeats) {
         Objects.requireNonNull(availableSeats);
         this.available_seats = availableSeats;
+        return this;
+    }
+    
+    @Override
+     public CarImageStep cost(Double cost) {
+        Objects.requireNonNull(cost);
+        this.cost = cost;
+        return this;
+    }
+    
+    @Override
+     public CarInfoStep carImage(String carImage) {
+        Objects.requireNonNull(carImage);
+        this.car_image = carImage;
+        return this;
+    }
+    
+    @Override
+     public RideExpiresAtStep carInfo(String carInfo) {
+        Objects.requireNonNull(carInfo);
+        this.car_Info = carInfo;
+        return this;
+    }
+    
+    @Override
+     public RideDateStep rideExpiresAt(String rideExpiresAt) {
+        Objects.requireNonNull(rideExpiresAt);
+        this.ride_expires_at = rideExpiresAt;
+        return this;
+    }
+    
+    @Override
+     public BuildStep rideDate(String rideDate) {
+        Objects.requireNonNull(rideDate);
+        this.ride_date = rideDate;
         return this;
     }
     
@@ -230,11 +360,16 @@ public final class Ride implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String ownerId, String rideDepartureTime, Integer availableSeats, List<String> rideRoute) {
+    private CopyOfBuilder(String id, String ownerId, String rideDepartureTime, Integer availableSeats, Double cost, String carImage, String carInfo, String rideExpiresAt, String rideDate, List<String> rideRoute) {
       super.id(id);
       super.ownerId(ownerId)
         .rideDepartureTime(rideDepartureTime)
         .availableSeats(availableSeats)
+        .cost(cost)
+        .carImage(carImage)
+        .carInfo(carInfo)
+        .rideExpiresAt(rideExpiresAt)
+        .rideDate(rideDate)
         .rideRoute(rideRoute);
     }
     
@@ -251,6 +386,31 @@ public final class Ride implements Model {
     @Override
      public CopyOfBuilder availableSeats(Integer availableSeats) {
       return (CopyOfBuilder) super.availableSeats(availableSeats);
+    }
+    
+    @Override
+     public CopyOfBuilder cost(Double cost) {
+      return (CopyOfBuilder) super.cost(cost);
+    }
+    
+    @Override
+     public CopyOfBuilder carImage(String carImage) {
+      return (CopyOfBuilder) super.carImage(carImage);
+    }
+    
+    @Override
+     public CopyOfBuilder carInfo(String carInfo) {
+      return (CopyOfBuilder) super.carInfo(carInfo);
+    }
+    
+    @Override
+     public CopyOfBuilder rideExpiresAt(String rideExpiresAt) {
+      return (CopyOfBuilder) super.rideExpiresAt(rideExpiresAt);
+    }
+    
+    @Override
+     public CopyOfBuilder rideDate(String rideDate) {
+      return (CopyOfBuilder) super.rideDate(rideDate);
     }
     
     @Override

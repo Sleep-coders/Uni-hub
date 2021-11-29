@@ -28,6 +28,11 @@ type Ride @model @key(name:"byOwner",fields:["owner_id"]) {
   owner_id: ID!
   ride_departure_time : String!
   available_seats : Int!
+  cost : Float!
+  car_image : String!
+  car_Info : String!
+  ride_expires_at : String!
+  ride_date : String!
   ride_route : [String]
   riders : [RidersJoin] @connection(name: "RideUserJoin")
 }
