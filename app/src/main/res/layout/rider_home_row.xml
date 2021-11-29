@@ -5,16 +5,6 @@
     android:layout_width="wrap_content"
     android:layout_height="match_parent">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="2dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </androidx.cardview.widget.CardView>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="389dp"
@@ -22,76 +12,76 @@
         android:backgroundTint="@color/white_main_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.791">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/ridesTitle_text"
             android:layout_width="135dp"
-            android:layout_height="66dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="19dp"
             android:text="Title"
             android:textAlignment="center"
             android:textSize="34sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/rides_description_text"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.158"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.533" />
+            app:layout_constraintTop_toBottomOf="@+id/rides_imges" />
 
         <TextView
             android:id="@+id/rides_description_text"
             android:layout_width="128dp"
-            android:layout_height="33dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="17dp"
             android:text="Description"
+            android:textAlignment="center"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/rides_description_text2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.816"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.566" />
+            app:layout_constraintTop_toBottomOf="@+id/ridesTitle_text" />
 
         <TextView
             android:id="@+id/rides_description_text2"
             android:layout_width="128dp"
-            android:layout_height="28dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="30dp"
             android:text="Description"
+            android:textAlignment="center"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/joinride_btn"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.816"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.682" />
+            app:layout_constraintTop_toBottomOf="@+id/rides_description_text" />
 
         <ImageView
             android:id="@+id/rides_imges"
-            android:layout_width="320dp"
+            android:layout_width="184dp"
             android:layout_height="184dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.118"
             app:srcCompat="@mipmap/ic_launcher" />
 
         <Button
             android:id="@+id/joinride_btn"
             android:layout_width="200dp"
-            android:layout_height="67dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="39dp"
             android:backgroundTint="@color/yellow_main_color"
             android:text="Join Ride"
             android:textColor="@color/black_main_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.891" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintTop_toBottomOf="@+id/rides_description_text2" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
