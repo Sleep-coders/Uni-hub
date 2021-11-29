@@ -2,7 +2,9 @@ package com.example.uni_hub.ui.auth;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -19,6 +21,7 @@ import com.google.android.material.textfield.TextInputEditText;
 public class Login extends AppCompatActivity {
 
     private static final String TAG = "Login";
+    private static final String MyPREFERENCES = "passwordRef";
     private static final String FAIL_MSG = "Signin Failed Password and/or email incorrect!";
 
     @Override
@@ -27,6 +30,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
         initPlugins();
+
 
         TextInputEditText emailText = findViewById(R.id.signin_email_text);
         TextInputEditText passText = findViewById(R.id.signin_password_text);
@@ -45,8 +49,16 @@ public class Login extends AppCompatActivity {
         Amplify.Auth.signIn(
                 email,
                 pass,
-                result -> {Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete");
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));},
+                result -> {
+                    Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete");
+
+                    SharedPreferences sharedPref = getApplicationContext()
+                            .getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString("userPassword", pass);
+                    editor.apply();
+
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));},
                 error -> runOnUiThread(()->fail.setText(FAIL_MSG))
         );
     }
