@@ -8,7 +8,7 @@
     tools:context=".ui.carpool.rider.Rider_home">
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/uploadImageBtnId"
         android:layout_width="292dp"
         android:layout_height="72dp"
         android:backgroundTint="@color/yellow_main_color"

@@ -52,7 +52,7 @@
     <string name="_0_jd">0 JD</string>
     <string name="_0_seat">0 Seat</string>
     <string name="select_a_date">Select a Date</string>
-<!--    <string name="cost_per_passenger">Cost Per Passenger</string>-->
+    <!--    <string name="cost_per_passenger">Cost Per Passenger</string>-->
     <string name="submit_your_ride">Submit your Ride</string>
     <string-array name="Available_Rides">
         <item>ride1</item>
@@ -85,5 +85,12 @@
         <item>Sweleh to Amman</item>
         <item>Jarash to Amman</item>
 
+    </string-array>
+
+    <string-array name="availabe_rooms">
+        <item>room1</item>
+        <item>room2</item>
+        <item>room3</item>
+        <item>room4</item>
     </string-array>
 </resources>

@@ -24,6 +24,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Unihub">
         <activity
+            android:name=".ui.roommates.Room_Owner_notification"
+            android:exported="false" />
+        <activity
+            android:name=".ui.roommates.MyAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".ui.roommates.Create_post_Rommates"
+            android:exported="false" />
+        <activity
+            android:name=".ui.roommates.Available_Rooms"
+            android:exported="false" />
+        <activity
+            android:name=".ui.roommates.Add_post_Rommates"
+            android:exported="false" />
+        <activity
             android:name=".ui.carpool.driver.Notification_to_Driver"
             android:exported="false" />
         <activity
@@ -45,17 +60,16 @@
             android:exported="false" />
         <activity
             android:name=".ui.carpool.Carpool_Home"
-            android:exported="false" />
-<!--        <activity android:name=".MainActivity"-->
-<!--            android:exported="false"/>-->
-<!--         <activity-->
-<!--         android:name=".ui.auth.Login"-->
-<!--         android:exported="true">-->
-<!--         <intent-filter>-->
-<!--         <action android:name="android.intent.action.MAIN" />-->
-<!--         <category android:name="android.intent.category.LAUNCHER" />-->
-<!--         </intent-filter>-->
-<!--         </activity>-->
+            android:exported="false" /> <!-- <activity android:name=".MainActivity" -->
+        <!-- android:exported="false"/> -->
+        <!-- <activity -->
+        <!-- android:name=".ui.auth.Login" -->
+        <!-- android:exported="true"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
+        <!-- </activity> -->
         <activity
             android:name=".MainActivity"
             android:exported="true"

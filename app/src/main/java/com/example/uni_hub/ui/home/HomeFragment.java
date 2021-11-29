@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.uni_hub.R;
 import com.example.uni_hub.databinding.FragmentHomeBinding;
 import com.example.uni_hub.ui.carpool.Carpool_Home;
+import com.example.uni_hub.ui.roommates.Available_Rooms;
 
 public class HomeFragment extends Fragment{
     Activity context;
@@ -44,11 +45,20 @@ public class HomeFragment extends Fragment{
     public void onStart(){
         super.onStart();
         CardView carpoolCard = (CardView) context.findViewById(R.id.card_carpool);
+        CardView reqRoommateCard = (CardView) context.findViewById(R.id.req_roommate_card);
         carpoolCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent carpool_intent = new Intent(context,Carpool_Home.class);
                 startActivity(carpool_intent);
+            }
+        });
+
+        reqRoommateCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent req_roommate_intent = new Intent(context, Available_Rooms.class);
+                startActivity(req_roommate_intent);
             }
         });
     }

@@ -21,7 +21,7 @@
             android:background="@color/white_main_color">
 
             <ImageView
-                android:id="@+id/imageView19"
+                android:id="@+id/addPostImageId"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginEnd="14dp"
@@ -43,7 +43,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.006"
-                app:layout_constraintStart_toEndOf="@+id/imageView19"
+                app:layout_constraintStart_toEndOf="@+id/addPostImageId"
                 app:layout_constraintTop_toBottomOf="@+id/driver_name_cards" />
 
             <TextView
@@ -55,7 +55,7 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/rout_path"
                 app:layout_constraintEnd_toStartOf="@+id/request_ride"
-                app:layout_constraintStart_toEndOf="@+id/imageView19"
+                app:layout_constraintStart_toEndOf="@+id/addPostImageId"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.666" />
 

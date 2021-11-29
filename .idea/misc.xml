@@ -31,11 +31,25 @@
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/drawable/ic_baseline_settings_black_24.xml" value="0.1" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.1" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/layout-v28/fragment_profile.xml" value="0.14739583333333334" />
+        <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/activity_add_post_rommates.xml" value="0.2" />
+        <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/activity_add_post_rommates2.xml" value="0.12135416666666667" />
+        <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/activity_available_rides.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/activity_available_rooms.xml" value="0.21" />
+        <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/activity_create_post_rommates.xml" value="0.25" />
+        <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/activity_create_post_rommates2.xml" value="0.12135416666666667" />
+        <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/activity_driver_create_ride.xml" value="0.1421875" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/activity_my_adapter.xml" value="0.10729166666666666" />
+        <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/activity_room_owner.xml" value="0.22" />
+        <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/activity_room_owner2.xml" value="0.1421875" />
+        <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/activity_room_owner_notification.xml" value="0.18" />
+        <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/activity_room_owner_notification2.xml" value="0.15625" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/fragment_dashboard.xml" value="0.1625" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/fragment_notifications.xml" value="0.18" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/fragment_profile.xml" value="0.18" />
+        <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/my_row.xml" value="0.1421875" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/settings_activity.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/menu/bottom_nav_menu.xml" value="0.22" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/menu/bottom_nav_menu_main.xml" value="0.1" />
