@@ -4,35 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.utilities.Student_Utilities">
+    tools:context=".ui.book_donation.Book_Donation">
 
-    <Button
-        android:id="@+id/btn_alarmclock"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="69dp"
-        android:text="Alarm Clock"
-        app:layout_constraintBottom_toTopOf="@+id/btn_pdf_scanner"
-        app:layout_constraintEnd_toEndOf="@+id/btn_pdf_scanner" />
-
-    <Button
-        android:id="@+id/btn_calender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="52dp"
-        android:text="Calender"
-        app:layout_constraintStart_toStartOf="@+id/btn_pdf_scanner"
-        app:layout_constraintTop_toBottomOf="@+id/btn_pdf_scanner" />
-
-    <Button
-        android:id="@+id/btn_pdf_scanner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="283dp"
-        android:text="Pdf Scanner"
+        android:text="COMING SOON"
+        android:textColor="@color/purple_main_color"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
