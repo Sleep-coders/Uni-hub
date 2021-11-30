@@ -52,6 +52,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolygonOptions;
@@ -72,6 +73,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyCallback {
+
     EditText chooseDepartureTime;
     EditText riderExpiresAt;
     EditText chooseDate;
@@ -82,6 +84,7 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
 
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
+    View confirmUser;
 
     DatePickerDialog.OnDateSetListener datePickerDialog;
     TimePickerDialog timePickerDialog1;
@@ -113,10 +116,14 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
 
     private double latitude;
     private double longitude;
-    private double destinationLatitude;
-    private double destinationLongitude;
+    int destCounter;
+    private double destinationStartLatitude;
+    private double destinationStartLongitude;
+    private double destinationEndLatitude;
+    private double destinationEndLongitude;
 
 
+    @SuppressLint("InflateParams")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -125,6 +132,7 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
         getSupportActionBar().hide();
         setContentView(R.layout.activity_driver_create_ride);
 
+        destCounter=0;
         getUserID();
 
         Toast toast = Toast.makeText(this, "Something Went Wrong, Check Inputs And Try Again", Toast.LENGTH_LONG);
@@ -138,6 +146,10 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
         findViewById(R.id.location_showMap_Btn).setOnClickListener(view -> {
             showMapDialog();
         });
+
+
+        dialogBuilder = new AlertDialog.Builder(this);
+        confirmUser = getLayoutInflater().inflate(R.layout.geograph_path_create_ride, null);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -280,9 +292,15 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
         submit_ride = findViewById(R.id.submit_ride);
         submit_ride.setOnClickListener(view -> {
             if (getUserCarInfo()) {
-//                List<String> coordinates = new ArrayList<>();
-//                String currentLatLon = Double.toString(latitude)+
-//                coordinates.add()
+
+                StringBuilder path = new StringBuilder();
+                path.append(destinationStartLatitude);
+                path.append(",");
+                path.append(destinationStartLongitude);
+                path.append(":");
+                path.append(destinationEndLatitude);
+                path.append(",");
+                path.append(destinationEndLongitude);
                 String departureTime = chooseDepartureTime.getText().toString();
                 String expiresAt = riderExpiresAt.getText().toString();
                 String chooseRideDate = chooseDate.getText().toString();
@@ -297,8 +315,8 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
                         .carInfo(cars.get(0).getCarModel())
                         .rideExpiresAt(expiresAt)
                         .rideDate(chooseRideDate).rideDescription(routeDescription)
-//                        .rideRoute()
-//                        .appUserRidesId(userId)
+                        .rideRoute(path.toString())
+                        .appUserRidesId(userId)
                         .build();
 
                 Amplify.API.mutate(ModelMutation.create(ride),
@@ -316,10 +334,15 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
 
     public void getUserID() {
         String email = Amplify.Auth.getCurrentUser().getUsername();
-        Amplify.API.query(ModelQuery.get(AppUser.class, email),
+        Log.i("HHHHHHHHHHHHHHHH", "======> ||||||||||||||||||||||||||||||////////////////"+ email);
+        Amplify.API.query(ModelQuery.list(AppUser.class, AppUser.USER_EMAIL.eq(email)),
                 success -> {
-                    userId = success.getData().getId();
-                    userName = success.getData().getUserNickname();
+                    for(AppUser user : success.getData().getItems()){
+                        userId = user.getId();
+                        userName = user.getUserNickname();
+                        break;
+                    }
+                    Log.i("XXXXXXXXXXXXXXXXX", "XXXXXXXXX||||||X|X||X|X||XX|" + userId + userName);
                 },
                 error -> {
                     Log.i("getUserID", "Error in getting user id");
@@ -366,12 +389,77 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
     public void onMapReady(@NonNull GoogleMap googleMap) {
         googleMapL = googleMap;
 
+        googleMapL.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
 
-        LatLng[] latLngs = (LatLng[]) points.toArray();
-        googleMapL.addPolygon(new PolygonOptions().add(latLngs));
+            @Override
+            public void onMapClick(@NonNull LatLng position) {
+
+                if(destCounter==0){
+                    googleMapL.addMarker(new MarkerOptions().position(position)
+                            .title("destination Location"));
+                    destinationStartLatitude = position.latitude;
+                    destinationStartLongitude = position.longitude;
+                    destCounter++;
+                }
+                if(destCounter == 2){
+                    googleMapL.addMarker(new MarkerOptions().position(position)
+                            .title("destination Location"));
+                    destinationEndLatitude = position.latitude;
+                    destinationEndLongitude= position.longitude;
+                    destCounter++;
+                }
+
+
+            }
+        });
+//
+//        LatLng[] latLngs = (LatLng[]) points.toArray();
+//        googleMapL.addPolygon(new PolygonOptions().add(latLngs));
     }
 
 
+    // DIALOG BOX
+    @SuppressLint("InflateParams")
+    public void showMapDialog() {
+
+        dialogBuilder = new AlertDialog.Builder(this);
+        confirmUser = getLayoutInflater().inflate(R.layout.geograph_path_create_ride, null);
+
+        getLastLocation();
+
+
+
+
+//        String url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + latitude + "," + longitude + "&destination=" + destinationLatitude + "," + destinationLongitude + "&key=AIzaSyAh_BlQF3Zdf3_O4vJUuNwmkVKQEhmIq90";
+//        HttpRequester requester = new HttpRequester();
+//        try {
+//            points =  requester.run(url);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+
+        Button saveLocationBtn = confirmUser.findViewById(R.id.save_route_path);
+        Button cancelLocationBtn = confirmUser.findViewById(R.id.close_map);
+
+        dialogBuilder.setView(confirmUser);
+        dialog = dialogBuilder.create();
+        dialog.show();
+
+        cancelLocationBtn.setOnClickListener(view -> {
+//            confirmUser.remo
+            dialog.dismiss();
+        });
+
+
+        saveLocationBtn.setOnClickListener(view -> {
+
+
+        });
+    }
+
+
+    // PERMISSIONS
     @SuppressLint("MissingPermission")
     private void getLastLocation() {
         if (checkPermissions()) {
@@ -398,19 +486,6 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
                             googleMapL.setMapType(GoogleMap.MAP_TYPE_NORMAL);
                             googleMapL.setTrafficEnabled(true);
 
-                            googleMapL.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
-
-                                @Override
-                                public void onMapClick(@NonNull LatLng position) {
-
-                                    googleMapL.addMarker(new MarkerOptions().position(position)
-                                            .title("destination Location"));
-                                    destinationLatitude = position.latitude;
-                                    destinationLongitude = position.longitude;
-
-
-                                }
-                            });
 
                         }
                     }
@@ -462,38 +537,6 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
         // on FusedLocationClient
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this); // this may or may not be needed
         mFusedLocationClient.requestLocationUpdates(locationRequest, mLocationCallback, Looper.myLooper());
-    }
-
-    public void showMapDialog() {
-
-
-        getLastLocation();
-        String url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + latitude + "," + longitude + "&destination=" + destinationLatitude + "," + destinationLongitude + "&key=AIzaSyAh_BlQF3Zdf3_O4vJUuNwmkVKQEhmIq90";
-        HttpRequester requester = new HttpRequester();
-        try {
-            points =  requester.run(url);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        dialogBuilder = new AlertDialog.Builder(this);
-        View confirmUser = getLayoutInflater().inflate(R.layout.geograph_path_create_ride, null);
-
-        Button saveLocationBtn = findViewById(R.id.save_route_path);
-        Button cancelLocationBtn = findViewById(R.id.cancel_route_path);
-
-        dialogBuilder.setView(confirmUser);
-        dialog = dialogBuilder.create();
-        dialog.show();
-
-        cancelLocationBtn.setOnClickListener(view -> {
-            dialog.dismiss();
-        });
-
-
-        saveLocationBtn.setOnClickListener(view -> {
-
-
-        });
     }
 
 }

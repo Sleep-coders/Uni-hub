@@ -100,9 +100,13 @@ public class Available_Rides extends AppCompatActivity {
 
     public void getUserID() {
         String email = Amplify.Auth.getCurrentUser().getUsername();
-        Amplify.API.query(ModelQuery.get(AppUser.class, email),
+        Amplify.API.query(ModelQuery.list(AppUser.class, AppUser.USER_EMAIL.eq(email)),
                 success -> {
-                    userId = success.getData().getId();
+
+                    for(AppUser user : success.getData().getItems()){
+                        userId = user.getId();
+                        break;
+                    }
                 },
                 error -> {
                     Log.i("getUserID", "Error in getting user id");
