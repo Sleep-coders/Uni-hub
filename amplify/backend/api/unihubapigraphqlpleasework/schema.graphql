@@ -9,7 +9,7 @@ type AppUser @model
   user_real_name: String!
   user_nickname: String!
   user_phone_number: String!
-  user_email: String! @index(name: "byEmail", queryField: "userByEmail")
+  user_email: String! @index(name: "byEmail", queryField: "userByEmail",sortKeyFields:["id"])
   user_location: String
   user_university: String
   user_img: String

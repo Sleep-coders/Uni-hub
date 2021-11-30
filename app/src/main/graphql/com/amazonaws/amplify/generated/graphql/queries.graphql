@@ -301,6 +301,7 @@ query SyncCars(
 }
 query UserByEmail(
   $user_email: String
+  $id: ModelIDKeyConditionInput
   $sortDirection: ModelSortDirection
   $filter: ModelAppUserFilterInput
   $limit: Int
@@ -308,6 +309,7 @@ query UserByEmail(
 ) {
   userByEmail(
     user_email: $user_email
+    id: $id
     sortDirection: $sortDirection
     filter: $filter
     limit: $limit
