@@ -148,13 +148,13 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
         });
 
 
-        dialogBuilder = new AlertDialog.Builder(this);
-        confirmUser = getLayoutInflater().inflate(R.layout.geograph_path_create_ride, null);
-
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        assert mapFragment != null;
-        mapFragment.getMapAsync(this);
+//        dialogBuilder = new AlertDialog.Builder(this);
+//        confirmUser = getLayoutInflater().inflate(R.layout.geograph_path_create_ride, null);
+//
+//        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+//                .findFragmentById(R.id.map);
+//        assert mapFragment != null;
+//        mapFragment.getMapAsync(this);
 
 
         carNotFound = findViewById(R.id.user_car_notFound);
@@ -394,20 +394,29 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
             @Override
             public void onMapClick(@NonNull LatLng position) {
 
-                if(destCounter==0){
+                if(destCounter < 1){
                     googleMapL.addMarker(new MarkerOptions().position(position)
-                            .title("destination Location"));
+                            .title("Start Location").snippet("saba7 fakhry"));
                     destinationStartLatitude = position.latitude;
                     destinationStartLongitude = position.longitude;
                     destCounter++;
+                    Log.i("XXXXyyyyzzzzz", "XXXXXXXXXyyyyyyyyyzzzzzzzz+++++>>>>" + destinationStartLatitude + destinationStartLongitude + destCounter );
                 }
-                if(destCounter == 2){
+                if(destCounter <= 2){
                     googleMapL.addMarker(new MarkerOptions().position(position)
-                            .title("destination Location"));
+                            .title("destination Location").snippet("saba7 fakhry"));
+
                     destinationEndLatitude = position.latitude;
                     destinationEndLongitude= position.longitude;
                     destCounter++;
+                    Log.i("aaaapppppcccc", "AAAAAAAAABBBBBBBBCCCCCC+++++>>>" + destinationEndLatitude +  destinationEndLongitude + destCounter );
+
                 }
+
+//                if(points.size()!=0){
+//                    LatLng[] latLngs = (LatLng[]) points.toArray();
+//                    googleMapL.addPolygon(new PolygonOptions().add(latLngs));
+//                }
 
 
             }
@@ -424,6 +433,11 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
 
         dialogBuilder = new AlertDialog.Builder(this);
         confirmUser = getLayoutInflater().inflate(R.layout.geograph_path_create_ride, null);
+
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        assert mapFragment != null;
+        mapFragment.getMapAsync(this);
 
         getLastLocation();
 
