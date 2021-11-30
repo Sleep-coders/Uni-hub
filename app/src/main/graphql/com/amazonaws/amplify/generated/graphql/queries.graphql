@@ -1,6 +1,6 @@
 # this is an auto generated file. This will be overwritten
-query GetUser($id: ID!) {
-  getUser(id: $id) {
+query GetAppUser($id: ID!) {
+  getAppUser(id: $id) {
     id
     user_real_name
     user_nickname
@@ -9,42 +9,23 @@ query GetUser($id: ID!) {
     user_location
     user_university
     user_img
+    car {
+      id
+      ownerID
+      car_model
+      car_img
+      car_seats_num
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
     rides {
       items {
         id
-        userID
-        rideID
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
-    }
-    car {
-      items {
-        id
-        ownerID
-        car_model
-        car_img
-        car_seats_num
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-        userCarId
-      }
-      nextToken
-      startedAt
-    }
-    owner_ride {
-      items {
-        id
-        owner_id
         owner_name
+        owner_id
         ride_departure_time
         available_seats
         cost
@@ -59,7 +40,7 @@ query GetUser($id: ID!) {
         _version
         _deleted
         _lastChangedAt
-        userOwner_rideId
+        appUserRidesId
       }
       nextToken
       startedAt
@@ -69,113 +50,17 @@ query GetUser($id: ID!) {
     _version
     _deleted
     _lastChangedAt
+    appUserCarId
   }
 }
-query ListUsers(
-  $filter: ModelUserFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      user_real_name
-      user_nickname
-      user_phone_number
-      user_email
-      user_location
-      user_university
-      user_img
-      rides {
-        nextToken
-        startedAt
-      }
-      car {
-        nextToken
-        startedAt
-      }
-      owner_ride {
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-    nextToken
-    startedAt
-  }
-}
-query SyncUsers(
-  $filter: ModelUserFilterInput
-  $limit: Int
-  $nextToken: String
-  $lastSync: AWSTimestamp
-) {
-  syncUsers(
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-    lastSync: $lastSync
-  ) {
-    items {
-      id
-      user_real_name
-      user_nickname
-      user_phone_number
-      user_email
-      user_location
-      user_university
-      user_img
-      rides {
-        nextToken
-        startedAt
-      }
-      car {
-        nextToken
-        startedAt
-      }
-      owner_ride {
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-    nextToken
-    startedAt
-  }
-}
-query GetStudent($id: ID!) {
-  getStudent(id: $id) {
-    id
-    user_real_name
-    user_nickname
-    user_phone_number
-    user_email
-    user_location
-    user_university
-    user_img
-    createdAt
-    updatedAt
-    _version
-    _deleted
-    _lastChangedAt
-  }
-}
-query ListStudents(
+query ListAppUsers(
   $id: ID
-  $filter: ModelStudentFilterInput
+  $filter: ModelAppUserFilterInput
   $limit: Int
   $nextToken: String
   $sortDirection: ModelSortDirection
 ) {
-  listStudents(
+  listAppUsers(
     id: $id
     filter: $filter
     limit: $limit
@@ -191,23 +76,40 @@ query ListStudents(
       user_location
       user_university
       user_img
+      car {
+        id
+        ownerID
+        car_model
+        car_img
+        car_seats_num
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      rides {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
       _deleted
       _lastChangedAt
+      appUserCarId
     }
     nextToken
     startedAt
   }
 }
-query SyncStudents(
-  $filter: ModelStudentFilterInput
+query SyncAppUsers(
+  $filter: ModelAppUserFilterInput
   $limit: Int
   $nextToken: String
   $lastSync: AWSTimestamp
 ) {
-  syncStudents(
+  syncAppUsers(
     filter: $filter
     limit: $limit
     nextToken: $nextToken
@@ -222,11 +124,116 @@ query SyncStudents(
       user_location
       user_university
       user_img
+      car {
+        id
+        ownerID
+        car_model
+        car_img
+        car_seats_num
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      rides {
+        nextToken
+        startedAt
+      }
       createdAt
       updatedAt
       _version
       _deleted
       _lastChangedAt
+      appUserCarId
+    }
+    nextToken
+    startedAt
+  }
+}
+query GetRide($id: ID!) {
+  getRide(id: $id) {
+    id
+    owner_name
+    owner_id
+    ride_departure_time
+    available_seats
+    cost
+    car_image
+    car_Info
+    ride_expires_at
+    ride_date
+    ride_description
+    ride_route
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    appUserRidesId
+  }
+}
+query ListRides(
+  $filter: ModelRideFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listRides(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      owner_name
+      owner_id
+      ride_departure_time
+      available_seats
+      cost
+      car_image
+      car_Info
+      ride_expires_at
+      ride_date
+      ride_description
+      ride_route
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      appUserRidesId
+    }
+    nextToken
+    startedAt
+  }
+}
+query SyncRides(
+  $filter: ModelRideFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncRides(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      owner_name
+      owner_id
+      ride_departure_time
+      available_seats
+      cost
+      car_image
+      car_Info
+      ride_expires_at
+      ride_date
+      ride_description
+      ride_route
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      appUserRidesId
     }
     nextToken
     startedAt
@@ -244,7 +251,6 @@ query GetCar($id: ID!) {
     _version
     _deleted
     _lastChangedAt
-    userCarId
   }
 }
 query ListCars($filter: ModelCarFilterInput, $limit: Int, $nextToken: String) {
@@ -260,7 +266,6 @@ query ListCars($filter: ModelCarFilterInput, $limit: Int, $nextToken: String) {
       _version
       _deleted
       _lastChangedAt
-      userCarId
     }
     nextToken
     startedAt
@@ -289,128 +294,26 @@ query SyncCars(
       _version
       _deleted
       _lastChangedAt
-      userCarId
     }
     nextToken
     startedAt
   }
 }
-query GetRide($id: ID!) {
-  getRide(id: $id) {
-    id
-    owner_id
-    owner_name
-    ride_departure_time
-    available_seats
-    cost
-    car_image
-    car_Info
-    ride_expires_at
-    ride_date
-    ride_description
-    ride_route
-    riders {
-      items {
-        id
-        userID
-        rideID
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
-    }
-    createdAt
-    updatedAt
-    _version
-    _deleted
-    _lastChangedAt
-    userOwner_rideId
-  }
-}
-query ListRides(
-  $filter: ModelRideFilterInput
+query UserByEmail(
+  $user_email: String
+  $sortDirection: ModelSortDirection
+  $filter: ModelAppUserFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listRides(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      owner_id
-      owner_name
-      ride_departure_time
-      available_seats
-      cost
-      car_image
-      car_Info
-      ride_expires_at
-      ride_date
-      ride_description
-      ride_route
-      riders {
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-      userOwner_rideId
-    }
-    nextToken
-    startedAt
-  }
-}
-query SyncRides(
-  $filter: ModelRideFilterInput
-  $limit: Int
-  $nextToken: String
-  $lastSync: AWSTimestamp
-) {
-  syncRides(
+  userByEmail(
+    user_email: $user_email
+    sortDirection: $sortDirection
     filter: $filter
     limit: $limit
     nextToken: $nextToken
-    lastSync: $lastSync
   ) {
     items {
-      id
-      owner_id
-      owner_name
-      ride_departure_time
-      available_seats
-      cost
-      car_image
-      car_Info
-      ride_expires_at
-      ride_date
-      ride_description
-      ride_route
-      riders {
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-      userOwner_rideId
-    }
-    nextToken
-    startedAt
-  }
-}
-query GetUserRiderRelation($id: ID!) {
-  getUserRiderRelation(id: $id) {
-    id
-    userID
-    rideID
-    user {
       id
       user_real_name
       user_nickname
@@ -419,170 +322,28 @@ query GetUserRiderRelation($id: ID!) {
       user_location
       user_university
       user_img
+      car {
+        id
+        ownerID
+        car_model
+        car_img
+        car_seats_num
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
       rides {
         nextToken
         startedAt
       }
-      car {
-        nextToken
-        startedAt
-      }
-      owner_ride {
-        nextToken
-        startedAt
-      }
       createdAt
       updatedAt
       _version
       _deleted
       _lastChangedAt
-    }
-    ride {
-      id
-      owner_id
-      owner_name
-      ride_departure_time
-      available_seats
-      cost
-      car_image
-      car_Info
-      ride_expires_at
-      ride_date
-      ride_description
-      ride_route
-      riders {
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-      userOwner_rideId
-    }
-    createdAt
-    updatedAt
-    _version
-    _deleted
-    _lastChangedAt
-  }
-}
-query ListUserRiderRelations(
-  $filter: ModelUserRiderRelationFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listUserRiderRelations(
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-  ) {
-    items {
-      id
-      userID
-      rideID
-      user {
-        id
-        user_real_name
-        user_nickname
-        user_phone_number
-        user_email
-        user_location
-        user_university
-        user_img
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      ride {
-        id
-        owner_id
-        owner_name
-        ride_departure_time
-        available_seats
-        cost
-        car_image
-        car_Info
-        ride_expires_at
-        ride_date
-        ride_description
-        ride_route
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-        userOwner_rideId
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-    nextToken
-    startedAt
-  }
-}
-query SyncUserRiderRelations(
-  $filter: ModelUserRiderRelationFilterInput
-  $limit: Int
-  $nextToken: String
-  $lastSync: AWSTimestamp
-) {
-  syncUserRiderRelations(
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-    lastSync: $lastSync
-  ) {
-    items {
-      id
-      userID
-      rideID
-      user {
-        id
-        user_real_name
-        user_nickname
-        user_phone_number
-        user_email
-        user_location
-        user_university
-        user_img
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      ride {
-        id
-        owner_id
-        owner_name
-        ride_departure_time
-        available_seats
-        cost
-        car_image
-        car_Info
-        ride_expires_at
-        ride_date
-        ride_description
-        ride_route
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-        userOwner_rideId
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
+      appUserCarId
     }
     nextToken
     startedAt

@@ -41,10 +41,11 @@ public class HttpRequester {
                latLngs.add(new LatLng(step.start_location.lat,step.start_location.lng));
                latLngs.add(new LatLng(step.end_location.lat,step.end_location.lng));
            }
-           return latLngs;
+
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return latLngs;
     }
 }

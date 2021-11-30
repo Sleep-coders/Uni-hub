@@ -22,13 +22,14 @@ import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.auth.AuthUserAttributeKey;
 import com.amplifyframework.auth.options.AuthSignUpOptions;
 import com.amplifyframework.core.Amplify;
-import com.amplifyframework.datastore.generated.model.User;
+import com.amplifyframework.datastore.generated.model.AppUser;
+import com.amplifyframework.datastore.generated.model.Ride;
 import com.example.uni_hub.MainActivity;
 import com.example.uni_hub.R;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class Signup extends AppCompatActivity {
-    private static final String TAG = "Sinup";
+    private static final String TAG = "SignUpProcess";
     private static final String MyPREFERENCES = "passwordRef";
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
@@ -71,15 +72,8 @@ public class Signup extends AppCompatActivity {
             String userName = message.getData().getString("userName");
             String phoneNumber = message.getData().getString("phoneNumber");
 
-            User user = User.builder()
-                    .userRealName(name)
-                    .userNickname(userName)
-                    .userPhoneNumber(phoneNumber)
-                    .userEmail(email).build();
-
-            Log.i(TAG, "user is: " + user.toString());
-
-            saveUserInDynamoDB(user);
+//            saveUserInDynamoDB(student);
+            saveUserInDynamoDB(name, email, userName, phoneNumber);
             return false;
         });
 
@@ -169,15 +163,7 @@ public class Signup extends AppCompatActivity {
                     confirmCode,
                     result -> {
                         Log.i("AuthQuickstart", result.isSignUpComplete() ? "Confirm signUp succeeded" : "Confirm sign up not complete");
-                        Bundle bundle = new Bundle();
-                        bundle.putString("email", email);
-                        bundle.putString("name", name);
-                        bundle.putString("userName", userName);
-                        bundle.putString("phoneNumber", phoneNumber);
-                        Message message = new Message();
-                        message.setData(bundle);
-                        apiHandler.sendMessage(message);
-                        silentSignIn(email, password);
+                        silentSignIn(email, password, name, userName, phoneNumber);
                     },
                     error -> {
                         Log.e("AuthQuickstart", error.toString());
@@ -209,19 +195,26 @@ public class Signup extends AppCompatActivity {
 
     ///////////////// == save User In DynamoDB == ////////////////////////////////
 
-    private void saveUserInDynamoDB(User user) {
-        Log.i(TAG, "saveUserInDynamoDB: ===> " + user);
-        Amplify.DataStore.save(user,
+    private void saveUserInDynamoDB(String name, String email, String userName, String phoneNumber) {
+        AppUser user = AppUser.builder().userRealName(name).userNickname(userName).userPhoneNumber(phoneNumber).userEmail(email).build();
+        Amplify.API.mutate(ModelMutation.create(user),
                 response -> {
-                    Log.i("MyAmplifyApp", "User with id: " + response.item().toString());
+                    Log.i("MyAmplifyApp", "User Saved With Data ========> : " + response.getData());
                 },
                 error -> Log.e("MyAmplifyApp", "Create failed", error)
         );
     }
 
-    ///////////////// == silent SignIn == ////////////////////////////////
+    ///////////////// == silent SignIn == ////////////////////////////////µ
 
-    private void silentSignIn(String email, String password) {
+    private void silentSignIn(String email, String password, String name, String userName, String phoneNumber) {
+        Bundle bundle = new Bundle();
+        bundle.putString("email", email);
+        bundle.putString("name", name);
+        bundle.putString("userName", userName);
+        bundle.putString("phoneNumber", phoneNumber);
+        Message message = new Message();
+        message.setData(bundle);
         Amplify.Auth.signIn(
                 email,
                 password,
@@ -234,7 +227,7 @@ public class Signup extends AppCompatActivity {
                     SharedPreferences.Editor editor = sharedPref.edit();
                     editor.putString("userPassword", password);
                     editor.apply();
-
+                    apiHandler.sendMessage(message);
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 },
                 error -> {

@@ -1,5 +1,6 @@
 package com.amplifyframework.datastore.generated.model;
 
+import com.amplifyframework.core.model.annotations.HasOne;
 import com.amplifyframework.core.model.annotations.HasMany;
 import com.amplifyframework.core.model.temporal.Temporal;
 
@@ -17,19 +18,21 @@ import com.amplifyframework.core.model.query.predicate.QueryField;
 
 import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 
-/** This is an auto generated class representing the User type in your schema. */
+/** This is an auto generated class representing the AppUser type in your schema. */
 @SuppressWarnings("all")
-@ModelConfig(pluralName = "Users")
-@Index(name = "byEmail", fields = {"user_email","id"})
-public final class User implements Model {
-  public static final QueryField ID = field("User", "id");
-  public static final QueryField USER_REAL_NAME = field("User", "user_real_name");
-  public static final QueryField USER_NICKNAME = field("User", "user_nickname");
-  public static final QueryField USER_PHONE_NUMBER = field("User", "user_phone_number");
-  public static final QueryField USER_EMAIL = field("User", "user_email");
-  public static final QueryField USER_LOCATION = field("User", "user_location");
-  public static final QueryField USER_UNIVERSITY = field("User", "user_university");
-  public static final QueryField USER_IMG = field("User", "user_img");
+@ModelConfig(pluralName = "AppUsers")
+@Index(name = "undefined", fields = {"id"})
+@Index(name = "byEmail", fields = {"user_email"})
+public final class AppUser implements Model {
+  public static final QueryField ID = field("AppUser", "id");
+  public static final QueryField USER_REAL_NAME = field("AppUser", "user_real_name");
+  public static final QueryField USER_NICKNAME = field("AppUser", "user_nickname");
+  public static final QueryField USER_PHONE_NUMBER = field("AppUser", "user_phone_number");
+  public static final QueryField USER_EMAIL = field("AppUser", "user_email");
+  public static final QueryField USER_LOCATION = field("AppUser", "user_location");
+  public static final QueryField USER_UNIVERSITY = field("AppUser", "user_university");
+  public static final QueryField USER_IMG = field("AppUser", "user_img");
+  public static final QueryField APP_USER_CAR_ID = field("AppUser", "appUserCarId");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="String", isRequired = true) String user_real_name;
   private final @ModelField(targetType="String", isRequired = true) String user_nickname;
@@ -38,11 +41,11 @@ public final class User implements Model {
   private final @ModelField(targetType="String") String user_location;
   private final @ModelField(targetType="String") String user_university;
   private final @ModelField(targetType="String") String user_img;
-  private final @ModelField(targetType="UserRiderRelation") @HasMany(associatedWith = "user", type = UserRiderRelation.class) List<UserRiderRelation> rides = null;
-  private final @ModelField(targetType="Car") @HasMany(associatedWith = "userCarId", type = Car.class) List<Car> car = null;
-  private final @ModelField(targetType="Ride") @HasMany(associatedWith = "userOwnerRideId", type = Ride.class) List<Ride> owner_ride = null;
+  private final @ModelField(targetType="Car") @HasOne(associatedWith = "id", type = Car.class) Car car = null;
+  private final @ModelField(targetType="Ride") @HasMany(associatedWith = "appUserRidesId", type = Ride.class) List<Ride> rides = null;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
+  private final @ModelField(targetType="ID") String appUserCarId;
   public String getId() {
       return id;
   }
@@ -75,16 +78,12 @@ public final class User implements Model {
       return user_img;
   }
   
-  public List<UserRiderRelation> getRides() {
-      return rides;
-  }
-  
-  public List<Car> getCar() {
+  public Car getCar() {
       return car;
   }
   
-  public List<Ride> getOwnerRide() {
-      return owner_ride;
+  public List<Ride> getRides() {
+      return rides;
   }
   
   public Temporal.DateTime getCreatedAt() {
@@ -95,7 +94,11 @@ public final class User implements Model {
       return updatedAt;
   }
   
-  private User(String id, String user_real_name, String user_nickname, String user_phone_number, String user_email, String user_location, String user_university, String user_img) {
+  public String getAppUserCarId() {
+      return appUserCarId;
+  }
+  
+  private AppUser(String id, String user_real_name, String user_nickname, String user_phone_number, String user_email, String user_location, String user_university, String user_img, String appUserCarId) {
     this.id = id;
     this.user_real_name = user_real_name;
     this.user_nickname = user_nickname;
@@ -104,6 +107,7 @@ public final class User implements Model {
     this.user_location = user_location;
     this.user_university = user_university;
     this.user_img = user_img;
+    this.appUserCarId = appUserCarId;
   }
   
   @Override
@@ -113,17 +117,18 @@ public final class User implements Model {
       } else if(obj == null || getClass() != obj.getClass()) {
         return false;
       } else {
-      User user = (User) obj;
-      return ObjectsCompat.equals(getId(), user.getId()) &&
-              ObjectsCompat.equals(getUserRealName(), user.getUserRealName()) &&
-              ObjectsCompat.equals(getUserNickname(), user.getUserNickname()) &&
-              ObjectsCompat.equals(getUserPhoneNumber(), user.getUserPhoneNumber()) &&
-              ObjectsCompat.equals(getUserEmail(), user.getUserEmail()) &&
-              ObjectsCompat.equals(getUserLocation(), user.getUserLocation()) &&
-              ObjectsCompat.equals(getUserUniversity(), user.getUserUniversity()) &&
-              ObjectsCompat.equals(getUserImg(), user.getUserImg()) &&
-              ObjectsCompat.equals(getCreatedAt(), user.getCreatedAt()) &&
-              ObjectsCompat.equals(getUpdatedAt(), user.getUpdatedAt());
+      AppUser appUser = (AppUser) obj;
+      return ObjectsCompat.equals(getId(), appUser.getId()) &&
+              ObjectsCompat.equals(getUserRealName(), appUser.getUserRealName()) &&
+              ObjectsCompat.equals(getUserNickname(), appUser.getUserNickname()) &&
+              ObjectsCompat.equals(getUserPhoneNumber(), appUser.getUserPhoneNumber()) &&
+              ObjectsCompat.equals(getUserEmail(), appUser.getUserEmail()) &&
+              ObjectsCompat.equals(getUserLocation(), appUser.getUserLocation()) &&
+              ObjectsCompat.equals(getUserUniversity(), appUser.getUserUniversity()) &&
+              ObjectsCompat.equals(getUserImg(), appUser.getUserImg()) &&
+              ObjectsCompat.equals(getCreatedAt(), appUser.getCreatedAt()) &&
+              ObjectsCompat.equals(getUpdatedAt(), appUser.getUpdatedAt()) &&
+              ObjectsCompat.equals(getAppUserCarId(), appUser.getAppUserCarId());
       }
   }
   
@@ -140,6 +145,7 @@ public final class User implements Model {
       .append(getUserImg())
       .append(getCreatedAt())
       .append(getUpdatedAt())
+      .append(getAppUserCarId())
       .toString()
       .hashCode();
   }
@@ -147,7 +153,7 @@ public final class User implements Model {
   @Override
    public String toString() {
     return new StringBuilder()
-      .append("User {")
+      .append("AppUser {")
       .append("id=" + String.valueOf(getId()) + ", ")
       .append("user_real_name=" + String.valueOf(getUserRealName()) + ", ")
       .append("user_nickname=" + String.valueOf(getUserNickname()) + ", ")
@@ -157,7 +163,8 @@ public final class User implements Model {
       .append("user_university=" + String.valueOf(getUserUniversity()) + ", ")
       .append("user_img=" + String.valueOf(getUserImg()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
-      .append("updatedAt=" + String.valueOf(getUpdatedAt()))
+      .append("updatedAt=" + String.valueOf(getUpdatedAt()) + ", ")
+      .append("appUserCarId=" + String.valueOf(getAppUserCarId()))
       .append("}")
       .toString();
   }
@@ -174,9 +181,10 @@ public final class User implements Model {
    * @param id the id of the existing item this instance will represent
    * @return an instance of this model with only ID populated
    */
-  public static User justId(String id) {
-    return new User(
+  public static AppUser justId(String id) {
+    return new AppUser(
       id,
+      null,
       null,
       null,
       null,
@@ -195,7 +203,8 @@ public final class User implements Model {
       user_email,
       user_location,
       user_university,
-      user_img);
+      user_img,
+      appUserCarId);
   }
   public interface UserRealNameStep {
     UserNicknameStep userRealName(String userRealName);
@@ -218,11 +227,12 @@ public final class User implements Model {
   
 
   public interface BuildStep {
-    User build();
+    AppUser build();
     BuildStep id(String id);
     BuildStep userLocation(String userLocation);
     BuildStep userUniversity(String userUniversity);
     BuildStep userImg(String userImg);
+    BuildStep appUserCarId(String appUserCarId);
   }
   
 
@@ -235,11 +245,12 @@ public final class User implements Model {
     private String user_location;
     private String user_university;
     private String user_img;
+    private String appUserCarId;
     @Override
-     public User build() {
+     public AppUser build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
         
-        return new User(
+        return new AppUser(
           id,
           user_real_name,
           user_nickname,
@@ -247,7 +258,8 @@ public final class User implements Model {
           user_email,
           user_location,
           user_university,
-          user_img);
+          user_img,
+          appUserCarId);
     }
     
     @Override
@@ -296,6 +308,12 @@ public final class User implements Model {
         return this;
     }
     
+    @Override
+     public BuildStep appUserCarId(String appUserCarId) {
+        this.appUserCarId = appUserCarId;
+        return this;
+    }
+    
     /** 
      * @param id id
      * @return Current Builder instance, for fluent method chaining
@@ -308,7 +326,7 @@ public final class User implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String userRealName, String userNickname, String userPhoneNumber, String userEmail, String userLocation, String userUniversity, String userImg) {
+    private CopyOfBuilder(String id, String userRealName, String userNickname, String userPhoneNumber, String userEmail, String userLocation, String userUniversity, String userImg, String appUserCarId) {
       super.id(id);
       super.userRealName(userRealName)
         .userNickname(userNickname)
@@ -316,7 +334,8 @@ public final class User implements Model {
         .userEmail(userEmail)
         .userLocation(userLocation)
         .userUniversity(userUniversity)
-        .userImg(userImg);
+        .userImg(userImg)
+        .appUserCarId(appUserCarId);
     }
     
     @Override
@@ -352,6 +371,11 @@ public final class User implements Model {
     @Override
      public CopyOfBuilder userImg(String userImg) {
       return (CopyOfBuilder) super.userImg(userImg);
+    }
+    
+    @Override
+     public CopyOfBuilder appUserCarId(String appUserCarId) {
+      return (CopyOfBuilder) super.appUserCarId(appUserCarId);
     }
   }
   

@@ -37,9 +37,9 @@ import android.widget.Toast;
 import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.AppUser;
 import com.amplifyframework.datastore.generated.model.Car;
 import com.amplifyframework.datastore.generated.model.Ride;
-import com.amplifyframework.datastore.generated.model.User;
 import com.example.uni_hub.MainActivity;
 import com.example.uni_hub.R;
 import com.example.uni_hub.services.HttpRequester;
@@ -288,8 +288,8 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
                 String chooseRideDate = chooseDate.getText().toString();
                 String routeDescription = routDescriptionText.getText().toString();
                 Ride ride = Ride.builder()
-                        .ownerId(userId)
                         .ownerName(userName)
+                        .ownerId(userId)
                         .rideDepartureTime(departureTime)
                         .availableSeats(seatNum)
                         .cost(cost)
@@ -297,7 +297,8 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
                         .carInfo(cars.get(0).getCarModel())
                         .rideExpiresAt(expiresAt)
                         .rideDate(chooseRideDate).rideDescription(routeDescription)
-                        .rideRoute()
+//                        .rideRoute()
+//                        .appUserRidesId(userId)
                         .build();
 
                 Amplify.API.mutate(ModelMutation.create(ride),
@@ -315,7 +316,7 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
 
     public void getUserID() {
         String email = Amplify.Auth.getCurrentUser().getUsername();
-        Amplify.API.query(ModelQuery.get(User.class, email),
+        Amplify.API.query(ModelQuery.get(AppUser.class, email),
                 success -> {
                     userId = success.getData().getId();
                     userName = success.getData().getUserNickname();
@@ -468,7 +469,6 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
 
         getLastLocation();
         String url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + latitude + "," + longitude + "&destination=" + destinationLatitude + "," + destinationLongitude + "&key=AIzaSyAh_BlQF3Zdf3_O4vJUuNwmkVKQEhmIq90";
-
         HttpRequester requester = new HttpRequester();
         try {
             points =  requester.run(url);
