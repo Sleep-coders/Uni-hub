@@ -24,9 +24,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Unihub">
         <activity
-            android:name=".ui.utilities.Student_Utilites"
+            android:name=".ui.roommates.Room_Owner_notification"
             android:exported="false" />
-        <!-- <meta-data -->
+        <activity
+            android:name=".ui.roommates.Create_post_Roommates"
+            android:exported="false" />
+        <activity
+            android:name=".ui.roommates.Available_Rooms"
+            android:exported="false" />
+        <activity
+            android:name=".ui.utilities.Student_Utilites"
+            android:exported="false" /> <!-- <meta-data -->
         <!-- android:name="com.google.android.geo.API_KEY" -->
         <!-- android:value="${MAPS_API_KEY}" /> -->
         <meta-data

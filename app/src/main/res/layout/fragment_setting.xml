@@ -4,191 +4,263 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.setting.SettingFragment"
-    android:background="@color/white_pure">
+    android:background="@color/white_pure"
+    tools:context=".ui.setting.SettingFragment">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="320dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="20dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="28dp"
+        android:autoText="false"
         android:fontFamily="sans-serif-light"
-        android:text="Setting"
+        android:freezesText="false"
+        android:gravity="center"
+        android:text="Settings"
         android:textAlignment="center"
         android:textColor="#7d45a0"
         android:textFontWeight="600"
-        android:textSize="45sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.662" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="320dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="sans-serif-light"
-        android:text="Notification"
-        android:textAlignment="center"
-        android:textColor="#7d45a0"
-        android:textFontWeight="400"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView8"
+        android:layout_width="322dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView6">
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="320dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="sans-serif-light"
-        android:text="Mode"
-        android:textAlignment="center"
-        android:textColor="#7d45a0"
-        android:textFontWeight="400"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/contact_us"
+            android:layout_width="150dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="90dp"
+            android:fontFamily="sans-serif-light"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:text="Contact us"
+            android:textAlignment="center"
+            android:textColor="#7d45a0"
+            android:textFontWeight="400"
+            android:textSize="20dp"
+            tools:layout_editor_absoluteX="141dp"
+            tools:layout_editor_absoluteY="324dp" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="320dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="sans-serif-light"
-        android:text="Language"
-        android:textAlignment="center"
-        android:textColor="#7d45a0"
-        android:textFontWeight="400"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent" />
+        <ImageView
+            android:id="@+id/imageView17"
+            android:layout_width="36dp"
+            android:layout_height="48dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/ic_contact"
+            tools:layout_editor_absoluteX="45dp"
+            tools:layout_editor_absoluteY="324dp" />
+    </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="320dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="sans-serif-light"
-        android:text="Contact us"
-        android:textAlignment="center"
-        android:textColor="#7d45a0"
-        android:textFontWeight="400"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView11"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView4"
+        android:layout_width="322dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="23dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="320dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="sans-serif-light"
-        android:text="About App"
-        android:textAlignment="center"
-        android:textColor="#7d45a0"
-        android:textFontWeight="400"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        <Switch
+            android:id="@+id/switch_notfication"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="260dp"
+            android:layout_marginTop="10dp"
+            tools:layout_editor_absoluteX="305dp"
+            tools:layout_editor_absoluteY="115dp" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="36dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
+            android:src="@drawable/ic_notification"
+            tools:layout_editor_absoluteX="45dp"
+            tools:layout_editor_absoluteY="109dp" />
+
+        <TextView
+            android:id="@+id/notification_btn"
+            android:layout_width="150dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="80dp"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:text="Notification"
+            android:textAlignment="center"
+            android:textColor="#7d45a0"
+            android:textFontWeight="400"
+            android:textSize="20dp"
+            tools:layout_editor_absoluteX="139dp"
+            tools:layout_editor_absoluteY="108dp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView7"
+        android:layout_width="322dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="77dp"
+        app:layout_constraintBottom_toTopOf="@+id/logout_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView8">
+
+        <TextView
+            android:id="@+id/about_app_btn"
+            android:layout_width="150dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="90dp"
+            android:fontFamily="sans-serif-light"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:text="About App"
+            android:textAlignment="center"
+            android:textColor="#7d45a0"
+            android:textFontWeight="400"
+            android:textSize="20dp"
+            tools:layout_editor_absoluteX="141dp"
+            tools:layout_editor_absoluteY="392dp" />
+
+        <ImageView
+            android:id="@+id/imageView22"
+            android:layout_width="36dp"
+            android:layout_height="48dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/ic_about"
+            tools:layout_editor_absoluteX="45dp"
+            tools:layout_editor_absoluteY="392dp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView6"
+        android:layout_width="322dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView5">
+
+        <Switch
+            android:id="@+id/switch_notfication3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="260dp"
+            android:layout_marginTop="10dp"
+            tools:layout_editor_absoluteX="305dp"
+            tools:layout_editor_absoluteY="115dp" />
+
+        <TextView
+            android:id="@+id/language_settigns"
+            android:layout_width="150dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="90dp"
+            android:fontFamily="sans-serif-light"
+            android:foregroundGravity="center"
+            android:gravity="center"
+            android:text="Language"
+            android:textAlignment="center"
+            android:textColor="#7d45a0"
+            android:textFontWeight="400"
+            android:textSize="20dp"
+            tools:layout_editor_absoluteX="141dp"
+            tools:layout_editor_absoluteY="256dp" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="36dp"
+            android:layout_height="48dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/ic_language"
+            tools:layout_editor_absoluteX="46dp"
+            tools:layout_editor_absoluteY="256dp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView5"
+        android:layout_width="322dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView4">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="36dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_mode"
+            tools:layout_editor_absoluteX="46dp"
+            tools:layout_editor_absoluteY="188dp" />
+
+        <TextView
+            android:id="@+id/mode_settings"
+            android:layout_width="150dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="90dp"
+            android:fontFamily="sans-serif-light"
+            android:foregroundGravity="center_vertical|center"
+            android:gravity="center"
+            android:text="Mode"
+            android:textAlignment="center"
+            android:textColor="#7d45a0"
+            android:textFontWeight="400"
+            android:textSize="20dp"
+            tools:layout_editor_absoluteX="141dp"
+            tools:layout_editor_absoluteY="188dp" />
+
+        <Switch
+            android:id="@+id/switch_notfication2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="260dp"
+            android:layout_marginTop="10dp"
+            tools:layout_editor_absoluteX="305dp"
+            tools:layout_editor_absoluteY="115dp" />
+    </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="320dp"
-        android:layout_height="65dp"
-        android:layout_marginBottom="64dp"
+        android:id="@+id/logout_btn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="98dp"
+        android:background="@drawable/rounded_corner_shap"
         android:fontFamily="sans-serif-light"
         android:text="Log out"
         android:textAlignment="center"
-        android:textColor="#fec367"
+        android:textColor="@color/yellow_main_color"
         android:textFontWeight="400"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView7" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="36dp"
-        android:layout_height="0dp"
-        android:src="@drawable/ic_notification"
-        app:layout_constraintBottom_toBottomOf="@+id/textView3"
-        app:layout_constraintEnd_toEndOf="@+id/textView3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toTopOf="@+id/textView3"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="36dp"
-        android:layout_height="0dp"
-        android:src="@drawable/ic_mode"
-        app:layout_constraintBottom_toBottomOf="@+id/textView5"
-        app:layout_constraintEnd_toEndOf="@+id/textView5"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toTopOf="@+id/textView5" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="36dp"
-        android:layout_height="0dp"
-        android:src="@drawable/ic_language"
-        app:layout_constraintBottom_toBottomOf="@+id/textView8"
-        app:layout_constraintEnd_toEndOf="@+id/textView8"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView8"
-        app:layout_constraintTop_toTopOf="@+id/textView8"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <ImageView
-        android:id="@+id/imageView17"
-        android:layout_width="36dp"
-        android:layout_height="0dp"
-        android:src="@drawable/ic_contact"
-        app:layout_constraintBottom_toBottomOf="@+id/textView10"
-        app:layout_constraintEnd_toEndOf="@+id/textView10"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView10"
-        app:layout_constraintTop_toTopOf="@+id/textView10"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/imageView20"
-        android:layout_width="60dp"
-        android:layout_height="0dp"
-        android:src="@drawable/ic_setting"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/imageView22"
-        android:layout_width="36dp"
-        android:layout_height="0dp"
-        android:src="@drawable/ic_about"
-        app:layout_constraintBottom_toBottomOf="@+id/textView11"
-        app:layout_constraintEnd_toEndOf="@+id/textView11"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toTopOf="@+id/textView11"
-        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
