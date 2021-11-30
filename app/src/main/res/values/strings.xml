@@ -58,7 +58,8 @@
     <string name="seats_number">Seats Number</string>
     <string name="add_image">ADD IMAGE</string>
     <string name="add">ADD</string>
-    <string name="cancel">Cancel</string>
+    <string name="done">Done</string>
+    <string name="save_coordinates">Save Coordinates</string>
     <string-array name="Available_Rides">
         <item>ride1</item>
         <item>ride2</item>

@@ -21,7 +21,7 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 /** This is an auto generated class representing the AppUser type in your schema. */
 @SuppressWarnings("all")
 @ModelConfig(pluralName = "AppUsers")
-@Index(name = "undefined", fields = {"id"})
+@Index(name = "undefined", fields = {"id","user_email"})
 @Index(name = "byEmail", fields = {"user_email","id"})
 public final class AppUser implements Model {
   public static final QueryField ID = field("AppUser", "id");
