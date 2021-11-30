@@ -44,6 +44,7 @@ query GetUser($id: ID!) {
       items {
         id
         owner_id
+        owner_name
         ride_departure_time
         available_seats
         cost
@@ -51,6 +52,7 @@ query GetUser($id: ID!) {
         car_Info
         ride_expires_at
         ride_date
+        ride_description
         ride_route
         createdAt
         updatedAt
@@ -149,6 +151,87 @@ query SyncUsers(
     startedAt
   }
 }
+query GetStudent($id: ID!) {
+  getStudent(id: $id) {
+    id
+    user_real_name
+    user_nickname
+    user_phone_number
+    user_email
+    user_location
+    user_university
+    user_img
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+query ListStudents(
+  $id: ID
+  $filter: ModelStudentFilterInput
+  $limit: Int
+  $nextToken: String
+  $sortDirection: ModelSortDirection
+) {
+  listStudents(
+    id: $id
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    sortDirection: $sortDirection
+  ) {
+    items {
+      id
+      user_real_name
+      user_nickname
+      user_phone_number
+      user_email
+      user_location
+      user_university
+      user_img
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    nextToken
+    startedAt
+  }
+}
+query SyncStudents(
+  $filter: ModelStudentFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncStudents(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      user_real_name
+      user_nickname
+      user_phone_number
+      user_email
+      user_location
+      user_university
+      user_img
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    nextToken
+    startedAt
+  }
+}
 query GetCar($id: ID!) {
   getCar(id: $id) {
     id
@@ -216,6 +299,7 @@ query GetRide($id: ID!) {
   getRide(id: $id) {
     id
     owner_id
+    owner_name
     ride_departure_time
     available_seats
     cost
@@ -223,6 +307,7 @@ query GetRide($id: ID!) {
     car_Info
     ride_expires_at
     ride_date
+    ride_description
     ride_route
     riders {
       items {
@@ -255,6 +340,7 @@ query ListRides(
     items {
       id
       owner_id
+      owner_name
       ride_departure_time
       available_seats
       cost
@@ -262,6 +348,7 @@ query ListRides(
       car_Info
       ride_expires_at
       ride_date
+      ride_description
       ride_route
       riders {
         nextToken
@@ -293,6 +380,7 @@ query SyncRides(
     items {
       id
       owner_id
+      owner_name
       ride_departure_time
       available_seats
       cost
@@ -300,6 +388,7 @@ query SyncRides(
       car_Info
       ride_expires_at
       ride_date
+      ride_description
       ride_route
       riders {
         nextToken
@@ -351,6 +440,7 @@ query GetUserRiderRelation($id: ID!) {
     ride {
       id
       owner_id
+      owner_name
       ride_departure_time
       available_seats
       cost
@@ -358,6 +448,7 @@ query GetUserRiderRelation($id: ID!) {
       car_Info
       ride_expires_at
       ride_date
+      ride_description
       ride_route
       riders {
         nextToken
@@ -409,6 +500,7 @@ query ListUserRiderRelations(
       ride {
         id
         owner_id
+        owner_name
         ride_departure_time
         available_seats
         cost
@@ -416,6 +508,7 @@ query ListUserRiderRelations(
         car_Info
         ride_expires_at
         ride_date
+        ride_description
         ride_route
         createdAt
         updatedAt
@@ -468,6 +561,7 @@ query SyncUserRiderRelations(
       ride {
         id
         owner_id
+        owner_name
         ride_departure_time
         available_seats
         cost
@@ -475,6 +569,7 @@ query SyncUserRiderRelations(
         car_Info
         ride_expires_at
         ride_date
+        ride_description
         ride_route
         createdAt
         updatedAt

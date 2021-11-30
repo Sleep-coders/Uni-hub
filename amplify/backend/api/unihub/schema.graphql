@@ -13,6 +13,18 @@ type User @model
     owner_ride : [Ride] @hasMany
 }
 
+type Student @model
+{
+    id: ID! @primaryKey
+    user_real_name: String!
+    user_nickname: String!
+    user_phone_number: String!
+    user_email: String! @index(name: "byEmail", sortKeyFields: ["id"])
+    user_location: String
+    user_university: String
+    user_img: String
+}
+
 type Car @model
 {
     id: ID!
@@ -34,12 +46,7 @@ type Ride @model
     car_Info : String!
     ride_expires_at : String!
     ride_date : String!
+    ride_description : String!
     ride_route : [String]
     riders : [User] @manyToMany(relationName: "userRiderRelation")
 }
-
-#type RidersJoin @model(queries : null) {
-#    id: ID!
-#    user : User! @connection(name: "UserRideJoin")
-#    ride : Ride! @connection(name: "RideUserJoin")
-#}

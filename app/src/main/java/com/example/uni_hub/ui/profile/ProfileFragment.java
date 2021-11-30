@@ -77,7 +77,7 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
     private TextView phoneTextView;
     private TextView locationTextView;
     private ImageView userImgView;
-    private ProfileViewModel homeViewModel;
+    private ProfileViewModel profileViewModel;
     private FragmentProfileBinding binding;
     private HandlePathOz handlePathOz;
     private Handler userImageHandler;
@@ -116,7 +116,7 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
+        profileViewModel =
                 new ViewModelProvider(this).get(ProfileViewModel.class);
 
         binding = FragmentProfileBinding.inflate(inflater, container, false);
@@ -145,15 +145,19 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
         root.findViewById(R.id.profile_location_edit_btn)
                 .setOnClickListener(v -> setProfileTextView("Location", "text")); // neither just profile
 
-        root.findViewById(R.id.profile_save_btn).setOnClickListener(view -> {
-            saveChangeToApi(userEmail);
-            saveChangesToCognito();
-        });
+//        Button button = (Button) root.findViewById(R.id.profile_save_btn);
+//        root.findViewById(R.id.profile_save_btn).setOnClickListener(v -> {
+//            saveChangeToApi(userEmail);
+//            saveChangesToCognito();
+//        });
+
+        Button button = (Button) root.findViewById(R.id.profile__addcar_button);
+        Log.i(TAG, "+button is: " + button);
 
 
         root.findViewById(R.id.profile_user_img_upload_btn).setOnClickListener(view -> loadUserImage());
 
-        root.findViewById(R.id.profile_addcar_btn).setOnClickListener(view -> loadAddCarDialog(userEmail));
+//        root.findViewById(R.id.profile_addcar_btn).setOnClickListener(view -> loadAddCarDialog(userEmail));
 
         userImageHandler = new Handler(Looper.getMainLooper(), msg -> {
             imgUrl = msg.getData().getString("userImgUrl", EXTERNAL_USER_IMG);
@@ -219,7 +223,7 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
 
             if (carImgIsLoaded && !carModel.equals("") && carSeatsNumber.equals(""))
                 addCarToApi(userEmail, imgUrl, carModel, Integer.parseInt(carSeatsNumber));
-            else{
+            else {
                 Toast toast = Toast.makeText(requireContext(), TOAST_ADD_CAR_MSG, Toast.LENGTH_LONG);
                 toast.show();
             }
@@ -236,21 +240,22 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
                 success -> {
                     User user = success.getData();
 
-                    String userName = user.getUserNickname();
-                    String userPhoneNumber = user.getUserPhoneNumber();
-                    String userAddress = !user.getUserLocation().equals("") ? user.getUserLocation() : "N/A";
-                    String userSchool = !user.getUserUniversity().equals("") ? user.getUserUniversity() : "N/A";
-                    String userPassword = sharedPref.getString("userPassword", "N/A");
-
-                    Bundle bundle = new Bundle();
-                    bundle.putString("userName", userName);
-                    bundle.putString("userPhoneNumber", userPhoneNumber);
-                    bundle.putString("userAddress", userAddress);
-                    bundle.putString("userSchool", userSchool);
-                    bundle.putString("userPassword", userPassword);
-                    Message message = new Message();
-                    message.setData(bundle);
-                    loadProfileDataHandler.sendMessage(message);
+                    Log.i(TAG, "user is: " + user);
+//                    String userName = user.getUserNickname();
+//                    String userPhoneNumber = user.getUserPhoneNumber();
+//                    String userAddress = !user.getUserLocation().equals("") ? user.getUserLocation() : "N/A";
+//                    String userSchool = !user.getUserUniversity().equals("") ? user.getUserUniversity() : "N/A";
+//                    String userPassword = sharedPref.getString("userPassword", "N/A");
+//
+//                    Bundle bundle = new Bundle();
+//                    bundle.putString("userName", userName);
+//                    bundle.putString("userPhoneNumber", userPhoneNumber);
+//                    bundle.putString("userAddress", userAddress);
+//                    bundle.putString("userSchool", userSchool);
+//                    bundle.putString("userPassword", userPassword);
+//                    Message message = new Message();
+//                    message.setData(bundle);
+//                    loadProfileDataHandler.sendMessage(message);
 
                 },
                 error -> Log.e(TAG, "User not found!"));
@@ -450,4 +455,16 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
                 storageFailure -> Log.e("MyAmplifyApp", "Upload failed", storageFailure)
         );
     }
+
+//    @Override
+//    public void onClick(View v) {
+//        switch (v.getId()) {
+//            case R.id.profile_userinfoupdat_btn:
+//                Log.i(TAG, "save in onClick");
+//                break;
+//            case R.id.profile__addcar_button:
+//                Log.i(TAG, "upload in onClick");
+//                break;
+//        }
+//    }
 }

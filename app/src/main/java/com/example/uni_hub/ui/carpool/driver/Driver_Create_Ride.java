@@ -225,23 +225,23 @@ public class Driver_Create_Ride extends AppCompatActivity {
                 String departureTime = chooseDepartureTime.getText().toString();
                 String expiresAt = riderExpiresAt.getText().toString();
                 String chooseRideDate = chooseDate.getText().toString();
-                Ride ride = Ride.builder()
-                        .ownerId(userId)
-                        .rideDepartureTime(departureTime)
-                        .availableSeats(seatNum)
-                        .cost(cost)
-                        .carImage(cars.get(0).getCarImg())
-                        .carInfo(cars.get(0).getCarModel())
-                        .rideExpiresAt(expiresAt)
-                        .rideDate(chooseRideDate).build();
-
-                Amplify.API.mutate(ModelMutation.create(ride),
-                        success -> {
-                            startActivity(new Intent(getApplicationContext(), Available_Rides.class));
-                        },
-                        error -> {
-                            rideErrHandler.sendEmptyMessage(0);
-                        });
+//                Ride ride = Ride.builder()
+//                        .ownerId(userId)
+//                        .rideDepartureTime(departureTime)
+//                        .availableSeats(seatNum)
+//                        .cost(cost)
+//                        .carImage(cars.get(0).getCarImg())
+//                        .carInfo(cars.get(0).getCarModel())
+//                        .rideExpiresAt(expiresAt)
+//                        .rideDate(chooseRideDate).build();
+//
+//                Amplify.API.mutate(ModelMutation.create(ride),
+//                        success -> {
+//                            startActivity(new Intent(getApplicationContext(), Available_Rides.class));
+//                        },
+//                        error -> {
+//                            rideErrHandler.sendEmptyMessage(0);
+//                        });
             } else carNotFound.setVisibility(View.VISIBLE);
 
         });

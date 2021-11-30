@@ -47,6 +47,7 @@ mutation CreateUser(
       items {
         id
         owner_id
+        owner_name
         ride_departure_time
         available_seats
         cost
@@ -54,6 +55,7 @@ mutation CreateUser(
         car_Info
         ride_expires_at
         ride_date
+        ride_description
         ride_route
         createdAt
         updatedAt
@@ -120,6 +122,7 @@ mutation UpdateUser(
       items {
         id
         owner_id
+        owner_name
         ride_departure_time
         available_seats
         cost
@@ -127,6 +130,7 @@ mutation UpdateUser(
         car_Info
         ride_expires_at
         ride_date
+        ride_description
         ride_route
         createdAt
         updatedAt
@@ -193,6 +197,7 @@ mutation DeleteUser(
       items {
         id
         owner_id
+        owner_name
         ride_departure_time
         available_seats
         cost
@@ -200,6 +205,7 @@ mutation DeleteUser(
         car_Info
         ride_expires_at
         ride_date
+        ride_description
         ride_route
         createdAt
         updatedAt
@@ -211,6 +217,66 @@ mutation DeleteUser(
       nextToken
       startedAt
     }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+mutation CreateStudent(
+  $input: CreateStudentInput!
+  $condition: ModelStudentConditionInput
+) {
+  createStudent(input: $input, condition: $condition) {
+    id
+    user_real_name
+    user_nickname
+    user_phone_number
+    user_email
+    user_location
+    user_university
+    user_img
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+mutation UpdateStudent(
+  $input: UpdateStudentInput!
+  $condition: ModelStudentConditionInput
+) {
+  updateStudent(input: $input, condition: $condition) {
+    id
+    user_real_name
+    user_nickname
+    user_phone_number
+    user_email
+    user_location
+    user_university
+    user_img
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+mutation DeleteStudent(
+  $input: DeleteStudentInput!
+  $condition: ModelStudentConditionInput
+) {
+  deleteStudent(input: $input, condition: $condition) {
+    id
+    user_real_name
+    user_nickname
+    user_phone_number
+    user_email
+    user_location
+    user_university
+    user_img
     createdAt
     updatedAt
     _version
@@ -279,6 +345,7 @@ mutation CreateRide(
   createRide(input: $input, condition: $condition) {
     id
     owner_id
+    owner_name
     ride_departure_time
     available_seats
     cost
@@ -286,6 +353,7 @@ mutation CreateRide(
     car_Info
     ride_expires_at
     ride_date
+    ride_description
     ride_route
     riders {
       items {
@@ -316,6 +384,7 @@ mutation UpdateRide(
   updateRide(input: $input, condition: $condition) {
     id
     owner_id
+    owner_name
     ride_departure_time
     available_seats
     cost
@@ -323,6 +392,7 @@ mutation UpdateRide(
     car_Info
     ride_expires_at
     ride_date
+    ride_description
     ride_route
     riders {
       items {
@@ -353,6 +423,7 @@ mutation DeleteRide(
   deleteRide(input: $input, condition: $condition) {
     id
     owner_id
+    owner_name
     ride_departure_time
     available_seats
     cost
@@ -360,6 +431,7 @@ mutation DeleteRide(
     car_Info
     ride_expires_at
     ride_date
+    ride_description
     ride_route
     riders {
       items {
@@ -421,6 +493,7 @@ mutation CreateUserRiderRelation(
     ride {
       id
       owner_id
+      owner_name
       ride_departure_time
       available_seats
       cost
@@ -428,6 +501,7 @@ mutation CreateUserRiderRelation(
       car_Info
       ride_expires_at
       ride_date
+      ride_description
       ride_route
       riders {
         nextToken
@@ -485,6 +559,7 @@ mutation UpdateUserRiderRelation(
     ride {
       id
       owner_id
+      owner_name
       ride_departure_time
       available_seats
       cost
@@ -492,6 +567,7 @@ mutation UpdateUserRiderRelation(
       car_Info
       ride_expires_at
       ride_date
+      ride_description
       ride_route
       riders {
         nextToken
@@ -549,6 +625,7 @@ mutation DeleteUserRiderRelation(
     ride {
       id
       owner_id
+      owner_name
       ride_departure_time
       available_seats
       cost
@@ -556,6 +633,7 @@ mutation DeleteUserRiderRelation(
       car_Info
       ride_expires_at
       ride_date
+      ride_description
       ride_route
       riders {
         nextToken
