@@ -34,7 +34,6 @@
     <string name="username">username</string>
     <string name="phone_number">Phone Number</string>
     <string name="sign_up">Sign Up</string>
-    <string name="cancel">Cancel</string>
     <string name="resend">ReSend</string>
     <string name="within_30_sec_you_will_receive_an_email_contaning_confirmation_code_please_fill_it_in">Within 30 sec ,You will receive an email contaning confirmation code , please fill it in.</string>
     <string name="insert_code_here">Insert Code Here</string>
@@ -52,13 +51,14 @@
     <string name="_0_jd">0 JD</string>
     <string name="_0_seat">0 Seat</string>
     <string name="select_a_date">Select a Date</string>
-<!--    <string name="cost_per_passenger">Cost Per Passenger</string>-->
+    <!--    <string name="cost_per_passenger">Cost Per Passenger</string>-->
     <string name="submit_your_ride">Submit your Ride</string>
     <string name="add_car">ADD CAR</string>
     <string name="car_model">Car Model</string>
     <string name="seats_number">Seats Number</string>
     <string name="add_image">ADD IMAGE</string>
     <string name="add">ADD</string>
+    <string name="cancel">Cancel</string>
     <string-array name="Available_Rides">
         <item>ride1</item>
         <item>ride2</item>
