@@ -92,4 +92,11 @@
         <item>Jarash to Amman</item>
 
     </string-array>
+
+    <string-array name="availabe_rooms">
+        <item>room1</item>
+        <item>room2</item>
+        <item>room3</item>
+        <item>room4</item>
+    </string-array>
 </resources>

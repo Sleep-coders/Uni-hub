@@ -14,7 +14,10 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.uni_hub.R;
 import com.example.uni_hub.databinding.FragmentHomeBinding;
+import com.example.uni_hub.ui.book_donation.Book_Donation;
 import com.example.uni_hub.ui.carpool.Carpool_Home;
+import com.example.uni_hub.ui.roommates.Available_Rooms;
+import com.example.uni_hub.ui.utilities.Student_Utilities;
 
 public class HomeFragment extends Fragment{
     Activity context;
@@ -44,6 +47,9 @@ public class HomeFragment extends Fragment{
     public void onStart(){
         super.onStart();
         CardView carpoolCard = (CardView) context.findViewById(R.id.card_carpool);
+        CardView reqRoommateCard = (CardView) context.findViewById(R.id.req_roommate_card);
+        CardView studentUtilitiesCard = (CardView) context.findViewById(R.id.card_student_utilities);
+        CardView bookDonationCard = (CardView) context.findViewById(R.id.card_book_donation);
         carpoolCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,6 +57,30 @@ public class HomeFragment extends Fragment{
                 startActivity(carpool_intent);
             }
         });
+        reqRoommateCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent req_roommate_intent = new Intent(context, Available_Rooms.class);
+                startActivity(req_roommate_intent);
+            }
+        });
+
+        studentUtilitiesCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent student_utilities_intent = new Intent(context, Student_Utilities.class);
+                startActivity(student_utilities_intent);
+            }
+        });
+
+        bookDonationCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent book_donation_intent = new Intent(context, Book_Donation.class);
+                startActivity(book_donation_intent);
+            }
+        });
     }
+
 
 }
