@@ -466,6 +466,7 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
                                 bundle.putString("carImgUrl", resultUrl.getUrl().toString());
                                 message.setData(bundle);
                                 carImageHandler.sendMessage(message);
+                                Log.i("AAAAAAANNNNNNMMMM+++++>>>>>>>>>>>", "URL generation "+resultUrl.getUrl().toString());
                             }
                         },
                         error -> Log.e("MyAmplifyApp", "URL generation failure", error)
