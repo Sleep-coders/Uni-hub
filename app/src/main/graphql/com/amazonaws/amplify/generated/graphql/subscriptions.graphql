@@ -1,6 +1,6 @@
 # this is an auto generated file. This will be overwritten
-subscription OnCreateUser {
-  onCreateUser {
+subscription OnCreateAppUser {
+  onCreateAppUser {
     id
     user_real_name
     user_nickname
@@ -9,42 +9,23 @@ subscription OnCreateUser {
     user_location
     user_university
     user_img
+    car {
+      id
+      ownerID
+      car_model
+      car_img
+      car_seats_num
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
     rides {
       items {
         id
-        userID
-        rideID
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
-    }
-    car {
-      items {
-        id
-        ownerID
-        car_model
-        car_img
-        car_seats_num
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-        userCarId
-      }
-      nextToken
-      startedAt
-    }
-    owner_ride {
-      items {
-        id
-        owner_id
         owner_name
+        owner_id
         ride_departure_time
         available_seats
         cost
@@ -59,7 +40,7 @@ subscription OnCreateUser {
         _version
         _deleted
         _lastChangedAt
-        userOwner_rideId
+        appUserRidesId
       }
       nextToken
       startedAt
@@ -69,10 +50,11 @@ subscription OnCreateUser {
     _version
     _deleted
     _lastChangedAt
+    appUserCarId
   }
 }
-subscription OnUpdateUser {
-  onUpdateUser {
+subscription OnUpdateAppUser {
+  onUpdateAppUser {
     id
     user_real_name
     user_nickname
@@ -81,42 +63,23 @@ subscription OnUpdateUser {
     user_location
     user_university
     user_img
+    car {
+      id
+      ownerID
+      car_model
+      car_img
+      car_seats_num
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
     rides {
       items {
         id
-        userID
-        rideID
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
-    }
-    car {
-      items {
-        id
-        ownerID
-        car_model
-        car_img
-        car_seats_num
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-        userCarId
-      }
-      nextToken
-      startedAt
-    }
-    owner_ride {
-      items {
-        id
-        owner_id
         owner_name
+        owner_id
         ride_departure_time
         available_seats
         cost
@@ -131,7 +94,7 @@ subscription OnUpdateUser {
         _version
         _deleted
         _lastChangedAt
-        userOwner_rideId
+        appUserRidesId
       }
       nextToken
       startedAt
@@ -141,10 +104,11 @@ subscription OnUpdateUser {
     _version
     _deleted
     _lastChangedAt
+    appUserCarId
   }
 }
-subscription OnDeleteUser {
-  onDeleteUser {
+subscription OnDeleteAppUser {
+  onDeleteAppUser {
     id
     user_real_name
     user_nickname
@@ -153,42 +117,23 @@ subscription OnDeleteUser {
     user_location
     user_university
     user_img
+    car {
+      id
+      ownerID
+      car_model
+      car_img
+      car_seats_num
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
     rides {
       items {
         id
-        userID
-        rideID
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
-    }
-    car {
-      items {
-        id
-        ownerID
-        car_model
-        car_img
-        car_seats_num
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-        userCarId
-      }
-      nextToken
-      startedAt
-    }
-    owner_ride {
-      items {
-        id
-        owner_id
         owner_name
+        owner_id
         ride_departure_time
         available_seats
         cost
@@ -203,7 +148,7 @@ subscription OnDeleteUser {
         _version
         _deleted
         _lastChangedAt
-        userOwner_rideId
+        appUserRidesId
       }
       nextToken
       startedAt
@@ -213,57 +158,73 @@ subscription OnDeleteUser {
     _version
     _deleted
     _lastChangedAt
+    appUserCarId
   }
 }
-subscription OnCreateStudent {
-  onCreateStudent {
+subscription OnCreateRide {
+  onCreateRide {
     id
-    user_real_name
-    user_nickname
-    user_phone_number
-    user_email
-    user_location
-    user_university
-    user_img
+    owner_name
+    owner_id
+    ride_departure_time
+    available_seats
+    cost
+    car_image
+    car_Info
+    ride_expires_at
+    ride_date
+    ride_description
+    ride_route
     createdAt
     updatedAt
     _version
     _deleted
     _lastChangedAt
+    appUserRidesId
   }
 }
-subscription OnUpdateStudent {
-  onUpdateStudent {
+subscription OnUpdateRide {
+  onUpdateRide {
     id
-    user_real_name
-    user_nickname
-    user_phone_number
-    user_email
-    user_location
-    user_university
-    user_img
+    owner_name
+    owner_id
+    ride_departure_time
+    available_seats
+    cost
+    car_image
+    car_Info
+    ride_expires_at
+    ride_date
+    ride_description
+    ride_route
     createdAt
     updatedAt
     _version
     _deleted
     _lastChangedAt
+    appUserRidesId
   }
 }
-subscription OnDeleteStudent {
-  onDeleteStudent {
+subscription OnDeleteRide {
+  onDeleteRide {
     id
-    user_real_name
-    user_nickname
-    user_phone_number
-    user_email
-    user_location
-    user_university
-    user_img
+    owner_name
+    owner_id
+    ride_departure_time
+    available_seats
+    cost
+    car_image
+    car_Info
+    ride_expires_at
+    ride_date
+    ride_description
+    ride_route
     createdAt
     updatedAt
     _version
     _deleted
     _lastChangedAt
+    appUserRidesId
   }
 }
 subscription OnCreateCar {
@@ -278,7 +239,6 @@ subscription OnCreateCar {
     _version
     _deleted
     _lastChangedAt
-    userCarId
   }
 }
 subscription OnUpdateCar {
@@ -293,7 +253,6 @@ subscription OnUpdateCar {
     _version
     _deleted
     _lastChangedAt
-    userCarId
   }
 }
 subscription OnDeleteCar {
@@ -303,304 +262,6 @@ subscription OnDeleteCar {
     car_model
     car_img
     car_seats_num
-    createdAt
-    updatedAt
-    _version
-    _deleted
-    _lastChangedAt
-    userCarId
-  }
-}
-subscription OnCreateRide {
-  onCreateRide {
-    id
-    owner_id
-    owner_name
-    ride_departure_time
-    available_seats
-    cost
-    car_image
-    car_Info
-    ride_expires_at
-    ride_date
-    ride_description
-    ride_route
-    riders {
-      items {
-        id
-        userID
-        rideID
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
-    }
-    createdAt
-    updatedAt
-    _version
-    _deleted
-    _lastChangedAt
-    userOwner_rideId
-  }
-}
-subscription OnUpdateRide {
-  onUpdateRide {
-    id
-    owner_id
-    owner_name
-    ride_departure_time
-    available_seats
-    cost
-    car_image
-    car_Info
-    ride_expires_at
-    ride_date
-    ride_description
-    ride_route
-    riders {
-      items {
-        id
-        userID
-        rideID
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
-    }
-    createdAt
-    updatedAt
-    _version
-    _deleted
-    _lastChangedAt
-    userOwner_rideId
-  }
-}
-subscription OnDeleteRide {
-  onDeleteRide {
-    id
-    owner_id
-    owner_name
-    ride_departure_time
-    available_seats
-    cost
-    car_image
-    car_Info
-    ride_expires_at
-    ride_date
-    ride_description
-    ride_route
-    riders {
-      items {
-        id
-        userID
-        rideID
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      nextToken
-      startedAt
-    }
-    createdAt
-    updatedAt
-    _version
-    _deleted
-    _lastChangedAt
-    userOwner_rideId
-  }
-}
-subscription OnCreateUserRiderRelation {
-  onCreateUserRiderRelation {
-    id
-    userID
-    rideID
-    user {
-      id
-      user_real_name
-      user_nickname
-      user_phone_number
-      user_email
-      user_location
-      user_university
-      user_img
-      rides {
-        nextToken
-        startedAt
-      }
-      car {
-        nextToken
-        startedAt
-      }
-      owner_ride {
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-    ride {
-      id
-      owner_id
-      owner_name
-      ride_departure_time
-      available_seats
-      cost
-      car_image
-      car_Info
-      ride_expires_at
-      ride_date
-      ride_description
-      ride_route
-      riders {
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-      userOwner_rideId
-    }
-    createdAt
-    updatedAt
-    _version
-    _deleted
-    _lastChangedAt
-  }
-}
-subscription OnUpdateUserRiderRelation {
-  onUpdateUserRiderRelation {
-    id
-    userID
-    rideID
-    user {
-      id
-      user_real_name
-      user_nickname
-      user_phone_number
-      user_email
-      user_location
-      user_university
-      user_img
-      rides {
-        nextToken
-        startedAt
-      }
-      car {
-        nextToken
-        startedAt
-      }
-      owner_ride {
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-    ride {
-      id
-      owner_id
-      owner_name
-      ride_departure_time
-      available_seats
-      cost
-      car_image
-      car_Info
-      ride_expires_at
-      ride_date
-      ride_description
-      ride_route
-      riders {
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-      userOwner_rideId
-    }
-    createdAt
-    updatedAt
-    _version
-    _deleted
-    _lastChangedAt
-  }
-}
-subscription OnDeleteUserRiderRelation {
-  onDeleteUserRiderRelation {
-    id
-    userID
-    rideID
-    user {
-      id
-      user_real_name
-      user_nickname
-      user_phone_number
-      user_email
-      user_location
-      user_university
-      user_img
-      rides {
-        nextToken
-        startedAt
-      }
-      car {
-        nextToken
-        startedAt
-      }
-      owner_ride {
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-    ride {
-      id
-      owner_id
-      owner_name
-      ride_departure_time
-      available_seats
-      cost
-      car_image
-      car_Info
-      ride_expires_at
-      ride_date
-      ride_description
-      ride_route
-      riders {
-        nextToken
-        startedAt
-      }
-      createdAt
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-      userOwner_rideId
-    }
     createdAt
     updatedAt
     _version

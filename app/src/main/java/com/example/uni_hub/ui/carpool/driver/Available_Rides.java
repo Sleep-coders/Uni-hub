@@ -19,8 +19,8 @@ import android.widget.Toast;
 
 import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.AppUser;
 import com.amplifyframework.datastore.generated.model.Ride;
-import com.amplifyframework.datastore.generated.model.User;
 import com.example.uni_hub.MainActivity;
 import com.example.uni_hub.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -100,7 +100,7 @@ public class Available_Rides extends AppCompatActivity {
 
     public void getUserID() {
         String email = Amplify.Auth.getCurrentUser().getUsername();
-        Amplify.API.query(ModelQuery.get(User.class, email),
+        Amplify.API.query(ModelQuery.get(AppUser.class, email),
                 success -> {
                     userId = success.getData().getId();
                 },

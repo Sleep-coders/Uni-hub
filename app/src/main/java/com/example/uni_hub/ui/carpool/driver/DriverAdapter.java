@@ -40,7 +40,7 @@ public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.DriverView
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull DriverViewHolder holder, int position) {
-        if(allRides.get(position).getOwnerId() == userId){
+        if(allRides.get(position).getOwnerName().equals(userId)){
             holder.requestRideBtn.setVisibility(View.INVISIBLE);
             holder.riderName.setText(allRides.get(position).getOwnerName());
             holder.routPath.setText(allRides.get(position).getRideDescription());

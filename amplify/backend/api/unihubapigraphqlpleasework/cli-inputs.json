@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "unihubapigraphqlpleasework",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "C:\\Users\\OSAID920\\AndroidStudioProjects\\Uni-hub\\amplify\\backend\\api\\unihubapigraphqlpleasework\\schema.graphql",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 30,
+      "apiKeyExpirationDate": "2021-12-30T13:54:50.229Z",
+      "keyDescription": "goodapikey"
+    }
+  }
+}

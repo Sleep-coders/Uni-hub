@@ -1,16 +1,5 @@
 projects:
-  unihubgraphapi:
-    schemaPath: app/src/main/graphql/schema.json
-    includes:
-      - app/src/main/graphql/**/*.graphql
-    excludes:
-      - ./amplify/**
-    extensions:
-      amplify:
-        codeGenTarget: ''
-        generatedFileName: ''
-        docsFilePath: app/src/main/graphql/com/amazonaws/amplify/generated/graphql
-  unihub:
+  unihubapigraphqlpleasework:
     schemaPath: app/src/main/graphql/schema.json
     includes:
       - app/src/main/graphql/**/*.graphql

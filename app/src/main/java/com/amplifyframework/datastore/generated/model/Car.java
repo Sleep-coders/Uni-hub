@@ -25,7 +25,6 @@ public final class Car implements Model {
   public static final QueryField CAR_MODEL = field("Car", "car_model");
   public static final QueryField CAR_IMG = field("Car", "car_img");
   public static final QueryField CAR_SEATS_NUM = field("Car", "car_seats_num");
-  public static final QueryField USER_CAR_ID = field("Car", "userCarId");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="ID", isRequired = true) String ownerID;
   private final @ModelField(targetType="String", isRequired = true) String car_model;
@@ -33,7 +32,6 @@ public final class Car implements Model {
   private final @ModelField(targetType="Int", isRequired = true) Integer car_seats_num;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
-  private final @ModelField(targetType="ID") String userCarId;
   public String getId() {
       return id;
   }
@@ -62,17 +60,12 @@ public final class Car implements Model {
       return updatedAt;
   }
   
-  public String getUserCarId() {
-      return userCarId;
-  }
-  
-  private Car(String id, String ownerID, String car_model, String car_img, Integer car_seats_num, String userCarId) {
+  private Car(String id, String ownerID, String car_model, String car_img, Integer car_seats_num) {
     this.id = id;
     this.ownerID = ownerID;
     this.car_model = car_model;
     this.car_img = car_img;
     this.car_seats_num = car_seats_num;
-    this.userCarId = userCarId;
   }
   
   @Override
@@ -89,8 +82,7 @@ public final class Car implements Model {
               ObjectsCompat.equals(getCarImg(), car.getCarImg()) &&
               ObjectsCompat.equals(getCarSeatsNum(), car.getCarSeatsNum()) &&
               ObjectsCompat.equals(getCreatedAt(), car.getCreatedAt()) &&
-              ObjectsCompat.equals(getUpdatedAt(), car.getUpdatedAt()) &&
-              ObjectsCompat.equals(getUserCarId(), car.getUserCarId());
+              ObjectsCompat.equals(getUpdatedAt(), car.getUpdatedAt());
       }
   }
   
@@ -104,7 +96,6 @@ public final class Car implements Model {
       .append(getCarSeatsNum())
       .append(getCreatedAt())
       .append(getUpdatedAt())
-      .append(getUserCarId())
       .toString()
       .hashCode();
   }
@@ -119,8 +110,7 @@ public final class Car implements Model {
       .append("car_img=" + String.valueOf(getCarImg()) + ", ")
       .append("car_seats_num=" + String.valueOf(getCarSeatsNum()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
-      .append("updatedAt=" + String.valueOf(getUpdatedAt()) + ", ")
-      .append("userCarId=" + String.valueOf(getUserCarId()))
+      .append("updatedAt=" + String.valueOf(getUpdatedAt()))
       .append("}")
       .toString();
   }
@@ -143,7 +133,6 @@ public final class Car implements Model {
       null,
       null,
       null,
-      null,
       null
     );
   }
@@ -153,8 +142,7 @@ public final class Car implements Model {
       ownerID,
       car_model,
       car_img,
-      car_seats_num,
-      userCarId);
+      car_seats_num);
   }
   public interface OwnerIdStep {
     CarModelStep ownerId(String ownerId);
@@ -179,7 +167,6 @@ public final class Car implements Model {
   public interface BuildStep {
     Car build();
     BuildStep id(String id);
-    BuildStep userCarId(String userCarId);
   }
   
 
@@ -189,7 +176,6 @@ public final class Car implements Model {
     private String car_model;
     private String car_img;
     private Integer car_seats_num;
-    private String userCarId;
     @Override
      public Car build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
@@ -199,8 +185,7 @@ public final class Car implements Model {
           ownerID,
           car_model,
           car_img,
-          car_seats_num,
-          userCarId);
+          car_seats_num);
     }
     
     @Override
@@ -231,12 +216,6 @@ public final class Car implements Model {
         return this;
     }
     
-    @Override
-     public BuildStep userCarId(String userCarId) {
-        this.userCarId = userCarId;
-        return this;
-    }
-    
     /** 
      * @param id id
      * @return Current Builder instance, for fluent method chaining
@@ -249,13 +228,12 @@ public final class Car implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String ownerId, String carModel, String carImg, Integer carSeatsNum, String userCarId) {
+    private CopyOfBuilder(String id, String ownerId, String carModel, String carImg, Integer carSeatsNum) {
       super.id(id);
       super.ownerId(ownerId)
         .carModel(carModel)
         .carImg(carImg)
-        .carSeatsNum(carSeatsNum)
-        .userCarId(userCarId);
+        .carSeatsNum(carSeatsNum);
     }
     
     @Override
@@ -276,11 +254,6 @@ public final class Car implements Model {
     @Override
      public CopyOfBuilder carSeatsNum(Integer carSeatsNum) {
       return (CopyOfBuilder) super.carSeatsNum(carSeatsNum);
-    }
-    
-    @Override
-     public CopyOfBuilder userCarId(String userCarId) {
-      return (CopyOfBuilder) super.userCarId(userCarId);
     }
   }
   

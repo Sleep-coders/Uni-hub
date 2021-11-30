@@ -23,12 +23,7 @@
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/fragment_profile.xml" value="0.2" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/fragment_setting.xml" value="0.19791666666666666" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/rider_home_row.xml" value="0.264" />
-        <entry key="..\:/Users/STUDENT/401courseJAVA/finalProject/Uni-hub/app/src/main/res/layout/activity_available_rides.xml" value="0.25" />
-        <entry key="..\:/Users/STUDENT/401courseJAVA/finalProject/Uni-hub/app/src/main/res/layout/activity_driver_create_ride.xml" value="0.25" />
-        <entry key="..\:/Users/STUDENT/401courseJAVA/finalProject/Uni-hub/app/src/main/res/layout/activity_driver_home.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/STUDENT/401courseJAVA/finalProject/Uni-hub/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/STUDENT/401courseJAVA/finalProject/Uni-hub/app/src/main/res/layout/driver_raw.xml" value="0.33" />
-        <entry key="..\:/Users/STUDENT/401courseJAVA/finalProject/Uni-hub/app/src/main/res/layout/geograph_path_create_ride.xml" value="0.25" />
+        <entry key="..\:/Users/OSAID920/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/fragment_profile.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/drawable-anydpi/ic_aboutApp.xml" value="0.16041666666666668" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/drawable-anydpi/ic_edit.xml" value="0.2203125" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/drawable-anydpi/ic_image.xml" value="0.2203125" />
@@ -47,9 +42,6 @@
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/menu/bottom_nav_menu_main.xml" value="0.1" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/menu/menu_navigation.xml" value="0.1" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/xml/root_preferences.xml" value="0.33" />
-        <entry key="..\:/Users/STUDENT/java-401/Uni-hub/app/src/main/res/layout-v28/fragment_profile.xml" value="0.11911231884057971" />
-        <entry key="..\:/Users/STUDENT/java-401/Uni-hub/app/src/main/res/layout/addusercardialog.xml" value="0.25" />
-        <entry key="..\:/Users/STUDENT/java-401/Uni-hub/app/src/main/res/layout/fragment_profile.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>

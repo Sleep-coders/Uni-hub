@@ -37,8 +37,8 @@ import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.auth.AuthUserAttribute;
 import com.amplifyframework.auth.AuthUserAttributeKey;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.AppUser;
 import com.amplifyframework.datastore.generated.model.Car;
-import com.amplifyframework.datastore.generated.model.User;
 import com.example.uni_hub.R;
 import com.example.uni_hub.databinding.FragmentProfileBinding;
 import com.google.android.material.textfield.TextInputEditText;
@@ -186,9 +186,9 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
     }
 
     private void addCarToApi(String userEmail, String carModel, String carImgUrl, int carSeatsNumber) {
-        Amplify.API.query(ModelQuery.get(User.class, userEmail), success -> {
+        Amplify.API.query(ModelQuery.get(AppUser.class, userEmail), success -> {
 
-            User owner = success.getData();
+            AppUser owner = success.getData();
 
             Car car = Car.builder()
                     .ownerId(owner.getId())
@@ -236,9 +236,9 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
         SharedPreferences sharedPref = requireContext()
                 .getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
 
-        Amplify.API.query(ModelQuery.get(User.class, userEmail),
+        Amplify.API.query(ModelQuery.get(AppUser.class, userEmail),
                 success -> {
-                    User user = success.getData();
+                    AppUser user = success.getData();
 
                     Log.i(TAG, "user is: " + user);
 //                    String userName = user.getUserNickname();
@@ -389,11 +389,11 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
     }
 
     public void saveChangeToApi(String userEmail) {
-        Amplify.API.query(ModelQuery.get(User.class, userEmail), success -> {
+        Amplify.API.query(ModelQuery.get(AppUser.class, userEmail), success -> {
 
-            User oldUser = success.getData();
+            AppUser oldUser = success.getData();
 
-            User user = User.builder()
+            AppUser user = AppUser.builder()
                     .userRealName(oldUser.getUserRealName())
                     .userNickname(usernameTextView.getText().toString())
                     .userPhoneNumber(phoneTextView.getText().toString())
