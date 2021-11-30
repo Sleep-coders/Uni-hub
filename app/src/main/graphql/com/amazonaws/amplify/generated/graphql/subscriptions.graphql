@@ -215,6 +215,57 @@ subscription OnDeleteUser {
     _lastChangedAt
   }
 }
+subscription OnCreateStudent {
+  onCreateStudent {
+    id
+    user_real_name
+    user_nickname
+    user_phone_number
+    user_email
+    user_location
+    user_university
+    user_img
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnUpdateStudent {
+  onUpdateStudent {
+    id
+    user_real_name
+    user_nickname
+    user_phone_number
+    user_email
+    user_location
+    user_university
+    user_img
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnDeleteStudent {
+  onDeleteStudent {
+    id
+    user_real_name
+    user_nickname
+    user_phone_number
+    user_email
+    user_location
+    user_university
+    user_img
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
 subscription OnCreateCar {
   onCreateCar {
     id

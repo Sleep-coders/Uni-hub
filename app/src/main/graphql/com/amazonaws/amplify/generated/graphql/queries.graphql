@@ -151,6 +151,87 @@ query SyncUsers(
     startedAt
   }
 }
+query GetStudent($id: ID!) {
+  getStudent(id: $id) {
+    id
+    user_real_name
+    user_nickname
+    user_phone_number
+    user_email
+    user_location
+    user_university
+    user_img
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+query ListStudents(
+  $id: ID
+  $filter: ModelStudentFilterInput
+  $limit: Int
+  $nextToken: String
+  $sortDirection: ModelSortDirection
+) {
+  listStudents(
+    id: $id
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    sortDirection: $sortDirection
+  ) {
+    items {
+      id
+      user_real_name
+      user_nickname
+      user_phone_number
+      user_email
+      user_location
+      user_university
+      user_img
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    nextToken
+    startedAt
+  }
+}
+query SyncStudents(
+  $filter: ModelStudentFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncStudents(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      user_real_name
+      user_nickname
+      user_phone_number
+      user_email
+      user_location
+      user_university
+      user_img
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    nextToken
+    startedAt
+  }
+}
 query GetCar($id: ID!) {
   getCar(id: $id) {
     id

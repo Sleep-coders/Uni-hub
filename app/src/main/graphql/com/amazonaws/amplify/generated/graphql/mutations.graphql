@@ -224,6 +224,66 @@ mutation DeleteUser(
     _lastChangedAt
   }
 }
+mutation CreateStudent(
+  $input: CreateStudentInput!
+  $condition: ModelStudentConditionInput
+) {
+  createStudent(input: $input, condition: $condition) {
+    id
+    user_real_name
+    user_nickname
+    user_phone_number
+    user_email
+    user_location
+    user_university
+    user_img
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+mutation UpdateStudent(
+  $input: UpdateStudentInput!
+  $condition: ModelStudentConditionInput
+) {
+  updateStudent(input: $input, condition: $condition) {
+    id
+    user_real_name
+    user_nickname
+    user_phone_number
+    user_email
+    user_location
+    user_university
+    user_img
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+mutation DeleteStudent(
+  $input: DeleteStudentInput!
+  $condition: ModelStudentConditionInput
+) {
+  deleteStudent(input: $input, condition: $condition) {
+    id
+    user_real_name
+    user_nickname
+    user_phone_number
+    user_email
+    user_location
+    user_university
+    user_img
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
 mutation CreateCar(
   $input: CreateCarInput!
   $condition: ModelCarConditionInput

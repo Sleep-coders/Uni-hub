@@ -77,6 +77,8 @@ public class Signup extends AppCompatActivity {
                     .userPhoneNumber(phoneNumber)
                     .userEmail(email).build();
 
+            Log.i(TAG, "user is: " + user.toString());
+
             saveUserInDynamoDB(user);
             return false;
         });
@@ -100,7 +102,7 @@ public class Signup extends AppCompatActivity {
             String userName = userNameText.getText().toString();
             String email = emailText.getText().toString();
             String password = passwordText.getText().toString();
-            String phoneNumber = phoneText.getText().toString();
+            String phoneNumber = "+962" + phoneText.getText().toString();
 
             signUp(name, userName, email, password, phoneNumber, errorMsg);
         });
@@ -207,12 +209,11 @@ public class Signup extends AppCompatActivity {
 
     ///////////////// == save User In DynamoDB == ////////////////////////////////
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     private void saveUserInDynamoDB(User user) {
-        Log.i(TAG, "saveUserInDynamoDB: ===> " + user.getCreatedAt());
-        Amplify.API.mutate(ModelMutation.create(user),
+        Log.i(TAG, "saveUserInDynamoDB: ===> " + user);
+        Amplify.DataStore.save(user,
                 response -> {
-                    Log.i("MyAmplifyApp", "User with id: " + response.getData().toString());
+                    Log.i("MyAmplifyApp", "User with id: " + response.item().toString());
                 },
                 error -> Log.e("MyAmplifyApp", "Create failed", error)
         );
