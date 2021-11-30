@@ -432,6 +432,7 @@ public final class Ride implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
+
     private CopyOfBuilder(String id, String ownerId, String ownerName, String rideDepartureTime, Integer availableSeats, Double cost, String carImage, String carInfo, String rideExpiresAt, String rideDate, String rideDescription, List<String> rideRoute, String userOwnerRideId) {
       super.id(id);
       super.ownerId(ownerId)
