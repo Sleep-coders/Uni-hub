@@ -60,6 +60,7 @@
     <string name="add">ADD</string>
     <string name="done">Done</string>
     <string name="save_coordinates">Save Coordinates</string>
+    <string name="cancel">Cancel</string>
     <string-array name="Available_Rides">
         <item>ride1</item>
         <item>ride2</item>

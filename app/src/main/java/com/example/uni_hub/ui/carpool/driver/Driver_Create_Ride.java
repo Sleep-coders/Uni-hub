@@ -289,6 +289,7 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
             }
         });
 
+        routDescriptionText = findViewById(R.id.route_description);
         submit_ride = findViewById(R.id.submit_ride);
         submit_ride.setOnClickListener(view -> {
             if (getUserCarInfo()) {
@@ -389,25 +390,24 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
     public void onMapReady(@NonNull GoogleMap googleMap) {
         googleMapL = googleMap;
 
-        googleMapL.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
 
+        googleMapL.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
             @Override
-            public void onMapClick(@NonNull LatLng position) {
-
+            public void onMapLongClick(@NonNull LatLng latLng) {
                 if(destCounter < 1){
-                    googleMapL.addMarker(new MarkerOptions().position(position)
+                    googleMapL.addMarker(new MarkerOptions().position(latLng)
                             .title("Start Location").snippet("saba7 fakhry"));
-                    destinationStartLatitude = position.latitude;
-                    destinationStartLongitude = position.longitude;
+                    destinationStartLatitude = latLng.latitude;
+                    destinationStartLongitude = latLng.longitude;
                     destCounter++;
                     Log.i("XXXXyyyyzzzzz", "XXXXXXXXXyyyyyyyyyzzzzzzzz+++++>>>>" + destinationStartLatitude + destinationStartLongitude + destCounter );
                 }
                 if(destCounter <= 2){
-                    googleMapL.addMarker(new MarkerOptions().position(position)
+                    googleMapL.addMarker(new MarkerOptions().position(latLng)
                             .title("destination Location").snippet("saba7 fakhry"));
 
-                    destinationEndLatitude = position.latitude;
-                    destinationEndLongitude= position.longitude;
+                    destinationEndLatitude = latLng.latitude;
+                    destinationEndLongitude= latLng.longitude;
                     destCounter++;
                     Log.i("aaaapppppcccc", "AAAAAAAAABBBBBBBBCCCCCC+++++>>>" + destinationEndLatitude +  destinationEndLongitude + destCounter );
 
@@ -417,8 +417,6 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
 //                    LatLng[] latLngs = (LatLng[]) points.toArray();
 //                    googleMapL.addPolygon(new PolygonOptions().add(latLngs));
 //                }
-
-
             }
         });
 //
