@@ -24,6 +24,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Unihub">
         <activity
+            android:name=".ui.book_donation.Book_Donation"
+            android:exported="false" />
+        <activity
             android:name=".ui.roommates.Room_Owner_notification"
             android:exported="false" />
         <activity
