@@ -23,11 +23,24 @@
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/fragment_profile.xml" value="0.2" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/fragment_setting.xml" value="0.19791666666666666" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/rider_home_row.xml" value="0.264" />
+        <entry key="..\:/Users/OSAID920/AndroidStudioProjects/Uni-hub/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.3764102564102564" />
+        <entry key="..\:/Users/OSAID920/AndroidStudioProjects/Uni-hub/app/src/main/res/drawable/my_divider_shap.xml" value="0.20364583333333333" />
+        <entry key="..\:/Users/OSAID920/AndroidStudioProjects/Uni-hub/app/src/main/res/drawable/my_message.xml" value="0.20364583333333333" />
+        <entry key="..\:/Users/OSAID920/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/activity_create_new_room.xml" value="0.1" />
+        <entry key="..\:/Users/OSAID920/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/activity_host_game_grading.xml" value="0.1" />
+        <entry key="..\:/Users/OSAID920/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/activity_host_game_room.xml" value="0.1" />
+        <entry key="..\:/Users/OSAID920/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/activity_host_in_room_game.xml" value="0.1" />
+        <entry key="..\:/Users/OSAID920/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/activity_join_orcreate.xml" value="0.1" />
+        <entry key="..\:/Users/OSAID920/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/activity_main_menu.xml" value="0.1" />
+        <entry key="..\:/Users/OSAID920/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/activity_player_game_grading.xml" value="0.1" />
+        <entry key="..\:/Users/OSAID920/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/activity_player_game_room.xml" value="0.1" />
+        <entry key="..\:/Users/OSAID920/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/activity_player_in_room_game.xml" value="0.1" />
+        <entry key="..\:/Users/OSAID920/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/activity_player_join_password.xml" value="0.1" />
+        <entry key="..\:/Users/OSAID920/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/fragment_home.xml" value="0.3625" />
         <entry key="..\:/Users/OSAID920/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/fragment_profile.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/STUDENT/401courseJAVA/finalProject/Uni-hub/app/src/main/res/layout/activity_driver_create_ride.xml" value="0.25" />
-        <entry key="..\:/Users/STUDENT/401courseJAVA/finalProject/Uni-hub/app/src/main/res/layout/addusercardialog.xml" value="0.25" />
-        <entry key="..\:/Users/STUDENT/401courseJAVA/finalProject/Uni-hub/app/src/main/res/layout/geograph_path_create_ride.xml" value="0.33" />
-        <entry key="..\:/Users/STUDENT/401courseJAVA/finalProject/Uni-hub/app/src/main/res/xml/network_security_config.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/OSAID920/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/geograph_path_create_ride.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/OSAID920/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/my_message.xml" value="0.1" />
+        <entry key="..\:/Users/OSAID920/AndroidStudioProjects/Uni-hub/app/src/main/res/layout/recycler_view_item.xml" value="0.3625" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/drawable-anydpi/ic_aboutApp.xml" value="0.16041666666666668" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/drawable-anydpi/ic_edit.xml" value="0.2203125" />
         <entry key="..\:/Users/STUDENT/AndroidStudioProjects/Uni-hub/app/src/main/res/drawable-anydpi/ic_image.xml" value="0.2203125" />
