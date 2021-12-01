@@ -4,98 +4,139 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.carpool.rider.BookRideActivity">
+    tools:context=".ui.carpool.BookRideActivity">
 
     <TextView
         android:id="@+id/ride_driver_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="223dp"
-        tools:layout_editor_absoluteY="40dp" />
+        app:layout_constraintEnd_toStartOf="@+id/ride_departure_date_time"
+        app:layout_constraintStart_toEndOf="@+id/ride_car_img"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/ride_car_img"
-        android:layout_width="170dp"
-        android:layout_height="125dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="3dp"
         android:contentDescription="@string/todo"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ride_avalable_seats"
+        app:layout_constraintEnd_toStartOf="@+id/ride_driver_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ride_driver_name"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/ride_departure_date_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="223dp"
-        tools:layout_editor_absoluteY="78dp" />
+        app:layout_constraintEnd_toStartOf="@+id/ride_cost"
+        app:layout_constraintStart_toEndOf="@+id/ride_driver_name"
+        app:layout_constraintTop_toBottomOf="@+id/ride_driver_name" />
 
     <TextView
         android:id="@+id/ride_cost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="223dp"
-        tools:layout_editor_absoluteY="114dp" />
+        app:layout_constraintEnd_toStartOf="@+id/ride_avalable_seats"
+        app:layout_constraintStart_toEndOf="@+id/ride_departure_date_time"
+        app:layout_constraintTop_toBottomOf="@+id/ride_departure_date_time" />
 
     <TextView
         android:id="@+id/ride_avalable_seats"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="188dp"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="223dp"
-        tools:layout_editor_absoluteY="146dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ride_cost"
+        app:layout_constraintTop_toBottomOf="@+id/ride_cost" />
 
     <TextView
         android:id="@+id/ride_car_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="189dp" />
+        app:layout_constraintEnd_toStartOf="@+id/ride_car_img"
+        app:layout_constraintStart_toStartOf="@+id/ride_car_img"
+        app:layout_constraintTop_toBottomOf="@+id/ride_car_img" />
 
     <TextView
         android:id="@+id/ride_exp_at"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="223dp"
-        tools:layout_editor_absoluteY="189dp" />
+        app:layout_constraintEnd_toStartOf="@+id/ride_avalable_seats"
+        app:layout_constraintStart_toStartOf="@+id/ride_avalable_seats"
+        app:layout_constraintTop_toBottomOf="@+id/ride_avalable_seats" />
 
     <TextView
         android:id="@+id/ride_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="229dp" />
+        app:layout_constraintEnd_toStartOf="@+id/ride_car_info"
+        app:layout_constraintStart_toStartOf="@+id/ride_car_info"
+        app:layout_constraintTop_toBottomOf="@+id/ride_car_info" />
 
     <TextView
         android:id="@+id/ride_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="223dp"
-        tools:layout_editor_absoluteY="229dp" />
+        app:layout_constraintEnd_toStartOf="@+id/ride_exp_at"
+        app:layout_constraintStart_toStartOf="@+id/ride_exp_at"
+        app:layout_constraintTop_toBottomOf="@+id/ride_exp_at" />
 
     <Button
         android:id="@+id/ride_contact_driver"
-        android:layout_width="339dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="36dp"
         android:backgroundTint="@color/yellow_main_color"
         android:text="@string/contact"
         android:textColor="@color/black_main_color"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="526dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/map_book" />
 
     <Button
         android:id="@+id/ride_back_btn"
-        android:layout_width="339dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="36dp"
         android:backgroundTint="@color/purple_main_color"
         android:text="Back"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="602dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ride_contact_driver" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/map_book"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="409dp"
+        android:layout_height="299dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.625" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

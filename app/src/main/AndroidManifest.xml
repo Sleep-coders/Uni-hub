@@ -23,6 +23,9 @@
         android:supportsRtl="false"
         android:theme="@style/Theme.Unihub"
         tools:replace="android:allowBackup">
+        <activity
+            android:name=".ui.carpool.BookRideActivity"
+            android:exported="false"
 
         <activity
             android:name=".ui.roommates.CreatePostRoommates"

@@ -18,7 +18,7 @@ import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.Ride;
 import com.example.uni_hub.R;
-import com.example.uni_hub.ui.carpool.rider.BookRideActivity;
+import com.example.uni_hub.ui.carpool.BookRideActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -38,10 +38,10 @@ public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.DriverView
     @NonNull
     @Override
     public DriverViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.driver_raw, parent, false);
-//        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-//        View view = inflater.inflate(R.layout.driver_raw,parent,false);
+//        LayoutInflater inflater = LayoutInflater.from(context);
+//        View view = inflater.inflate(R.layout.driver_raw, parent, false);
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        View view = inflater.inflate(R.layout.driver_raw,parent,false);
         return new DriverViewHolder(view);
     }
 
@@ -60,7 +60,7 @@ public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.DriverView
 //        holder.passNum.setText(Integer.toString(ride.getAvailableSeats()));
         holder.riderName.setText(ride.getOwnerName());
         holder.routPath.setText(ride.getRideDescription());
-        Picasso.get().load(ride.getCarInfo()).into(holder.carImg);
+        Picasso.get().load(ride.getCarImage()).into(holder.carImg);
         holder.departureTimeText.setText(ride.getRideDepartureTime());
         holder.costText.setText(Double.toString(ride.getCost()));
         holder.rideDate.setText(ride.getRideDate());
@@ -87,7 +87,7 @@ public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.DriverView
             intent.putExtra("rideDate", ride.getRideDate());
             intent.putExtra("rideDescription", ride.getRideDescription());
             intent.putExtra("rideRoute", ride.getRideRoute());
-
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             view.getContext().startActivity(intent);
         });
 

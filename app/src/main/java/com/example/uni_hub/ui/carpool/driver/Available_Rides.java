@@ -57,7 +57,7 @@ public class Available_Rides extends AppCompatActivity {
     private Ride owner_ride;
 
 
-    List<Ride> allRides;
+    List<Ride> allRides = new ArrayList<>();
     String userId;
 
     @SuppressLint({"NotifyDataSetChanged", "SetTextI18n"})
@@ -82,12 +82,13 @@ public class Available_Rides extends AppCompatActivity {
             getOwnerRide();
             recycler_view_driver_post.setLayoutManager(new LinearLayoutManager(this));
             recycler_view_driver_post.setAdapter(new DriverAdapter(allRides, userId, getApplicationContext()));
-            recycler_view_driver_post.getAdapter().notifyDataSetChanged();
-
+            Objects.requireNonNull(recycler_view_driver_post.getAdapter()).notifyDataSetChanged();
             return false;
         });
 
-
+        recycler_view_driver_post.setLayoutManager(new LinearLayoutManager(this));
+        recycler_view_driver_post.setAdapter(new DriverAdapter(allRides, userId, getApplicationContext()));
+        Objects.requireNonNull(recycler_view_driver_post.getAdapter()).notifyDataSetChanged();
 
 
 
