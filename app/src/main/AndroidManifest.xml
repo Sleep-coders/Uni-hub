@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
@@ -22,12 +23,24 @@
         android:supportsRtl="false"
         android:theme="@style/Theme.Unihub"
         tools:replace="android:allowBackup">
+
+        <activity
+            android:name=".ui.roommates.CreatePostRoommates"
+            android:exported="false" />
+        <activity
+            android:name=".ui.roommates.AvailableRooms"
+            android:exported="false" />
+        <activity
+            android:name=".ui.roommates.RoomDetailsActivity"
+            android:exported="false" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${MAPS_API_KEY}" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
         <activity
             android:name=".ui.carpool.rider.RiderNotification"
             android:exported="false" />
@@ -81,7 +94,7 @@
             android:name=".ui.roommates.Room_Owner_notification"
             android:exported="false" />
         <activity
-            android:name=".ui.roommates.Create_post_Roommates"
+            android:name=".ui.roommates.CreatePostRoommates"
             android:exported="false" />
         <activity
             android:name=".ui.roommates.Available_Rooms"
