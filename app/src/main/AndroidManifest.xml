@@ -23,7 +23,7 @@
         android:theme="@style/Theme.Unihub"
         tools:replace="android:allowBackup">
         <activity
-            android:name=".ui.carpool.rider.BookRideActivity"
+            android:name=".ui.carpool.BookRideActivity"
             android:exported="false"
 
             />

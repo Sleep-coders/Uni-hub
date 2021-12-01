@@ -42,7 +42,6 @@ import com.amplifyframework.datastore.generated.model.Car;
 import com.amplifyframework.datastore.generated.model.Ride;
 import com.example.uni_hub.MainActivity;
 import com.example.uni_hub.R;
-import com.example.uni_hub.services.HttpRequester;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
@@ -52,25 +51,16 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Collection;
 import java.util.List;
-
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -84,7 +74,7 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
 
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
-    View confirmUser;
+    View showMapView;
 
     DatePickerDialog.OnDateSetListener datePickerDialog;
     TimePickerDialog timePickerDialog1;
@@ -107,6 +97,7 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
     String userName;
 
     Handler rideErrHandler;
+    Handler carHandler;
 
     TextView cost_per_passenger_updating;
     ProgressBar progressBar_cost;
@@ -138,6 +129,11 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
         Toast toast = Toast.makeText(this, "Something Went Wrong, Check Inputs And Try Again", Toast.LENGTH_LONG);
         rideErrHandler = new Handler(Looper.getMainLooper(), message -> {
             toast.show();
+            return false;
+        });
+        carHandler = new Handler(Looper.getMainLooper(),message -> {
+            Log.i("Hallo", "======> |||||||||||||////////////////");
+
             return false;
         });
 
@@ -360,6 +356,7 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
                             if (car.getOwnerId().equals(userId))
                                 cars.add(car);
                         }
+                        carHandler.sendEmptyMessage(0);
                     }
                     if (cars.size() >= 1) {
                         hasCar = true;
@@ -419,9 +416,6 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
 //                }
             }
         });
-//
-//        LatLng[] latLngs = (LatLng[]) points.toArray();
-//        googleMapL.addPolygon(new PolygonOptions().add(latLngs));
     }
 
 
@@ -430,7 +424,7 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
     public void showMapDialog() {
 
         dialogBuilder = new AlertDialog.Builder(this);
-        confirmUser = getLayoutInflater().inflate(R.layout.geograph_path_create_ride, null);
+        showMapView = getLayoutInflater().inflate(R.layout.geograph_path_create_ride, null);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -451,22 +445,21 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
 //        }
 
 
-        Button saveLocationBtn = confirmUser.findViewById(R.id.save_route_path);
-        Button cancelLocationBtn = confirmUser.findViewById(R.id.close_map);
+        Button saveLocationBtn = showMapView.findViewById(R.id.save_route_path);
+        Button cancelLocationBtn = showMapView.findViewById(R.id.close_map);
 
-        dialogBuilder.setView(confirmUser);
+        dialogBuilder.setView(showMapView);
         dialog = dialogBuilder.create();
         dialog.show();
 
         cancelLocationBtn.setOnClickListener(view -> {
-//            confirmUser.remo
             dialog.dismiss();
         });
 
 
         saveLocationBtn.setOnClickListener(view -> {
-
-
+            @SuppressLint("ShowToast") Toast toast = Toast.makeText(this, "Coordinates are saved", Toast.LENGTH_LONG);
+            toast.show();
         });
     }
 
