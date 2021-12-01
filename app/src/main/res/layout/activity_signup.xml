@@ -24,6 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="14dp"
+        android:fontFamily="@font/stereo"
         android:text="@string/sign_up"
         android:textColor="@color/purple_main_color"
         android:textSize="34sp"
