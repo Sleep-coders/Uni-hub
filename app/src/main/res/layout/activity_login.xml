@@ -8,10 +8,11 @@
 
     <ImageView
         android:id="@+id/profile_user_img"
-        android:layout_width="123dp"
-        android:layout_height="112dp"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
         android:layout_marginTop="28dp"
         android:contentDescription="@string/todo"
+        android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,9 +24,9 @@
         android:id="@+id/signin_main_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:fontFamily="@font/stereo"
         android:text="@string/log_in"
-        android:textColor="@color/black_main_color"
+        android:textColor="@color/purple_main_color"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -76,7 +77,7 @@
 
     <Button
         android:id="@+id/signin_signup_btn"
-        android:layout_width="250dp"
+        android:layout_width="339dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/purple_main_color"
         android:text="@string/signup"

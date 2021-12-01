@@ -37,10 +37,8 @@
 
                 <ImageView
                     android:id="@+id/profile_user_img"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:background="@color/white_pure"
-
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
                     android:src="@drawable/profile"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -55,10 +53,10 @@
                     android:layout_width="320dp"
                     android:layout_height="50dp"
                     android:layout_margin="20dp"
-                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
                     android:text="@string/username"
                     android:textAlignment="center"
-                    android:textColor="#fec367"
+                    android:textColor="@color/yellow_main_color_variant"
                     android:textFontWeight="400"
                     android:textSize="30sp"
                     app:layout_constraintBottom_toTopOf="@+id/profile_info_label"
@@ -72,8 +70,8 @@
                     android:id="@+id/profile_info_label"
                     android:layout_width="320dp"
                     android:layout_height="50dp"
-                    android:layout_marginTop="80dp"
                     android:fontFamily="sans-serif-light"
+                    android:gravity="center"
                     android:hint="@string/personal_information"
                     android:textAlignment="center"
                     android:textColor="#fec367"
@@ -84,7 +82,7 @@
                     app:layout_constraintHorizontal_bias="0.494"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/profile_user_img"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintVertical_bias="0.773" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
@@ -111,7 +109,7 @@
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:gravity="start|center_vertical"
-                    android:text="Rahaf"
+                    android:text=" Username"
                     android:textSize="20sp" />
 
                 <ImageView
@@ -157,7 +155,7 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical"
                     android:textSize="20sp"
-                    android:text="email" />
+                    android:text=" Email" />
 
 
             </LinearLayout>
@@ -187,7 +185,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:gravity="center_vertical"
-                    android:text="**********"
+                    android:text=" **********"
                     android:textSize="20sp"
                     android:layout_weight="1" />
 
@@ -228,7 +226,7 @@
                     android:layout_marginRight="15dp"
                     android:gravity="center_vertical"
                     android:textSize="20sp"
-                    android:text="University name"
+                    android:text=" University name"
                     android:layout_weight="1" />
 
                 <ImageView
@@ -268,7 +266,7 @@
                     android:layout_marginRight="15dp"
                     android:gravity="center_vertical"
                     android:textSize="20sp"
-                    android:text="+962 000 000 000"
+                    android:text=" +962 000 000 000"
                     android:layout_weight="1" />
 
                 <ImageView
@@ -308,7 +306,7 @@
                     android:layout_marginRight="15dp"
                     android:gravity="center_vertical"
                     android:textSize="20sp"
-                    android:text="Add your Location"
+                    android:text=" Your Location"
                     android:layout_weight="1" />
 
                 <ImageView
@@ -328,10 +326,12 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:orientation="vertical">
+
                 <Button
                     android:id="@+id/profile_addcar_btn"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black_main_color"
                     android:layout_gravity="center_vertical|center_horizontal"
                     android:backgroundTint="@color/yellow_main_color"
                     android:text="@string/add_car" />
@@ -349,10 +349,11 @@
                     android:background="@color/purple_main_color"
                     android:text="@string/save" />
             </LinearLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:orientation="vertical"></LinearLayout>
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
