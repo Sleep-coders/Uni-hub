@@ -22,7 +22,11 @@
                 android:id="@+id/car_image_card"
                 android:layout_width="147dp"
                 android:layout_height="140dp"
-                tools:layout_editor_absoluteY="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
@@ -30,24 +34,33 @@
                 android:layout_width="wrap_content"
                 android:layout_height="19dp"
                 android:text="TextView"
-                tools:layout_editor_absoluteX="161dp"
-                tools:layout_editor_absoluteY="34dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.241" />
 
             <TextView
                 android:id="@+id/departure_time_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                tools:layout_editor_absoluteX="161dp"
-                tools:layout_editor_absoluteY="62dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.439" />
 
             <TextView
                 android:id="@+id/ride_expires_at_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                tools:layout_editor_absoluteX="161dp"
-                tools:layout_editor_absoluteY="91dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.645" />
 
             <TextView
                 android:id="@+id/driver_name_cards"
@@ -56,16 +69,24 @@
                 android:text="TextView"
                 android:textSize="18dp"
                 android:textStyle="bold"
-                tools:layout_editor_absoluteX="232dp"
-                tools:layout_editor_absoluteY="3dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.758"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.022" />
 
             <TextView
                 android:id="@+id/number_of_passengers_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                tools:layout_editor_absoluteX="306dp"
-                tools:layout_editor_absoluteY="34dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.95"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.241" />
 
             <Button
                 android:id="@+id/request_ride"
@@ -73,16 +94,25 @@
                 android:layout_height="wrap_content"
                 android:text="Request a Ride"
                 android:textSize="12dp"
-                tools:layout_editor_absoluteX="240dp"
-                tools:layout_editor_absoluteY="110dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.982" />
 
             <TextView
                 android:id="@+id/cost_rout_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="28dp"
                 android:text="TextView"
-                tools:layout_editor_absoluteX="306dp"
-                tools:layout_editor_absoluteY="62dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.95"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.548" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

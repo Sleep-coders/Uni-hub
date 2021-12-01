@@ -1,6 +1,8 @@
 package com.example.uni_hub.ui.carpool.driver;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,36 +22,41 @@ import java.util.List;
 public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.DriverViewHolder> {
     List<Ride> allRides ;
     String userId;
+    Context context;
 
 
 
-
-    public DriverAdapter( List<Ride> allRides ,String userId) {
+    public DriverAdapter( List<Ride> allRides ,String userId , Context context) {
         this.allRides = allRides;
         this.userId = userId;
+        this.context=context;
     }
 
     @NonNull
     @Override
     public DriverViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.driver_raw,parent,false);
+//        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+//        View view = inflater.inflate(R.layout.driver_raw,parent,false);
         return new DriverViewHolder(view);
     }
 
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull DriverViewHolder holder, int position) {
-        if(allRides.get(position).getOwnerName().equals(userId)){
+        if(allRides.get(position).getOwnerId().equals(userId)){
             holder.requestRideBtn.setVisibility(View.INVISIBLE);
-            holder.riderName.setText(allRides.get(position).getOwnerName());
-            holder.routPath.setText(allRides.get(position).getRideDescription());
-            Picasso.get().load(allRides.get(position).getCarImage()).into(holder.carImg);
-            holder.departureTimeText.setText(allRides.get(position).getRideDepartureTime());
-            holder.costText.setText(Double.toString(allRides.get(position).getCost()));
-            holder.passNum.setText(Integer.toString(allRides.get(position).getAvailableSeats()));
-            holder.rideExAt.setText(allRides.get(position).getRideExpiresAt());
         }
+        Log.i("ALLRIDES++++>>>>", "++++++>>>>>>>"+allRides);
+        Log.i("USERID++++>>>>", "++++++>>>>>>>"+userId);
+        holder.riderName.setText(allRides.get(position).getOwnerName());
+        holder.routPath.setText(allRides.get(position).getRideDescription());
+        Picasso.get().load(allRides.get(position).getCarImage()).into(holder.carImg);
+        holder.departureTimeText.setText(allRides.get(position).getRideDepartureTime());
+        holder.costText.setText(Double.toString(allRides.get(position).getCost()));
+        holder.passNum.setText(Integer.toString(allRides.get(position).getAvailableSeats()));
+        holder.rideExAt.setText(allRides.get(position).getRideExpiresAt());
 
     }
 
