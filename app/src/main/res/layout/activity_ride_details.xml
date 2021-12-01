@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:background="@color/yellow_main_color"
         android:backgroundTint="@color/white_main_color"
-        android:text="@string/carpool_name"
+        android:text="carpool_name"
         android:textColor="@color/purple_main_color_variant"
         android:textColorLink="@color/yellow_main_color"
         android:textSize="28sp"
@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/driver_name"
+            android:text="driver_name"
             android:textAlignment="center"
             android:textColor="@color/black_main_color"
             android:textSize="22sp" />
@@ -51,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:text="@string/driver_details"
+            android:text="driver_details"
             android:textAlignment="center"
             android:textColor="@color/black_main_color"
             android:textSize="22sp" />
@@ -71,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="270dp"
-            android:text="@string/contact_info"
+            android:text="contact_info"
             android:textAlignment="center"
             android:textColor="@color/black_main_color"
             android:textSize="22sp" />
@@ -103,7 +103,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/trip_info"
+            android:text="trip_info"
             android:textAlignment="center"
             android:textColor="@color/black_main_color"
             android:textSize="22sp" />
@@ -113,7 +113,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:text="@string/time_and_date"
+            android:text="time_and_date"
             android:textAlignment="center"
             android:textColor="@color/black_main_color"
             android:textSize="22sp" />
@@ -123,7 +123,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="90dp"
-            android:text="@string/availabe_passengers"
+            android:text="availabe_passengers"
             android:textAlignment="center"
             android:textColor="@color/black_main_color"
             android:textSize="22sp" />
@@ -133,7 +133,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="130dp"
-            android:text="@string/rout_in_details"
+            android:text="rout_in_details"
             android:textAlignment="center"
             android:textColor="@color/black_main_color"
             android:textSize="22sp" />
@@ -144,7 +144,7 @@
         android:layout_width="245dp"
         android:layout_height="61dp"
         android:backgroundTint="@color/yellow_main_color"
-        android:text="@string/request_a_ride"
+        android:text="request_a_ride"
         android:textColor="@color/black_main_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
