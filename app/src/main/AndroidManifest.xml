@@ -4,9 +4,6 @@
     package="com.example.uni_hub">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- Include only if your app benefits from precise location access. -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -37,7 +34,7 @@
             android:name=".ui.roommates.Available_Rooms"
             android:exported="false" />
         <activity
-            android:name=".ui.utilities.Student_Utilites"
+            android:name=".ui.utilities.Student_Utilities"
             android:exported="false" />
       <meta-data
          android:name="com.google.android.geo.API_KEY"
