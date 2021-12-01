@@ -59,10 +59,10 @@ public class Rider_home_adapter extends RecyclerView.Adapter<Rider_home_adapter.
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            rideTitle = itemView.findViewById(R.id.ridesTitle_text);
-            rideDescription = itemView.findViewById(R.id.rides_description_text);
-            rideDescription2 = itemView.findViewById(R.id.rides_description_text2);
-            carImage = itemView.findViewById(R.id.rides_imges);
+            rideTitle = itemView.findViewById(R.id.driver_name);
+            rideDescription = itemView.findViewById(R.id.location_path_from_driver);
+            rideDescription2 = itemView.findViewById(R.id.time_of_the_trip);
+            carImage = itemView.findViewById(R.id.car_img_from_driver);
             joinRideBtn= itemView.findViewById(R.id.joinride_btn);
         }
     }
