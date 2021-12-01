@@ -61,6 +61,14 @@
     <string name="done">Done</string>
     <string name="save_coordinates">Save Coordinates</string>
     <string name="cancel">Cancel</string>
+    <string name="write_a_message">Write a message</string>
+    <string name="player_place_holder">Player_place_holder</string>
+    <string name="room_password">Room Password</string>
+    <string name="enter_the_room_password">Enter The Room Password</string>
+    <string name="choose_an_option">CHOOSE AN OPTION</string>
+    <string name="join_the_room">Join The Room</string>
+    <string name="wrong_room_password">Wrong Room Password</string>
+    <string name="closes_activity">closes activity</string>
     <string-array name="Available_Rides">
         <item>ride1</item>
         <item>ride2</item>
@@ -100,4 +108,11 @@
         <item>room3</item>
         <item>room4</item>
     </string-array>
+
+    <string-array name="players_number_array">
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
 </resources>
