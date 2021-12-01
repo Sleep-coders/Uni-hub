@@ -23,20 +23,40 @@
         android:theme="@style/Theme.Unihub"
         tools:replace="android:allowBackup">
         <activity
+            android:name=".ui.splashscreen.SplashScreen"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${MAPS_API_KEY}" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name=".ui.utilities.Calender_Utility"
+            android:exported="false" />
+        <activity
+            android:name=".ui.utilities.PdfScanner_Utility"
+            android:exported="false" />
+        <activity
+            android:name=".ui.utilities.AlarmClock_Utility"
+            android:exported="false" />
+
+        <receiver android:name=".ui.utilities.AlarmReceiver" />
+
+        <activity
             android:name=".ui.carpool.rider.RiderNotification"
             android:exported="false" />
         <activity
             android:name=".ui.carpool.rider.RideDetails"
             android:exported="false" />
-        <activity
-            android:name=".ui.carpool.rider.MainActivity"
-            android:exported="false" /> <!-- <meta-data -->
-        <!-- android:name="com.google.android.geo.API_KEY" -->
-        <!-- android:value="${MAPS_API_KEY}" /> -->
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-
         <activity
             android:name=".game.ui.player.PlayerJoinPassword"
             android:exported="false"
@@ -117,16 +137,17 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".ui.auth.Login" -->
+        <!-- android:exported="true"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
+        <!-- </activity> -->
         <activity
             android:name=".ui.auth.Login"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>

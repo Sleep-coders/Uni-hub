@@ -15,6 +15,7 @@ type AppUser @model
   user_img: String
   car : Car @hasOne
   rides: [Ride] @hasMany
+  room : Room @hasOne
 }
 
 type Ride @model
@@ -42,5 +43,12 @@ type Car @model
   car_seats_num : Int!
 }
 
-
-
+type Room @model
+{
+  id: ID!
+  room_owner_id : String!
+  room_owner_email : String!
+  room_description : String
+  room_location : String!
+  room_image : String!
+}

@@ -183,12 +183,20 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
         return root;
     }
 
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        String userEmail = Amplify.Auth.getCurrentUser().getUsername();
+        loadProfileData(userEmail);
+    }
+
     private void addCarToApi(String userEmail, String carModel, String carImgUrl, int carSeatsNumber) {
         Amplify.API.query(ModelQuery.list(AppUser.class, AppUser.USER_EMAIL.eq(userEmail)), success -> {
 
             AppUser owner = null;
 
-            for(AppUser user: success.getData()){
+            for (AppUser user : success.getData()) {
                 owner = user;
                 break;
             }
@@ -233,12 +241,12 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
                 Toast toast = Toast.makeText(requireContext(), TOAST_ADD_CAR_SUCCESS_MSG, Toast.LENGTH_LONG);
                 toast.show();
                 dialog.dismiss();
-            }else {
+            } else {
                 Toast toast = Toast.makeText(requireContext(), TOAST_ADD_CAR_MSG, Toast.LENGTH_LONG);
                 toast.show();
             }
-            Log.i(TAG,"carModel: " + carModel + " carSearsNumber: "+ carSeatsNumber + "carImgIsLoaded: " + carImgIsLoaded );
-            
+            Log.i(TAG, "carModel: " + carModel + " carSearsNumber: " + carSeatsNumber + "carImgIsLoaded: " + carImgIsLoaded);
+
         });
 
         addUserCarView.findViewById(R.id.cancel_carDialog_btn).setOnClickListener(v -> dialog.dismiss());
@@ -252,15 +260,15 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
         Amplify.API.query(ModelQuery.list(AppUser.class, AppUser.USER_EMAIL.eq(userEmail)),
                 success -> {
                     AppUser user = null;
-                    for(AppUser _user: success.getData()){
+                    for (AppUser _user : success.getData()) {
                         user = _user;
                         break;
                     }
                     Log.i(TAG, "user is: " + user);
                     String userName = user.getUserNickname();
                     String userPhoneNumber = user.getUserPhoneNumber();
-                    String userAddress = user.getUserLocation() != null ? (!user.getUserLocation().equals("") ? user.getUserLocation(): "N/A") : "N/A";
-                    String userSchool = user.getUserUniversity() != null ? (!user.getUserUniversity().equals("") ? user.getUserUniversity(): "N/A") : "N/A";
+                    String userAddress = user.getUserLocation() != null ? (!user.getUserLocation().equals("") ? user.getUserLocation() : "N/A") : "N/A";
+                    String userSchool = user.getUserUniversity() != null ? (!user.getUserUniversity().equals("") ? user.getUserUniversity() : "N/A") : "N/A";
                     String userPassword = sharedPref.getString("userPassword", "N/A");
 
                     Bundle bundle = new Bundle();
@@ -407,10 +415,15 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
     }
 
     public void saveChangeToApi(String userEmail) {
-        Amplify.API.query(ModelQuery.get(AppUser.class, userEmail), success -> {
+        Amplify.API.query(ModelQuery.list(AppUser.class, AppUser.USER_EMAIL.eq(userEmail)), success -> {
 
-            AppUser oldUser = success.getData();
+            AppUser oldUser = null;
 
+            for (AppUser user : success.getData()) {
+                oldUser = user;
+                break;
+            }
+            String userImg_url = loadUserImgToggle ? imgUrl : oldUser.getUserImg();
             AppUser user = AppUser.builder()
                     .userRealName(oldUser.getUserRealName())
                     .userNickname(usernameTextView.getText().toString())
@@ -418,7 +431,7 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
                     .userEmail(oldUser.getUserEmail())
                     .userUniversity(schoolTextView.getText().toString())
                     .userLocation(locationTextView.getText().toString())
-                    .userImg(oldUser.getUserImg())
+                    .userImg(userImg_url)
                     .id(oldUser.getId())
                     .build();
 
@@ -430,7 +443,16 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
         });
     }
 
+
     public void saveChangesToCognito() {
+
+        // save password to referance
+        SharedPreferences sharedPref = requireContext()
+                .getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+//        editor.putString("userPassword", password);
+//        editor.apply();
+
         List<AuthUserAttribute> userAttributes = new ArrayList<>();
         userAttributes.add(new AuthUserAttribute(AuthUserAttributeKey.nickname(), usernameTextView.getText().toString()));
         userAttributes.add(new AuthUserAttribute(AuthUserAttributeKey.phoneNumber(), phoneTextView.getText().toString()));
@@ -438,8 +460,25 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
 
         Amplify.Auth.updateUserAttributes(
                 userAttributes, // attributes is a list of AuthUserAttribute
-                result -> Log.i("AuthDemo", "Updated user attributes = " + result.toString()),
+                result ->
+                        Log.i("AuthDemo", "Updated user attributes = " + result.toString()),
+
                 error -> Log.e("AuthDemo", "Failed to update user attributes.", error)
+        );
+
+        String newPassword = passwordTextView.getText().toString();
+        String oldPassword = sharedPref.getString("userPassword","123");
+
+        Log.i(TAG,"newPassword :"+ newPassword + "oldPass :" + oldPassword);
+
+        Amplify.Auth.updatePassword(
+                oldPassword,
+                newPassword,
+                () -> {
+                    Log.i("AuthQuickstart", "Updated password successfully");
+                    editor.putString("userPassword",newPassword);
+                    },
+                error -> Log.e("AuthQuickstart", error.toString())
         );
     }
 
@@ -466,7 +505,7 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
                                 bundle.putString("carImgUrl", resultUrl.getUrl().toString());
                                 message.setData(bundle);
                                 carImageHandler.sendMessage(message);
-                                Log.i("AAAAAAANNNNNNMMMM+++++>>>>>>>>>>>", "URL generation "+resultUrl.getUrl().toString());
+                                Log.i("AAAAAAANNNNNNMMMM+++++>>>>>>>>>>>", "URL generation " + resultUrl.getUrl().toString());
                             }
                         },
                         error -> Log.e("MyAmplifyApp", "URL generation failure", error)

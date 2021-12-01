@@ -85,6 +85,11 @@ dependencies {
     implementation 'io.crossbar.autobahn:autobahn-android:20.7.1'
     implementation 'com.google.code.gson:gson:2.8.9'
 
+    // Pager View Layout
+    implementation "androidx.viewpager:viewpager:1.0.0"
+
+    // Design
+    implementation'com.github.chyrta:AndroidOnboarder:0.7'
 
 
 
