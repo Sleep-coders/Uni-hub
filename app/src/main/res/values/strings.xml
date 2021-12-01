@@ -69,7 +69,7 @@
     <string name="join_the_room">Join The Room</string>
     <string name="wrong_room_password">Wrong Room Password</string>
     <string name="closes_activity">closes activity</string>
-
+    <string name="contact">Contact</string>
     <string-array name="Available_Rides">
         <item>ride1</item>
         <item>ride2</item>
