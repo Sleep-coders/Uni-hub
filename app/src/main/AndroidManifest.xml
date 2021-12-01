@@ -22,6 +22,14 @@
         android:supportsRtl="false"
         android:theme="@style/Theme.Unihub"
         tools:replace="android:allowBackup">
+
+        <service android:name=".MyService"></service>
+
+        <activity
+            android:name=".ui.utilities.services"
+            android:exported="false">
+
+        </activity>
         <activity
             android:name=".ui.utilities.Calendar_Activity"
             android:exported="false" />
@@ -30,8 +38,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.carpool.rider.RideDetails"
-            android:exported="false" />
-        <!-- <meta-data -->
+            android:exported="false" /> <!-- <meta-data -->
         <!-- android:name="com.google.android.geo.API_KEY" -->
         <!-- android:value="${MAPS_API_KEY}" /> -->
         <meta-data
@@ -124,18 +131,9 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
 
-<!--        <activity-->
-<!--            android:name=".ui.auth.Login"-->
-<!--            android:exported="true">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
-    </application>
+</application>
 
 </manifest>
