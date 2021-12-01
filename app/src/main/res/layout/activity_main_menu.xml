@@ -7,7 +7,7 @@
     tools:context=".game.MainMenu">
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/room_mate_email"
         android:layout_width="301dp"
         android:layout_height="47dp"
         android:text="Choose a Game"

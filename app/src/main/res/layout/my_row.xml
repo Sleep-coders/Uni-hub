@@ -60,10 +60,10 @@
                 app:layout_constraintBottom_toTopOf="@+id/room_cost_id"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/roomImageId" />
+                app:layout_constraintStart_toEndOf="@+id/room_image" />
 
             <ImageView
-                android:id="@+id/roomImageId"
+                android:id="@+id/room_image"
                 android:layout_width="195dp"
                 android:layout_height="180dp"
                 app:layout_constraintBottom_toBottomOf="parent"

@@ -17,9 +17,6 @@ subscription OnCreateAppUser {
       car_seats_num
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
     rides {
       items {
@@ -37,20 +34,26 @@ subscription OnCreateAppUser {
         ride_route
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
         appUserRidesId
       }
       nextToken
-      startedAt
+    }
+    room {
+      id
+      room_owner_id
+      room_owner_email
+      room_owner_user_name
+      room_description
+      room_location
+      room_image
+      room_cost
+      createdAt
+      updatedAt
     }
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
     appUserCarId
+    appUserRoomId
   }
 }
 subscription OnUpdateAppUser {
@@ -71,9 +74,6 @@ subscription OnUpdateAppUser {
       car_seats_num
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
     rides {
       items {
@@ -91,20 +91,26 @@ subscription OnUpdateAppUser {
         ride_route
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
         appUserRidesId
       }
       nextToken
-      startedAt
+    }
+    room {
+      id
+      room_owner_id
+      room_owner_email
+      room_owner_user_name
+      room_description
+      room_location
+      room_image
+      room_cost
+      createdAt
+      updatedAt
     }
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
     appUserCarId
+    appUserRoomId
   }
 }
 subscription OnDeleteAppUser {
@@ -125,9 +131,6 @@ subscription OnDeleteAppUser {
       car_seats_num
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
     rides {
       items {
@@ -145,20 +148,26 @@ subscription OnDeleteAppUser {
         ride_route
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
         appUserRidesId
       }
       nextToken
-      startedAt
+    }
+    room {
+      id
+      room_owner_id
+      room_owner_email
+      room_owner_user_name
+      room_description
+      room_location
+      room_image
+      room_cost
+      createdAt
+      updatedAt
     }
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
     appUserCarId
+    appUserRoomId
   }
 }
 subscription OnCreateRide {
@@ -177,9 +186,6 @@ subscription OnCreateRide {
     ride_route
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
     appUserRidesId
   }
 }
@@ -199,9 +205,6 @@ subscription OnUpdateRide {
     ride_route
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
     appUserRidesId
   }
 }
@@ -221,9 +224,6 @@ subscription OnDeleteRide {
     ride_route
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
     appUserRidesId
   }
 }
@@ -236,9 +236,6 @@ subscription OnCreateCar {
     car_seats_num
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
   }
 }
 subscription OnUpdateCar {
@@ -250,9 +247,6 @@ subscription OnUpdateCar {
     car_seats_num
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
   }
 }
 subscription OnDeleteCar {
@@ -264,8 +258,47 @@ subscription OnDeleteCar {
     car_seats_num
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
+  }
+}
+subscription OnCreateRoom {
+  onCreateRoom {
+    id
+    room_owner_id
+    room_owner_email
+    room_owner_user_name
+    room_description
+    room_location
+    room_image
+    room_cost
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateRoom {
+  onUpdateRoom {
+    id
+    room_owner_id
+    room_owner_email
+    room_owner_user_name
+    room_description
+    room_location
+    room_image
+    room_cost
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteRoom {
+  onDeleteRoom {
+    id
+    room_owner_id
+    room_owner_email
+    room_owner_user_name
+    room_description
+    room_location
+    room_image
+    room_cost
+    createdAt
+    updatedAt
   }
 }

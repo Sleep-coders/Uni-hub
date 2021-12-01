@@ -33,6 +33,7 @@ public final class AppUser implements Model {
   public static final QueryField USER_UNIVERSITY = field("AppUser", "user_university");
   public static final QueryField USER_IMG = field("AppUser", "user_img");
   public static final QueryField APP_USER_CAR_ID = field("AppUser", "appUserCarId");
+  public static final QueryField APP_USER_ROOM_ID = field("AppUser", "appUserRoomId");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="String", isRequired = true) String user_real_name;
   private final @ModelField(targetType="String", isRequired = true) String user_nickname;
@@ -43,9 +44,11 @@ public final class AppUser implements Model {
   private final @ModelField(targetType="String") String user_img;
   private final @ModelField(targetType="Car") @HasOne(associatedWith = "id", type = Car.class) Car car = null;
   private final @ModelField(targetType="Ride") @HasMany(associatedWith = "appUserRidesId", type = Ride.class) List<Ride> rides = null;
+  private final @ModelField(targetType="Room") @HasOne(associatedWith = "id", type = Room.class) Room room = null;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   private final @ModelField(targetType="ID") String appUserCarId;
+  private final @ModelField(targetType="ID") String appUserRoomId;
   public String getId() {
       return id;
   }
@@ -86,6 +89,10 @@ public final class AppUser implements Model {
       return rides;
   }
   
+  public Room getRoom() {
+      return room;
+  }
+  
   public Temporal.DateTime getCreatedAt() {
       return createdAt;
   }
@@ -98,7 +105,11 @@ public final class AppUser implements Model {
       return appUserCarId;
   }
   
-  private AppUser(String id, String user_real_name, String user_nickname, String user_phone_number, String user_email, String user_location, String user_university, String user_img, String appUserCarId) {
+  public String getAppUserRoomId() {
+      return appUserRoomId;
+  }
+  
+  private AppUser(String id, String user_real_name, String user_nickname, String user_phone_number, String user_email, String user_location, String user_university, String user_img, String appUserCarId, String appUserRoomId) {
     this.id = id;
     this.user_real_name = user_real_name;
     this.user_nickname = user_nickname;
@@ -108,6 +119,7 @@ public final class AppUser implements Model {
     this.user_university = user_university;
     this.user_img = user_img;
     this.appUserCarId = appUserCarId;
+    this.appUserRoomId = appUserRoomId;
   }
   
   @Override
@@ -128,7 +140,8 @@ public final class AppUser implements Model {
               ObjectsCompat.equals(getUserImg(), appUser.getUserImg()) &&
               ObjectsCompat.equals(getCreatedAt(), appUser.getCreatedAt()) &&
               ObjectsCompat.equals(getUpdatedAt(), appUser.getUpdatedAt()) &&
-              ObjectsCompat.equals(getAppUserCarId(), appUser.getAppUserCarId());
+              ObjectsCompat.equals(getAppUserCarId(), appUser.getAppUserCarId()) &&
+              ObjectsCompat.equals(getAppUserRoomId(), appUser.getAppUserRoomId());
       }
   }
   
@@ -146,6 +159,7 @@ public final class AppUser implements Model {
       .append(getCreatedAt())
       .append(getUpdatedAt())
       .append(getAppUserCarId())
+      .append(getAppUserRoomId())
       .toString()
       .hashCode();
   }
@@ -164,7 +178,8 @@ public final class AppUser implements Model {
       .append("user_img=" + String.valueOf(getUserImg()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()) + ", ")
-      .append("appUserCarId=" + String.valueOf(getAppUserCarId()))
+      .append("appUserCarId=" + String.valueOf(getAppUserCarId()) + ", ")
+      .append("appUserRoomId=" + String.valueOf(getAppUserRoomId()))
       .append("}")
       .toString();
   }
@@ -191,6 +206,7 @@ public final class AppUser implements Model {
       null,
       null,
       null,
+      null,
       null
     );
   }
@@ -204,7 +220,8 @@ public final class AppUser implements Model {
       user_location,
       user_university,
       user_img,
-      appUserCarId);
+      appUserCarId,
+      appUserRoomId);
   }
   public interface UserRealNameStep {
     UserNicknameStep userRealName(String userRealName);
@@ -233,6 +250,7 @@ public final class AppUser implements Model {
     BuildStep userUniversity(String userUniversity);
     BuildStep userImg(String userImg);
     BuildStep appUserCarId(String appUserCarId);
+    BuildStep appUserRoomId(String appUserRoomId);
   }
   
 
@@ -246,6 +264,7 @@ public final class AppUser implements Model {
     private String user_university;
     private String user_img;
     private String appUserCarId;
+    private String appUserRoomId;
     @Override
      public AppUser build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
@@ -259,7 +278,8 @@ public final class AppUser implements Model {
           user_location,
           user_university,
           user_img,
-          appUserCarId);
+          appUserCarId,
+          appUserRoomId);
     }
     
     @Override
@@ -314,6 +334,12 @@ public final class AppUser implements Model {
         return this;
     }
     
+    @Override
+     public BuildStep appUserRoomId(String appUserRoomId) {
+        this.appUserRoomId = appUserRoomId;
+        return this;
+    }
+    
     /** 
      * @param id id
      * @return Current Builder instance, for fluent method chaining
@@ -326,7 +352,7 @@ public final class AppUser implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String userRealName, String userNickname, String userPhoneNumber, String userEmail, String userLocation, String userUniversity, String userImg, String appUserCarId) {
+    private CopyOfBuilder(String id, String userRealName, String userNickname, String userPhoneNumber, String userEmail, String userLocation, String userUniversity, String userImg, String appUserCarId, String appUserRoomId) {
       super.id(id);
       super.userRealName(userRealName)
         .userNickname(userNickname)
@@ -335,7 +361,8 @@ public final class AppUser implements Model {
         .userLocation(userLocation)
         .userUniversity(userUniversity)
         .userImg(userImg)
-        .appUserCarId(appUserCarId);
+        .appUserCarId(appUserCarId)
+        .appUserRoomId(appUserRoomId);
     }
     
     @Override
@@ -376,6 +403,11 @@ public final class AppUser implements Model {
     @Override
      public CopyOfBuilder appUserCarId(String appUserCarId) {
       return (CopyOfBuilder) super.appUserCarId(appUserCarId);
+    }
+    
+    @Override
+     public CopyOfBuilder appUserRoomId(String appUserRoomId) {
+      return (CopyOfBuilder) super.appUserRoomId(appUserRoomId);
     }
   }
   
