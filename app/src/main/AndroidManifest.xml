@@ -23,6 +23,16 @@
         android:supportsRtl="false"
         android:theme="@style/Theme.Unihub"
         tools:replace="android:allowBackup">
+      <service android:name=".MyService"></service>
+
+        <activity
+            android:name=".ui.utilities.services"
+            android:exported="false">
+
+        </activity>
+        <activity
+            android:name=".ui.utilities.Calendar_Activity"
+            android:exported="false" />
         <activity
             android:name=".ui.carpool.BookRideActivity"
             android:exported="false"

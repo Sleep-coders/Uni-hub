@@ -27,14 +27,12 @@ public class Student_Utilities extends AppCompatActivity {
         });
 
 
-
-
-        Intent intent2=new Intent(this, Calendar_Activity.class);
-        Button btn2= findViewById(R.id.btn_pdf_scanner);
-        btn.setOnClickListener(new View.OnClickListener() {
+        Intent intent3=new Intent(this, services.class);
+        Button btn3= findViewById(R.id.btn_music_player);
+        btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(intent2);
+                startActivity(intent3);
             }
         });
 
