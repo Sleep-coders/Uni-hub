@@ -188,7 +188,7 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
 
             AppUser owner = null;
 
-            for(AppUser user: success.getData()){
+            for (AppUser user : success.getData()) {
                 owner = user;
                 break;
             }
@@ -229,16 +229,16 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
             String carSeatsNumber = carSeatsText.getText().toString();
 
             if (carImgIsLoaded && !carModel.equals("") && !carSeatsNumber.equals("")) {
-                addCarToApi(userEmail, imgUrl, carModel, Integer.parseInt(carSeatsNumber));
+                addCarToApi(userEmail, carModel, imgUrl, Integer.parseInt(carSeatsNumber));
                 Toast toast = Toast.makeText(requireContext(), TOAST_ADD_CAR_SUCCESS_MSG, Toast.LENGTH_LONG);
                 toast.show();
                 dialog.dismiss();
-            }else {
+            } else {
                 Toast toast = Toast.makeText(requireContext(), TOAST_ADD_CAR_MSG, Toast.LENGTH_LONG);
                 toast.show();
             }
-            Log.i(TAG,"carModel: " + carModel + " carSearsNumber: "+ carSeatsNumber + "carImgIsLoaded: " + carImgIsLoaded );
-            
+            Log.i(TAG, "carModel: " + carModel + " carSearsNumber: " + carSeatsNumber + "carImgIsLoaded: " + carImgIsLoaded);
+
         });
 
         addUserCarView.findViewById(R.id.cancel_carDialog_btn).setOnClickListener(v -> dialog.dismiss());
@@ -252,15 +252,15 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
         Amplify.API.query(ModelQuery.list(AppUser.class, AppUser.USER_EMAIL.eq(userEmail)),
                 success -> {
                     AppUser user = null;
-                    for(AppUser _user: success.getData()){
+                    for (AppUser _user : success.getData()) {
                         user = _user;
                         break;
                     }
                     Log.i(TAG, "user is: " + user);
                     String userName = user.getUserNickname();
                     String userPhoneNumber = user.getUserPhoneNumber();
-                    String userAddress = user.getUserLocation() != null ? (!user.getUserLocation().equals("") ? user.getUserLocation(): "N/A") : "N/A";
-                    String userSchool = user.getUserUniversity() != null ? (!user.getUserUniversity().equals("") ? user.getUserUniversity(): "N/A") : "N/A";
+                    String userAddress = user.getUserLocation() != null ? (!user.getUserLocation().equals("") ? user.getUserLocation() : "N/A") : "N/A";
+                    String userSchool = user.getUserUniversity() != null ? (!user.getUserUniversity().equals("") ? user.getUserUniversity() : "N/A") : "N/A";
                     String userPassword = sharedPref.getString("userPassword", "N/A");
 
                     Bundle bundle = new Bundle();
@@ -466,7 +466,7 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
                                 bundle.putString("carImgUrl", resultUrl.getUrl().toString());
                                 message.setData(bundle);
                                 carImageHandler.sendMessage(message);
-                                Log.i("AAAAAAANNNNNNMMMM+++++>>>>>>>>>>>", "URL generation "+resultUrl.getUrl().toString());
+                                Log.i("AAAAAAANNNNNNMMMM+++++>>>>>>>>>>>", "URL generation " + resultUrl.getUrl().toString());
                             }
                         },
                         error -> Log.e("MyAmplifyApp", "URL generation failure", error)

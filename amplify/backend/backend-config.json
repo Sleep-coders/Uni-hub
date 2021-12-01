@@ -1,6 +1,6 @@
 {
   "api": {
-    "unihubapigraphqlpleasework": {
+    "unihubapipleasepleasepleasework": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
       "output": {
@@ -9,8 +9,8 @@
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
               "apiKeyExpirationDays": 30,
-              "apiKeyExpirationDate": "2021-12-30T13:54:50.229Z",
-              "description": "goodapikey"
+              "apiKeyExpirationDate": "2021-12-31T10:09:54.674Z",
+              "description": "nicekeymaybe"
             }
           },
           "additionalAuthenticationProviders": []
