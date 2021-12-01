@@ -13,8 +13,8 @@
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="69dp"
         android:text="Alarm Clock"
-        app:layout_constraintBottom_toTopOf="@+id/btn_pdf_scanner"
-        app:layout_constraintEnd_toEndOf="@+id/btn_pdf_scanner" />
+        app:layout_constraintBottom_toTopOf="@+id/btn_music_player"
+        app:layout_constraintEnd_toEndOf="@+id/btn_music_player" />
 
     <Button
         android:id="@+id/btn_calender"
@@ -23,15 +23,15 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="52dp"
         android:text="Calender"
-        app:layout_constraintStart_toStartOf="@+id/btn_pdf_scanner"
-        app:layout_constraintTop_toBottomOf="@+id/btn_pdf_scanner" />
+        app:layout_constraintStart_toStartOf="@+id/btn_music_player"
+        app:layout_constraintTop_toBottomOf="@+id/btn_music_player" />
 
     <Button
-        android:id="@+id/btn_pdf_scanner"
+        android:id="@+id/btn_music_player"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="283dp"
-        android:text="Pdf Scanner"
+        android:text="music player"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
