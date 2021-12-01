@@ -34,7 +34,7 @@
 
     </style>
 
-    <style name="Theme.Unihub.NoActionBar">
+    <style name="Theme.Unihub.NoActionBar" parent="Theme.Unihub">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
