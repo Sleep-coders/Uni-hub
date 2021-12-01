@@ -69,17 +69,5 @@
         app:layout_constraintVertical_bias="0.347"
         app:srcCompat="@drawable/ic_notification" />
 
-    <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
-    <!--        android:id="@+id/bottom_navigation"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_alignParentBottom="true"-->
-    <!--        app:itemBackground="@color/purple_main_color_variant"-->
-    <!--        app:itemIconTint="@drawable/selector"-->
-    <!--        app:itemTextColor="@drawable/selector"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:menu="@menu/menu_navigation" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
