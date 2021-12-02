@@ -8,9 +8,9 @@
 
     <ImageView
         android:id="@+id/profile_user_img"
-        android:layout_width="200dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="220dp"
+        android:layout_height="190dp"
+        android:layout_marginTop="5dp"
         android:contentDescription="@string/todo"
         android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
@@ -99,7 +99,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.351" />
+        app:layout_constraintVertical_bias="0.367" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/signin_email_container"

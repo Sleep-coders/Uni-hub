@@ -31,10 +31,10 @@ public class Student_Utilities extends AppCompatActivity {
         });
 
         // PDF Scanner
-        pdfscanner_btn = findViewById(R.id.btn_pdf_scanner);
-        pdfscanner_btn.setOnClickListener(view -> {
-            startActivity(new Intent(getApplicationContext(), PdfScanner_Utility.class));
-        });
+//        pdfscanner_btn = findViewById(R.id.btn_pdf_scanner);
+//        pdfscanner_btn.setOnClickListener(view -> {
+//            startActivity(new Intent(getApplicationContext(), PdfScanner_Utility.class));
+//        });
 
         // Calender
         calender_btn = findViewById(R.id.btn_calender);

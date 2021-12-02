@@ -14,7 +14,8 @@
         android:text="Home"
         android:textAllCaps="true"
         android:textColor="@color/purple_main_color_variant"
-        android:textSize="20dp"
+        android:textSize="30dp"
+        android:textStyle="bold"
         app:barrierAllowsGoneWidgets="false"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,6 +46,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <!--                <ImageView-->
+<!--                    android:id="@+id/imgcarpool"-->
+<!--                    android:layout_width="80dp"-->
+<!--                    android:layout_height="80dp"-->
+<!--                    android:layout_alignParentStart="true"-->
+<!--                    android:layout_alignParentTop="true"-->
+<!--                    android:layout_centerInParent="true"-->
+<!--                    android:layout_marginStart="50dp"-->
+<!--                    android:layout_marginTop="15dp"-->
+<!--                    android:foregroundGravity="center_vertical|center|center_horizontal"-->
+<!--                    android:src="@drawable/pic6" />-->
                 <TextView
                     android:id="@+id/carpooltext"
                     android:layout_width="wrap_content"
@@ -52,23 +64,25 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="59dp"
-                    android:layout_marginTop="107dp"
+                    android:layout_marginTop="115dp"
                     android:text="Carpool"
                     android:textAlignment="center"
                     android:textColor="@color/purple_main_color"
                     android:textSize="18dp" />
 
-                <ImageView
-                    android:id="@+id/imgcarpool"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/animation_view"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_centerInParent="true"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginTop="15dp"
-                    android:foregroundGravity="center_vertical|center|center_horizontal"
-                    android:src="@drawable/pic6" />
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="39dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="20dp"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/loc" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
@@ -84,15 +98,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:id="@+id/imgroomate"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/animation_view3"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="13dp"
-                    android:layout_marginEnd="49dp"
-                    android:src="@drawable/pic4" />
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="39dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="20dp"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="false"
+                    app:lottie_rawRes="@raw/house" />
 
                 <TextView
                     android:id="@+id/textroomate"
@@ -100,8 +118,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="109dp"
-                    android:layout_marginEnd="30dp"
+                    android:layout_marginTop="115dp"
+                    android:layout_marginEnd="23dp"
                     android:text="Find a Roommate"
                     android:textColor="@color/purple_main_color"
                     android:textSize="18dp" />
@@ -141,23 +159,25 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="135dp"
-                    android:layout_marginTop="110dp"
+                    android:layout_marginTop="115dp"
                     android:text="Student Utilities"
                     android:textAlignment="center"
                     android:textColor="@color/purple_main_color"
                     android:textSize="18dp" />
 
-                <ImageView
-                    android:id="@+id/utilites"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/animation_view4"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_centerInParent="true"
-                    android:layout_marginStart="153dp"
-                    android:layout_marginTop="19dp"
-                    android:foregroundGravity="center_vertical|center|center_horizontal"
-                    android:src="@drawable/pic6" />
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="147dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="20dp"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="false"
+                    app:lottie_rawRes="@raw/store" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
@@ -203,13 +223,13 @@
 
                 <ImageView
                     android:id="@+id/imageView"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_centerInParent="true"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="39dp"
+                    android:layout_marginTop="10dp"
                     android:foregroundGravity="center_vertical|center|center_horizontal"
                     android:src="@drawable/pic6" />
             </RelativeLayout>
@@ -227,15 +247,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/animation_view6"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="13dp"
-                    android:layout_marginEnd="49dp"
-                    android:src="@drawable/pic4" />
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="20dp"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="false"
+                    app:lottie_rawRes="@raw/game" />
 
                 <TextView
                     android:id="@+id/textView3"
