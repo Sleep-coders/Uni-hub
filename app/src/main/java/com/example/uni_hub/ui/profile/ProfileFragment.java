@@ -183,6 +183,14 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
         return root;
     }
 
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        String userEmail = Amplify.Auth.getCurrentUser().getUsername();
+        loadProfileData(userEmail);
+    }
+
     private void addCarToApi(String userEmail, String carModel, String carImgUrl, int carSeatsNumber) {
         Amplify.API.query(ModelQuery.list(AppUser.class, AppUser.USER_EMAIL.eq(userEmail)), success -> {
 
@@ -407,10 +415,15 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
     }
 
     public void saveChangeToApi(String userEmail) {
-        Amplify.API.query(ModelQuery.get(AppUser.class, userEmail), success -> {
+        Amplify.API.query(ModelQuery.list(AppUser.class, AppUser.USER_EMAIL.eq(userEmail)), success -> {
 
-            AppUser oldUser = success.getData();
+            AppUser oldUser = null;
 
+            for (AppUser user : success.getData()) {
+                oldUser = user;
+                break;
+            }
+            String userImg_url = loadUserImgToggle ? imgUrl : oldUser.getUserImg();
             AppUser user = AppUser.builder()
                     .userRealName(oldUser.getUserRealName())
                     .userNickname(usernameTextView.getText().toString())
@@ -418,7 +431,7 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
                     .userEmail(oldUser.getUserEmail())
                     .userUniversity(schoolTextView.getText().toString())
                     .userLocation(locationTextView.getText().toString())
-                    .userImg(oldUser.getUserImg())
+                    .userImg(userImg_url)
                     .id(oldUser.getId())
                     .build();
 
@@ -430,7 +443,16 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
         });
     }
 
+
     public void saveChangesToCognito() {
+
+        // save password to referance
+        SharedPreferences sharedPref = requireContext()
+                .getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+//        editor.putString("userPassword", password);
+//        editor.apply();
+
         List<AuthUserAttribute> userAttributes = new ArrayList<>();
         userAttributes.add(new AuthUserAttribute(AuthUserAttributeKey.nickname(), usernameTextView.getText().toString()));
         userAttributes.add(new AuthUserAttribute(AuthUserAttributeKey.phoneNumber(), phoneTextView.getText().toString()));
@@ -438,8 +460,25 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
 
         Amplify.Auth.updateUserAttributes(
                 userAttributes, // attributes is a list of AuthUserAttribute
-                result -> Log.i("AuthDemo", "Updated user attributes = " + result.toString()),
+                result ->
+                        Log.i("AuthDemo", "Updated user attributes = " + result.toString()),
+
                 error -> Log.e("AuthDemo", "Failed to update user attributes.", error)
+        );
+
+        String newPassword = passwordTextView.getText().toString();
+        String oldPassword = sharedPref.getString("userPassword","123");
+
+        Log.i(TAG,"newPassword :"+ newPassword + "oldPass :" + oldPassword);
+
+        Amplify.Auth.updatePassword(
+                oldPassword,
+                newPassword,
+                () -> {
+                    Log.i("AuthQuickstart", "Updated password successfully");
+                    editor.putString("userPassword",newPassword);
+                    },
+                error -> Log.e("AuthQuickstart", error.toString())
         );
     }
 
