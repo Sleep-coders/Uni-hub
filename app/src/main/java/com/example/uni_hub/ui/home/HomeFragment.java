@@ -18,7 +18,7 @@ import com.example.uni_hub.databinding.FragmentHomeBinding;
 import com.example.uni_hub.game.MainMenu;
 import com.example.uni_hub.ui.book_donation.Book_Donation;
 import com.example.uni_hub.ui.carpool.Carpool_Home;
-import com.example.uni_hub.ui.roommates.Available_Rooms;
+import com.example.uni_hub.ui.roommates.AvailableRooms;
 import com.example.uni_hub.ui.utilities.Student_Utilities;
 
 public class HomeFragment extends Fragment {
@@ -63,7 +63,7 @@ public class HomeFragment extends Fragment {
         reqRoommateCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent req_roommate_intent = new Intent(context, Available_Rooms.class);
+                Intent req_roommate_intent = new Intent(context, AvailableRooms.class);
                 startActivity(req_roommate_intent);
             }
         });

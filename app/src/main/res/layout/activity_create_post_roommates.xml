@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.roommates.Create_post_Roommates">
+    tools:context=".ui.roommates.CreatePostRoommates">
+
 
     <TextView
         android:id="@+id/createPostTextId"
@@ -13,123 +14,151 @@
         android:layout_marginStart="45dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="45dp"
-        android:layout_marginBottom="28dp"
         android:fontFamily="sans-serif-light"
         android:gravity="center|center_horizontal"
         android:text="Create Your Post Here!"
         android:textAlignment="center"
         android:textColor="#7d45a0"
         android:textFontWeight="400"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/roomImageTextId"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/ic_imageId"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <TextView
-        android:id="@+id/roomImageTextId"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="110dp"
-        android:fontFamily="sans-serif-light"
-        android:text="Room Image"
-        android:textColor="#7d45a0"
-        android:textFontWeight="400"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/roomLocationTextId"
-        app:layout_constraintStart_toStartOf="@+id/ic_imageId"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/roomLocationTextId"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="318dp"
-        android:fontFamily="sans-serif-light"
-        android:text="Room Location"
-        android:textColor="#7d45a0"
-        android:textFontWeight="400"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/roomCostTextId"
-        app:layout_constraintStart_toStartOf="@+id/locationPlainTextId"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/locationPlainTextId"
         android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="9dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-light"
         android:hint="Add the room location"
         android:inputType="textPersonName"
         android:textColor="#7d45a0"
         android:textFontWeight="400"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/roomLocationTextId" />
-
-    <Button
-        android:id="@+id/addPostBtnId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:text="Add a Post"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/roomLocationTextId"
+        app:layout_constraintTop_toBottomOf="@+id/roomLocationTextId"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/locationPlainTextId2"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-light"
+        android:hint="Add a brief description about the room"
+        android:inputType="textPersonName"
+        android:textColor="#7d45a0"
+        android:textFontWeight="400"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/roomLocationTextId2"
+        app:layout_constraintTop_toBottomOf="@+id/roomLocationTextId2" />
 
     <TextView
-        android:id="@+id/roomCostTextId"
-        android:layout_width="0dp"
+        android:id="@+id/roomLocationTextId"
+        android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="57dp"
-        android:layout_marginBottom="49dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-light"
-        android:text="Room Cost"
+        android:text="Room Location"
         android:textColor="#7d45a0"
         android:textFontWeight="400"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/progressBarTextId"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/locationPlainTextId" />
+        app:layout_constraintStart_toStartOf="@+id/locationPlainTextId2"
+        app:layout_constraintTop_toBottomOf="@+id/locationPlainTextId2" />
 
     <TextView
-        android:id="@+id/progressBarTextId"
+        android:id="@+id/roomLocationTextId2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="12dp"
-        android:text="0 JD"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/seekBarId"
-        app:layout_constraintEnd_toEndOf="@+id/roomCostTextId" />
+        android:layout_height="30dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Room Description"
+        android:textColor="#7d45a0"
+        android:textFontWeight="400"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.239"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.382" />
 
     <ProgressBar
         android:id="@+id/progressBarId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="71dp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/addPostBtnId"
-        app:layout_constraintEnd_toEndOf="@+id/seekBarId" />
+        app:layout_constraintBottom_toTopOf="@+id/seekBarId"
+        app:layout_constraintEnd_toEndOf="@+id/locationPlainTextId"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/roomCostTextId"
+        app:layout_constraintTop_toBottomOf="@+id/locationPlainTextId"
+        app:layout_constraintVertical_bias="0.488" />
+
+    <TextView
+        android:id="@+id/roomCostTextId"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="252dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Room Cost"
+        android:textColor="#7d45a0"
+        android:textFontWeight="400"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/locationPlainTextId"
+        app:layout_constraintTop_toBottomOf="@+id/locationPlainTextId"
+        app:layout_constraintVertical_bias="0.0" />
 
     <SeekBar
         android:id="@+id/seekBarId"
-        android:layout_width="0dp"
+        android:layout_width="302dp"
         android:layout_height="30dp"
 
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="61dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="76dp"
-        app:layout_constraintBottom_toBottomOf="@+id/addPostBtnId"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="132dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/progressBarTextId"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarTextId"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/progressBarTextId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="0 JD"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/roomCostTextId"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/roomCostTextId"
+        app:layout_constraintTop_toBottomOf="@+id/roomCostTextId" />
+
+    <Button
+        android:id="@+id/addPostBtnId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Add Room"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/progressBarId" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.979" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -144,14 +173,14 @@
 
     <ImageView
         android:id="@+id/ic_imageId"
-        android:layout_width="172dp"
-        android:layout_height="124dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="46dp"
-        android:layout_marginBottom="38dp"
-        app:layout_constraintBottom_toTopOf="@+id/roomLocationTextId"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/roomImageTextId"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.187"
         app:srcCompat="@drawable/ic_image" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

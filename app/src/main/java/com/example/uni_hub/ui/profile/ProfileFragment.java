@@ -237,7 +237,7 @@ public class ProfileFragment extends Fragment implements HandlePathOzListener.Si
             String carSeatsNumber = carSeatsText.getText().toString();
 
             if (carImgIsLoaded && !carModel.equals("") && !carSeatsNumber.equals("")) {
-                addCarToApi(userEmail, imgUrl, carModel, Integer.parseInt(carSeatsNumber));
+                addCarToApi(userEmail, carModel, imgUrl, Integer.parseInt(carSeatsNumber));
                 Toast toast = Toast.makeText(requireContext(), TOAST_ADD_CAR_SUCCESS_MSG, Toast.LENGTH_LONG);
                 toast.show();
                 dialog.dismiss();

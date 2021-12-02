@@ -17,7 +17,7 @@ import okhttp3.Response;
 public class HttpRequester {
 
     OkHttpClient client = new OkHttpClient();
-    private String url;
+//    private String url;
     Gson gson ;
 
     public HttpRequester() {

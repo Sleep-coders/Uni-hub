@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.utilities.services">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ServiceExample"
+            android:padding="16dp"
+            android:gravity="center"
+            android:background="@color/white_main_color"
+           android:orientation="vertical">
+
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Click on button for playing and stopping music"
+               android:textColor="@color/purple_main_color"
+               android:textSize="30sp"
+               android:gravity="center"/>
+
+           <Button
+               android:id="@+id/play1"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Play"
+               android:textAllCaps="false"
+               android:textColor="@color/yellow_main_color"
+               android:textSize="20dp"
+               android:layout_marginTop="20dp"
+               android:background="@color/yellow_main_color"
+               />
+
+           <Button
+               android:id="@+id/stop1"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Stop"
+               android:textAllCaps="false"
+               android:textColor="@color/yellow_main_color"
+               android:textSize="20dp"
+               android:layout_marginTop="20dp"
+              android:background="@color/yellow_main_color"
+               />
+
+       </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

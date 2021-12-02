@@ -48,7 +48,9 @@ type Room @model
   id: ID!
   room_owner_id : String!
   room_owner_email : String!
+  room_owner_user_name : String!
   room_description : String
   room_location : String!
   room_image : String!
+  room_cost : Float!
 }

@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
@@ -22,26 +23,13 @@
         android:supportsRtl="false"
         android:theme="@style/Theme.Unihub"
         tools:replace="android:allowBackup">
-        <activity
-            android:name=".ui.splashscreen.SplashScreen"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+      <service android:name=".MyService"></service>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity
+            android:name=".ui.utilities.services"
+            android:exported="false">
+
         </activity>
-
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="${MAPS_API_KEY}" />
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-
-        <activity
-            android:name=".ui.utilities.Calender_Utility"
-            android:exported="false" />
         <activity
             android:name=".ui.utilities.PdfScanner_Utility"
             android:exported="false" />
@@ -50,6 +38,29 @@
             android:exported="false" />
 
         <receiver android:name=".ui.utilities.AlarmReceiver" />
+        <activity
+            android:name=".ui.utilities.Calendar_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.carpool.BookRideActivity"
+            android:exported="false"
+
+        <activity
+            android:name=".ui.roommates.CreatePostRoommates"
+            android:exported="false" />
+        <activity
+            android:name=".ui.roommates.AvailableRooms"
+            android:exported="false" />
+        <activity
+            android:name=".ui.roommates.RoomDetailsActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${MAPS_API_KEY}" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
         <activity
             android:name=".ui.carpool.rider.RiderNotification"
@@ -104,7 +115,7 @@
             android:name=".ui.roommates.Room_Owner_notification"
             android:exported="false" />
         <activity
-            android:name=".ui.roommates.Create_post_Roommates"
+            android:name=".ui.roommates.CreatePostRoommates"
             android:exported="false" />
         <activity
             android:name=".ui.roommates.Available_Rooms"
@@ -137,17 +148,15 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false" /> <!-- <activity -->
-        <!-- android:name=".ui.auth.Login" -->
-        <!-- android:exported="true"> -->
-        <!-- <intent-filter> -->
-        <!-- <action android:name="android.intent.action.MAIN" /> -->
-        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-        <!-- </intent-filter> -->
-        <!-- </activity> -->
+            android:exported="false" />
         <activity
             android:name=".ui.auth.Login"
-            android:exported="true"></activity>
-    </application>
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
 </manifest>

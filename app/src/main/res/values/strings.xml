@@ -81,6 +81,7 @@
     <string name="desc_three">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</string>
     <string name="desc_fourth">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</string>
 
+    <string name="contact">Contact</string>
     <string-array name="Available_Rides">
         <item>ride1</item>
         <item>ride2</item>

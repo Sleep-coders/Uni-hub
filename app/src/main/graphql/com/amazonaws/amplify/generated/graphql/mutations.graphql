@@ -20,9 +20,6 @@ mutation CreateAppUser(
       car_seats_num
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
     rides {
       items {
@@ -40,20 +37,26 @@ mutation CreateAppUser(
         ride_route
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
         appUserRidesId
       }
       nextToken
-      startedAt
+    }
+    room {
+      id
+      room_owner_id
+      room_owner_email
+      room_owner_user_name
+      room_description
+      room_location
+      room_image
+      room_cost
+      createdAt
+      updatedAt
     }
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
     appUserCarId
+    appUserRoomId
   }
 }
 mutation UpdateAppUser(
@@ -77,9 +80,6 @@ mutation UpdateAppUser(
       car_seats_num
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
     rides {
       items {
@@ -97,20 +97,26 @@ mutation UpdateAppUser(
         ride_route
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
         appUserRidesId
       }
       nextToken
-      startedAt
+    }
+    room {
+      id
+      room_owner_id
+      room_owner_email
+      room_owner_user_name
+      room_description
+      room_location
+      room_image
+      room_cost
+      createdAt
+      updatedAt
     }
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
     appUserCarId
+    appUserRoomId
   }
 }
 mutation DeleteAppUser(
@@ -134,9 +140,6 @@ mutation DeleteAppUser(
       car_seats_num
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
     rides {
       items {
@@ -154,20 +157,26 @@ mutation DeleteAppUser(
         ride_route
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
         appUserRidesId
       }
       nextToken
-      startedAt
+    }
+    room {
+      id
+      room_owner_id
+      room_owner_email
+      room_owner_user_name
+      room_description
+      room_location
+      room_image
+      room_cost
+      createdAt
+      updatedAt
     }
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
     appUserCarId
+    appUserRoomId
   }
 }
 mutation CreateRide(
@@ -189,9 +198,6 @@ mutation CreateRide(
     ride_route
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
     appUserRidesId
   }
 }
@@ -214,9 +220,6 @@ mutation UpdateRide(
     ride_route
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
     appUserRidesId
   }
 }
@@ -239,9 +242,6 @@ mutation DeleteRide(
     ride_route
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
     appUserRidesId
   }
 }
@@ -257,9 +257,6 @@ mutation CreateCar(
     car_seats_num
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
   }
 }
 mutation UpdateCar(
@@ -274,9 +271,6 @@ mutation UpdateCar(
     car_seats_num
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
   }
 }
 mutation DeleteCar(
@@ -291,8 +285,56 @@ mutation DeleteCar(
     car_seats_num
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
+  }
+}
+mutation CreateRoom(
+  $input: CreateRoomInput!
+  $condition: ModelRoomConditionInput
+) {
+  createRoom(input: $input, condition: $condition) {
+    id
+    room_owner_id
+    room_owner_email
+    room_owner_user_name
+    room_description
+    room_location
+    room_image
+    room_cost
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateRoom(
+  $input: UpdateRoomInput!
+  $condition: ModelRoomConditionInput
+) {
+  updateRoom(input: $input, condition: $condition) {
+    id
+    room_owner_id
+    room_owner_email
+    room_owner_user_name
+    room_description
+    room_location
+    room_image
+    room_cost
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteRoom(
+  $input: DeleteRoomInput!
+  $condition: ModelRoomConditionInput
+) {
+  deleteRoom(input: $input, condition: $condition) {
+    id
+    room_owner_id
+    room_owner_email
+    room_owner_user_name
+    room_description
+    room_location
+    room_image
+    room_cost
+    createdAt
+    updatedAt
   }
 }
