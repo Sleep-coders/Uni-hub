@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.annotation.SuppressLint;
 import android.app.TimePickerDialog;
@@ -37,8 +38,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Available_Rides extends AppCompatActivity {
+public class Available_Rides extends AppCompatActivity implements  {
     RecyclerView recycler_view_driver_post;
+
 
     private Button create_ride;
     private ImageView car_img;
@@ -119,6 +121,8 @@ public class Available_Rides extends AppCompatActivity {
         create_ride.setOnClickListener(view -> {
             getCreateRide();
         });
+
+
     }
 
     private void getOwnerRide() {
