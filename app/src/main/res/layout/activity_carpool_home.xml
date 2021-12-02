@@ -17,11 +17,12 @@
         android:layout_marginTop="116dp"
         android:layout_marginEnd="10dp"
         android:text="Rider"
+        android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/animation_view"
         app:layout_constraintEnd_toStartOf="@+id/driver_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.32" />
 
     <Button
         android:id="@+id/driver_button"
@@ -32,11 +33,12 @@
         android:layout_marginTop="116dp"
         android:layout_marginEnd="98dp"
         android:text="Driver"
+        android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/animation_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/rider_button"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.32" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animation_view"
@@ -45,10 +47,10 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="36dp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
@@ -59,9 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:itemBackground="@color/purple_main_color_variant"
-        app:itemIconTint="@drawable/selector"
-        app:itemTextColor="@drawable/selector"
+        android:background="?android:attr/windowBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

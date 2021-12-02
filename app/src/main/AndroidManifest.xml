@@ -35,7 +35,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.carpool.BookRideActivity"
-            android:exported="false"
+            android:exported="false"/>
 
         <activity
             android:name=".ui.roommates.CreatePostRoommates"
@@ -105,12 +105,6 @@
             android:exported="false" />
         <activity
             android:name=".ui.roommates.Room_Owner_notification"
-            android:exported="false" />
-        <activity
-            android:name=".ui.roommates.CreatePostRoommates"
-            android:exported="false" />
-        <activity
-            android:name=".ui.roommates.Available_Rooms"
             android:exported="false" />
         <activity
             android:name=".ui.utilities.Student_Utilities"

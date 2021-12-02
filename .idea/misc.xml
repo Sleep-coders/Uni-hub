@@ -22,7 +22,7 @@
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_available_rides.xml" value="0.259375" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_available_rooms.xml" value="0.2553846153846154" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_book_donation.xml" value="0.259375" />
-        <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_carpool_home.xml" value="0.259375" />
+        <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_carpool_home.xml" value="0.264" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_create_new_room.xml" value="0.259375" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_create_post_roommates.xml" value="0.1" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_driver_create_ride.xml" value="0.536" />
@@ -33,6 +33,7 @@
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_main.xml" value="0.19537037037037036" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_main2.xml" value="0.259375" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_notification_to_driver.xml" value="0.2" />
+        <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_player_game_grading.xml" value="0.259375" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_ride_details.xml" value="0.259375" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_rider_home.xml" value="0.2" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_rider_notification.xml" value="0.4" />
@@ -45,8 +46,8 @@
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/confirm_pop_up.xml" value="0.264" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/driver_raw.xml" value="0.259375" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/fragment_home.xml" value="0.4" />
-        <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/fragment_profile.xml" value="0.36893203883495146" />
-        <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/fragment_setting.xml" value="0.48" />
+        <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/fragment_profile.xml" value="0.4" />
+        <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/fragment_setting.xml" value="0.264" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/geograph_path_create_ride.xml" value="0.13385416666666666" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/my_message.xml" value="0.259375" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/my_row.xml" value="0.1" />
