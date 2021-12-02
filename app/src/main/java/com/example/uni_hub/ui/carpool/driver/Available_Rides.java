@@ -38,7 +38,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Available_Rides extends AppCompatActivity implements  {
+public class Available_Rides extends AppCompatActivity {
     RecyclerView recycler_view_driver_post;
 
 

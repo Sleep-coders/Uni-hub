@@ -29,6 +29,10 @@ import com.squareup.picasso.Picasso;
 import com.example.uni_hub.R;
 
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -36,9 +40,10 @@ import java.util.Objects;
 import okhttp3.Headers;
 
 
-public class BookRideActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class BookRideActivity extends AppCompatActivity  {
 
-
+//implements OnMapReadyCallback
+    public static final String TAG = "BookRideActivity";
     ImageView carImage;
     TextView driverName;
     TextView rideDepartureDateTime;
@@ -99,54 +104,72 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
             return false;
         });
 
-        getPoints();
+//        getPoints();
 
         loadActivityData(intent);
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map_book);
-        assert mapFragment != null;
-        mapFragment.getMapAsync(this);
-        findViewById(R.id.ride_contact_driver).setOnClickListener(view -> {
-
-        });
+//        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+//                .findFragmentById(R.id.map_book);
+//        assert mapFragment != null;
+//        mapFragment.getMapAsync(this);
+//        findViewById(R.id.ride_contact_driver).setOnClickListener(view -> {
+//
+//        });
     }
 
     private void getPoints() {
-        String url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + startLatitude + "," + startLongitude + "&destination=" + endLatitude + "," + endLongitude + "&key=AIzaSyAh_BlQF3Zdf3_O4vJUuNwmkVKQEhmIq90";
-
-//        HttpRequester requester = new HttpRequester();
-//        try {
-//            pathPoints =  requester.run(url);
-//            pointsH.sendEmptyMessage(0);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
-        AsyncHttpClient client = new AsyncHttpClient();
-        RequestParams params = new RequestParams();
-        params.put("q", "android");
-        params.put("rsz", "8");
-        client.get(url, params, new JsonHttpResponseHandler() {
-
-            @Override
-            public void onSuccess(int statusCode, Headers headers, JSON json) {
-                List<LatLng> latLngs = new ArrayList<>();
-                Root root = gson.fromJson(json.toString(),Root.class);
-                List<Root.Step> steps = root.routes.get(0).legs.get(0).steps;
-                for (Root.Step step : steps){
-                    latLngs.add(new LatLng(step.start_location.lat,step.start_location.lng));
-                    latLngs.add(new LatLng(step.end_location.lat,step.end_location.lng));
-                }
-                Log.i("All _ Points", "======> |||||||||||||||||////////////////"+ json.toString());
-                pathPoints = latLngs;
-            }
-
-            @Override
-            public void onFailure(int statusCode, Headers headers, String response, Throwable throwable) {
-
-            }
-        });
+//        String url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + startLatitude + "," + startLongitude + "&destination=" + endLatitude + "," + endLongitude + "&key=AIzaSyAh_BlQF3Zdf3_O4vJUuNwmkVKQEhmIq90";
+//
+////        HttpRequester requester = new HttpRequester();
+////        try {
+////            pathPoints =  requester.run(url);
+////            pointsH.sendEmptyMessage(0);
+////        } catch (IOException e) {
+////            e.printStackTrace();
+////        }
+//
+//        AsyncHttpClient client = new AsyncHttpClient();
+//        RequestParams params = new RequestParams();
+//        params.put("q", "android");
+//        params.put("rsz", "8");
+//        client.get(url, params, new JsonHttpResponseHandler() {
+//
+//            @Override
+//            public void onSuccess(int statusCode, Headers headers, JSON json) {
+//                JSONArray steps= new ArrayList<>();
+//                List<LatLng> latLngs = new ArrayList<>();
+//                Log.i(TAG, "onSuccess: =========>" + json.toString());
+//                JSONObject jsonObject = json.jsonObject;
+//                try {
+//                    JSONArray routes = jsonObject.getJSONArray("routes");
+//                    Log.i(TAG, "onSuccess: =========> " + routes.toString());
+//                    JSONArray legs = routes.getJSONObject(0).getJSONArray("legs");
+//                    steps = legs.getJSONObject(0).getJSONArray("steps");
+////                    List<JSONObject> js = new ArrayList<>(steps);
+//                    for (JSONObject step : steps.){
+//                        latLngs.add(new LatLng(step.start_location.lat,step.start_location.lng));
+//                        latLngs.add(new LatLng(step.end_location.lat,step.end_location.lng));
+//                    }
+//                    Log.i(TAG, "legs: =========> " + legs);
+//
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//                Root root = gson.fromJson(json.toString(),Root.class);
+//                List<Root.Step> steps = root.routes.get(0).legs.get(0).steps;
+//                for (Root.Step step : steps){
+//                    latLngs.add(new LatLng(step.start_location.lat,step.start_location.lng));
+//                    latLngs.add(new LatLng(step.end_location.lat,step.end_location.lng));
+//                }
+//                Log.i("All _ Points", "======> |||||||||||||||||////////////////"+ json.toString());
+//                pathPoints = latLngs;
+//            }
+//
+//            @Override
+//            public void onFailure(int statusCode, Headers headers, String response, Throwable throwable) {
+//
+//            }
+//        });
 
     }
 
@@ -172,21 +195,21 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
 
     }
 
-    @Override
-    public void onMapReady(@NonNull GoogleMap googleMap) {
-        LatLng latLng = new LatLng(startLat, startLon);
-
-        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 15);
-        googleMap.animateCamera(cameraUpdate);
-        googleMap.addMarker(
-                new MarkerOptions()
-                        .position(latLng)
-                        .title("Start Point")
-        );
-        googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        googleMap.setTrafficEnabled(true);
-        googleMap.setBuildingsEnabled(true); // dosent seem to work in jordan but should in other countries
-//        LatLng[] points = (LatLng[]) pathPoints.toArray();
-//        googleMap.addPolygon(new PolygonOptions().add(points));
-    }
+//    @Override
+//    public void onMapReady(@NonNull GoogleMap googleMap) {
+//        LatLng latLng = new LatLng(startLat, startLon);
+//
+//        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 15);
+//        googleMap.animateCamera(cameraUpdate);
+//        googleMap.addMarker(
+//                new MarkerOptions()
+//                        .position(latLng)
+//                        .title("Start Point")
+//        );
+//        googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+//        googleMap.setTrafficEnabled(true);
+//        googleMap.setBuildingsEnabled(true); // dosent seem to work in jordan but should in other countries
+////        LatLng[] points = (LatLng[]) pathPoints.toArray();
+////        googleMap.addPolygon(new PolygonOptions().add(points));
+//    }
 }
