@@ -11,6 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="3dp"
         android:background="?android:attr/windowBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,12 +19,13 @@
         app:layout_constraintTop_toBottomOf="@+id/create_ride"
         app:menu="@menu/menu_navigation" />
 
+
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="33dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginBottom="24dp"
         android:text="Available Rides"
         android:textAlignment="center"
         android:textColor="@color/purple_main_color"
@@ -37,9 +39,7 @@
         android:id="@+id/recycler_view_driver_post"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginBottom="35dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toTopOf="@+id/create_ride"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="38dp"
+        android:layout_marginBottom="29dp"
         android:text="Create a Ride"
         android:textAlignment="center"
         android:textAllCaps="true"

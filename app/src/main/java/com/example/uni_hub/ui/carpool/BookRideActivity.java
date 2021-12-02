@@ -11,7 +11,11 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.codepath.asynchttpclient.AsyncHttpClient;
+import com.codepath.asynchttpclient.RequestParams;
+import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 import com.example.uni_hub.services.HttpRequester;
+import com.example.uni_hub.services.Root;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -20,11 +24,17 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolygonOptions;
+import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 import com.example.uni_hub.R;
 
-import java.io.IOException;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import okhttp3.Headers;
+
 
 public class BookRideActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -49,6 +59,8 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
     private double startLon;
 
     Handler pointsH ;
+
+    Gson gson ;
 
 
     @Override
@@ -102,13 +114,39 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
 
     private void getPoints() {
         String url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + startLatitude + "," + startLongitude + "&destination=" + endLatitude + "," + endLongitude + "&key=AIzaSyAh_BlQF3Zdf3_O4vJUuNwmkVKQEhmIq90";
-        HttpRequester requester = new HttpRequester();
-        try {
-            pathPoints =  requester.run(url);
-            pointsH.sendEmptyMessage(0);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+//        HttpRequester requester = new HttpRequester();
+//        try {
+//            pathPoints =  requester.run(url);
+//            pointsH.sendEmptyMessage(0);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+        AsyncHttpClient client = new AsyncHttpClient();
+        RequestParams params = new RequestParams();
+        params.put("q", "android");
+        params.put("rsz", "8");
+        client.get(url, params, new JsonHttpResponseHandler() {
+
+            @Override
+            public void onSuccess(int statusCode, Headers headers, JSON json) {
+                List<LatLng> latLngs = new ArrayList<>();
+                Root root = gson.fromJson(json.toString(),Root.class);
+                List<Root.Step> steps = root.routes.get(0).legs.get(0).steps;
+                for (Root.Step step : steps){
+                    latLngs.add(new LatLng(step.start_location.lat,step.start_location.lng));
+                    latLngs.add(new LatLng(step.end_location.lat,step.end_location.lng));
+                }
+                Log.i("All _ Points", "======> |||||||||||||||||////////////////"+ json.toString());
+                pathPoints = latLngs;
+            }
+
+            @Override
+            public void onFailure(int statusCode, Headers headers, String response, Throwable throwable) {
+
+            }
+        });
 
     }
 
@@ -118,17 +156,17 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
         String departureDateTime = intent.getStringExtra("rideDepartureTime")
                 + " : " + intent.getStringExtra("rideDate");
         String availableSeats = Integer.toString(intent.getIntExtra("availableSeats", 4));
-        String _rideCost = Float.toString(intent.getFloatExtra("cost", 0.0f));
+        String _rideCost = Double.toString(intent.getDoubleExtra("cost", 0.0d));
         String carInfo = intent.getStringExtra("carInfo");
         String _rideExpAt = intent.getStringExtra("rideExpAt");
         String _rideDescription = intent.getStringExtra("rideDescription");
 
-        Picasso.get().load(imageUrl).into(carImage);
+        Picasso.get().load(carInfo).into(carImage);
         driverName.setText(_driverName);
         rideDepartureDateTime.setText(departureDateTime);
         rideAvailableSeats.setText(availableSeats);
         rideCost.setText(_rideCost);
-        rideCarInfo.setText(carInfo);
+        rideCarInfo.setText(imageUrl);
         rideExpAt.setText(_rideExpAt);
         rideDescription.setText(_rideDescription);
 
@@ -148,7 +186,7 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         googleMap.setTrafficEnabled(true);
         googleMap.setBuildingsEnabled(true); // dosent seem to work in jordan but should in other countries
-        LatLng[] points = (LatLng[]) pathPoints.toArray();
-        googleMap.addPolygon(new PolygonOptions().add(points));
+//        LatLng[] points = (LatLng[]) pathPoints.toArray();
+//        googleMap.addPolygon(new PolygonOptions().add(points));
     }
 }
