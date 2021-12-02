@@ -1,73 +1,271 @@
 # this is an auto generated file. This will be overwritten
-subscription OnCreateTask {
-  onCreateTask {
+subscription OnCreateAppUser {
+  onCreateAppUser {
     id
-    title
-    description
-    status
+    user_real_name
+    user_nickname
+    user_phone_number
+    user_email
+    user_location
+    user_university
+    user_img
+    car {
+      id
+      ownerID
+      car_model
+      car_img
+      car_seats_num
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    rides {
+      items {
+        id
+        owner_name
+        owner_id
+        ride_departure_time
+        available_seats
+        cost
+        car_image
+        car_Info
+        ride_expires_at
+        ride_date
+        ride_description
+        ride_route
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        appUserRidesId
+      }
+      nextToken
+      startedAt
+    }
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
+    appUserCarId
   }
 }
-subscription OnUpdateTask {
-  onUpdateTask {
+subscription OnUpdateAppUser {
+  onUpdateAppUser {
     id
-    title
-    description
-    status
+    user_real_name
+    user_nickname
+    user_phone_number
+    user_email
+    user_location
+    user_university
+    user_img
+    car {
+      id
+      ownerID
+      car_model
+      car_img
+      car_seats_num
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    rides {
+      items {
+        id
+        owner_name
+        owner_id
+        ride_departure_time
+        available_seats
+        cost
+        car_image
+        car_Info
+        ride_expires_at
+        ride_date
+        ride_description
+        ride_route
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        appUserRidesId
+      }
+      nextToken
+      startedAt
+    }
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
+    appUserCarId
   }
 }
-subscription OnDeleteTask {
-  onDeleteTask {
+subscription OnDeleteAppUser {
+  onDeleteAppUser {
     id
-    title
-    description
-    status
+    user_real_name
+    user_nickname
+    user_phone_number
+    user_email
+    user_location
+    user_university
+    user_img
+    car {
+      id
+      ownerID
+      car_model
+      car_img
+      car_seats_num
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    rides {
+      items {
+        id
+        owner_name
+        owner_id
+        ride_departure_time
+        available_seats
+        cost
+        car_image
+        car_Info
+        ride_expires_at
+        ride_date
+        ride_description
+        ride_route
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        appUserRidesId
+      }
+      nextToken
+      startedAt
+    }
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
+    appUserCarId
   }
 }
-subscription OnCreateNote {
-  onCreateNote {
+subscription OnCreateRide {
+  onCreateRide {
     id
-    content
+    owner_name
+    owner_id
+    ride_departure_time
+    available_seats
+    cost
+    car_image
+    car_Info
+    ride_expires_at
+    ride_date
+    ride_description
+    ride_route
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
+    appUserRidesId
   }
 }
-subscription OnUpdateNote {
-  onUpdateNote {
+subscription OnUpdateRide {
+  onUpdateRide {
     id
-    content
+    owner_name
+    owner_id
+    ride_departure_time
+    available_seats
+    cost
+    car_image
+    car_Info
+    ride_expires_at
+    ride_date
+    ride_description
+    ride_route
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
+    appUserRidesId
   }
 }
-subscription OnDeleteNote {
-  onDeleteNote {
+subscription OnDeleteRide {
+  onDeleteRide {
     id
-    content
+    owner_name
+    owner_id
+    ride_departure_time
+    available_seats
+    cost
+    car_image
+    car_Info
+    ride_expires_at
+    ride_date
+    ride_description
+    ride_route
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
+    appUserRidesId
+  }
+}
+subscription OnCreateCar {
+  onCreateCar {
+    id
+    ownerID
+    car_model
+    car_img
+    car_seats_num
     createdAt
     updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnUpdateCar {
+  onUpdateCar {
+    id
+    ownerID
+    car_model
+    car_img
+    car_seats_num
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnDeleteCar {
+  onDeleteCar {
+    id
+    ownerID
+    car_model
+    car_img
+    car_seats_num
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
   }
 }

@@ -3,6 +3,7 @@
 /local.properties
 /.idea/caches
 /.idea/libraries
+/.idea/misc.xml
 /.idea/modules.xml
 /.idea/workspace.xml
 /.idea/navEditor.xml
@@ -20,7 +21,6 @@ amplify/.config/local-*
 amplify/logs
 amplify/mock-data
 amplify/backend/amplify-meta.json
-amplify/backend/awscloudformation
 amplify/backend/.temp
 build/
 dist/

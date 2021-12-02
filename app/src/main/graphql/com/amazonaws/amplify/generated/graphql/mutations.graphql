@@ -1,91 +1,298 @@
 # this is an auto generated file. This will be overwritten
-mutation CreateTask(
-  $input: CreateTaskInput!
-  $condition: ModelTaskConditionInput
+mutation CreateAppUser(
+  $input: CreateAppUserInput!
+  $condition: ModelAppUserConditionInput
 ) {
-  createTask(input: $input, condition: $condition) {
+  createAppUser(input: $input, condition: $condition) {
     id
-    title
-    description
-    status
+    user_real_name
+    user_nickname
+    user_phone_number
+    user_email
+    user_location
+    user_university
+    user_img
+    car {
+      id
+      ownerID
+      car_model
+      car_img
+      car_seats_num
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    rides {
+      items {
+        id
+        owner_name
+        owner_id
+        ride_departure_time
+        available_seats
+        cost
+        car_image
+        car_Info
+        ride_expires_at
+        ride_date
+        ride_description
+        ride_route
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        appUserRidesId
+      }
+      nextToken
+      startedAt
+    }
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
+    appUserCarId
   }
 }
-mutation UpdateTask(
-  $input: UpdateTaskInput!
-  $condition: ModelTaskConditionInput
+mutation UpdateAppUser(
+  $input: UpdateAppUserInput!
+  $condition: ModelAppUserConditionInput
 ) {
-  updateTask(input: $input, condition: $condition) {
+  updateAppUser(input: $input, condition: $condition) {
     id
-    title
-    description
-    status
+    user_real_name
+    user_nickname
+    user_phone_number
+    user_email
+    user_location
+    user_university
+    user_img
+    car {
+      id
+      ownerID
+      car_model
+      car_img
+      car_seats_num
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    rides {
+      items {
+        id
+        owner_name
+        owner_id
+        ride_departure_time
+        available_seats
+        cost
+        car_image
+        car_Info
+        ride_expires_at
+        ride_date
+        ride_description
+        ride_route
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        appUserRidesId
+      }
+      nextToken
+      startedAt
+    }
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
+    appUserCarId
   }
 }
-mutation DeleteTask(
-  $input: DeleteTaskInput!
-  $condition: ModelTaskConditionInput
+mutation DeleteAppUser(
+  $input: DeleteAppUserInput!
+  $condition: ModelAppUserConditionInput
 ) {
-  deleteTask(input: $input, condition: $condition) {
+  deleteAppUser(input: $input, condition: $condition) {
     id
-    title
-    description
-    status
+    user_real_name
+    user_nickname
+    user_phone_number
+    user_email
+    user_location
+    user_university
+    user_img
+    car {
+      id
+      ownerID
+      car_model
+      car_img
+      car_seats_num
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    rides {
+      items {
+        id
+        owner_name
+        owner_id
+        ride_departure_time
+        available_seats
+        cost
+        car_image
+        car_Info
+        ride_expires_at
+        ride_date
+        ride_description
+        ride_route
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+        appUserRidesId
+      }
+      nextToken
+      startedAt
+    }
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
+    appUserCarId
   }
 }
-mutation CreateNote(
-  $input: CreateNoteInput!
-  $condition: ModelNoteConditionInput
+mutation CreateRide(
+  $input: CreateRideInput!
+  $condition: ModelRideConditionInput
 ) {
-  createNote(input: $input, condition: $condition) {
+  createRide(input: $input, condition: $condition) {
     id
-    content
+    owner_name
+    owner_id
+    ride_departure_time
+    available_seats
+    cost
+    car_image
+    car_Info
+    ride_expires_at
+    ride_date
+    ride_description
+    ride_route
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
+    appUserRidesId
   }
 }
-mutation UpdateNote(
-  $input: UpdateNoteInput!
-  $condition: ModelNoteConditionInput
+mutation UpdateRide(
+  $input: UpdateRideInput!
+  $condition: ModelRideConditionInput
 ) {
-  updateNote(input: $input, condition: $condition) {
+  updateRide(input: $input, condition: $condition) {
     id
-    content
+    owner_name
+    owner_id
+    ride_departure_time
+    available_seats
+    cost
+    car_image
+    car_Info
+    ride_expires_at
+    ride_date
+    ride_description
+    ride_route
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
-    createdAt
-    updatedAt
+    appUserRidesId
   }
 }
-mutation DeleteNote(
-  $input: DeleteNoteInput!
-  $condition: ModelNoteConditionInput
+mutation DeleteRide(
+  $input: DeleteRideInput!
+  $condition: ModelRideConditionInput
 ) {
-  deleteNote(input: $input, condition: $condition) {
+  deleteRide(input: $input, condition: $condition) {
     id
-    content
+    owner_name
+    owner_id
+    ride_departure_time
+    available_seats
+    cost
+    car_image
+    car_Info
+    ride_expires_at
+    ride_date
+    ride_description
+    ride_route
+    createdAt
+    updatedAt
     _version
     _deleted
     _lastChangedAt
+    appUserRidesId
+  }
+}
+mutation CreateCar(
+  $input: CreateCarInput!
+  $condition: ModelCarConditionInput
+) {
+  createCar(input: $input, condition: $condition) {
+    id
+    ownerID
+    car_model
+    car_img
+    car_seats_num
     createdAt
     updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+mutation UpdateCar(
+  $input: UpdateCarInput!
+  $condition: ModelCarConditionInput
+) {
+  updateCar(input: $input, condition: $condition) {
+    id
+    ownerID
+    car_model
+    car_img
+    car_seats_num
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+mutation DeleteCar(
+  $input: DeleteCarInput!
+  $condition: ModelCarConditionInput
+) {
+  deleteCar(input: $input, condition: $condition) {
+    id
+    ownerID
+    car_model
+    car_img
+    car_seats_num
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
   }
 }

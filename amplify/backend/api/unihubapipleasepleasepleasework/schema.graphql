@@ -1,0 +1,56 @@
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
+
+
+type AppUser @model
+{
+  id: ID! @primaryKey(sortKeyFields:["user_email"])
+  user_real_name: String!
+  user_nickname: String!
+  user_phone_number: String!
+  user_email: String! @index(name: "byEmail", queryField: "userByEmail",sortKeyFields:["id"])
+  user_location: String
+  user_university: String
+  user_img: String
+  car : Car @hasOne
+  rides: [Ride] @hasMany
+  room : Room @hasOne
+}
+
+type Ride @model
+{
+  id: ID!
+  owner_name : String!
+  owner_id : String!
+  ride_departure_time : String!
+  available_seats : Int!
+  cost : Float!
+  car_image : String!
+  car_Info : String!
+  ride_expires_at : String!
+  ride_date : String!
+  ride_description : String!
+  ride_route : String
+}
+
+type Car @model
+{
+  id: ID!
+  ownerID: ID!
+  car_model: String!
+  car_img : String!
+  car_seats_num : Int!
+}
+
+type Room @model
+{
+  id: ID!
+  room_owner_id : String!
+  room_owner_email : String!
+  room_owner_user_name : String!
+  room_description : String
+  room_location : String!
+  room_image : String!
+  room_cost : Float!
+}

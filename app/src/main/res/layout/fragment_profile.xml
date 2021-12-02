@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_pure"
+    tools:context=".ui.profile.ProfileFragment">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="285dp">
+
+                <ImageView
+                    android:id="@+id/profile_user_img_upload_btn"
+                    android:layout_width="40dp"
+                    android:layout_height="45dp"
+                    android:background="@color/white_pure"
+                    android:src="@drawable/ic_image"
+                    app:layout_constraintBottom_toBottomOf="@+id/profile_user_img"
+                    app:layout_constraintStart_toEndOf="@+id/profile_user_img"
+                    android:contentDescription="@string/todo" />
+
+                <ImageView
+                    android:id="@+id/profile_user_img"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/profile"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.086"
+                    android:contentDescription="@string/todo" />
+
+                <TextView
+                    android:id="@+id/profile_user_name"
+                    android:layout_width="320dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="20dp"
+                    android:gravity="center"
+                    android:text="@string/username"
+                    android:textAlignment="center"
+                    android:textColor="@color/yellow_main_color_variant"
+                    android:textFontWeight="400"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toTopOf="@+id/profile_info_label"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.494"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_user_img"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <TextView
+                    android:id="@+id/profile_info_label"
+                    android:layout_width="320dp"
+                    android:layout_height="50dp"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center"
+                    android:hint="@string/personal_information"
+                    android:textAlignment="center"
+                    android:textColor="#fec367"
+                    android:textFontWeight="400"
+                    android:textSize="25sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.494"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_user_img"
+                    app:layout_constraintVertical_bias="0.773" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FAFAFA"
+                android:orientation="horizontal"
+                android:paddingHorizontal="20dp">
+
+                <ImageView
+                    android:id="@+id/imageView11"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:background="#FAFAFA"
+                    android:src="@drawable/ic_person"
+                    android:contentDescription="@string/todo" />
+
+                <TextView
+                    android:id="@+id/profile_usename_veiw"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"
+                    android:gravity="start|center_vertical"
+                    android:text=" Username"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/profile_username_edit_btn"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:background="#FAFAFA"
+                    android:src="@drawable/ic_edit"
+                    android:contentDescription="@string/todo" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="#FAFAFA"
+                android:orientation="horizontal"
+                android:paddingHorizontal="20dp">
+
+                <ImageView
+                    android:id="@+id/imageView12"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:background="#FAFAFA"
+                    android:src="@drawable/ic_email"
+                    app:layout_constraintBottom_toBottomOf="@+id/editTextTextEmailAddress"
+                    app:layout_constraintEnd_toEndOf="@+id/editTextTextEmailAddress"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress"
+                    app:layout_constraintTop_toTopOf="@+id/editTextTextEmailAddress"
+                    app:layout_constraintVertical_bias="0.0"
+                    android:contentDescription="@string/todo" />
+
+                <TextView
+                    android:id="@+id/profile_email_veiw"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:textSize="20sp"
+                    android:text=" Email" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="#FAFAFA"
+                android:orientation="horizontal"
+                android:paddingHorizontal="20dp">
+
+                <ImageView
+                    android:id="@+id/imageView13"
+                    android:layout_width="30dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:background="#FAFAFA"
+                    android:src="@drawable/ic_password"
+                    android:contentDescription="@string/todo" />
+
+
+                <TextView
+                    android:id="@+id/profile_password_veiw"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:gravity="center_vertical"
+                    android:text=" **********"
+                    android:textSize="20sp"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:id="@+id/profile_password_edit_btn"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:background="#FAFAFA"
+                    android:src="@drawable/ic_edit"
+                    android:contentDescription="@string/todo" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="#FAFAFA"
+                android:orientation="horizontal"
+                android:paddingHorizontal="20dp">
+
+                <ImageView
+                    android:id="@+id/imageView14"
+                    android:layout_width="30dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:background="#FAFAFA"
+                    android:src="@drawable/ic_university"
+                    android:contentDescription="@string/todo" />
+
+
+                <TextView
+                    android:id="@+id/profile_school_view"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:gravity="center_vertical"
+                    android:textSize="20sp"
+                    android:text=" University name"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:id="@+id/profile_school_edit_btn"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:background="#FAFAFA"
+                    android:src="@drawable/ic_edit"
+                    android:contentDescription="@string/todo" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="#FAFAFA"
+                android:orientation="horizontal"
+                android:paddingHorizontal="20dp">
+
+                <ImageView
+                    android:id="@+id/imageView15"
+                    android:layout_width="30dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:background="#FAFAFA"
+                    android:src="@drawable/ic_phone"
+                    android:contentDescription="@string/todo" />
+
+
+                <TextView
+                    android:id="@+id/profile_phone_veiw"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:gravity="center_vertical"
+                    android:textSize="20sp"
+                    android:text=" +962 000 000 000"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:id="@+id/profile_phone_edit_btn"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:background="#FAFAFA"
+                    android:src="@drawable/ic_edit"
+                    android:contentDescription="@string/todo" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="#FAFAFA"
+                android:orientation="horizontal"
+                android:paddingHorizontal="20dp">
+
+                <ImageView
+                    android:id="@+id/imageView16"
+                    android:layout_width="30dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:background="#FAFAFA"
+                    android:src="@drawable/ic_location"
+                    android:contentDescription="@string/todo" />
+
+
+                <TextView
+                    android:id="@+id/profile_location_veiw"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:gravity="center_vertical"
+                    android:textSize="20sp"
+                    android:text=" Your Location"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:id="@+id/profile_location_edit_btn"
+                    android:layout_width="30dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:background="#FAFAFA"
+                    android:src="@drawable/ic_edit"
+                    android:contentDescription="@string/todo"
+                    tools:ignore="ContentDescription" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/profile_addcar_btn"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black_main_color"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:backgroundTint="@color/yellow_main_color"
+                    android:text="@string/add_car" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+                <Button
+                    android:id="@+id/profile_save_btn"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:background="@color/purple_main_color"
+                    android:text="@string/save" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:orientation="vertical"></LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

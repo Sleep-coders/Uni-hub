@@ -1,6 +1,119 @@
 <resources>
     <string name="app_name">Uni-hub</string>
+    <string name="title_profile">Profile</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_setting">Setting</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+    <string name="title_activity_driver_home">DriverActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="title_notifications">Notifications</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="signup">Signup</string>
+    <string name="don_t_have_an_account_yet">Don\'t have an account yet?</string>
+    <string name="sign_in">Sign in</string>
+    <string name="forget_your_password">Forget your password?</string>
+    <string name="log_in">Log in</string>
+    <string name="todo">TODO</string>
+    <string name="already_have_an_account">Already have an account</string>
+    <string name="name">Name</string>
+    <string name="username">username</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="resend">ReSend</string>
+    <string name="within_30_sec_you_will_receive_an_email_contaning_confirmation_code_please_fill_it_in">Within 30 sec ,You will receive an email contaning confirmation code , please fill it in.</string>
+    <string name="insert_code_here">Insert Code Here</string>
+    <string name="confirm">Confirm</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="save">save</string>
+    <string name="seats_availability">Seats Availability</string>
+    <string name="add_your_ride_here">Add your Ride here</string>
+    <string name="car_information">Car Information</string>
+    <string name="car_image">car Image</string>
+    <string name="departure_time">Departure Time</string>
+    <string name="choose_your_path">Choose your path</string>
+    <string name="cost_per_passenger">Cost Per Passenger</string>
+    <string name="ride_expires_at">Ride Expires at</string>
+    <string name="_0_jd">0 JD</string>
+    <string name="_0_seat">0 Seat</string>
+    <string name="select_a_date">Select a Date</string>
+    <!--    <string name="cost_per_passenger">Cost Per Passenger</string>-->
+    <string name="submit_your_ride">Submit your Ride</string>
+    <string name="add_car">ADD CAR</string>
+    <string name="car_model">Car Model</string>
+    <string name="seats_number">Seats Number</string>
+    <string name="add_image">ADD IMAGE</string>
+    <string name="add">ADD</string>
+    <string name="done">Done</string>
+    <string name="save_coordinates">Save Coordinates</string>
+    <string name="cancel">Cancel</string>
+    <string name="write_a_message">Write a message</string>
+    <string name="player_place_holder">Player_place_holder</string>
+    <string name="room_password">Room Password</string>
+    <string name="enter_the_room_password">Enter The Room Password</string>
+    <string name="choose_an_option">CHOOSE AN OPTION</string>
+    <string name="join_the_room">Join The Room</string>
+    <string name="wrong_room_password">Wrong Room Password</string>
+    <string name="closes_activity">closes activity</string>
+    <string name="contact">Contact</string>
+    <string-array name="Available_Rides">
+        <item>ride1</item>
+        <item>ride2</item>
+        <item>ride3</item>
+        <item>ride4</item>
+    </string-array>
+    <string-array name="rides_description">
+        <item>description1</item>
+        <item>description1</item>
+        <item>description1</item>
+        <item>description1</item>
+    </string-array>
+    <string-array name="rides_description2">
+        <item>description2</item>
+        <item>description2</item>
+        <item>description2</item>
+        <item>description2</item>
+    </string-array>
+    <!--    <string name="todo">TODO</string>-->
+    <string-array name="driver_name_cards">
+        <item>Rahaf</item>
+        <item>Mohammad</item>
+        <item>Doaa</item>
+        <item>Tariq</item>
+    </string-array>
+    <string-array name="rout_path">
+        <item>Salt to Amman</item>
+        <item>Irbid to Amman</item>
+        <item>Sweleh to Amman</item>
+        <item>Jarash to Amman</item>
+
+    </string-array>
+
+    <string-array name="availabe_rooms">
+        <item>room1</item>
+        <item>room2</item>
+        <item>room3</item>
+        <item>room4</item>
+    </string-array>
+
+    <string-array name="players_number_array">
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
 </resources>

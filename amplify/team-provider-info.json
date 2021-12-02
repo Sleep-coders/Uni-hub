@@ -1,15 +1,20 @@
 {
-  "final": {
+  "devfinal": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-uni-hub-final-134811-authRole",
-      "UnauthRoleArn": "arn:aws:iam::284716416572:role/amplify-uni-hub-final-134811-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::284716416572:role/amplify-uni-hub-final-134811-authRole",
+      "AuthRoleName": "amplify-unihub-devfinal-124746-authRole",
+      "UnauthRoleArn": "arn:aws:iam::284716416572:role/amplify-unihub-devfinal-124746-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::284716416572:role/amplify-unihub-devfinal-124746-authRole",
       "Region": "eu-central-1",
-      "DeploymentBucketName": "amplify-uni-hub-final-134811-deployment",
-      "UnauthRoleName": "amplify-uni-hub-final-134811-unauthRole",
-      "StackName": "amplify-uni-hub-final-134811",
-      "StackId": "arn:aws:cloudformation:eu-central-1:284716416572:stack/amplify-uni-hub-final-134811/c610f980-4eae-11ec-8f59-067b5742d51a",
-      "AmplifyAppId": "d38w84xupujwee"
+      "DeploymentBucketName": "amplify-unihub-devfinal-124746-deployment",
+      "UnauthRoleName": "amplify-unihub-devfinal-124746-unauthRole",
+      "StackName": "amplify-unihub-devfinal-124746",
+      "StackId": "arn:aws:cloudformation:eu-central-1:284716416572:stack/amplify-unihub-devfinal-124746/cd61d240-5101-11ec-a51a-0afcb4eb5680",
+      "AmplifyAppId": "d3dx6wx76l7437"
+    },
+    "categories": {
+      "auth": {
+        "unihub08c13170": {}
+      }
     }
   }
 }
