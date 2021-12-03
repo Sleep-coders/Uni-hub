@@ -43,15 +43,6 @@ public class Available_Rides extends AppCompatActivity {
 
 
     private Button create_ride;
-    private ImageView car_img;
-    private TextView owner_name;
-    private TextView ride_departure_time;
-    private TextView cost;
-    private TextView available_seats;
-    private TextView car_Info;
-    private TextView ride_expires_at;
-    private TextView ride_description;
-    private TextView ride_date;
 
     Handler allRidesHandler;
     Handler userIdHandler;
@@ -133,27 +124,6 @@ public class Available_Rides extends AppCompatActivity {
         }
     }
 
-//    private void setDriverData() {
-//        car_img = findViewById(R.id.car_image);
-//        owner_name = findViewById(R.id.driver_name);
-//        ride_departure_time = findViewById(R.id.departure_time_post);
-//        cost = findViewById(R.id.cost_details);
-//        available_seats = findViewById(R.id.available_seats);
-//        car_Info = findViewById(R.id.car_Info);
-//        ride_expires_at = findViewById(R.id.ride_expires_at_owner_ride);
-//        ride_description = findViewById(R.id.ride_description);
-//        ride_date = findViewById(R.id.ride_date);
-//
-//        Picasso.get().load(owner_ride.getCarInfo()).into(car_img);
-//        owner_name.setText(owner_ride.getOwnerName());
-//        ride_departure_time.setText(owner_ride.getRideDepartureTime());
-//        cost.setText(owner_ride.getCost().toString());
-//        available_seats.setText(owner_ride.getAvailableSeats().toString());
-//        car_Info.setText(owner_ride.getCarImage());
-//        ride_expires_at.setText(owner_ride.getRideExpiresAt());
-//        ride_description.setText(owner_ride.getRideDescription());
-//        ride_date.setText(owner_ride.getRideDate());
-//    }
 
     public void getCreateRide() {
         Intent driver_create_ride = new Intent(this, Driver_Create_Ride.class);

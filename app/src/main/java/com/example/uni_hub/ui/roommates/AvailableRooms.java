@@ -99,9 +99,7 @@ public class AvailableRooms extends AppCompatActivity {
     }
 
     public void updateView() {
-        runOnUiThread(() -> {
-            recyclerView.getAdapter().notifyDataSetChanged();
-        });
+        runOnUiThread(this::getAllRooms);
     }
 
 
