@@ -120,7 +120,6 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
         super.onCreate(savedInstanceState);
         Button submit_ride;
         BottomNavigationView bottomNavigationView;
-        getSupportActionBar().hide();
         setContentView(R.layout.activity_driver_create_ride);
 
         destCounter=0;

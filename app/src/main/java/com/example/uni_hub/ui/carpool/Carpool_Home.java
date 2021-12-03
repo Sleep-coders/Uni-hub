@@ -29,8 +29,6 @@ public class Carpool_Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carpool_home);
 
-        getSupportActionBar().hide();
-
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
 

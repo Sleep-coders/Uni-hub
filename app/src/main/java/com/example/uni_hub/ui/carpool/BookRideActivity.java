@@ -15,6 +15,7 @@ import com.airbnb.lottie.L;
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.RequestParams;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
+
 import com.example.uni_hub.services.DirectionsJSONParser;
 import com.example.uni_hub.services.HttpRequester;
 import com.example.uni_hub.services.MapsActivity;
@@ -44,8 +45,9 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+
 import java.util.List;
-import java.util.Objects;
+
 
 import okhttp3.Headers;
 
@@ -263,6 +265,7 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
         );
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         googleMap.setTrafficEnabled(true);
+
         googleMap.setBuildingsEnabled(true);
         maps.drawRoute(latLng,latlng2,googleMap,getApplicationContext());
 ////        LatLng[] points = pathPoints.toArray();

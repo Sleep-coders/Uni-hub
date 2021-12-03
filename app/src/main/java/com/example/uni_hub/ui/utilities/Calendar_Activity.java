@@ -42,7 +42,6 @@ public class Calendar_Activity extends AppCompatActivity {
         setCurrentDateOnView();
         addListenerOnButton();
 
-        getSupportActionBar().hide();
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);

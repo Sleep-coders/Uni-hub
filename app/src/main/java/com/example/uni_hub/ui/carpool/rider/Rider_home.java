@@ -34,7 +34,6 @@ public class Rider_home extends AppCompatActivity {
         recyclerView.setAdapter(rider_home_adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        getSupportActionBar().hide();
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);

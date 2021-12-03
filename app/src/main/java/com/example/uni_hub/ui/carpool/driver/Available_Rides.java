@@ -67,9 +67,7 @@ public class Available_Rides extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         BottomNavigationView bottomNavigationView;
-        getSupportActionBar().hide();
         setContentView(R.layout.activity_available_rides);
-
         getUserID();
 
         recycler_view_driver_post = findViewById(R.id.recycler_view_driver_post);
