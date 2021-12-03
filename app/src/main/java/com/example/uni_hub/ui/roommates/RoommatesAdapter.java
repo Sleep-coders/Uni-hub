@@ -115,6 +115,8 @@ public class RoommatesAdapter extends RecyclerView.Adapter<RoommatesAdapter.View
     public void deleteRoomFromDB(Room room) {
         Amplify.API.mutate(ModelMutation.delete(room), success -> {
             mData.remove(room);
+            AvailableRooms availableRooms = (AvailableRooms) context;
+            availableRooms.updateView();
             Log.i(TAG, "deleteRoomFromDB: -----> " + success.getData());
         }, err -> {
 

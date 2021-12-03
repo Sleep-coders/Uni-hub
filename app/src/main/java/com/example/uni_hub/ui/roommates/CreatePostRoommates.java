@@ -64,7 +64,6 @@ public class CreatePostRoommates extends AppCompatActivity implements HandlePath
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_post_roommates);
         String userEmail = Amplify.Auth.getCurrentUser().getUsername();
-        getSupportActionBar().hide();
 
         handlePathOz = new HandlePathOz(this, this);
         bottomNavigationView = findViewById(R.id.bottom_navigation);

@@ -47,7 +47,6 @@ public class Signup extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        getSupportActionBar().hide();
 
         TextInputEditText nameText = findViewById(R.id.signup_name_text);
         TextInputEditText userNameText = findViewById(R.id.signup_username_text);

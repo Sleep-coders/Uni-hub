@@ -92,6 +92,9 @@ dependencies {
     // Design
     implementation'com.github.chyrta:AndroidOnboarder:0.7'
 
+    // REST SERVERS
+    implementation 'com.codepath.libraries:asynchttpclient:2.1.1'
+
 
 
 }

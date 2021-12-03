@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.RequestParams;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
-import com.example.uni_hub.services.HttpRequester;
 import com.example.uni_hub.services.Root;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -27,11 +26,10 @@ import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 import com.example.uni_hub.R;
-
-
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+
 
 import okhttp3.Headers;
 
@@ -186,7 +184,7 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         googleMap.setTrafficEnabled(true);
         googleMap.setBuildingsEnabled(true); // dosent seem to work in jordan but should in other countries
-//        LatLng[] points = (LatLng[]) pathPoints.toArray();
-//        googleMap.addPolygon(new PolygonOptions().add(points));
+        LatLng[] points = (LatLng[]) pathPoints.toArray();
+        googleMap.addPolygon(new PolygonOptions().add(points));
     }
 }
