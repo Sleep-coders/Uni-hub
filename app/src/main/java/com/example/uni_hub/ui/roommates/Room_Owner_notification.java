@@ -20,8 +20,6 @@ public class Room_Owner_notification extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room_owner_notification);
 
-        getSupportActionBar().hide();
-
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
 

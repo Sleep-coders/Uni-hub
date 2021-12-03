@@ -30,7 +30,6 @@ public class SplashScreen extends AppCompatActivity {
         backbtn = findViewById(R.id.backbtn);
         nextbtn = findViewById(R.id.nextbtn);
         skipbtn = findViewById(R.id.skipButton);
-        getSupportActionBar().hide();
 
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override

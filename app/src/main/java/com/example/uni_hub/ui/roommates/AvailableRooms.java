@@ -76,7 +76,6 @@ public class AvailableRooms extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        getSupportActionBar().hide();
         getAllRooms();
     }
 

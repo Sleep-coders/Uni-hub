@@ -32,7 +32,6 @@ public class RoomDetailsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String roomId = intent.getStringExtra("roomId");
         Log.i(TAG, "onCreate: =====> " + roomId);
-        getSupportActionBar().hide();
         fetchDataAmplify(roomId);
     }
 
