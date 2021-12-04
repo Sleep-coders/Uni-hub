@@ -23,12 +23,11 @@
         android:supportsRtl="false"
         android:theme="@style/Theme.Unihub"
         tools:replace="android:allowBackup">
-      <service android:name=".MyService"></service>
+        <service android:name=".MyService" />
 
         <activity
             android:name=".ui.utilities.services"
             android:exported="false">
-
         </activity>
         <activity
             android:name=".ui.utilities.AlarmClock_Utility"
@@ -126,8 +125,7 @@
         <activity
             android:name=".ui.carpool.driver.Driver_home"
             android:exported="false"
-            android:label="@string/title_activity_driver_home"
-            android:theme="@style/Theme.Unihub.NoActionBar" />
+            android:label="@string/title_activity_driver_home" />
         <activity
             android:name=".ui.carpool.rider.Rider_home"
             android:exported="false" />

@@ -113,6 +113,8 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
     private double destinationEndLatitude;
     private double destinationEndLongitude;
 
+    Thread thread1;
+
 
     @SuppressLint("InflateParams")
     @Override
@@ -120,10 +122,9 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
         super.onCreate(savedInstanceState);
         Button submit_ride;
         BottomNavigationView bottomNavigationView;
-        getSupportActionBar().hide();
         setContentView(R.layout.activity_driver_create_ride);
 
-        destCounter=0;
+        destCounter = 0;
         getUserID();
 
         Toast toast = Toast.makeText(this, "Something Went Wrong, Check Inputs And Try Again", Toast.LENGTH_LONG);
@@ -131,7 +132,7 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
             toast.show();
             return false;
         });
-        carHandler = new Handler(Looper.getMainLooper(),message -> {
+        carHandler = new Handler(Looper.getMainLooper(), message -> {
             Log.i("Hallo", "======> |||||||||||||////////////////");
 
             return false;
@@ -158,7 +159,7 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
 
 
         // Select Date
-        chooseDate = (EditText) findViewById(R.id.add_date_time);
+        chooseDate = findViewById(R.id.add_date_time);
         chooseDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -174,59 +175,50 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
         });
 
         // Date
-        datePickerDialog = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                month = month + 1;
-                Log.d(TAG, "onDateSet: date:" + day + "/" + month + "/" + year);
-                String date = day + "/" + month + "/" + year;
-                chooseDate.setText(date);
-            }
+        datePickerDialog = (datePicker, year, month, day) -> {
+            month = month + 1;
+            Log.d(TAG, "onDateSet: date:" + day + "/" + month + "/" + year);
+            String date = day + "/" + month + "/" + year;
+            chooseDate.setText(date);
         };
 
         // Departure Time
         chooseDepartureTime = findViewById(R.id.departure_time_driver);
-        chooseDepartureTime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view1) {
-                calender = Calendar.getInstance();
-                currentHour = calender.get(Calendar.HOUR_OF_DAY);
-                currentMinute = calender.get(Calendar.MINUTE);
-                timePickerDialog1 = new TimePickerDialog(Driver_Create_Ride.this, new TimePickerDialog.OnTimeSetListener() {
-                    @SuppressLint("SetTextI18n")
-                    @Override
-                    public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
-                        chooseDepartureTime.setText(hourOfDay + ":" + minutes);
+        chooseDepartureTime.setOnClickListener(view1 -> {
+            calender = Calendar.getInstance();
+            currentHour = calender.get(Calendar.HOUR_OF_DAY);
+            currentMinute = calender.get(Calendar.MINUTE);
+            timePickerDialog1 = new TimePickerDialog(Driver_Create_Ride.this, new TimePickerDialog.OnTimeSetListener() {
+                @SuppressLint("SetTextI18n")
+                @Override
+                public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
+                    chooseDepartureTime.setText(hourOfDay + ":" + minutes);
 
-                    }
-                }, currentHour, currentMinute, false);
-                timePickerDialog1.show();
-            }
+                }
+            }, currentHour, currentMinute, false);
+            timePickerDialog1.show();
         });
 
         // Ride Expires Time
         riderExpiresAt = findViewById(R.id.ride_expires_at);
-        riderExpiresAt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view2) {
-                calender = Calendar.getInstance();
-                currentHour = calender.get(Calendar.HOUR_OF_DAY);
-                currentMinute = calender.get(Calendar.MINUTE);
-                timePickerDialog2 = new TimePickerDialog(Driver_Create_Ride.this, new TimePickerDialog.OnTimeSetListener() {
-                    @SuppressLint("SetTextI18n")
-                    @Override
-                    public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
-                        riderExpiresAt.setText(hourOfDay + ":" + minutes + " " + amPm);
+        riderExpiresAt.setOnClickListener(view2 -> {
+            calender = Calendar.getInstance();
+            currentHour = calender.get(Calendar.HOUR_OF_DAY);
+            currentMinute = calender.get(Calendar.MINUTE);
+            timePickerDialog2 = new TimePickerDialog(Driver_Create_Ride.this, new TimePickerDialog.OnTimeSetListener() {
+                @SuppressLint("SetTextI18n")
+                @Override
+                public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
+                    riderExpiresAt.setText(hourOfDay + ":" + minutes + " " + amPm);
 
-                    }
-                }, currentHour, currentMinute, false);
-                timePickerDialog2.show();
-            }
+                }
+            }, currentHour, currentMinute, false);
+            timePickerDialog2.show();
         });
 
-        cost_per_passenger_updating = (TextView) findViewById(R.id.cost_per_passenger_updating);
-        progressBar_cost = (ProgressBar) findViewById(R.id.progress_bar_for_cost);
-        seekBar_cost = (SeekBar) findViewById(R.id.cost_per_passenger);
+        cost_per_passenger_updating = findViewById(R.id.cost_per_passenger_updating);
+        progressBar_cost = findViewById(R.id.progress_bar_for_cost);
+        seekBar_cost = findViewById(R.id.cost_per_passenger);
         seekBar_cost.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @SuppressLint("SetTextI18n")
             @Override
@@ -251,17 +243,14 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.home:
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                }
-                return false;
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.home:
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    overridePendingTransition(0, 0);
+                    return true;
             }
+            return false;
         });
 
         TextView passengerNumberText = findViewById(R.id.Passenger_Num);
@@ -288,53 +277,55 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
         routDescriptionText = findViewById(R.id.route_description);
         submit_ride = findViewById(R.id.submit_ride);
         submit_ride.setOnClickListener(view -> {
-            if (getUserCarInfo()) {
+            getUserCarInfo();
+            thread1 = new Thread(() -> {
+                if (hasCar) {
 
-                StringBuilder path = new StringBuilder();
-                path.append(destinationStartLatitude);
-                path.append(",");
-                path.append(destinationStartLongitude);
-                path.append(":");
-                path.append(destinationEndLatitude);
-                path.append(",");
-                path.append(destinationEndLongitude);
-                String departureTime = chooseDepartureTime.getText().toString();
-                String expiresAt = riderExpiresAt.getText().toString();
-                String chooseRideDate = chooseDate.getText().toString();
-                String routeDescription = routDescriptionText.getText().toString();
-                Ride ride = Ride.builder()
-                        .ownerName(userName)
-                        .ownerId(userId)
-                        .rideDepartureTime(departureTime)
-                        .availableSeats(seatNum)
-                        .cost(cost)
-                        .carImage(cars.get(0).getCarImg())
-                        .carInfo(cars.get(0).getCarModel())
-                        .rideExpiresAt(expiresAt)
-                        .rideDate(chooseRideDate).rideDescription(routeDescription)
-                        .rideRoute(path.toString())
-                        .appUserRidesId(userId)
-                        .build();
+                    StringBuilder path = new StringBuilder();
+                    path.append(destinationStartLatitude);
+                    path.append(",");
+                    path.append(destinationStartLongitude);
+                    path.append(":");
+                    path.append(destinationEndLatitude);
+                    path.append(",");
+                    path.append(destinationEndLongitude);
+                    String departureTime = chooseDepartureTime.getText().toString();
+                    String expiresAt = riderExpiresAt.getText().toString();
+                    String chooseRideDate = chooseDate.getText().toString();
+                    String routeDescription = routDescriptionText.getText().toString();
+                    Ride ride = Ride.builder()
+                            .ownerName(userName)
+                            .ownerId(userId)
+                            .rideDepartureTime(departureTime)
+                            .availableSeats(seatNum)
+                            .cost(cost)
+                            .carImage(cars.get(0).getCarImg())
+                            .carInfo(cars.get(0).getCarModel())
+                            .rideExpiresAt(expiresAt)
+                            .rideDate(chooseRideDate).rideDescription(routeDescription)
+                            .rideRoute(path.toString())
+                            .appUserRidesId(userId)
+                            .build();
 
-                Amplify.API.mutate(ModelMutation.create(ride),
-                        success -> {
-                            startActivity(new Intent(getApplicationContext(), Available_Rides.class));
-                        },
-                        error -> {
-                            rideErrHandler.sendEmptyMessage(0);
-                        });
-            } else carNotFound.setVisibility(View.VISIBLE);
-
+                    Amplify.API.mutate(ModelMutation.create(ride),
+                            success -> {
+                                startActivity(new Intent(getApplicationContext(), Available_Rides.class));
+                            },
+                            error -> {
+                                rideErrHandler.sendEmptyMessage(0);
+                            });
+                } else carNotFound.setVisibility(View.VISIBLE);
+            });
         });
     }
 
 
     public void getUserID() {
         String email = Amplify.Auth.getCurrentUser().getUsername();
-        Log.i("HHHHHHHHHHHHHHHH", "======> ||||||||||||||||||||||||||||||////////////////"+ email);
+        Log.i("HHHHHHHHHHHHHHHH", "======> ||||||||||||||||||||||||||||||////////////////" + email);
         Amplify.API.query(ModelQuery.list(AppUser.class, AppUser.USER_EMAIL.eq(email)),
                 success -> {
-                    for(AppUser user : success.getData().getItems()){
+                    for (AppUser user : success.getData().getItems()) {
                         userId = user.getId();
                         userName = user.getUserNickname();
                         break;
@@ -347,8 +338,6 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
     }
 
     public boolean getUserCarInfo() {
-
-
         Amplify.API.query(ModelQuery.list(Car.class, Car.OWNER_ID.contains(userId)),
                 success -> {
                     if (success.getData() != null) {
@@ -361,6 +350,7 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
                     if (cars.size() >= 1) {
                         hasCar = true;
                     }
+                    thread1.run();
                 },
                 error -> {
                     runOnUiThread(() -> {
@@ -369,7 +359,9 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
                     });
                     Log.i("getUserID", "======> Error in getting user id" + error.getMessage());
                 });
+
         return hasCar;
+
     }
 ////////////////============== Location Functionality ================//////////////////////
 
@@ -391,22 +383,22 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
         googleMapL.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
             @Override
             public void onMapLongClick(@NonNull LatLng latLng) {
-                if(destCounter < 1){
+                if (destCounter < 1) {
                     googleMapL.addMarker(new MarkerOptions().position(latLng)
                             .title("Start Location").snippet("saba7 fakhry"));
                     destinationStartLatitude = latLng.latitude;
                     destinationStartLongitude = latLng.longitude;
                     destCounter++;
-                    Log.i("XXXXyyyyzzzzz", "XXXXXXXXXyyyyyyyyyzzzzzzzz+++++>>>>" + destinationStartLatitude + destinationStartLongitude + destCounter );
+                    Log.i("XXXXyyyyzzzzz", "XXXXXXXXXyyyyyyyyyzzzzzzzz+++++>>>>" + destinationStartLatitude + destinationStartLongitude + destCounter);
                 }
-                if(destCounter <= 2){
+                if (destCounter <= 2) {
                     googleMapL.addMarker(new MarkerOptions().position(latLng)
                             .title("destination Location").snippet("saba7 fakhry"));
 
                     destinationEndLatitude = latLng.latitude;
-                    destinationEndLongitude= latLng.longitude;
+                    destinationEndLongitude = latLng.longitude;
                     destCounter++;
-                    Log.i("aaaapppppcccc", "AAAAAAAAABBBBBBBBCCCCCC+++++>>>" + destinationEndLatitude +  destinationEndLongitude + destCounter );
+                    Log.i("aaaapppppcccc", "AAAAAAAAABBBBBBBBCCCCCC+++++>>>" + destinationEndLatitude + destinationEndLongitude + destCounter);
 
                 }
 
@@ -432,8 +424,6 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
         mapFragment.getMapAsync(this);
 
         getLastLocation();
-
-
 
 
 //        String url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + latitude + "," + longitude + "&destination=" + destinationLatitude + "," + destinationLongitude + "&key=AIzaSyAh_BlQF3Zdf3_O4vJUuNwmkVKQEhmIq90";

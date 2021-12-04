@@ -23,6 +23,7 @@ import com.example.uni_hub.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class AvailableRooms extends AppCompatActivity {
@@ -93,8 +94,12 @@ public class AvailableRooms extends AppCompatActivity {
             });
             Log.i(TAG, "getAllRooms: ====> " + success.getData().toString());
         }, err -> {
-
+            Log.e(TAG, Arrays.toString(err.getStackTrace()));
         });
+    }
+
+    public void updateView() {
+        runOnUiThread(this::getAllRooms);
     }
 
 
