@@ -33,6 +33,8 @@ public class Student_Utilities extends AppCompatActivity {
 
     private Button alarmclock_btn;
     private Button calender_btn;
+    BottomNavigationView bottomNavigationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

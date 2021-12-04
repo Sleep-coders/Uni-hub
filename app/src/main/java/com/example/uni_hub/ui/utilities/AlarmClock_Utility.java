@@ -28,7 +28,6 @@ public class AlarmClock_Utility extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm_clock_utility);
-
         BottomNavigationView bottomNavigationView;
 
         findViewById(R.id.btnSetAlarm).setOnClickListener(new View.OnClickListener() {
