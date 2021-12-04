@@ -23,7 +23,6 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
-        android:requestLegacyExternalStorage="true"
         android:theme="@style/Theme.Unihub"
         tools:replace="android:allowBackup">
         <service android:name=".MyService" />
