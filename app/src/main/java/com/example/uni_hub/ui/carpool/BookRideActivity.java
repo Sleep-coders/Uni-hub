@@ -10,7 +10,6 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.airbnb.lottie.L;
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.RequestParams;
@@ -36,7 +35,6 @@ import com.google.gson.reflect.TypeToken;
 import com.squareup.picasso.Picasso;
 import com.example.uni_hub.R;
 
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -47,6 +45,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 import java.util.List;
+import java.util.Objects;
+
+import okhttp3.Headers;
+
 
 
 import okhttp3.Headers;
@@ -81,8 +83,6 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
     Gson gson ;
     GsonBuilder gsonBuilder;
     Thread mapThread;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -246,7 +246,6 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
             rideDescription.setText(_rideDescription);
 
         }
-
 
 
     @Override

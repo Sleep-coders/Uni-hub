@@ -19,6 +19,7 @@ import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.Ride;
 import com.example.uni_hub.R;
 import com.example.uni_hub.ui.carpool.BookRideActivity;
+import com.example.uni_hub.ui.carpool.RecyclerViewInterface;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
