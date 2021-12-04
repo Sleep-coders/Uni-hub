@@ -236,8 +236,6 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
 
                     stepsArr= gson.fromJson(steps.toString(),STEP_TYPE);
 
-
-
                     Log.i("stepsArr", "stepsArr: =========> " + stepsArr.toString());
                     Log.i("stepsArr", "stepsArr: =========> " + steps);
 
@@ -325,7 +323,6 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
         }
         else
         {
-
             Routing routing = new Routing.Builder()
                     .travelMode(AbstractRouting.TravelMode.DRIVING)
                     .withListener(this)
