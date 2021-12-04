@@ -3,6 +3,13 @@ package com.example.uni_hub.ui.carpool;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.directions.route.AbstractRouting;
+import com.directions.route.Route;
+import com.directions.route.RouteException;
+import com.directions.route.Routing;
+import com.directions.route.RoutingListener;
+
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,17 +17,20 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.airbnb.lottie.L;
+//import com.airbnb.lottie.L;
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.RequestParams;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 
-import com.example.uni_hub.services.DirectionsJSONParser;
-import com.example.uni_hub.services.HttpRequester;
-import com.example.uni_hub.services.MapsActivity;
-import com.example.uni_hub.services.Root;
+//import com.example.uni_hub.services.DirectionsJSONParser;
+//import com.example.uni_hub.services.HttpRequester;
+//import com.example.uni_hub.services.MapsActivity;
+//import com.example.uni_hub.services.Root;
 import com.example.uni_hub.services.Step;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -29,6 +39,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolygonOptions;
+import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,7 +63,7 @@ import java.util.List;
 import okhttp3.Headers;
 
 
-public class BookRideActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class BookRideActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleApiClient.OnConnectionFailedListener, RoutingListener {
 
 
     ImageView carImage;
@@ -75,6 +86,8 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
     private double startLon;
     private double endLat;
     private double endLon;
+    private List<Polyline> polylines=null;
+    private GoogleMap mMap;
 
     Handler pointsH ;
 
@@ -122,7 +135,7 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
             return false;
         });
 
-//        getPoints();
+        getPoints();
 
         loadActivityData(intent);
 
@@ -141,13 +154,6 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
     private void getPoints() {
         String url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + startLatitude + "," + startLongitude + "&destination=" + endLatitude + "," + endLongitude + "&key=AIzaSyAh_BlQF3Zdf3_O4vJUuNwmkVKQEhmIq90";
 
-//        HttpRequester requester = new HttpRequester();
-//        try {
-//            pathPoints =  requester.run(url);
-//            pointsH.sendEmptyMessage(0);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
 
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
@@ -162,31 +168,19 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
                 List<Step> stepsArr = new ArrayList<>();
                 final Type STEP_TYPE = new TypeToken<List<Step>>() {
                 }.getType();
-//                List<JSONArray> steps = new ArrayList<>();
                 List<LatLng> latLngs = new ArrayList<>();
                 Step step;
                 JSONObject jsonObject = json.jsonObject;
-                List<List<HashMap<String,String>>> r = new DirectionsJSONParser().parse(jsonObject);
-                Log.i("TAG", "onSuccess: =========>" + r.toString());
 
-                Log.i("TAG_Of_Keys", "onSuccess: =========>" + r.get(0).get(0).keySet().toString());
-                Log.i("TAG_Of_Keys1", "onSuccess: =========>" + r.get(1).get(0).keySet().toString());
 
                 try {
                     JSONArray routes = jsonObject.getJSONArray("routes");
                     Log.i("TAG", "onSuccess: =========> " + routes.toString());
                     JSONArray legs = routes.getJSONObject(0).getJSONArray("legs");
                     JSONArray steps = legs.getJSONObject(0).getJSONArray("steps");
-//                    List<JSONObject> js = new ArrayList<>();
+
                     stepsArr= gson.fromJson(steps.toString(),STEP_TYPE);
-//                    for (int i=0; i<steps.length();i++){
-//                        Log.i("Step[i]", "Step[i]: =========> " +steps.get(i));
-//
-//                        step = gson.fromJson(steps.get(i).toString(),Step.class);
-//                      stepsArr.add(step);
-//                    }
-//                    latLngs.add(new LatLng(steps.getJSONObject(i).getJSONObject("start_location").getJSONObject("lat"),steps.getJSONObject(i).getJSONObject("start_location").getJSONObject("lng")));
-//                        latLngs.add(new LatLng(steps.getJSONObject(i).end_location.lat,step.end_location.lng));
+
 
 
                     Log.i("stepsArr", "stepsArr: =========> " + stepsArr.toString());
@@ -195,23 +189,22 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-//                latLngs = new  LatLng[stepsArr.size()];
+                List<Double> lats = new ArrayList<>();
+                List<Double> lons = new ArrayList<>();
                 for (Step step1 : stepsArr) {
-                    latLngs.add(new LatLng(step1.start_location.lat, step1.start_location.lng));
-                    Log.i("stepsArr", "stepsArr: =========> " + step1.start_location.lat + " ++ " + step1.start_location.lng);
 
-//                    if(i==latLngs.length-1)
-                    latLngs.add(new LatLng(step1.end_location.lat, step1.end_location.lng));
-                    Log.i("stepsArr", "stepsArr: =========> " + step1.end_location.lat + " ++ " + step1.end_location.lng);
+                    lats.add(step1.start_location.lat);
+                    lats.add(step1.end_location.lat);
+                    lons.add(step1.start_location.lng);
+                    lons.add(step1.end_location.lng);
 
                 }
 
-//                Root root = gson.fromJson(jsonObject.toString(), Root.class);
-//                List<Root.Step> steps = root.routes.get(0).legs.get(0).steps;
-//                for (Root.Step step : steps) {
-//                    latLngs.add(new LatLng(step.start_location.lat, step.start_location.lng));
-//                    latLngs.add(new LatLng(step.end_location.lat, step.end_location.lng));
-//                }
+                for (int i=0;i<lats.size();i=i+2){
+                    latLngs.add(new LatLng(lats.get(i),lons.get(i)));
+                    latLngs.add(new LatLng(lats.get(i+1),lons.get(i+1)));
+                }
+
                 Log.i("All _ Points", "======> |||||||||||||||||////////////////" + json.toString());
                 Log.i("All _ Points", "======> " + startLatitude + "  " + startLongitude + "  "  + endLatitude + "  " + endLongitude);
                 pathPoints = latLngs;
@@ -236,12 +229,12 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
             String _rideExpAt = intent.getStringExtra("rideExpAt");
             String _rideDescription = intent.getStringExtra("rideDescription");
 
-            Picasso.get().load(carInfo).into(carImage);
+            Picasso.get().load(imageUrl).into(carImage);
             driverName.setText(_driverName);
             rideDepartureDateTime.setText(departureDateTime);
             rideAvailableSeats.setText(availableSeats);
             rideCost.setText(_rideCost);
-            rideCarInfo.setText(imageUrl);
+            rideCarInfo.setText(carInfo);
             rideExpAt.setText(_rideExpAt);
             rideDescription.setText(_rideDescription);
 
@@ -251,25 +244,109 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
-        LatLng latLng = new LatLng(startLat, startLon);
-        LatLng latlng2 = new LatLng(endLat,endLon);
+        this.mMap = googleMap;
+        LatLng startLatLng = new LatLng(startLat, startLon);
+        LatLng endLatLng = new LatLng(endLat,endLon);
 
-        MapsActivity maps = new MapsActivity();
 
-        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 15);
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(startLatLng, 15);
         googleMap.animateCamera(cameraUpdate);
         googleMap.addMarker(
                 new MarkerOptions()
-                        .position(latLng)
+                        .position(startLatLng)
                         .title("Start Point")
         );
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         googleMap.setTrafficEnabled(true);
 
-        googleMap.setBuildingsEnabled(true);
-        maps.drawRoute(latLng,latlng2,googleMap,getApplicationContext());
-////        LatLng[] points = pathPoints.toArray();
-//        googleMap.addPolyline(new PolylineOptions().addAll(pathPoints).geodesic(true).color(android.graphics.Color.RED));
-////        addPolyline(new PolylineOptions().add(pathPoints))
+        FindRoutes(startLatLng, endLatLng);
+
+    }
+
+    public void FindRoutes(LatLng Start, LatLng End)
+    {
+        if(Start==null || End==null) {
+            Toast.makeText(this,"Unable to get location", Toast.LENGTH_LONG).show();
+        }
+        else
+        {
+
+            Routing routing = new Routing.Builder()
+                    .travelMode(AbstractRouting.TravelMode.DRIVING)
+                    .withListener(this)
+                    .alternativeRoutes(true)
+                    .waypoints(Start, End)
+                    .key("AIzaSyAh_BlQF3Zdf3_O4vJUuNwmkVKQEhmIq90")  //also define your api key here.
+                    .build();
+            routing.execute();
+        }
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+        FindRoutes(new LatLng(startLat,startLon),new LatLng(endLat,endLon));
+    }
+
+    @Override
+    public void onRoutingFailure(RouteException e) {
+        Toast.makeText(this,"Error in Finding Route",Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onRoutingStart() {
+        Toast.makeText(BookRideActivity.this,"Finding Route...",Toast.LENGTH_LONG).show();
+
+    }
+
+    @Override
+    public void onRoutingSuccess(ArrayList<Route> route, int shortestRouteIndex) {
+        LatLng startLatLng = new LatLng(startLat,startLon);
+        CameraUpdate center = CameraUpdateFactory.newLatLng(startLatLng);
+        CameraUpdate zoom = CameraUpdateFactory.zoomTo(16);
+        PolylineOptions polyOptions = new PolylineOptions();
+        LatLng polylineStartLatLng=null;
+        LatLng polylineEndLatLng=null;
+
+
+        polylines = new ArrayList<>();
+        //add route(s) to the map using polyline
+        for (int i = 0; i <route.size(); i++) {
+
+            if(i==shortestRouteIndex)
+            {
+                polyOptions.color(android.graphics.Color.RED);
+                polyOptions.width(7);
+                polyOptions.addAll(route.get(shortestRouteIndex).getPoints());
+                Polyline polyline = mMap.addPolyline(polyOptions);
+                polylineStartLatLng=polyline.getPoints().get(0);
+                int k=polyline.getPoints().size();
+                polylineEndLatLng=polyline.getPoints().get(k-1);
+                polylines.add(polyline);
+
+            }
+            else {
+
+            }
+
+        }
+
+        //Add Marker on route starting position
+        MarkerOptions startMarker = new MarkerOptions();
+        startMarker.position(polylineStartLatLng);
+        startMarker.title("My Location");
+        mMap.addMarker(startMarker);
+
+        //Add Marker on route ending position
+        MarkerOptions endMarker = new MarkerOptions();
+        endMarker.position(polylineEndLatLng);
+        endMarker.title("Destination");
+        mMap.addMarker(endMarker);
+
+    }
+
+    @Override
+    public void onRoutingCancelled() {
+        FindRoutes(new LatLng(startLat,startLon),new LatLng(endLat,endLon));
+
     }
 }
