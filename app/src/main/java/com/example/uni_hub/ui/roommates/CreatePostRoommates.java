@@ -154,7 +154,6 @@ public class CreatePostRoommates extends AppCompatActivity implements HandlePath
             if (uri != null) {
                 //set Uri to handle
                 handlePathOz.getRealPath(uri);
-                //show Progress Loading
             }
         }
     }

@@ -38,7 +38,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Available_Rides extends AppCompatActivity  {
+public class AvailableRides extends AppCompatActivity  {
     RecyclerView recycler_view_driver_post;
 
 
@@ -72,21 +72,16 @@ public class Available_Rides extends AppCompatActivity  {
             Log.i("ALL_RIDES>>>>>||||||||++++>>>>", "++++++>>>>>>>" + allRides);
 //            getOwnerRide();
             recycler_view_driver_post.setLayoutManager(new LinearLayoutManager(this));
-            recycler_view_driver_post.setAdapter(new DriverAdapter(allRides, userId, getApplicationContext()));
+            recycler_view_driver_post.setAdapter(new DriverAdapter(allRides, userId, this));
             Objects.requireNonNull(recycler_view_driver_post.getAdapter()).notifyDataSetChanged();
             return false;
         });
 
         recycler_view_driver_post.setLayoutManager(new LinearLayoutManager(this));
-        recycler_view_driver_post.setAdapter(new DriverAdapter(allRides, userId, getApplicationContext()));
+        recycler_view_driver_post.setAdapter(new DriverAdapter(allRides, userId,this));
         Objects.requireNonNull(recycler_view_driver_post.getAdapter()).notifyDataSetChanged();
 
-
-
-
 //        DriverAdapter driverAdapter = new DriverAdapter(allRides , userId);
-
-
 
         // Navbar Bottom
         bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -125,7 +120,7 @@ public class Available_Rides extends AppCompatActivity  {
 //    }
 
     public void reFresh(){
-        runOnUiThread(this::getAllRides);
+        runOnUiThread(this::getUserID);
     }
 
     public void getCreateRide() {
@@ -142,8 +137,6 @@ public class Available_Rides extends AppCompatActivity  {
                     }
                     allRidesHandler.sendEmptyMessage(0);
 
-//                    Log.i("ALLRIDES++++>>>>", "++++++>>>>>>>"+success.getData());
-//                    Log.i("ALLRIDES_STATEC++++>>>>", "++++++>>>>>>>"+allRides);
                 },
                 error -> {
                     runOnUiThread(() -> {
@@ -170,7 +163,6 @@ public class Available_Rides extends AppCompatActivity  {
                     bundle.putString("ID",id);
                     message.setData(bundle);
                     userIdHandler.sendMessage(message);
-//                    Log.i("USERID++++>>>>", "++++++>>>>>>>" + userId);
                 },
                 error -> {
                     Log.i("getUserID", "Error in getting user id");

@@ -23,10 +23,8 @@ import android.os.Handler;
 import android.os.Looper;
 import android.provider.Settings;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
@@ -300,7 +298,7 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
 
                     Amplify.API.mutate(ModelMutation.create(ride),
                             success -> {
-                                startActivity(new Intent(getApplicationContext(), Available_Rides.class));
+                                startActivity(new Intent(getApplicationContext(), AvailableRides.class));
                             },
                             error -> {
                                 rideErrHandler.sendEmptyMessage(0);

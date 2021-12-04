@@ -19,7 +19,6 @@ import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.Ride;
 import com.example.uni_hub.R;
 import com.example.uni_hub.ui.carpool.BookRideActivity;
-import com.example.uni_hub.ui.carpool.RecyclerViewInterface;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -30,13 +29,10 @@ public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.DriverView
     Context context;
 
 
-
     public DriverAdapter(List<Ride> allRides, String userId, Context context) {
         this.allRides = allRides;
         this.userId = userId;
         this.context = context;
-
-
     }
 
     @NonNull
@@ -45,7 +41,7 @@ public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.DriverView
 //        LayoutInflater inflater = LayoutInflater.from(context);
 //        View view = inflater.inflate(R.layout.driver_raw, parent, false);
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.driver_raw,parent,false);
+        View view = inflater.inflate(R.layout.driver_raw, parent, false);
         return new DriverViewHolder(view);
     }
 
@@ -70,13 +66,13 @@ public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.DriverView
             Amplify.API.mutate(ModelMutation.delete(allRides.get(position)),
                     response -> {
                         Log.i("MyAmplifyApp", "Todo with id: " + response.getData().getId());
-                        ((Available_Rides) context).reFresh();
+                        ((AvailableRides)context).reFresh();
                     },
                     error -> Log.e("MyAmplifyApp", "Create failed", error)
             );
 
         });
-//
+
         holder.requestRideBtn.setOnClickListener(view -> {
             Intent intent = new Intent(view.getContext(), BookRideActivity.class);
 

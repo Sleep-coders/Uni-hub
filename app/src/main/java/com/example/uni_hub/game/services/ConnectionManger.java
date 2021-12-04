@@ -47,7 +47,7 @@ public class ConnectionManger {
         connection = new WebSocketConnection();
         getUserName();
 
-        connection.connect("ws://b160-212-34-22-190.ngrok.io", new WebSocketConnectionHandler() {
+        connection.connect("ws://gamebackend-env.eba-tvmkqjmu.eu-central-1.elasticbeanstalk.com", new WebSocketConnectionHandler() {
 
             @Override
             public void onConnect(ConnectionResponse response) {
