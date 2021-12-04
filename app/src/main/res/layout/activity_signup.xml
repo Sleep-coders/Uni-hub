@@ -6,14 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".ui.auth.Signup">
 
+
     <ImageView
-        android:id="@+id/signup_logo"
-        android:layout_width="107dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:id="@+id/profile_user_img"
+        android:layout_width="180dp"
+        android:layout_height="130dp"
         android:contentDescription="@string/todo"
+        android:src="@drawable/logo"
         app:layout_constraintBottom_toTopOf="@+id/signup_main_text"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="ImageContrastCheck"
@@ -23,22 +25,21 @@
         android:id="@+id/signup_main_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
         android:fontFamily="@font/stereo"
         android:text="@string/sign_up"
         android:textColor="@color/purple_main_color"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/signup_name_container"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_logo" />
-
+        app:layout_constraintTop_toBottomOf="@+id/profile_user_img" />
 
     <Button
         android:id="@+id/signup_signin_btn"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="45dp"
+        android:layout_marginBottom="15dp"
         android:backgroundTint="@color/purple_main_color"
         android:text="@string/log_in"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -64,7 +65,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginEnd="36dp"
-        android:layout_marginBottom="5dp"
         android:backgroundTint="@color/yellow_main_color"
         android:text="@string/sign_up"
         android:textColor="@color/black_main_color"
@@ -223,7 +223,6 @@
         android:id="@+id/signup_errormsg"
         android:layout_width="300dp"
         android:layout_height="30dp"
-        android:layout_marginBottom="5dp"
         android:gravity="center"
         android:textColor="#F40707"
         app:layout_constraintBottom_toTopOf="@+id/signup_signin_text"

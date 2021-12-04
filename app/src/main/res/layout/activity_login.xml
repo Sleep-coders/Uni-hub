@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/profile_user_img"
-        android:layout_width="220dp"
-        android:layout_height="190dp"
+        android:layout_width="180dp"
+        android:layout_height="150dp"
         android:layout_marginTop="5dp"
         android:contentDescription="@string/todo"
         android:src="@drawable/logo"
@@ -44,9 +44,10 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.637" />
+        app:layout_constraintVertical_bias="0.612" />
 
     <Button
         android:id="@+id/signpage_signin_btn"
@@ -57,10 +58,9 @@
         android:textColor="@color/black_main_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.733" />
+        app:layout_constraintVertical_bias="0.683" />
 
     <TextView
         android:id="@+id/signin_signup_text"
@@ -70,10 +70,10 @@
         android:textColor="@color/black_main_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.786" />
+        app:layout_constraintVertical_bias="0.738" />
 
     <Button
         android:id="@+id/signin_signup_btn"
@@ -83,10 +83,9 @@
         android:text="@string/signup"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.882" />
+        app:layout_constraintVertical_bias="0.827" />
 
     <TextView
         android:id="@+id/signin_fail_text"
@@ -99,12 +98,12 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.367" />
+        app:layout_constraintVertical_bias="0.334" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/signin_email_container"
         android:layout_width="339dp"
-        android:layout_height="55dp"
+        android:layout_height="60dp"
         android:ellipsize="start"
         android:hint="@string/email"
         app:boxBackgroundColor="#FAFAFA"
@@ -124,16 +123,16 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signin_email_text"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:inputType="textEmailAddress"
             android:textColorHint="#757575"
-            tools:ignore="TextContrastCheck" />
+            tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/signin_password_container"
         android:layout_width="339dp"
-        android:layout_height="55dp"
+        android:layout_height="wrap_content"
         android:hint="@string/password"
         app:boxBackgroundColor="#FAFAFA"
         app:boxBackgroundMode="outline"
@@ -153,9 +152,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signin_password_text"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:inputType="textPassword"
             android:textColorHint="#757575"
-            tools:ignore="TextContrastCheck" />
+            tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

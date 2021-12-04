@@ -1,15 +1,19 @@
 package com.example.uni_hub.ui.utilities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.AlarmClock;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.uni_hub.MainActivity;
 import com.example.uni_hub.R;
 import com.example.uni_hub.ui.carpool.rider.Rider_home;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Calendar;
 
@@ -18,6 +22,8 @@ public class Student_Utilities extends AppCompatActivity {
     private Button alarmclock_btn;
     private Button pdfscanner_btn;
     private Button calender_btn;
+    BottomNavigationView bottomNavigationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +63,23 @@ public class Student_Utilities extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(intent3);
+            }
+        });
+
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.home);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        overridePendingTransition(0, 0);
+//                        finish();
+                        return true;
+                }
+                return false;
             }
         });
 
