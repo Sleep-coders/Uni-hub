@@ -21,6 +21,7 @@
         tools:ignore="ImageContrastCheck"
         tools:srcCompat="@tools:sample/avatars" />
 
+
     <TextView
         android:id="@+id/signup_main_text"
         android:layout_width="wrap_content"

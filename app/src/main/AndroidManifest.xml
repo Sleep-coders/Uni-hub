@@ -18,6 +18,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
@@ -29,9 +30,6 @@
             android:name=".ui.utilities.services"
             android:exported="false">
         </activity>
-        <activity
-            android:name=".ui.utilities.PdfScanner_Utility"
-            android:exported="false" />
         <activity
             android:name=".ui.utilities.AlarmClock_Utility"
             android:exported="false" />
@@ -138,6 +136,15 @@
         <activity
             android:name=".ui.carpool.Carpool_Home"
             android:exported="false" />
+
+<!--        <activity android:name=".MainActivity"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
         <activity
             android:name=".MainActivity"
             android:exported="false" />

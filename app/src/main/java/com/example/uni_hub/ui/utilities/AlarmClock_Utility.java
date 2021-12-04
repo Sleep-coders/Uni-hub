@@ -49,6 +49,7 @@ public class AlarmClock_Utility extends AppCompatActivity {
             }
         });
 
+        // Navbar Bottom
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
 
@@ -59,7 +60,6 @@ public class AlarmClock_Utility extends AppCompatActivity {
                     case R.id.home:
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         overridePendingTransition(0, 0);
-//                        finish();
                         return true;
                 }
                 return false;
@@ -110,4 +110,6 @@ public class AlarmClock_Utility extends AppCompatActivity {
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
         Toast.makeText(this, "Alarm is set", Toast.LENGTH_SHORT).show();
     }
+
+
 }

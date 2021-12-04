@@ -19,7 +19,6 @@
 
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_main_color</item>
         <item name="colorPrimaryVariant">@color/purple_main_color_variant</item>

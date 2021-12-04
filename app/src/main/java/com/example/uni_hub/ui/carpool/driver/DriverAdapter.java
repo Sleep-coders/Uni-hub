@@ -19,6 +19,7 @@ import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.Ride;
 import com.example.uni_hub.R;
 import com.example.uni_hub.ui.carpool.BookRideActivity;
+import com.example.uni_hub.ui.carpool.RecyclerViewInterface;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -27,14 +28,14 @@ public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.DriverView
     List<Ride> allRides;
     String userId;
     Context context;
-//    private final RecyclerViewInterface recyclerViewInterface;
+
 
 
     public DriverAdapter(List<Ride> allRides, String userId, Context context) {
         this.allRides = allRides;
         this.userId = userId;
         this.context = context;
-//        this.recyclerViewInterface = recyclerViewInterface;
+
 
     }
 
@@ -57,10 +58,7 @@ public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.DriverView
             holder.requestRideBtn.setVisibility(View.INVISIBLE);
             holder.deleteRideBtn.setVisibility(View.VISIBLE);
         }
-//        Log.i("ALLRIDES++++>>>>", "++++++>>>>>>>" + allRides);
-//        Log.i("USERID++++>>>>", "++++++>>>>>>>" + userId);
-//        Log.i("URL IMG++++>>>>", "++++++>>>>>>>" + ride.getCarInfo());
-//        holder.passNum.setText(Integer.toString(ride.getAvailableSeats()));
+
         holder.riderName.setText(ride.getOwnerName());
         holder.routPath.setText(ride.getRideDescription());
         Picasso.get().load(ride.getCarImage()).into(holder.carImg);
@@ -70,10 +68,13 @@ public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.DriverView
 
         holder.deleteRideBtn.setOnClickListener(view -> {
             Amplify.API.mutate(ModelMutation.delete(allRides.get(position)),
-                    response -> Log.i("MyAmplifyApp", "Todo with id: " + response.getData().getId()),
+                    response -> {
+                        Log.i("MyAmplifyApp", "Todo with id: " + response.getData().getId());
+                        ((Available_Rides) context).reFresh();
+                    },
                     error -> Log.e("MyAmplifyApp", "Create failed", error)
             );
-//            recyclerViewInterface.onItemClick(position);
+
         });
 //
         holder.requestRideBtn.setOnClickListener(view -> {

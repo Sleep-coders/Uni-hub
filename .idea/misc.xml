@@ -42,6 +42,7 @@
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_notification_to_driver.xml" value="0.2" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_player_game_grading.xml" value="0.259375" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_player_game_room.xml" value="0.1859375" />
+        <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_player_in_room_game.xml" value="0.17916666666666667" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_player_join_password.xml" value="0.1859375" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_ride_details.xml" value="0.259375" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_rider_home.xml" value="0.2" />
@@ -49,7 +50,9 @@
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_room_details.xml" value="0.2" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_room_owner_notification.xml" value="0.2553846153846154" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_roommates_adapter.xml" value="0.2553846153846154" />
+        <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_services.xml" value="0.17916666666666667" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_signup.xml" value="0.4" />
+        <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_splash_screen.xml" value="0.175" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_student_utilites.xml" value="0.1" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/activity_student_utilities.xml" value="0.264" />
         <entry key="..\:/Users/AB/401course/final-project/Uni-hub/app/src/main/res/layout/addusercardialog.xml" value="0.264" />
