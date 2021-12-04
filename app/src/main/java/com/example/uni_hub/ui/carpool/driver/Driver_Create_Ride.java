@@ -145,15 +145,6 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
         });
 
 
-//        dialogBuilder = new AlertDialog.Builder(this);
-//        confirmUser = getLayoutInflater().inflate(R.layout.geograph_path_create_ride, null);
-//
-//        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-//                .findFragmentById(R.id.map);
-//        assert mapFragment != null;
-//        mapFragment.getMapAsync(this);
-
-
         carNotFound = findViewById(R.id.user_car_notFound);
         carNotFound.setVisibility(View.INVISIBLE);
 
@@ -314,8 +305,13 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
                             error -> {
                                 rideErrHandler.sendEmptyMessage(0);
                             });
-                } else carNotFound.setVisibility(View.VISIBLE);
+                } else {
+                    runOnUiThread(()->{
+                        carNotFound.setVisibility(View.VISIBLE);
+                    });
+                }
             });
+
         });
     }
 
@@ -402,10 +398,7 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
 
                 }
 
-//                if(points.size()!=0){
-//                    LatLng[] latLngs = (LatLng[]) points.toArray();
-//                    googleMapL.addPolygon(new PolygonOptions().add(latLngs));
-//                }
+
             }
         });
     }
@@ -424,16 +417,6 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
         mapFragment.getMapAsync(this);
 
         getLastLocation();
-
-
-//        String url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + latitude + "," + longitude + "&destination=" + destinationLatitude + "," + destinationLongitude + "&key=AIzaSyAh_BlQF3Zdf3_O4vJUuNwmkVKQEhmIq90";
-//        HttpRequester requester = new HttpRequester();
-//        try {
-//            points =  requester.run(url);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
 
         Button saveLocationBtn = showMapView.findViewById(R.id.save_route_path);
         Button cancelLocationBtn = showMapView.findViewById(R.id.close_map);
