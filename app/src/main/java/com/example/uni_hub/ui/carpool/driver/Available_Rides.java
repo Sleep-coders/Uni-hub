@@ -47,7 +47,7 @@ public class Available_Rides extends AppCompatActivity  {
     Handler allRidesHandler;
     Handler userIdHandler;
 
-    private Ride owner_ride;
+//    private Ride owner_ride;
 
 
     List<Ride> allRides = new ArrayList<>();
@@ -70,7 +70,7 @@ public class Available_Rides extends AppCompatActivity  {
         });
         allRidesHandler = new Handler(Looper.getMainLooper(), message -> {
             Log.i("ALL_RIDES>>>>>||||||||++++>>>>", "++++++>>>>>>>" + allRides);
-            getOwnerRide();
+//            getOwnerRide();
             recycler_view_driver_post.setLayoutManager(new LinearLayoutManager(this));
             recycler_view_driver_post.setAdapter(new DriverAdapter(allRides, userId, getApplicationContext()));
             Objects.requireNonNull(recycler_view_driver_post.getAdapter()).notifyDataSetChanged();
@@ -114,16 +114,19 @@ public class Available_Rides extends AppCompatActivity  {
 
     }
 
-    private void getOwnerRide() {
-        for (Ride ride : allRides) {
-            if (ride.getOwnerId().equals(userId)) {
-                owner_ride = ride;
-                Log.i("owner_ride>>>>>||||||||++++>>>>", "++++++>>>>>>>" + ride.getOwnerId() + " aanndd===>>" + userId);
-            }
+//    private void getOwnerRide() {
+//        for (Ride ride : allRides) {
+//            if (ride.getOwnerId().equals(userId)) {
+//                owner_ride = ride;
+//                Log.i("owner_ride>>>>>||||||||++++>>>>", "++++++>>>>>>>" + ride.getOwnerId() + " aanndd===>>" + userId);
+//            }
+//
+//        }
+//    }
 
-        }
+    public void reFresh(){
+        runOnUiThread(this::getAllRides);
     }
-
 
     public void getCreateRide() {
         Intent driver_create_ride = new Intent(this, Driver_Create_Ride.class);
@@ -150,6 +153,7 @@ public class Available_Rides extends AppCompatActivity  {
                     Log.i("getAllRides", "======> Error in getting all rides" + error.getMessage());
                 });
     }
+
 
     public void getUserID() {
         Bundle bundle = new Bundle();
