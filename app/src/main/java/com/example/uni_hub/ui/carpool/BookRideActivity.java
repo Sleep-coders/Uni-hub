@@ -34,7 +34,7 @@ import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 //import com.example.uni_hub.services.MapsActivity;
 //import com.example.uni_hub.services.Root;
 import com.example.uni_hub.services.Step;
-import com.example.uni_hub.ui.carpool.driver.Available_Rides;
+import com.example.uni_hub.ui.carpool.driver.AvailableRides;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.maps.CameraUpdate;
@@ -44,7 +44,6 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.gson.Gson;
@@ -60,8 +59,6 @@ import org.json.JSONObject;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 
 import java.util.List;
 
@@ -183,7 +180,7 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
 
 
         findViewById(R.id.ride_back_btn).setOnClickListener(v -> {
-            startActivity(new Intent(this, Available_Rides.class));
+            startActivity(new Intent(this, AvailableRides.class));
         });
     }
 
