@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.amplifyframework.core.Amplify;
+import com.example.uni_hub.R;
 import com.example.uni_hub.databinding.FragmentSettingBinding;
 import com.example.uni_hub.ui.auth.Login;
 
@@ -29,6 +30,18 @@ public class SettingFragment extends Fragment {
 
         binding = FragmentSettingBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        root.findViewById(R.id.logout_btn).setOnClickListener(v -> {
+            Amplify.Auth.signOut(
+                    () -> {
+                        Log.i("AuthQuickstart", "Signed out successfully");
+                        Intent i = new Intent(requireContext(), Login.class);
+                        startActivity(i);
+                    },
+                    error -> {
+                        Log.e("AuthQuickstart", error.toString());
+                    }
+            );
+        });
 
         return root;
     }
@@ -38,19 +51,5 @@ public class SettingFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
-    public void logout(View view) {
-        Amplify.Auth.signOut(
-                () -> {
-                    Log.i("AuthQuickstart", "Signed out successfully");
-                    Intent i = new Intent(requireContext(), Login.class);
-                    startActivity(i);
-                },
-                error -> {
-                    Log.e("AuthQuickstart", error.toString());
-                    Toast toast=Toast.makeText(getContext(),"error happened when trying to logout",Toast.LENGTH_LONG);
-                    toast.show();
-                }
-        );
-    }
+    
 }
