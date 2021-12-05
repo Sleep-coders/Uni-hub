@@ -145,7 +145,6 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
             return false;
         });
 
-
         pointsH = new Handler(Looper.getMainLooper(),message -> {
             Log.i("All _ Points", "======> |||||||||||||||||////////////////"+ pathPoints);
             return false;
@@ -164,8 +163,6 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
 
         getOwnerPhoneNumber(ownerId);
 
-
-
         findViewById(R.id.ride_contact_driver).setOnClickListener(view -> {
             if(phoneNumber.equals("") || phoneNumber == null){
                 Toast.makeText(this,"Loading Dial Info .. ",Toast.LENGTH_LONG).show();
@@ -177,7 +174,6 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
                 startActivity(dialIntent);
             }
         });
-
 
         findViewById(R.id.ride_back_btn).setOnClickListener(v -> {
             startActivity(new Intent(this, AvailableRides.class));
@@ -208,7 +204,6 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
 
     private void getPoints() {
         String url = "https://maps.googleapis.com/maps/api/directions/json?origin=" + startLatitude + "," + startLongitude + "&destination=" + endLatitude + "," + endLongitude + "&key=AIzaSyAh_BlQF3Zdf3_O4vJUuNwmkVKQEhmIq90";
-
 
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
@@ -252,7 +247,6 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
                     lons.add(step1.end_location.lng);
 
                 }
-
                 for (int i=0;i<lats.size();i=i+2){
                     latLngs.add(new LatLng(lats.get(i),lons.get(i)));
                     latLngs.add(new LatLng(lats.get(i+1),lons.get(i+1)));
@@ -272,6 +266,7 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
         });
     }
     private void loadActivityData (Intent intent){
+
         String imageUrl = intent.getStringExtra("carImage");
         String _driverName = intent.getStringExtra("ownerName");
         String departureDateTime = intent.getStringExtra("rideDepartureTime")
@@ -297,6 +292,7 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
+
         this.mMap = googleMap;
         LatLng startLatLng = new LatLng(startLat, startLon);
         LatLng endLatLng = new LatLng(endLat,endLon);
@@ -304,11 +300,11 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
 
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(startLatLng, 15);
         googleMap.animateCamera(cameraUpdate);
-        googleMap.addMarker(
-                new MarkerOptions()
-                        .position(startLatLng)
-                        .title("Start Point")
-        );
+//        googleMap.addMarker(
+//                new MarkerOptions()
+//                        .position(startLatLng)
+//                        .title("Start Point")
+//        );
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         googleMap.setTrafficEnabled(true);
 
@@ -352,13 +348,13 @@ public class BookRideActivity extends AppCompatActivity implements OnMapReadyCal
 
     @Override
     public void onRoutingSuccess(ArrayList<Route> route, int shortestRouteIndex) {
+
         LatLng startLatLng = new LatLng(startLat,startLon);
         CameraUpdate center = CameraUpdateFactory.newLatLng(startLatLng);
         CameraUpdate zoom = CameraUpdateFactory.zoomTo(16);
         PolylineOptions polyOptions = new PolylineOptions();
         LatLng polylineStartLatLng=null;
         LatLng polylineEndLatLng=null;
-
 
         polylines = new ArrayList<>();
         //add route(s) to the map using polyline
