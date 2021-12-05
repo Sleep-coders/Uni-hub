@@ -48,11 +48,12 @@ public class Calendar_Activity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.home:
+                    case R.id.dashboard:
+                    case R.id.about:
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        overridePendingTransition(0,0);
-//                        finish();
+                        overridePendingTransition(0, 0);
                         return true;
                 }
                 return false;

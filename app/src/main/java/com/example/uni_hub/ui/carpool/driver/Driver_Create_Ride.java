@@ -198,7 +198,7 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
                 @SuppressLint("SetTextI18n")
                 @Override
                 public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
-                    riderExpiresAt.setText(hourOfDay + ":" + minutes + " " + amPm);
+                    riderExpiresAt.setText(hourOfDay + ":" + minutes);
 
                 }
             }, currentHour, currentMinute, false);
@@ -235,6 +235,8 @@ public class Driver_Create_Ride extends AppCompatActivity implements OnMapReadyC
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.home:
+                case R.id.dashboard:
+                case R.id.about:
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     overridePendingTransition(0, 0);
                     return true;
